@@ -89,25 +89,113 @@ Set up Kowalah branding, configuration, and basic infrastructure for the marketi
   - ✅ Added "Sign In" link pointing to https://app.kowalah.com/sign-in
 
 ### 1.4 Environment & Integration Setup
-- [ ] Verify Sanity integration configuration
+- [x] Verify Sanity integration configuration
   - Check environment variables in `.env.local`
   - Test connection to Sanity project (ig58e610)
   - Create simple test page to verify Sanity data fetching
-- [ ] Set up basic SEO configuration
+- [x] Set up basic SEO configuration
   - Update Open Graph meta tags with Kowalah branding
   - Add structured data for organization
   - Configure social media card defaults
 
-### 1.5 Asset Preparation
-- [ ] Audit existing theme images
-  - Identify which images need replacement with Kowalah-specific assets
-  - Create placeholder list for design team
-- [ ] Set up image optimization
-  - Verify Sharp image optimization is working
-  - Test responsive image handling
-- [ ] Prepare content structure
-  - Review existing content collections for Kowalah adaptation
-  - Plan image directory structure in `/public/images/`
+### 1.5 Asset Preparation ✅
+- [x] Audit existing theme images
+  - ✅ Identified 109+ images requiring replacement with Kowalah executive-focused content
+  - ✅ Created comprehensive asset requirements list with specific themes and dimensions
+- [x] Define AI-generated image specifications for Kowalah brand
+  - **Hero Images & Banners:**
+    - Homepage hero: 1920x800px, landscape format, PNG/WebP
+    - Section banners: 1200x400px, PNG/WebP
+    - Page headers: 1200x300px, PNG/WebP
+    - Themes: Modern office settings, AI visualization, executive teams, digital transformation
+  - **Product Screenshots & Mockups:**
+    - **Actual Kowalah Dashboard Screenshots:** 1920x1080px, PNG (captured from app.kowalah.com)
+      - Main Digital CAIO interface showing AI conversations
+      - Expert Requests dashboard with project status
+      - Accelerators library with prebuilt GPTs and prompts
+      - Analytics/ROI reporting dashboards
+      - Team collaboration features
+    - **Device Mockups with Real Screenshots:** 
+      - MacBook Pro mockups: 1600x1000px, showing dashboard in realistic laptop frame
+      - iPad Pro mockups: 1200x900px, Executive using Kowalah on tablet in boardroom
+      - iPhone mockups: 800x600px, Mobile access for executives
+      - Multiple screens setup: 2000x1200px, Executive workstation with Kowalah across monitors
+    - **Feature Detail Screenshots:**
+      - Individual feature screenshots: 1000x750px, PNG with clean backgrounds
+      - Before/after workflow comparisons: 1200x800px, showing AI transformation
+      - Integration screenshots: 1000x600px, Kowalah connecting to enterprise systems
+    - **Interactive Elements:**
+      - Animated GIFs: 800x600px, showing AI conversations in action (for web)
+      - Video thumbnails: 1280x720px, product demo preview images
+  - **Team & Professional Images:**
+    - Executive headshots: 400x400px, square, high-quality portraits
+    - Team photos: 1200x800px, diverse professional settings
+    - Meeting/workshop scenes: 1000x667px, collaborative environments
+    - Themes: Professional, diverse, modern office environments, AI-forward companies
+  - **Background & Texture Images:**
+    - Abstract backgrounds: 1920x1080px, subtle gradients, PNG/WebP
+    - Texture overlays: 1200x1200px, repeatable patterns, PNG with transparency
+    - Geometric patterns: Scalable SVG, minimalist AI-themed designs
+    - Color palette: Kowalah brand colors (#fa26a0 primary, #ae10e3 secondary) with neutral complements
+  - **Social Media & Meta Images:**
+    - Open Graph images: 1200x630px, PNG/JPG
+    - Twitter cards: 1200x675px, PNG/JPG
+    - LinkedIn posts: 1200x627px, PNG/JPG
+    - Themes: Kowalah branding, value proposition highlights, executive-focused messaging
+  - **Case Study & Success Images:**
+    - Before/after visualizations: 800x600px, side-by-side comparisons
+    - ROI/metrics visualizations: 1000x600px, data-driven graphics
+    - Industry-specific scenarios: 1200x800px, sector-relevant contexts
+    - Themes: Transformation stories, measurable outcomes, industry contexts (manufacturing, finance, healthcare, etc.)
+  - **Technical & Process Images:**
+    - AI workflow diagrams: 1000x800px, clear process flows
+    - Integration illustrations: 800x600px, system connections
+    - Architecture diagrams: 1200x900px, technical but accessible
+    - Themes: Clean, professional technical illustrations, enterprise-grade systems
+- [x] Set up image optimization
+  - ✅ Verified Sharp image optimization is working - build shows 119 images processed
+  - ✅ Tested responsive image handling via ImageMod.astro component with proper width/height/format controls
+  - ✅ Confirmed WebP conversion for modern browsers (build output shows .webp generation)
+- [x] Create image directory structure
+  - ✅ `/public/images/heroes/` - Homepage and section hero images
+  - ✅ `/public/images/product/` - **NEW: Kowalah product screenshots and mockups**
+    - ✅ `/product/screenshots/` - Raw dashboard captures from app.kowalah.com
+    - ✅ `/product/mockups/` - Device mockups (MacBook, iPad, iPhone) with real screenshots
+    - ✅ `/product/features/` - Individual feature demonstrations
+    - ✅ `/product/integrations/` - System integration visuals
+    - ✅ `/product/demos/` - Video thumbnails and animated previews
+  - ✅ `/public/images/team/` - Team photos and professional headshots
+  - ✅ `/public/images/backgrounds/` - Background textures and patterns
+  - ✅ `/public/images/case-studies/` - Case study and success story images
+  - ✅ `/public/images/technical/` - Process diagrams and technical illustrations
+  - ✅ `/public/images/social/` - Social media and meta images
+  - ✅ `/public/images/icons/` - Icon sets and small graphics
+- [x] Priority Image Replacement List (Based on Audit):
+  - **CRITICAL - Homepage Assets:**
+    - `/public/images/home/banner.png` - Replace with **Kowalah dashboard in MacBook Pro mockup** showing Digital CAIO conversation
+    - `/public/images/home/features/1-4.png` - Replace with **actual Kowalah feature screenshots** (Expert Requests, Accelerators, Analytics, Team features)
+    - `/public/images/home/benefits/1-5.png` - Replace with **before/after workflow screenshots** showing AI transformation impact
+    - `/public/images/home/offering/1-3.png` - Replace with **executive using Kowalah on iPad in boardroom setting**
+  - **Executive Team & Testimonials:**
+    - `/public/images/avatar/1-5.png` - Replace with diverse C-suite executive headshots
+    - `/public/images/testimonial/` - Need professional executive portraits for testimonials
+    - `/public/images/company/image-1-3.png` - Replace casual team photos with executive advisory sessions
+    - `/public/images/company/stats.png` & `why.png` - Update with AI transformation metrics
+  - **Content & Case Studies:**
+    - `/public/images/insights/1-9.png` - Replace with executive thought leadership imagery
+    - `/public/images/case/1.png` - Update with professional consultation scene
+    - `/public/images/story/` - Need industry-specific transformation stories
+  - **Feature & Integration Assets:**
+    - `/public/images/features/` - Replace with **actual Kowalah feature screenshots** in professional device mockups
+    - `/public/images/integrations/` - Replace with **real Kowalah integration screenshots** showing connections to Slack, Teams, CRM systems
+- [x] Prepare content structure
+  - ✅ Reviewed existing content collections - well-structured with Zod schemas for 14 collection types
+  - ✅ Planned image alt text standards: descriptive, executive-focused (e.g., "CEO using Digital CAIO on tablet in boardroom")
+  - ✅ Defined image naming conventions: 
+    - Product screenshots: `kowalah-[feature]-[device]-[version].png`
+    - Executive imagery: `executive-[role]-[context]-[demographic].jpg`
+    - Technical diagrams: `workflow-[process]-diagram.svg`
+    - Social media: `og-[page]-kowalah.png`
 
 ## Completion Criteria
 - [ ] Site loads with Kowalah branding (colors, logo, title)
