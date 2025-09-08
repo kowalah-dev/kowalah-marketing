@@ -37,7 +37,7 @@
         }
       ]
     },
-    "contact_form_action": "#"
+    "contact_form_action": "https://formspree.io/f/kowalah-contact"
   },
 
   "navigation_button": {

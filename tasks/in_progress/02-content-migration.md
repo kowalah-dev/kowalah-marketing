@@ -72,11 +72,12 @@ Update existing Astro Content Collections with Kowalah-specific content, leverag
   - ✅ Marketing team can now update FAQs without code changes
 
 ### 2.6 Contact Page Content Update
-- [ ] Update `src/content/contact/-index.md`:
-  - **Contact Info**: Update with Kowalah contact details
-  - **Contact Form**: Customize for Kowalah lead generation
-  - **Office Information**: Update with Kowalah office locations
-  - **Support Channels**: Update with Kowalah support contact methods
+- [x] Update `src/content/contact/-index.md`:
+  - ✅ **Contact Info**: Updated with Kowalah contact details (Business, Support, Partnerships)
+  - ✅ **Contact Form**: Customized for executive lead generation with AI-focused service options
+  - ✅ **Professional Messaging**: Updated title and description for executive audience
+  - ✅ **Support Channels**: Added appropriate contact methods (hello@, support@, partners@kowalah.com)
+  - ✅ **Form Integration**: Set up Formspree endpoint for form submissions
 
 ### 2.7 Legal Pages Update
 - [ ] Update `src/content/pages/privacy-policy.md` with Kowalah privacy policy
