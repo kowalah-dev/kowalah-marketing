@@ -1,0 +1,1 @@
+import{S as e,P as a,A as t}from"./autoplay.CjNgVHW8.js";document.addEventListener("astro:page-load",()=>{new e(".testimonial-slider",{modules:[a,t],spaceBetween:24,slidesPerView:1,loop:!0,centeredSlides:!0,autoplay:{delay:2500,disableOnInteraction:!1},pagination:{el:".testimonial-slider-pagination",type:"bullets",clickable:!0}})});

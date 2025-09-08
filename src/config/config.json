@@ -1,15 +1,15 @@
 {
   "site": {
-    "title": "SyncMaster",
-    "base_url": "https://syncmaster-astro.vercel.app/",
+    "title": "Kowalah - Your Digital Chief AI Officer",
+    "base_url": "https://kowalah.com/",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/favicon.png",
-    "logo": "/images/logo.svg",
+    "favicon": "/images/favicon.svg",
+    "logo": "/images/logo_lightmode.svg",
     "logo_darkmode": "/images/logo_darkmode.svg",
-    "logo_width": "229",
-    "logo_height": "45",
-    "logo_text": "SyncMaster"
+    "logo_width": "200",
+    "logo_height": "50",
+    "logo_text": "Kowalah"
   },
 
   "settings": {
@@ -21,8 +21,8 @@
   },
 
   "params": {
-    "copyright": "Copyright 2025, All Rights Reserved by [Themefisher](https://themefisher.com/)",
-    "footer_text": "CrediSure is a cutting-edge financial technology platform offering secure, seamless financial services.",
+    "copyright": "Copyright 2025, All Rights Reserved by Kowalah",
+    "footer_text": "Kowalah is your Digital Chief AI Officer, providing executive-level AI leadership and strategy guidance to transform your organization's AI journey from confusion to confidence.",
     "award": {
       "enable": true,
       "title": "Golden Partner Award",
@@ -42,8 +42,8 @@
 
   "navigation_button": {
     "enable": true,
-    "label": "Get This Template",
-    "link": "https://themefisher.com/products/syncmaster-astro"
+    "label": "Start Free Trial",
+    "link": "/signup"
   },
 
   "disqus": {
@@ -53,8 +53,8 @@
   },
 
   "metadata": {
-    "meta_author": "themefisher",
+    "meta_author": "Kowalah",
     "meta_image": "/images/og-image.png",
-    "meta_description": "astro and tailwind saas theme"
+    "meta_description": "Your Digital Chief AI Officer - Get executive-level AI leadership, strategic guidance, and expert support to transform your organization's AI journey from confusion to confidence."
   }
 }
