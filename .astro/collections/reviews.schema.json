@@ -1,0 +1,58 @@
+{
+  "$ref": "#/definitions/reviews",
+  "definitions": {
+    "reviews": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "meta_title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "designation": {
+                "type": "string"
+              },
+              "avatar": {
+                "type": "string"
+              },
+              "company": {
+                "type": "string"
+              },
+              "review": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "designation",
+              "avatar",
+              "company",
+              "review"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "reviews"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

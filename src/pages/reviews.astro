@@ -1,0 +1,99 @@
+---
+import DashedSeparator from "@/components/DashedSeparator.astro";
+import ImageMod from "@/components/ImageMod.astro";
+import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const reviewIndex = (await getEntry(
+  "reviews",
+  "-index"
+)) as CollectionEntry<"reviews">;
+const { title, meta_title, description, reviews } = reviewIndex.data;
+const call_to_action = (await getEntry(
+  "sections",
+  "call-to-action"
+)) as CollectionEntry<"sections">;
+---
+
+<Base title={title} meta_title={meta_title} description={description}>
+  <PageHeader title={title} content={description} />
+
+  <section class="-mt-20">
+    <div class="container">
+      <div class="row g-4">
+        {
+          reviews.map(
+            (
+              review: {
+                review: string;
+                avatar: string;
+                name: string;
+                designation: string;
+                company: string;
+              },
+              index: number
+            ) => (
+              <div
+                class="col-12 lg:col-6 min-h-full"
+                data-aos="fade-up-sm"
+                data-aos-delay={index * 50}
+              >
+                <div class="px-6 py-8 rounded-3xl bg-body border border-border/10 h-full flex flex-col justify-between">
+                  <p
+                    set:html={markdownify(review.review)}
+                    class="max-sm:text-center h5 font-medium text-text-dark"
+                    data-aos="fade-up-sm"
+                  />
+
+                  <DashedSeparator dash="high" />
+
+                  <div class="flex flex-col sm:flex-row max-sm:gap-y-3 justify-between">
+                    <div class="flex items-center gap-4">
+                      <div data-aos="zoom-in-sm">
+                        <ImageMod
+                          src={review.avatar}
+                          alt={review.name}
+                          width={56}
+                          height={56}
+                          class="object-cover rounded-full"
+                        />
+                      </div>
+
+                      <div>
+                        <p
+                          set:html={markdownify(review.name)}
+                          class="text-xl"
+                          data-aos="fade-left-sm"
+                        />
+                        <p
+                          set:html={markdownify(review.designation)}
+                          data-aos="fade-left-sm"
+                        />
+                      </div>
+                    </div>
+
+                    <div data-aos="fade-right-sm">
+                      <ImageMod
+                        src={review.company}
+                        alt={review.name}
+                        width={139}
+                        height={40}
+                        class="object-contain max-sm:mx-auto"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  <CallToAction call_to_action={call_to_action} />
+</Base>

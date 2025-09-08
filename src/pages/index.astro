@@ -1,0 +1,37 @@
+---
+import Benefits from "@/components/home/Benefits.astro";
+import Features from "@/components/home/Features.astro";
+import Hero from "@/components/home/Hero.astro";
+import Offering from "@/components/home/Offering.astro";
+import Plans from "@/components/home/Plans.astro";
+import Base from "@/layouts/Base.astro";
+import CallToAction from "@/partials/CallToAction.astro";
+import Testimonial from "@/partials/Testimonial.astro";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const homepage = (await getEntry(
+  "homepage",
+  "-index"
+)) as CollectionEntry<"homepage">;
+const testimonial = (await getEntry(
+  "sections",
+  "testimonial"
+)) as CollectionEntry<"sections">;
+const call_to_action = (await getEntry(
+  "sections",
+  "call-to-action"
+)) as CollectionEntry<"sections">;
+const { hero, feature, offering, benefits, plan } = homepage.data;
+---
+
+<Base>
+  <Hero {hero} />
+  <Features {feature} />
+  <Offering {offering} />
+  <Benefits {benefits} />
+  <Testimonial testimonial={testimonial} />
+  <Plans plan={plan} />
+
+  <CallToAction call_to_action={call_to_action} />
+</Base>

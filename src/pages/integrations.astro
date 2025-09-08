@@ -1,0 +1,74 @@
+---
+import DashedSeparator from "@/components/DashedSeparator.astro";
+import ImageMod from "@/components/ImageMod.astro";
+import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import Button from "@/shortcodes/Button";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const integrationIndex = (await getEntry(
+  "integrations",
+  "-index"
+)) as CollectionEntry<"integrations">;
+const { title, meta_title, description, integrations } = integrationIndex.data;
+
+const call_to_action = (await getEntry(
+  "sections",
+  "call-to-action"
+)) as CollectionEntry<"sections">;
+---
+
+<Base title={title} meta_title={meta_title} description={description}>
+  <PageHeader title={title} content={description} />
+
+  <section class="-mt-16">
+    <div class="container">
+      <div class="row g-4">
+        {
+          integrations.map((i: any, index: number) => (
+            <div
+              class="col-12 md:col-6 lg:col-4 min-h-full"
+              data-aos="fade-up-sm"
+              data-aos-delay={200 + index * 50}
+            >
+              <div class="p-6 border border-border/30 rounded-3xl h-full">
+                <div class="flex flex-row justify-between">
+                  <ImageMod
+                    src={i.logo}
+                    alt={i.name}
+                    width={88}
+                    height={88}
+                    class="mb-4"
+                  />
+                  <p
+                    set:html={markdownify(i.type)}
+                    class="px-2 py-[0.125rem] bg-tertiary rounded-md text-text-dark w-fit h-fit"
+                  />
+                </div>
+                <h4 set:html={markdownify(i.name)} class="mb-3" />
+                <p set:html={markdownify(i.subtitle)} />
+
+                <DashedSeparator dash="high" />
+
+                {i.button.enable && (
+                  <Button
+                    label={i.button.label}
+                    link={i.button.link}
+                    icon="FaAngleRight"
+                    style="ghost"
+                    className="p-0 w-fit text-text-dark hover:text-secondary transition duration-300"
+                  />
+                )}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CallToAction call_to_action={call_to_action} />
+</Base>

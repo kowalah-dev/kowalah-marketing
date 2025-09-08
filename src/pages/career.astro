@@ -1,0 +1,35 @@
+---
+import Slider from "@/components/career/Slider.astro";
+import About from "@/components/company/About.astro";
+import Job from "@/components/company/Job.astro";
+import Base from "@/layouts/Base.astro";
+import CallToAction from "@/partials/CallToAction.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const career = (await getEntry(
+  "career",
+  "-index"
+)) as CollectionEntry<"career">;
+const { title, description, meta_title, hero, about, slider } = career.data;
+const call_to_action = (await getEntry(
+  "sections",
+  "call-to-action"
+)) as CollectionEntry<"sections">;
+
+const company = (await getEntry(
+  "company",
+  "-index"
+)) as CollectionEntry<"company">;
+---
+
+<Base title={title} meta_title={meta_title} description={description}>
+  <PageHeader title={hero.title} content={hero.content} />
+
+  <About {about} />
+  <Slider {slider} />
+
+  <Job job={company.data.job} />
+  <CallToAction call_to_action={call_to_action} />
+</Base>

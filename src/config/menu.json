@@ -1,0 +1,140 @@
+{
+  "main": [
+    {
+      "name": "All Pages",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Home",
+          "url": "/"
+        },
+        {
+          "name": "Pricing",
+          "url": "/pricing"
+        },
+        {
+          "name": "Company",
+          "url": "/company"
+        },
+        {
+          "name": "Features",
+          "url": "/features"
+        },
+        {
+          "name": "Reviews",
+          "url": "/reviews"
+        },
+        {
+          "name": "Career",
+          "url": "/career"
+        },
+        {
+          "name": "Case Study",
+          "url": "/case-study"
+        },
+        {
+          "name": "Insights",
+          "url": "/insights"
+        },
+        {
+          "name": "Integrations",
+          "url": "/integrations"
+        },
+        {
+          "name": "FAQs",
+          "url": "/faq"
+        },
+        {
+          "name": "Privacy Policy",
+          "url": "/privacy-policy"
+        },
+        {
+          "name": "Terms & Conditions",
+          "url": "/terms-and-conditions"
+        },
+        {
+          "name": "Changelog",
+          "url": "/changelog"
+        },
+        {
+          "name": "Contact",
+          "url": "/contact"
+        },
+        {
+          "name": "404",
+          "url": "/404"
+        }
+      ]
+    },
+    {
+      "name": "Features",
+      "url": "/features"
+    },
+    {
+      "name": "Pricing",
+      "url": "/pricing"
+    },
+    {
+      "name": "Support",
+      "url": "/contact"
+    }
+  ],
+  "footer": [
+    {
+      "title": "NAVIGATION",
+      "children": [
+        {
+          "name": "Products",
+          "url": "/features"
+        },
+        {
+          "name": "Company",
+          "url": "/company"
+        },
+        {
+          "name": "Pricing",
+          "url": "/pricing"
+        },
+        {
+          "name": "Insights",
+          "url": "/insights"
+        }
+      ]
+    },
+    {
+      "title": "RESOURCES",
+      "children": [
+        {
+          "name": "Privacy Policy",
+          "url": "/privacy-policy"
+        },
+        {
+          "name": "Changelog",
+          "url": "/changelog"
+        },
+        {
+          "name": "Terms & Conditions",
+          "url": "/terms-and-conditions"
+        }
+      ]
+    },
+    {
+      "title": "COMPANY",
+      "children": [
+        {
+          "name": "Career",
+          "url": "/career"
+        },
+        {
+          "name": "Contact",
+          "url": "/contact"
+        },
+        {
+          "name": "FAQs",
+          "url": "/faq"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+---
+import About from "@/components/company/About.astro";
+import ImageSlider from "@/components/company/ImageSlider.astro";
+import Job from "@/components/company/Job.astro";
+import Why from "@/components/company/Why.astro";
+import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+import FaqAccordion from "@/partials/FaqAccordion.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import { getEntry, type CollectionEntry } from "astro:content";
+
+const company = (await getEntry(
+  "company",
+  "-index"
+)) as CollectionEntry<"company">;
+const { title, description, meta_title, hero, about, slider, why, job, faq } =
+  company.data;
+
+const call_to_action = (await getEntry(
+  "sections",
+  "call-to-action"
+)) as CollectionEntry<"sections">;
+---
+
+<Base title={title} meta_title={meta_title} description={description}>
+  <PageHeader title={hero.title} content={hero.content} />
+
+  <About {about} />
+  <ImageSlider {slider} />
+  <Why {why} />
+  <Job {job} />
+
+  <section class="section pb-0">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 mb-12">
+          <p
+            set:html={markdownify(faq.subtitle)}
+            class="text-center mb-2.5 text-sm"
+            data-aos="fade-up-sm"
+          />
+          {
+            faq.title && (
+              <h2
+                set:html={markdownify(faq.title)}
+                class="h2 lg:h1 text-center"
+                data-aos="fade-up-sm"
+              />
+            )
+          }
+        </div>
+
+        <div class="col-12 lg:col-6 mb-14">
+          <FaqAccordion />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction call_to_action={call_to_action} />
+</Base>

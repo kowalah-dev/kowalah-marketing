@@ -1,0 +1,333 @@
+{
+  "$ref": "#/definitions/homepage",
+  "definitions": {
+    "homepage": {
+      "type": "object",
+      "properties": {
+        "hero": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "button": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "enable": {
+                    "type": "boolean"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "enable",
+                  "label",
+                  "link"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "customer": {
+              "type": "object",
+              "properties": {
+                "image": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "note": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "image",
+                "note"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "title",
+            "content",
+            "image",
+            "button",
+            "customer"
+          ],
+          "additionalProperties": false
+        },
+        "feature": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "features": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "badge": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "type": "string"
+                  },
+                  "button": {
+                    "type": "object",
+                    "properties": {
+                      "enable": {
+                        "type": "boolean"
+                      },
+                      "label": {
+                        "type": "string"
+                      },
+                      "link": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "enable",
+                      "label",
+                      "link"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "title",
+                  "badge",
+                  "content",
+                  "description",
+                  "image",
+                  "button"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "title",
+            "subtitle",
+            "features"
+          ],
+          "additionalProperties": false
+        },
+        "offering": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "subtitle": {
+                "type": "string"
+              },
+              "image": {
+                "type": "string"
+              },
+              "image_1": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              },
+              "points": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "title",
+              "subtitle",
+              "image",
+              "image_1",
+              "content",
+              "points"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "benefits": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "points": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "title",
+                  "content",
+                  "image"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "title",
+            "subtitle",
+            "points"
+          ],
+          "additionalProperties": false
+        },
+        "plan": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "plans_labels": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "plans": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "price_prefix": {
+                    "type": "string"
+                  },
+                  "price_monthly": {
+                    "type": "string"
+                  },
+                  "price_yearly": {
+                    "type": "string"
+                  },
+                  "price_suffix": {
+                    "type": "object",
+                    "properties": {
+                      "one": {
+                        "type": "string"
+                      },
+                      "two": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "one",
+                      "two"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "features": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "button": {
+                    "type": "object",
+                    "properties": {
+                      "enable": {
+                        "type": "boolean"
+                      },
+                      "label": {
+                        "type": "string"
+                      },
+                      "link": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "enable",
+                      "label",
+                      "link"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "title",
+                  "description",
+                  "price_prefix",
+                  "price_monthly",
+                  "price_yearly",
+                  "price_suffix",
+                  "features",
+                  "button"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "title",
+            "subtitle",
+            "plans_labels",
+            "plans"
+          ],
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "hero",
+        "feature",
+        "offering",
+        "benefits",
+        "plan"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,56 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import Button from "@/shortcodes/Button";
+const { call_to_action } = Astro.props;
+---
+
+{
+  call_to_action.data.enable && (
+    <section class="section pb-0">
+      <div class="container">
+        <div
+          class="rounded-3xl bg-secondary px-5 pt-7 md:px-12 md:pt-24"
+          data-aos="fade-up-sm"
+        >
+          <div class="row justify-center">
+            <div class="col-12 text-center">
+              <h2
+                set:html={markdownify(call_to_action.data.title)}
+                class="mb-3 text-light lg:h1"
+                data-aos="fade-up-sm"
+              />
+              <p
+                set:html={markdownify(call_to_action.data.description)}
+                class="mb-6 text-light"
+                data-aos="fade-up-sm"
+              />
+              {call_to_action.data.button.enable && (
+                <div data-aos="zoom-in-sm">
+                  <Button
+                    className="mb-16 md:mb-24"
+                    link={call_to_action.data.button.link}
+                    label={call_to_action.data.button.label}
+                    style="light"
+                  />
+                </div>
+              )}
+            </div>
+            <div class="col-12">
+              <div data-aos="fade-up-sm">
+                <ImageMod
+                  class="w-full mx-auto px-4 pt-4 bg-light/30 rounded-t-3xl"
+                  src={call_to_action.data.image}
+                  width={1012}
+                  height={324}
+                  alt="cta-image"
+                  format="webp"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

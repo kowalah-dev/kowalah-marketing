@@ -1,0 +1,44 @@
+---
+import CaseCard from "@/components/CaseCard.astro";
+import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import CallToAction from "@/partials/CallToAction.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const caseIndex = (await getEntry("case", "-index")) as CollectionEntry<"case">;
+const { title, meta_title, description, hero } = caseIndex.data;
+const cases = await getSinglePage("case");
+
+const call_to_action = (await getEntry(
+  "sections",
+  "call-to-action"
+)) as CollectionEntry<"sections">;
+---
+
+<Base title={title} meta_title={meta_title} description={description}>
+  {hero && <PageHeader title={hero.title} content={hero.content} />}
+
+  <section class="-mt-28">
+    <div class="container xl:w-[46%]">
+      <div class="mx-auto row g-5 justify-center">
+        {
+          cases.map((caseStudy, i: number) => (
+            <div class="col-12 md:col-6 max-md:px-0 min-h-full">
+              <div
+                class="h-full flex flex-col justify-between"
+                data-aos="fade-up-sm"
+                data-aos-delay={`${i * 100}`}
+              >
+                <CaseCard data={caseStudy} />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CallToAction call_to_action={call_to_action} />
+</Base>

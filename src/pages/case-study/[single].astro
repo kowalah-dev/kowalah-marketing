@@ -1,0 +1,39 @@
+---
+import Base from "@/layouts/Base.astro";
+import CaseSingle from "@/layouts/CaseSingle.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import CallToAction from "@/partials/CallToAction.astro";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const cases = await getSinglePage("case");
+
+  const paths = cases.map((caseStudy) => ({
+    params: {
+      single: caseStudy.id,
+    },
+    props: { caseStudy },
+  }));
+  return paths;
+}
+
+const { caseStudy } = Astro.props;
+const { title, meta_title, description, image } = caseStudy.data;
+
+const call_to_action = (await getEntry(
+  "sections",
+  "call-to-action"
+)) as CollectionEntry<"sections">;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <CaseSingle caseStudy={caseStudy} />
+
+  <CallToAction call_to_action={call_to_action} />
+</Base>

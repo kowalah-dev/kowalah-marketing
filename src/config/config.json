@@ -1,0 +1,60 @@
+{
+  "site": {
+    "title": "SyncMaster",
+    "base_url": "https://syncmaster-astro.vercel.app/",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/favicon.png",
+    "logo": "/images/logo.svg",
+    "logo_darkmode": "/images/logo_darkmode.svg",
+    "logo_width": "229",
+    "logo_height": "45",
+    "logo_text": "SyncMaster"
+  },
+
+  "settings": {
+    "search": true,
+    "sticky_header": false,
+    "default_theme": "system",
+    "pagination": 2,
+    "summary_length": 200
+  },
+
+  "params": {
+    "copyright": "Copyright 2025, All Rights Reserved by [Themefisher](https://themefisher.com/)",
+    "footer_text": "CrediSure is a cutting-edge financial technology platform offering secure, seamless financial services.",
+    "award": {
+      "enable": true,
+      "title": "Golden Partner Award",
+      "badges": [
+        {
+          "image": "/images/award-1.png",
+          "link": "https://themefisher.com/"
+        },
+        {
+          "image": "/images/award-2.png",
+          "link": "https://themefisher.com/"
+        }
+      ]
+    },
+    "contact_form_action": "#"
+  },
+
+  "navigation_button": {
+    "enable": true,
+    "label": "Get This Template",
+    "link": "https://themefisher.com/products/syncmaster-astro"
+  },
+
+  "disqus": {
+    "enable": true,
+    "shortname": "themefisher-template",
+    "settings": {}
+  },
+
+  "metadata": {
+    "meta_author": "themefisher",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "astro and tailwind saas theme"
+  }
+}

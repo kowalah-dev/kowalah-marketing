@@ -1,0 +1,32 @@
+---
+import Base from "@/layouts/Base.astro";
+import CallToAction from "@/partials/CallToAction.astro";
+import FaqAccordion from "@/partials/FaqAccordion.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const faqIndex = (await getEntry("faq", "-index")) as CollectionEntry<"faq">;
+const { title, content, meta_title, description } = faqIndex.data;
+
+const call_to_action = (await getEntry(
+  "sections",
+  "call-to-action"
+)) as CollectionEntry<"sections">;
+---
+
+<Base title={title} meta_title={meta_title} description={description}>
+  <PageHeader title={title} content={content} />
+
+  <section class="-mt-20">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 lg:col-7 mb-14">
+          <FaqAccordion />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction call_to_action={call_to_action} />
+</Base>
