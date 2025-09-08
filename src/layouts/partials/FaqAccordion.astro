@@ -1,10 +1,20 @@
 ---
 import { markdownify } from "@/lib/utils/textConverter";
-import type { CollectionEntry } from "astro:content";
-import { getEntry } from "astro:content";
+import { PortableText } from 'astro-portabletext';
 
-const faqIndex = (await getEntry("faq", "-index")) as CollectionEntry<"faq">;
-const { faqs } = faqIndex.data;
+interface Props {
+  faqs?: Array<{
+    _id: string;
+    question: string;
+    answer: Array<any>; // Portable Text blocks
+    category: string;
+    priority: number;
+    featured: boolean;
+    tags?: Array<string>;
+  }>;
+}
+
+const { faqs = [] } = Astro.props;
 ---
 
 <div class="accordion-container">
@@ -31,7 +41,7 @@ const { faqs } = faqIndex.data;
           </svg>
         </button>
         <div class="accordion-content">
-          <p>{f.answer}</p>
+          <PortableText value={f.answer} />
         </div>
       </div>
     ))

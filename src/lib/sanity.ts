@@ -90,5 +90,38 @@ export const queries = {
       content,
       "image": image.asset
     }
+  }`,
+
+  // FAQ queries for Kowalah marketing site
+  faqs: `*[_type == "faqItem"] | order(priority asc, _createdAt desc) {
+    ${commonFields}
+    question,
+    answer,
+    category,
+    priority,
+    featured,
+    tags
+  }`,
+
+  // Featured FAQs only
+  featuredFaqs: `*[_type == "faqItem" && featured == true] | order(priority asc) {
+    ${commonFields}
+    question,
+    answer,
+    category,
+    priority,
+    featured,
+    tags
+  }`,
+
+  // FAQs by category
+  faqsByCategory: (category: string) => `*[_type == "faqItem" && category == "${category}"] | order(priority asc) {
+    ${commonFields}
+    question,
+    answer,
+    category,
+    priority,
+    featured,
+    tags
   }`
 };

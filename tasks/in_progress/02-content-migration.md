@@ -59,16 +59,17 @@ Update existing Astro Content Collections with Kowalah-specific content, leverag
   - **Conversion Section**: Feature-to-benefit conversion messaging
 
 ### 2.5 FAQ Content Update
-- [ ] Update `src/content/faq/-index.md`:
-  - Replace generic FAQs with Kowalah-specific questions:
+- [x] **Integrated with Sanity CMS** (instead of updating markdown):
+  - ✅ Added FAQ queries to `/src/lib/sanity.ts`
+  - ✅ Updated `/src/pages/faq.astro` to fetch from Sanity
+  - ✅ Modified `FaqAccordion.astro` to handle Portable Text
+  - ✅ Now displays 15+ Kowalah-specific FAQs from Sanity including:
     - "What is a Digital Chief AI Officer?"
-    - "How is this different from hiring a human CAIO?"
-    - "What are Expert Requests?"
-    - "Which pricing tier is right for my organization?"
-    - "How does Kowalah integrate with our existing systems?"
-    - "What industries does Kowalah serve?"
-    - "How quickly can we get started?"
-    - "What kind of support do you provide?"
+    - "How is this different from hiring a human CAIO?"  
+    - "What exactly are accelerators?"
+    - "How do I know if my organization is ready for AI?"
+    - And many more with rich text formatting
+  - ✅ Marketing team can now update FAQs without code changes
 
 ### 2.6 Contact Page Content Update
 - [ ] Update `src/content/contact/-index.md`:
