@@ -80,12 +80,32 @@ Update existing Astro Content Collections with Kowalah-specific content, leverag
   - ✅ **Form Integration**: Set up Formspree endpoint for form submissions
 
 ### 2.7 Legal Pages Update
-- [ ] Update `src/content/pages/privacy-policy.md` with Kowalah privacy policy
-- [ ] Update `src/content/pages/terms-and-conditions.md` with Kowalah terms
-- [ ] Create additional legal pages as needed:
-  - Data Processing Agreement
-  - Security Policy
-  - Acceptable Use Policy
+- [x] **Integrated with Sanity CMS** (instead of updating markdown):
+  - ✅ Updated `/src/pages/privacy-policy.astro` to fetch from Sanity
+  - ✅ Updated `/src/pages/terms-and-conditions.astro` to fetch from Sanity
+  - ✅ Created `/src/pages/data-processing-agreement.astro` for DPA content
+  - ✅ Removed old markdown files: `src/content/pages/privacy-policy.md`, `src/content/pages/terms-and-conditions.md`
+  - ✅ Added proper error handling and fallback messaging
+  - ✅ Marketing team can now update legal content without code deployments
+  - ✅ Added proper document metadata (effective dates, last updated)
+  - ✅ Includes contact information for legal inquiries
+
+### 2.75 Blog/Insights Sanity CMS Integration
+- [x] **Complete blog system migration to Sanity CMS**:
+  - ✅ Enhanced blog listing with 4-column responsive grid layout (1→2→3→4 columns)
+  - ✅ Updated `/src/lib/sanity.ts` with comprehensive blog post queries
+  - ✅ Implemented dual-source content support (Sanity + content collections fallback)
+  - ✅ Created sectioned content rendering system supporting 4 section types:
+    - **Text Sections**: Rich text with PortableText (H2-H4, lists, links)
+    - **Image Sections**: Images with alt text, captions, and size options
+    - **Video Sections**: YouTube embeds with aspect ratios and start times
+    - **Table Sections**: Structured tables with styling options
+  - ✅ Built `SectionRenderer.astro` component for modular content rendering
+  - ✅ Updated `PostSingle.astro` to support both legacy PortableText and new sections
+  - ✅ Enhanced `BlogCard.astro` with proper Sanity image handling and metadata
+  - ✅ Updated static path generation in `[single].astro` for dual-source routing
+  - ✅ Maintained backward compatibility with existing content collections
+  - ✅ Proper image optimization using Sanity CDN with `urlFor` helper
 
 ### 2.8 Review and Integration Pages
 - [ ] Update `src/content/reviews/-index.md`:

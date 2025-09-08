@@ -151,5 +151,31 @@ export const queries = {
     priority,
     featured,
     tags
+  }`,
+
+  // Recommended books queries
+  books: `*[_type == "recommendedBook"] | order(order asc) {
+    ${commonFields}
+    title,
+    slug,
+    author,
+    "coverImage": coverImage.asset,
+    "categories": categories[]->title,
+    publishedAt,
+    featured
+  }`,
+
+  // Single book
+  book: (slug: string) => `*[_type == "recommendedBook" && slug.current == "${slug}"][0] {
+    ${commonFields}
+    title,
+    slug,
+    author,
+    "coverImage": coverImage.asset,
+    content,
+    authorResources,
+    "categories": categories[]->title,
+    publishedAt,
+    featured
   }`
 };

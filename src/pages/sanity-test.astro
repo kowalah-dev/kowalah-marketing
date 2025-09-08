@@ -5,18 +5,41 @@ import { client, queries } from "@/lib/sanity";
 let sanityStatus = "Unknown";
 let connectionError = null;
 let availableContent = [];
+let allTypes = [];
+let faqData = [];
+let legalData = [];
 
 try {
-  // Test basic connection with a simple query
-  const result = await client.fetch(`*[_type in ["page", "blogPost", "homepage"]][0...5] {
-    _type,
-    _id,
-    title,
-    _createdAt
-  }`);
+  // First, let's see what content types are available
+  allTypes = await client.fetch(`array::unique(*[]._type)`);
+  
+  // Try different possible FAQ type names
+  const possibleFaqTypes = ['faq', 'faqs', 'FAQ', 'FAQs', 'faqItem', 'faqManagement'];
+  
+  for (const typeName of possibleFaqTypes) {
+    try {
+      const result = await client.fetch(`*[_type == "${typeName}"][0...10]`);
+      if (result && result.length > 0) {
+        faqData = result;
+        break;
+      }
+    } catch (e) {
+      // Continue checking other type names
+    }
+  }
+  
+  // If no specific FAQ type found, get all content to see what's available
+  if (faqData.length === 0) {
+    availableContent = await client.fetch(`*[][0...20] {
+      _type,
+      _id,
+      ...
+    }`);
+  } else {
+    availableContent = faqData;
+  }
   
   sanityStatus = "Connected";
-  availableContent = result;
 } catch (error) {
   sanityStatus = "Error";
   connectionError = error.message;
@@ -64,19 +87,40 @@ const hasApiToken = !!import.meta.env.SANITY_API_TOKEN;
               </div>
             </div>
 
+            <!-- Available Content Types -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+              <h2 class="text-xl font-semibold mb-4">Available Content Types in Sanity</h2>
+              {allTypes.length > 0 ? (
+                <div class="space-y-2">
+                  <p class="text-green-600 font-medium">Found {allTypes.length} content types:</p>
+                  <div class="flex flex-wrap gap-2">
+                    {allTypes.map((type) => (
+                      <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded">
+                        {type}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <p class="text-gray-600 dark:text-gray-400">No content types found</p>
+              )}
+            </div>
+
             <!-- Available Content -->
             <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-              <h2 class="text-xl font-semibold mb-4">Available Content</h2>
+              <h2 class="text-xl font-semibold mb-4">Content Sample</h2>
               {availableContent.length > 0 ? (
                 <div class="space-y-3">
-                  {availableContent.map((item) => (
+                  <p class="text-green-600 font-medium">
+                    {faqData.length > 0 ? `Found ${faqData.length} FAQ items!` : `Showing ${availableContent.length} items from various types`}
+                  </p>
+                  {availableContent.slice(0, 5).map((item) => (
                     <div class="border border-gray-200 dark:border-gray-600 p-3 rounded">
-                      <p><strong>Type:</strong> {item._type}</p>
+                      <p><strong>Type:</strong> <span class="text-blue-600">{item._type}</span></p>
                       <p><strong>ID:</strong> <code class="text-xs bg-gray-100 dark:bg-gray-700 px-1 rounded">{item._id}</code></p>
-                      {item.title && <p><strong>Title:</strong> {item.title}</p>}
-                      {item._createdAt && (
-                        <p><strong>Created:</strong> {new Date(item._createdAt).toLocaleDateString()}</p>
-                      )}
+                      {Object.entries(item).filter(([key]) => !key.startsWith('_')).slice(0, 5).map(([key, value]) => (
+                        <p><strong>{key}:</strong> {typeof value === 'object' ? JSON.stringify(value, null, 2).substring(0, 100) + '...' : String(value).substring(0, 100)}</p>
+                      ))}
                     </div>
                   ))}
                 </div>

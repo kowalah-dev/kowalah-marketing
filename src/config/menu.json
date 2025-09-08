@@ -5,14 +5,23 @@
       "url": "",
       "hasChildren": true,
       "children": [
-        {"name": "Platform Overview", "url": "/product"},
-        {"name": "AI Strategy & Vision", "url": "/product/strategy"},
-        {"name": "Implementation & Performance", "url": "/product/implementation"},
-        {"name": "Governance & Risk", "url": "/product/governance"},
-        {"name": "Team & Change Management", "url": "/product/team-management"},
-        {"name": "Expert Services", "url": "/product/expert-services"},
-        {"name": "Accelerators & Integrations", "url": "/product/accelerators"},
-        {"name": "Trust & Security", "url": "/product/security"}
+        { "name": "Platform Overview", "url": "/product" },
+        { "name": "AI Strategy & Vision", "url": "/product/strategy" },
+        {
+          "name": "Implementation & Performance",
+          "url": "/product/implementation"
+        },
+        { "name": "Governance & Risk", "url": "/product/governance" },
+        {
+          "name": "Team & Change Management",
+          "url": "/product/team-management"
+        },
+        { "name": "Expert Services", "url": "/product/expert-services" },
+        {
+          "name": "Accelerators & Integrations",
+          "url": "/product/accelerators"
+        },
+        { "name": "Trust & Security", "url": "/product/security" }
       ]
     },
     {
@@ -20,11 +29,11 @@
       "url": "",
       "hasChildren": true,
       "children": [
-        {"name": "For CEOs", "url": "/solutions/ceos"},
-        {"name": "For CIOs", "url": "/solutions/cios"},
-        {"name": "For CFOs", "url": "/solutions/cfos"},
-        {"name": "For HR Leaders", "url": "/solutions/hr-leaders"},
-        {"name": "By Industry", "url": "/solutions/industries"}
+        { "name": "For CEOs", "url": "/solutions/ceos" },
+        { "name": "For CIOs", "url": "/solutions/cios" },
+        { "name": "For CFOs", "url": "/solutions/cfos" },
+        { "name": "For HR Leaders", "url": "/solutions/hr-leaders" },
+        { "name": "By Industry", "url": "/solutions/industries" }
       ]
     },
     {
@@ -32,15 +41,16 @@
       "url": "",
       "hasChildren": true,
       "children": [
-        {"name": "Blog & Insights", "url": "/insights"},
-        {"name": "OpenAI Hub", "url": "/resources/openai"},
-        {"name": "Case Studies", "url": "/case-studies"},
-        {"name": "Tools & Templates", "url": "/resources/tools"},
-        {"name": "Documentation", "url": "/docs"}
+        { "name": "Blog & Insights", "url": "/insights" },
+        { "name": "Recommended Books", "url": "/resources/recommended-books" },
+        { "name": "OpenAI Hub", "url": "/resources/openai" },
+        { "name": "Case Studies", "url": "/case-studies" },
+        { "name": "Tools & Templates", "url": "/resources/tools" },
+        { "name": "Documentation", "url": "/docs" }
       ]
     },
-    {"name": "Pricing", "url": "/pricing"},
-    {"name": "Company", "url": "/company"}
+    { "name": "Pricing", "url": "/pricing" },
+    { "name": "Company", "url": "/company" }
   ],
   "footer": [
     {
@@ -67,6 +77,10 @@
     {
       "title": "RESOURCES",
       "children": [
+        {
+          "name": "Recommended Books",
+          "url": "/resources/recommended-books"
+        },
         {
           "name": "OpenAI Hub",
           "url": "/resources/openai"
