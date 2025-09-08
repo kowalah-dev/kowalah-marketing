@@ -1,103 +1,65 @@
 {
   "main": [
     {
-      "name": "All Pages",
+      "name": "Product",
       "url": "",
       "hasChildren": true,
       "children": [
-        {
-          "name": "Home",
-          "url": "/"
-        },
-        {
-          "name": "Pricing",
-          "url": "/pricing"
-        },
-        {
-          "name": "Company",
-          "url": "/company"
-        },
-        {
-          "name": "Features",
-          "url": "/features"
-        },
-        {
-          "name": "Reviews",
-          "url": "/reviews"
-        },
-        {
-          "name": "Career",
-          "url": "/career"
-        },
-        {
-          "name": "Case Study",
-          "url": "/case-study"
-        },
-        {
-          "name": "Insights",
-          "url": "/insights"
-        },
-        {
-          "name": "Integrations",
-          "url": "/integrations"
-        },
-        {
-          "name": "FAQs",
-          "url": "/faq"
-        },
-        {
-          "name": "Privacy Policy",
-          "url": "/privacy-policy"
-        },
-        {
-          "name": "Terms & Conditions",
-          "url": "/terms-and-conditions"
-        },
-        {
-          "name": "Changelog",
-          "url": "/changelog"
-        },
-        {
-          "name": "Contact",
-          "url": "/contact"
-        },
-        {
-          "name": "404",
-          "url": "/404"
-        }
+        {"name": "Platform Overview", "url": "/product"},
+        {"name": "AI Strategy & Vision", "url": "/product/strategy"},
+        {"name": "Implementation & Performance", "url": "/product/implementation"},
+        {"name": "Governance & Risk", "url": "/product/governance"},
+        {"name": "Team & Change Management", "url": "/product/team-management"},
+        {"name": "Expert Services", "url": "/product/expert-services"},
+        {"name": "Accelerators & Integrations", "url": "/product/accelerators"},
+        {"name": "Trust & Security", "url": "/product/security"}
       ]
     },
     {
-      "name": "Features",
-      "url": "/features"
+      "name": "Solutions",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {"name": "For CEOs", "url": "/solutions/ceos"},
+        {"name": "For CIOs", "url": "/solutions/cios"},
+        {"name": "For CFOs", "url": "/solutions/cfos"},
+        {"name": "For HR Leaders", "url": "/solutions/hr-leaders"},
+        {"name": "By Industry", "url": "/solutions/industries"}
+      ]
     },
     {
-      "name": "Pricing",
-      "url": "/pricing"
+      "name": "Resources",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {"name": "Blog & Insights", "url": "/insights"},
+        {"name": "OpenAI Hub", "url": "/resources/openai"},
+        {"name": "Case Studies", "url": "/case-studies"},
+        {"name": "Tools & Templates", "url": "/resources/tools"},
+        {"name": "Documentation", "url": "/docs"}
+      ]
     },
-    {
-      "name": "Support",
-      "url": "/contact"
-    }
+    {"name": "Pricing", "url": "/pricing"},
+    {"name": "Company", "url": "/company"}
   ],
   "footer": [
     {
       "title": "NAVIGATION",
       "children": [
         {
-          "name": "Products",
-          "url": "/features"
+          "name": "Product",
+          "url": "/product"
         },
         {
-          "name": "Company",
-          "url": "/company"
+          "name": "Solutions",
+          "url": "/solutions/ceos"
         },
         {
           "name": "Pricing",
           "url": "/pricing"
         },
         {
-          "name": "Insights",
+          "name": "Resources",
           "url": "/insights"
         }
       ]
@@ -106,16 +68,20 @@
       "title": "RESOURCES",
       "children": [
         {
-          "name": "Privacy Policy",
-          "url": "/privacy-policy"
+          "name": "OpenAI Hub",
+          "url": "/resources/openai"
         },
         {
-          "name": "Changelog",
-          "url": "/changelog"
+          "name": "Case Studies",
+          "url": "/case-studies"
         },
         {
-          "name": "Terms & Conditions",
-          "url": "/terms-and-conditions"
+          "name": "Tools & Templates",
+          "url": "/resources/tools"
+        },
+        {
+          "name": "Documentation",
+          "url": "/docs"
         }
       ]
     },
@@ -123,16 +89,20 @@
       "title": "COMPANY",
       "children": [
         {
-          "name": "Career",
-          "url": "/career"
+          "name": "About Us",
+          "url": "/company"
         },
         {
           "name": "Contact",
           "url": "/contact"
         },
         {
-          "name": "FAQs",
-          "url": "/faq"
+          "name": "Careers",
+          "url": "/career"
+        },
+        {
+          "name": "Privacy Policy",
+          "url": "/privacy-policy"
         }
       ]
     }

@@ -43,7 +43,13 @@
   "navigation_button": {
     "enable": true,
     "label": "Start Free Trial",
-    "link": "/signup"
+    "link": "https://app.kowalah.com/sign-up"
+  },
+
+  "sign_in_link": {
+    "enable": true,
+    "label": "Sign In",
+    "link": "https://app.kowalah.com/sign-in"
   },
 
   "disqus": {

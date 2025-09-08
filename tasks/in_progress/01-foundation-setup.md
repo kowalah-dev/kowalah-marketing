@@ -33,7 +33,7 @@ Set up Kowalah branding, configuration, and basic infrastructure for the marketi
   - Dark/light mode functionality verified with new colors
 
 ### 1.3 Navigation Structure
-- [ ] Update `src/config/menu.json` with Kowalah navigation structure:
+- [x] Update `src/config/menu.json` with refined Kowalah navigation structure:
   ```json
   {
     "main": [
@@ -47,7 +47,9 @@ Set up Kowalah branding, configuration, and basic infrastructure for the marketi
           {"name": "Implementation & Performance", "url": "/product/implementation"},
           {"name": "Governance & Risk", "url": "/product/governance"},
           {"name": "Team & Change Management", "url": "/product/team-management"},
-          {"name": "Expert Services", "url": "/product/expert-services"}
+          {"name": "Expert Services", "url": "/product/expert-services"},
+          {"name": "Accelerators & Integrations", "url": "/product/accelerators"},
+          {"name": "Trust & Security", "url": "/product/security"}
         ]
       },
       {
@@ -55,33 +57,36 @@ Set up Kowalah branding, configuration, and basic infrastructure for the marketi
         "url": "",
         "hasChildren": true,
         "children": [
-          {"name": "By Industry", "url": "/solutions/industries"},
           {"name": "For CEOs", "url": "/solutions/ceos"},
           {"name": "For CIOs", "url": "/solutions/cios"},
-          {"name": "For CFOs", "url": "/solutions/cfos"}
+          {"name": "For CFOs", "url": "/solutions/cfos"},
+          {"name": "For HR Leaders", "url": "/solutions/hr-leaders"},
+          {"name": "By Industry", "url": "/solutions/industries"}
         ]
       },
       {
-        "name": "OpenAI",
+        "name": "Resources",
         "url": "",
         "hasChildren": true,
         "children": [
-          {"name": "OpenAI Overview", "url": "/openai"},
-          {"name": "License Guide", "url": "/openai/licensing"},
-          {"name": "Implementation Roadmap", "url": "/openai/implementation"},
-          {"name": "Security & Governance", "url": "/openai/security"}
+          {"name": "Blog & Insights", "url": "/insights"},
+          {"name": "OpenAI Hub", "url": "/resources/openai"},
+          {"name": "Case Studies", "url": "/case-studies"},
+          {"name": "Tools & Templates", "url": "/resources/tools"},
+          {"name": "Documentation", "url": "/docs"}
         ]
       },
       {"name": "Pricing", "url": "/pricing"},
-      {"name": "Resources", "url": "/insights"},
       {"name": "Company", "url": "/company"}
     ]
   }
   ```
-- [ ] Update footer navigation accordingly
-- [ ] Update navigation button (CTA) in header
+- [x] Update footer navigation accordingly
+- [x] Update navigation button (CTA) in header
   - Change to "Start Free Trial" or "Get Started"
   - Link to appropriate signup/demo page
+  - ✅ Configured with "Start Free Trial" pointing to https://app.kowalah.com/sign-up
+  - ✅ Added "Sign In" link pointing to https://app.kowalah.com/sign-in
 
 ### 1.4 Environment & Integration Setup
 - [ ] Verify Sanity integration configuration

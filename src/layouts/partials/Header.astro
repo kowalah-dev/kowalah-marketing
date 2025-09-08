@@ -16,7 +16,7 @@ export interface NavigationLink {
   children?: ChildNavigationLink[];
 }
 
-const { navigation_button, settings } = config;
+const { navigation_button, sign_in_link, settings } = config;
 const { pathname } = Astro.url;
 
 const { customHeader } = Astro.props;
@@ -125,7 +125,21 @@ const { customHeader } = Astro.props;
       }
     </ul>
 
-    <div class="order-1 ml-auto flex items-center md:order-2">
+    <div class="order-1 ml-auto flex items-center gap-4 md:order-2">
+      <!-- Sign In link -->
+      {
+        sign_in_link.enable && (
+          <a
+            href={sign_in_link.link}
+            class={`text-sm font-medium transition-colors hover:text-primary ${
+              customHeader ? "text-light/80 hover:text-light" : "text-text-dark hover:text-primary"
+            }`}
+          >
+            {sign_in_link.label}
+          </a>
+        )
+      }
+      
       <!-- Navigation button -->
       {
         navigation_button.enable && (
