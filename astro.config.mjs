@@ -1,6 +1,7 @@
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
+import sanity from "@sanity/astro";
 import tailwindcss from "@tailwindcss/vite";
 import AutoImport from "astro-auto-import";
 import icon from "astro-icon";
@@ -28,6 +29,10 @@ export default defineConfig({
   vite: { plugins: [tailwindcss()] },
   integrations: [
     react(),
+    sanity({
+      projectId: "ig58e610",
+      dataset: "production",
+    }),
     sitemap(),
     AutoImport({
       imports: [

@@ -13,6 +13,15 @@ Our Kowalah repositories consist of these - all within the kowalah-dev Github or
 - kowalah-admin - Our internal admin interface where our employees manage and create users and update the product. Hosted at the admin. subdomain.
 - docs - Our documentation site, built with Mintlify, hosted at docs. subdomain.
 
+## Important Documentation
+
+- Astro MCP Server - use this to get implementation and configuration guidance on the Astro web framework
+- Syncmaster Astro Theme docs - from Theefisher give instructions on config for the theme we purchased https://docs.themefisher.com/syncmaster-astro
+- @docs/product-overview.md provides detailed overview of the Kowalah application, value proposition and target market
+- @docs/context/messaging-framework.md
+- @docs/context/positioning-canvas.md
+- @docs/sanity-integration.md explains how our Astro project pulls content from our Sanity CMS
+
 ## Development Commands
 
 ### Core Commands
