@@ -1,151 +1,196 @@
 ---
 hero:
-  title: "Master your projects with <br> effortless task management"
-  content: "Stay organized, prioritize with ease, and get things done faster. Our all-in-one task management tool keeps your team aligned and on track."
+  title: "Your Digital <br> Chief AI Officer"
+  content: "Transform your organization's AI journey from confusion to confidence with executive-level expertise available 24/7. Get immediate access to strategic AI leadership without the cost and complexity of hiring a human CAIO."
   image: "/images/home/banner.png"
   button:
     - enable: true
-      label: "Get Started for Free"
+      label: "Start Free Trial"
       link: "/pricing"
     - enable: true
-      label: "See How it Works"
-      link: "/feature"
+      label: "See How It Works"
+      link: "/features"
   customer:
     image:
       - "/images/home/1.png"
       - "/images/home/2.png"
       - "/images/home/3.png"
       - "/images/home/4.png"
-    note: "Trusted by 21,000+ happy <br> customers worldwide"
+    note: "Trusted by executives at <br> 1,000+ organizations worldwide"
 
 feature:
-  title: "Powerful tools to organize your work"
-  subtitle: "Streamlined Task Management"
+  title: "Complete AI Leadership Platform"
+  subtitle: "Seven Core Capabilities for AI Success"
   features:
-    - title: "Credit Score Monitor"
-      badge: "Boost Conversions"
-      content: "Create funnels designed to convert, with built-in tools"
-      description: "CrediSure is a cutting-edge financial technology platform offering secure, seamless financial services ranging from credit scoring."
+    - title: "AI Strategy & Vision"
+      badge: "Strategic Planning"
+      content: "Develop organizational AI strategy aligned with business objectives"
+      description: "Create AI vision statements, strategic roadmaps, conduct readiness assessments, and build compelling business cases for AI investments."
       image: "/images/home/features/1.png"
       button:
         enable: true
-        label: "Get a quote"
+        label: "Learn More"
         link: "/features"
-    - title: "Financial Planning"
-      badge: "Save Time"
-      content: "Automate your lead generation and follow-up processes"
-      description: "CrediSure is a cutting-edge financial technology platform offering secure, seamless financial services ranging from credit scoring."
+    - title: "C-Suite Collaboration"
+      badge: "Executive Leadership"
+      content: "Facilitate AI discussions with board members and executives"
+      description: "Translate technical AI concepts for business stakeholders, manage expectations, and coordinate cross-functional AI initiatives."
       image: "/images/home/features/2.png"
       button:
         enable: true
-        label: "Get a quote"
+        label: "Learn More"
         link: "/features"
-    - title: "Portfolio Management"
-      badge: "Boost Conversation"
-      content: "Create funnels designed to convert, with built-in toolsx"
-      description: "Create funnels designed to convert, with built-in tools CrediSure is a cutting-edge financial technology platform offering secure, seamless financial services ranging from credit scoring."
+    - title: "AI Governance & Risk Management"
+      badge: "Risk Mitigation"
+      content: "Establish AI ethics frameworks and responsible AI practices"
+      description: "Develop AI policies, manage regulatory requirements, implement risk assessment strategies, and create incident response procedures."
       image: "/images/home/features/3.png"
       button:
         enable: true
-        label: "Get a quote"
+        label: "Learn More"
         link: "/features"
-    - title: "Personal Loans"
-      badge: "Boost Conversation"
-      content: "Connect with your favourite tools with easy integrations"
-      description: "CrediSure is a cutting-edge financial technology platform offering secure, seamless financial services ranging from credit scoring."
+    - title: "Talent & Capability Building"
+      badge: "Team Development"
+      content: "Design AI upskilling and training programs for teams"
+      description: "Assess skill gaps, guide talent acquisition, create literacy programs, and develop AI change management strategies."
       image: "/images/home/features/4.png"
       button:
         enable: true
-        label: "Get a quote"
+        label: "Learn More"
+        link: "/features"
+    - title: "AI Implementation & Performance"
+      badge: "Technical Excellence"
+      content: "Guide AI technology selection and vendor evaluation"
+      description: "Oversee AI project planning, monitor system performance, manage infrastructure decisions, and coordinate integration with existing systems."
+      image: "/images/home/features/5.png"
+      button:
+        enable: true
+        label: "Learn More"
+        link: "/features"
+    - title: "App & Prompt Development"
+      badge: "Custom Solutions"
+      content: "Provide guidance on building internal AI applications"
+      description: "Support prompt engineering, AI workflow design, tool customization, and integration of AI capabilities into business processes."
+      image: "/images/home/features/6.png"
+      button:
+        enable: true
+        label: "Learn More"
+        link: "/features"
+    - title: "Change Management"
+      badge: "Transformation"
+      content: "Lead organizational AI transformation initiatives"
+      description: "Manage resistance to AI adoption, design communication strategies, support business process redesign, and facilitate adoption across departments."
+      image: "/images/home/features/7.png"
+      button:
+        enable: true
+        label: "Learn More"
         link: "/features"
 
 offering:
-  - title: "Scheduled events for today"
-    subtitle: "Today's Scheduled Events"
+  - title: "Turn AI Anxiety Into Strategic Confidence"
+    subtitle: "Expert-Validated AI Strategy"
     image: "/images/home/offering/1.png"
     image_1: "/images/home/offering/1.1.png"
-    content: "Easily design and customize sales funnels without any coding. Our intuitive drag-and-drop builder allows you to create funnels in minutes."
+    content: "Stop worrying about falling behind and start moving forward with expert-validated AI strategy that avoids costly mistakes. Get 24/7 access to executive-level AI expertise without executive-level investment."
     points:
-      - "Create shared projects or workspaces to organize tasks and assign them to team members. Collaborate on documents, spreadsheets, presentations, and other files."
-      - "Define dependencies between tasks to ensure they are completed in the correct order. Visualize task relationships using Gantt charts or Kanban boards."
-  - title: "Automated follow-up sequences"
-    subtitle: "Email sequences and SMS reminders"
+      - "Strategic AI roadmap aligned with your business objectives, with proven frameworks that eliminate guesswork and trial-and-error."
+      - "Expert validation before major AI investments or vendor commitments, plus board-ready progress reports and risk assessments."
+  - title: "Get Expert AI Skills Instantly Without Hiring"
+    subtitle: "On-Demand AI Talent & Delivery"
     image: "/images/home/offering/2.png"
     image_1: "/images/home/offering/2.2.png"
-    content: "Never miss an opportunity with automated follow-ups. Set up personalized email sequences."
+    content: "Access specialized AI talent on-demand instead of building expensive internal teams or waiting for lengthy recruitment. Expert Requests deliver actual work."
     points:
-      - "Use features like commenting, discussions, and file sharing to collaborate on tasks. Enable multiple users to work on tasks simultaneously."
-      - "Track team productivity metrics like task completion rates, time spent on tasks, and resource utilization. Use data to identify bottlenecks and areas for improvement."
-  - title: "Organize notes in folders"
-    subtitle: "Organize Notes"
+      - "Team of prompt engineers, developers, and AI specialists ready to execute prompts, GPTs, custom apps, and training sessions."
+      - "Scale your AI capabilities up or down based on project needs with no hiring delays, onboarding costs, or turnover risk."
+  - title: "Transform Every Employee Into an AI-Powered Contributor"
+    subtitle: "Organization-Wide AI Adoption"
     image: "/images/home/offering/3.png"
     image_1: "/images/home/offering/3.3.png"
-    content: "Track every interaction, from the first click to the final conversion. Our platform offers detailed insights into each funnel's performance."
+    content: "Drive organization-wide AI adoption with change management that gets your entire workforce engaged and productive with AI."
     points:
-      - "Track your credit score in real-time with instant updates and detailed reports. Understand the factors that influence your score and get personalized tips to improve it."
-      - "Enhanced communication between team members leads to better understanding of goals and expectations. Efficient collaboration can streamline workflows."
+      - "Customized training programs for different roles and skill levels, with change management frameworks that overcome resistance."
+      - "Expert-led workshops and training sessions through Expert Requests, plus prebuilt Kowalah GPTs to accelerate core work tasks."
 
 benefits:
-  title: "Achieve more with SyncMaster"
-  subtitle: "Experience the Benefits of Efficient"
+  title: "Why Choose Kowalah Over Alternatives"
+  subtitle: "Competitive Advantages That Matter"
   points:
-    - title: "Store Your Task File"
-      content: "CrediSure is a cutting-edge financial technology platform offering secure, seamless financial services"
+    - title: "Immediate Availability"
+      content: "Get expert AI leadership instantly versus 6+ months for executive search. No waiting, no recruitment delays."
       image: "/images/home/benefits/1.png"
-    - title: "Real-Time Collaboration"
-      content: "WealthHub is a forward-thinking fintech platform ensuring secure, streamlined service"
+    - title: "24/7 Accessibility"
+      content: "Your Digital CAIO scales with your needs instantly, available whenever strategic decisions need to be made."
       image: "/images/home/benefits/2.png"
-    - title: "Customizable Workflows"
-      content: "The optimized sales funnel converted 30% more leads, while automated email campaigns contributed."
+    - title: "Collective Intelligence"
+      content: "Benefit from thousands of AI implementations and best practices, not just one executive's limited experience."
       image: "/images/home/benefits/3.png"
-    - title: "Reminder Notifications"
-      content: "PayTrust is an innovative fintech platform providing reliable, secure financial services."
+    - title: "Zero Turnover Risk"
+      content: "Never lose your AI leadership investment. Continuously evolving capabilities that grow smarter over time."
       image: "/images/home/benefits/4.png"
-    - title: "Customizable Workflows"
-      content: "FinGuard offers a state-of-the-art financial platform with seamless and secure solutions"
+    - title: "Expert Delivery"
+      content: "Combined AI + human expertise through Expert Requests - get actual work done, not just advice."
       image: "/images/home/benefits/5.png"
 
 plan:
-  title: "Affordable plans for every business"
-  subtitle: "Maximize Productivity and Collaboration"
+  title: "Digital AI Leadership Plans"
+  subtitle: "Executive-Level AI Guidance for Every Organization"
   plans_labels:
     - "Billed Yearly"
     - "Billed Monthly"
   plans:
-    - title: "Pro Plan"
-      description: "Perfect for trying out the core features"
-      price_prefix: "$"
-      price_monthly: "29"
-      price_yearly: "129"
+    - title: "Free"
+      description: "Try Digital AI Leadership"
+      price_prefix: "£"
+      price_monthly: "0"
+      price_yearly: "0"
       price_suffix:
-        one: "user"
-        two: "month"
+        one: "forever"
+        two: ""
       features:
-        - Custom Integrations
-        - Dedicated Account
-        - Automated Email
-        - Set budgets & goals
-        - Priority Support
+        - 10 messages to test capabilities
+        - Basic AI strategy guidance
+        - Core frameworks access
+        - No organizational memory
+        - Perfect for evaluation
       button:
         enable: true
-        label: "Start Free Trial"
-        link: "/contact/"
-    - title: "Pro Plan"
-      description: "Perfect for trying out the core features"
-      price_prefix: "$"
-      price_monthly: "120"
-      price_yearly: "199"
+        label: "Start Free"
+        link: "/pricing"
+    - title: "Individual"
+      description: "Personal AI Chief AI Officer"
+      price_prefix: "£"
+      price_monthly: "59"
+      price_yearly: "590"
       price_suffix:
-        one: "user"
+        one: "per"
         two: "month"
       features:
-        - 10,000 Leads
-        - Advanced Analytics
-        - Automated Email
-        - Set budgets & goals
-        - Priority Support
+        - Single user unlimited access
+        - Personal AI strategy support
+        - Basic features and frameworks
+        - No team collaboration
+        - Ideal for solo practitioners
       button:
         enable: true
-        label: "Start Free Trial"
-        link: "/contact/"
+        label: "Get Started"
+        link: "/pricing"
+    - title: "Digital"
+      description: "AI Leadership Platform for Teams"
+      price_prefix: "£"
+      price_monthly: "2,000"
+      price_yearly: "20,000"
+      price_suffix:
+        one: "per"
+        two: "month"
+      features:
+        - Up to 10 users
+        - Unlimited Digital CAIO chat
+        - Basic integrations (Email/Slack)
+        - Organizational memory
+        - Perfect for AI Centers of Excellence
+      button:
+        enable: true
+        label: "Contact Sales"
+        link: "/contact"
 ---
