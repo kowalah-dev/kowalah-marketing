@@ -7,14 +7,30 @@ import CallToAction from "@/partials/CallToAction.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 import type { CollectionEntry } from "astro:content";
 import { getEntry } from "astro:content";
+import { client, queries } from "@/lib/sanity";
 
 const postIndex = (await getEntry(
   "insights",
   "-index"
 )) as CollectionEntry<"insights">;
 const { title, meta_title, description, hero } = postIndex.data;
-const posts = await getSinglePage("insights");
-const sortedPosts = sortByDate(posts);
+
+// Try to fetch from Sanity first, fallback to content collections
+let posts;
+let usingSanity = false;
+
+try {
+  posts = await client.fetch(queries.posts);
+  usingSanity = true;
+  console.log(`Found ${posts.length} posts from Sanity`);
+} catch (error) {
+  console.error("Error fetching posts from Sanity:", error);
+  // Fallback to content collections
+  const { getSinglePage } = await import("@/lib/contentParser.astro");
+  const { sortByDate } = await import("@/lib/utils/sortFunctions");
+  posts = await getSinglePage("insights");
+  posts = sortByDate(posts);
+}
 
 const call_to_action = (await getEntry(
   "sections",
@@ -26,12 +42,12 @@ const call_to_action = (await getEntry(
   {hero && <PageHeader title={hero.title} content={hero.content} />}
 
   <section class="-mt-16">
-    <div class="container xl:w-[53%]">
-      <div class="row gap-12 justify-center">
+    <div class="container">
+      <div class="row gap-8 justify-center">
         {
-          sortedPosts.map((post, i: number) => (
-            <div class="md:col-5">
-              <BlogCard data={post} index={i} />
+          posts.map((post, i: number) => (
+            <div class="sm:col-6 lg:col-4 xl:col-3">
+              <BlogCard data={post} index={i} usingSanity={usingSanity} />
             </div>
           ))
         }

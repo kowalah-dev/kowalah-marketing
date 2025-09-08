@@ -1,0 +1,113 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import { client, queries } from "@/lib/sanity";
+import { PortableText } from "astro-portabletext";
+import { markdownify } from "@/lib/utils/textConverter";
+
+// Fetch privacy policy from Sanity
+let legalPage = null;
+let errorMessage = null;
+
+try {
+  legalPage = await client.fetch(queries.legalPage("privacy-policy"));
+  
+  if (!legalPage) {
+    // Fallback: try to find by pageType or title
+    legalPage = await client.fetch(`*[_type == "legalPage" && (slug.current == "privacy-policy" || title match "Privacy*")][0] {
+      _id,
+      _type,
+      title,
+      slug,
+      pageType,
+      effectiveDate,
+      lastUpdated,
+      content,
+      seo {
+        title,
+        description,
+        keywords
+      }
+    }`);
+  }
+} catch (error) {
+  console.error("Error fetching privacy policy:", error);
+  errorMessage = "Failed to load privacy policy content";
+}
+
+// Fallback metadata if not available from Sanity
+const title = legalPage?.seo?.title || legalPage?.title || "Privacy Policy";
+const description = legalPage?.seo?.description || "Kowalah's Privacy Policy outlines how we collect, use, and protect your personal data while using our Digital Chief AI Officer platform.";
+const lastUpdated = legalPage?.lastUpdated ? new Date(legalPage.lastUpdated).toLocaleDateString('en-GB', { 
+  year: 'numeric', 
+  month: 'long', 
+  day: 'numeric' 
+}) : null;
+const effectiveDate = legalPage?.effectiveDate ? new Date(legalPage.effectiveDate).toLocaleDateString('en-GB', {
+  year: 'numeric',
+  month: 'long', 
+  day: 'numeric'
+}) : null;
+---
+
+<Base title={title} meta_title={title} description={description}>
+  <PageHeader title={title} content={description} />
+  
+  <section class="section-sm">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          {errorMessage ? (
+            <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-8">
+              <p class="font-medium">Error loading privacy policy</p>
+              <p class="text-sm">{errorMessage}</p>
+              <p class="text-sm mt-2">Please contact us at <a href="mailto:hello@kowalah.com" class="underline">hello@kowalah.com</a> if you need to review our privacy policy.</p>
+            </div>
+          ) : legalPage ? (
+            <>
+              {/* Document metadata */}
+              <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 mb-8">
+                <div class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                  {effectiveDate && (
+                    <p><strong>Effective Date:</strong> {effectiveDate}</p>
+                  )}
+                  {lastUpdated && (
+                    <p><strong>Last Updated:</strong> {lastUpdated}</p>
+                  )}
+                  <p><strong>Document Version:</strong> Current</p>
+                </div>
+              </div>
+
+              {/* Main content */}
+              <div class="prose prose-lg max-w-none dark:prose-invert prose-headings:text-text-dark prose-p:text-text prose-li:text-text prose-strong:text-text-dark prose-a:text-primary hover:prose-a:text-primary/80">
+                {legalPage.content ? (
+                  <PortableText value={legalPage.content} />
+                ) : (
+                  <p class="text-gray-500">No content available</p>
+                )}
+              </div>
+
+              {/* Contact information */}
+              <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mt-12">
+                <h3 class="text-lg font-semibold text-blue-800 dark:text-blue-200 mb-3">Questions About This Policy?</h3>
+                <div class="text-blue-700 dark:text-blue-300">
+                  <p class="mb-2">If you have any questions about this Privacy Policy or how we handle your personal data, please contact us:</p>
+                  <div class="text-sm space-y-1">
+                    <p><strong>Email:</strong> <a href="mailto:hello@kowalah.com" class="underline">hello@kowalah.com</a></p>
+                    <p><strong>Company:</strong> Keboko Limited t/as Kowalah</p>
+                    <p><strong>Registration:</strong> England and Wales, Company Number 14637359</p>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : (
+            <div class="bg-yellow-50 border border-yellow-200 text-yellow-700 px-4 py-3 rounded mb-8">
+              <p class="font-medium">Privacy Policy Temporarily Unavailable</p>
+              <p class="text-sm">We're updating our privacy policy. Please contact us at <a href="mailto:hello@kowalah.com" class="underline">hello@kowalah.com</a> if you have any questions about how we handle your data.</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

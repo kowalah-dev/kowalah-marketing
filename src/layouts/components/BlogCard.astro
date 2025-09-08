@@ -1,45 +1,90 @@
 ---
 import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, slugify } from "@/lib/utils/textConverter";
+import { urlFor } from "@/lib/sanity";
 import ImageMod from "./ImageMod.astro";
 
-const { data, index } = Astro.props;
-const { title, image, date, categories } = data.data;
+const { data, index, usingSanity = false } = Astro.props;
+
+let title, image, date, categories, author, excerpt, slug;
+
+if (usingSanity) {
+  // Sanity data structure
+  title = data.title;
+  image = data.image ? urlFor(data.image).width(400).height(265).url() : null;
+  date = data.publishedAt || data._createdAt;
+  categories = data.categories || [];
+  author = data.author;
+  excerpt = data.excerpt;
+  slug = data.slug?.current;
+} else {
+  // Content collection data structure
+  const contentData = data.data;
+  title = contentData.title;
+  image = contentData.image;
+  date = contentData.date;
+  categories = contentData.categories || [];
+  author = contentData.author;
+  excerpt = contentData.description;
+  slug = data.id;
+}
 ---
 
 <div class="relative group" data-aos="fade-up-sm" data-aos-delay={index * 100}>
   <div
     class="backdrop-blur-lg bg-text-dark/40 absolute top-3 left-3 px-3 py-1.5 rounded-lg z-10"
   >
-    {
-      categories.map((category: string, i: number) => (
-        <a href={`/categories/${slugify(category)}`} class="text-light text-sm">
-          {humanize(category)}
-          {i !== categories.length - 1 && ","}
-        </a>
-      ))
-    }
+    {categories && categories.length > 0 && (
+      categories.slice(0, 2).map((category: any, i: number) => {
+        const categoryName = usingSanity ? category.title : category;
+        const categorySlug = usingSanity ? category.slug?.current : slugify(category);
+        return (
+          <a href={`/categories/${categorySlug}`} class="text-light text-sm">
+            {humanize(categoryName)}
+            {i !== Math.min(categories.length, 2) - 1 && ", "}
+          </a>
+        );
+      })
+    )}
   </div>
   {
     image && (
       <div class="mb-4 rounded-2xl overflow-hidden">
-        <ImageMod
-          class="w-full group-hover:scale-105 transition duration-500"
-          src={image}
-          alt={title}
-          width={400}
-          height={265}
-          format="webp"
-        />
+        {usingSanity ? (
+          <img
+            class="w-full group-hover:scale-105 transition duration-500"
+            src={image}
+            alt={title}
+            width={400}
+            height={265}
+            loading="lazy"
+          />
+        ) : (
+          <ImageMod
+            class="w-full group-hover:scale-105 transition duration-500"
+            src={image}
+            alt={title}
+            width={400}
+            height={265}
+            format="webp"
+          />
+        )}
       </div>
     )
   }
 
-  {date && <p class="mb-2">{dateFormat(date)}</p>}
+  <div class="flex items-center justify-between mb-2">
+    {date && <p class="text-sm text-gray-600 dark:text-gray-400">{dateFormat(date)}</p>}
+    {author && <p class="text-sm text-gray-600 dark:text-gray-400">by {usingSanity ? author.name : author}</p>}
+  </div>
 
   <h4 class="mb-3 h5 font-medium leading-normal">
-    <a href={`/insights/${data.id}`} class="stretched-link">
+    <a href={`/insights/${usingSanity ? slug : data.id}`} class="stretched-link">
       {title}
     </a>
   </h4>
+  
+  {excerpt && (
+    <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-3">{excerpt}</p>
+  )}
 </div>

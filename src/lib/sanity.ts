@@ -32,31 +32,59 @@ export const commonFields = `
   _updatedAt,
 `;
 
-// Example queries - adapt these to your content structure
+// Blog post queries
 export const queries = {
-  // Simplified blog posts query 
-  blogPosts: `*[_type == "blogPost"] | order(_createdAt desc) {
+  // Published blog posts for listing
+  posts: `*[_type == "post" && defined(publishedAt) && publishedAt <= now() && !(_id in path("drafts.**"))] | order(publishedAt desc, _createdAt desc) {
     ${commonFields}
     title,
     slug,
     excerpt,
     publishedAt,
     "image": featuredImage.asset,
-    "author": author->name,
-    categories[]->title
+    "author": author->{name, image, bio},
+    "categories": categories[]->{ title, slug, _id }
   }`,
   
   // Single blog post
-  blogPost: (slug: string) => `*[_type == "blogPost" && slug.current == "${slug}"][0] {
+  post: (slug: string) => `*[_type == "post" && slug.current == "${slug}"][0] {
     ${commonFields}
     title,
     slug,
-    content,
+    body,
+    sections[] {
+      _type,
+      _type == "textSection" => {
+        content
+      },
+      _type == "imageSection" => {
+        "image": image.asset,
+        alt,
+        caption,
+        size
+      },
+      _type == "videoSection" => {
+        youtubeId,
+        caption,
+        startTime,
+        aspectRatio
+      },
+      _type == "tableSection" => {
+        table,
+        caption,
+        styling
+      }
+    },
     excerpt,
     publishedAt,
     "image": featuredImage.asset,
-    "author": author->{name, image},
-    categories[]->{title, slug}
+    "author": author->{name, image, bio},
+    "categories": categories[]->{ title, slug, _id },
+    seo {
+      title,
+      description,
+      keywords
+    }
   }`,
   
   // Simplified page content (instead of complex block structure)

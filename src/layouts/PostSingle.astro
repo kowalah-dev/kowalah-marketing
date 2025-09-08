@@ -5,16 +5,51 @@ import dateFormat from "@/lib/utils/dateFormat";
 import similarItems from "@/lib/utils/similarItems";
 import { markdownify } from "@/lib/utils/textConverter";
 import { render } from "astro:content";
+import { PortableText } from "astro-portabletext";
+import { urlFor } from "@/lib/sanity";
 import GridBg from "./components/GridBg.astro";
 import ImageMod from "./components/ImageMod.astro";
 import Share from "./components/Share.astro";
+import SectionRenderer from "./components/SectionRenderer.astro";
 
-const { post } = Astro.props;
+const { post, usingSanity = false } = Astro.props;
 
-const posts = await getSinglePage("insights");
-const similarPosts = similarItems(post, posts);
-const { Content } = await render(post);
-const { title, description, author, image, date } = post.data;
+let title, description, author, image, date, content, sections, slug, similarPosts = [], Content;
+
+if (usingSanity) {
+  // Sanity data structure
+  title = post.title;
+  description = post.excerpt;
+  author = post.author;
+  image = post.image ? urlFor(post.image).width(1200).quality(85).url() : null;
+  date = post.publishedAt || post._createdAt;
+  content = post.body; // Legacy PortableText content
+  sections = post.sections; // New sectioned content
+  slug = post.slug?.current;
+  
+  // For Sanity posts, we'll just show recent posts instead of similar ones
+  // You could implement similarity matching on categories later
+  try {
+    const { client, queries } = await import("@/lib/sanity");
+    const recentPosts = await client.fetch(queries.posts);
+    similarPosts = recentPosts.filter(p => p.slug?.current !== slug).slice(0, 3);
+  } catch (error) {
+    console.error("Error fetching recent posts:", error);
+  }
+} else {
+  // Content collection data structure
+  const posts = await getSinglePage("insights");
+  similarPosts = similarItems(post, posts);
+  const renderResult = await render(post);
+  Content = renderResult.Content;
+  const contentData = post.data;
+  title = contentData.title;
+  description = contentData.description;
+  author = contentData.author;
+  image = contentData.image;
+  date = contentData.date;
+  slug = post.id;
+}
 ---
 
 <section class="section relative overflow-hidden pt-20 pb-0">
@@ -36,14 +71,23 @@ const { title, description, author, image, date } = post.data;
           {
             image && (
               <div class="mb-10">
-                <ImageMod
-                  src={image}
-                  width={0}
-                  height={0}
-                  alt={title}
-                  class="w-full h-full object-cover"
-                  format="webp"
-                />
+                {usingSanity ? (
+                  <img
+                    src={image}
+                    alt={title}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <ImageMod
+                    src={image}
+                    width={0}
+                    height={0}
+                    alt={title}
+                    class="w-full h-full object-cover"
+                    format="webp"
+                  />
+                )}
               </div>
             )
           }
@@ -53,7 +97,7 @@ const { title, description, author, image, date } = post.data;
             <ul class="max-md:text-center">
               <li class="mr-6 inline-block">
                 <p class="text-sm text-light/70">Written by</p>
-                <p class="font-medium" set:html={author} />
+                <p class="font-medium" set:html={usingSanity ? author?.name : author} />
               </li>
               <li class="inline-block">
                 <p class="text-sm text-light/70">Published on</p>
@@ -66,13 +110,29 @@ const { title, description, author, image, date } = post.data;
                 className="social-icons"
                 title={title}
                 description={description}
-                slug={post.id}
+                slug={slug}
               />
             </div>
           </div>
         </div>
         <div class="content" data-aos="fade-up-sm" data-aos-delay="400">
-          <Content />
+          {usingSanity ? (
+            // Render Sanity content
+            sections && sections.length > 0 ? (
+              <SectionRenderer sections={sections} />
+            ) : content ? (
+              <div class="prose prose-lg max-w-none dark:prose-invert">
+                <PortableText value={content} />
+              </div>
+            ) : (
+              <div class="bg-yellow-50 border border-yellow-200 text-yellow-700 px-4 py-3 rounded mb-8">
+                <p>No content available for this post.</p>
+              </div>
+            )
+          ) : (
+            // Render content collection content
+            <Content />
+          )}
         </div>
       </article>
     </div>
@@ -87,9 +147,9 @@ const { title, description, author, image, date } = post.data;
       </h2>
       <div class="row g-4 justify-center">
         {
-          similarPosts.slice(0, 3).map((post, i) => (
+          similarPosts.slice(0, 3).map((relatedPost, i) => (
             <div class="lg:col-4 md:col-6">
-              <BlogCard data={post} index={i} />
+              <BlogCard data={relatedPost} index={i} usingSanity={usingSanity} />
             </div>
           ))
         }

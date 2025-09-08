@@ -1,0 +1,123 @@
+---
+import { PortableText } from "astro-portabletext";
+import { urlFor } from "@/lib/sanity";
+import ImageMod from "./ImageMod.astro";
+
+const { sections } = Astro.props;
+
+const getImageSizeClass = (size) => {
+  switch (size) {
+    case 'small': return 'max-w-md mx-auto';
+    case 'medium': return 'max-w-2xl mx-auto';
+    case 'large': return 'max-w-4xl mx-auto';
+    default: return 'w-full';
+  }
+};
+
+const getAspectRatioClass = (ratio) => {
+  switch (ratio) {
+    case '4:3': return 'aspect-[4/3]';
+    case '1:1': return 'aspect-square';
+    default: return 'aspect-video';
+  }
+};
+---
+
+{sections && sections.map((section, index) => {
+  if (section._type === 'textSection') {
+    return (
+      <div class="prose prose-lg max-w-none dark:prose-invert mb-8" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+        <PortableText value={section.content} />
+      </div>
+    );
+  }
+  
+  if (section._type === 'imageSection') {
+    const imageUrl = section.image ? urlFor(section.image).width(1200).quality(85).url() : null;
+    return (
+      <div class={`mb-8 ${getImageSizeClass(section.size)}`} data-aos="fade-up-sm" data-aos-delay={index * 100}>
+        {imageUrl && (
+          <figure>
+            <img 
+              src={imageUrl}
+              alt={section.alt}
+              class="w-full rounded-lg"
+              loading="lazy"
+            />
+            {section.caption && (
+              <figcaption class="text-sm text-gray-600 dark:text-gray-400 mt-2 text-center italic">
+                {section.caption}
+              </figcaption>
+            )}
+          </figure>
+        )}
+      </div>
+    );
+  }
+  
+  if (section._type === 'videoSection') {
+    const embedUrl = `https://www.youtube.com/embed/${section.youtubeId}${section.startTime ? `?start=${section.startTime}` : ''}`;
+    return (
+      <div class="mb-8" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+        <div class={`${getAspectRatioClass(section.aspectRatio)} mb-4`}>
+          <iframe 
+            src={embedUrl}
+            title={section.caption || 'YouTube Video'}
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            class="w-full h-full rounded-lg"
+            loading="lazy"
+          />
+        </div>
+        {section.caption && (
+          <p class="text-sm text-gray-600 dark:text-gray-400 text-center italic">
+            {section.caption}
+          </p>
+        )}
+      </div>
+    );
+  }
+  
+  if (section._type === 'tableSection') {
+    const { table, caption, styling = {} } = section;
+    if (!table?.rows?.length) return null;
+    
+    return (
+      <div class="mb-8" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+        {caption && (
+          <h3 class="text-lg font-medium mb-4">{caption}</h3>
+        )}
+        <div class="overflow-x-auto">
+          <table class={`
+            min-w-full border-collapse border border-gray-200 dark:border-gray-700
+            ${styling.size === 'small' ? 'text-sm' : styling.size === 'large' ? 'text-lg' : 'text-base'}
+          `}>
+            {table.rows.map((row, rowIndex) => (
+              <tr class={`
+                ${rowIndex === 0 && styling.headerStyle?.includes('colored') ? 'bg-gray-50 dark:bg-gray-800' : ''}
+                ${rowIndex > 0 && styling.stripedRows && rowIndex % 2 === 1 ? 'bg-gray-25 dark:bg-gray-900' : ''}
+              `}>
+                {row.cells.map((cell, cellIndex) => {
+                  const isHeader = rowIndex === 0;
+                  const Tag = isHeader ? 'th' : 'td';
+                  return (
+                    <Tag class={`
+                      border border-gray-200 dark:border-gray-700 px-4 py-2
+                      ${isHeader && styling.headerStyle?.includes('bold') ? 'font-semibold' : ''}
+                      text-left
+                    `}>
+                      {cell}
+                    </Tag>
+                  );
+                })}
+              </tr>
+            ))}
+          </table>
+        </div>
+      </div>
+    );
+  }
+  
+  return null;
+})}

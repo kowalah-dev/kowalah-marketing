@@ -5,21 +5,70 @@ import { getSinglePage } from "@/lib/contentParser.astro";
 import CallToAction from "@/partials/CallToAction.astro";
 import type { CollectionEntry } from "astro:content";
 import { getEntry } from "astro:content";
+import { client, queries } from "@/lib/sanity";
 
 export async function getStaticPaths() {
+  // Try to get Sanity posts first
+  let sanityPosts = [];
+  let usingSanity = false;
+  
+  try {
+    sanityPosts = await client.fetch(queries.posts);
+    usingSanity = true;
+    console.log(`Found ${sanityPosts.length} posts from Sanity for static paths`);
+  } catch (error) {
+    console.error("Error fetching posts from Sanity for static paths:", error);
+  }
+  
+  // Always get content collection posts as fallback
   const posts = await getSinglePage("insights");
-
-  const paths = posts.map((post) => ({
-    params: {
-      single: post.id,
-    },
-    props: { post },
-  }));
+  console.log(`Fallback: Found ${posts.length} posts from content collections for static paths`);
+  
+  const paths = [];
+  
+  // Add Sanity post paths
+  if (usingSanity) {
+    sanityPosts.forEach((post) => {
+      if (post.slug?.current) {
+        paths.push({
+          params: { single: post.slug.current },
+          props: { post, usingSanity: true }
+        });
+      }
+    });
+  }
+  
+  // Add content collection paths
+  posts.forEach((post) => {
+    paths.push({
+      params: { single: post.id },
+      props: { post, usingSanity: false }
+    });
+  });
+  
   return paths;
 }
 
-const { post } = Astro.props;
-const { title, meta_title, description, image } = post.data;
+const { post, usingSanity = false } = Astro.props;
+
+let title, meta_title, description, image, fullPost;
+
+if (usingSanity) {
+  // Fetch complete post data from Sanity
+  fullPost = await client.fetch(queries.post(Astro.params.single));
+  title = fullPost?.title;
+  meta_title = fullPost?.seo?.title || title;
+  description = fullPost?.seo?.description || fullPost?.excerpt;
+  image = fullPost?.image;
+} else {
+  // Use content collection data
+  const contentData = post.data;
+  title = contentData.title;
+  meta_title = contentData.meta_title;
+  description = contentData.description;
+  image = contentData.image;
+  fullPost = post;
+}
 
 const call_to_action = (await getEntry(
   "sections",
@@ -33,7 +82,7 @@ const call_to_action = (await getEntry(
   description={description}
   image={image}
 >
-  <PostSingle post={post} />
+  <PostSingle post={fullPost} usingSanity={usingSanity} />
 
   <CallToAction call_to_action={call_to_action} />
 </Base>
