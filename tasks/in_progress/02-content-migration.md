@@ -28,7 +28,7 @@ Update existing Astro Content Collections with Kowalah-specific content, leverag
   - **Plan Section**: Update with Kowalah pricing tiers (Free, Individual, Digital, Essential, Executive, Enterprise)
 
 ### 2.2 Pricing Page Content Update
-- [ ] Update `src/content/pricing/-index.md`:
+- [x] Update `src/content/pricing/-index.md`:
   - **Hero Section**: Update with pricing page messaging
   - **Pricing Cards**: Update with Kowalah's 6 pricing tiers:
     - Free (£0): 10 messages, basic access
@@ -41,7 +41,7 @@ Update existing Astro Content Collections with Kowalah-specific content, leverag
   - **FAQ Section**: Update with pricing-specific FAQs
 
 ### 2.3 Company Page Content Update
-- [ ] Update `src/content/company/-index.md`:
+- [x] Update `src/content/company/-index.md`:
   - **Hero Section**: Kowalah company story and mission
   - **About Section**: 
     - Company story and values
@@ -52,7 +52,7 @@ Update existing Astro Content Collections with Kowalah-specific content, leverag
   - **Jobs Section**: Career opportunities at Kowalah
 
 ### 2.4 Features/Product Page Content Update
-- [ ] Update `src/content/features/-index.md`:
+- [x] Update `src/content/features/-index.md`:
   - **Hero Section**: "Complete Digital CAIO Platform"
   - **Features Array**: Detail each of the 7 core capabilities
     - Each with specific value props, use cases, and CTAs

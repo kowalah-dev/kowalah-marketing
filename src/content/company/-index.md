@@ -1,26 +1,27 @@
 ---
 title: "Company"
-meta_title: ""
-description: "this is company page"
+meta_title: "About Kowalah - Your Digital Chief AI Officer"
+description: "Learn about Kowalah, the world's first Digital Chief AI Officer platform helping mid-sized enterprises accelerate AI adoption with executive-level expertise available 24/7."
 hero:
-  title: "Company"
-  content: "Stay organized, prioritize with ease, and get things done faster. Our all-in-one <br> task management tool keeps your team aligned and on track."
+  title: "Your Digital Chief AI Officer"
+  content: "We're pioneering a new category of executive AI leadership, providing organizations with <br> immediate access to strategic AI expertise without the cost and complexity of hiring a human CAIO."
 
 about:
-  title: "We are dedicated to delivering exceptional results."
-  content: "The world of recruitment is undergoing a significant transformation.  Gone are the days of endless resume sifting and relying solely on gut instincts. Artificial intelligence (AI) is rapidly changing the landscape of talent acquisition."
+  title: "Transforming AI Leadership for Mid-Sized Enterprises"
+  content: "Organizations know they need AI leadership but face a critical gap. Finding and hiring a qualified Chief AI Officer takes 6-12 months, costs £300,000-£500,000+ annually, and comes with no guarantee of success. Kowalah solves this with the world's first Digital Chief AI Officer platform - providing immediate access to executive-level AI expertise with collective intelligence from thousands of implementations."
   image: "/images/company/stats.png"
   stats:
-    - title: "Founded In"
-      value: 2010
-    - title: "Total World-wide Users"
-      value: 35
-      suffix: "M"
-    - title: "Business with company"
-      value: 100
+    - title: "Response Time"
+      value: 24
+      suffix: "/7"
+    - title: "AI Implementations"
+      value: 1000
+      suffix: "+"
+    - title: "Enterprise Clients"
+      value: 50
       suffix: "+"
   trusted:
-    title: "We are community builders at heart. Our mission is to build a tool that <br> enables community teams to excel at what they do and to help show it off."
+    title: "Trusted by forward-thinking organizations who choose strategic AI leadership <br> over expensive executive searches and lengthy implementation delays."
     partners:
       - "/images/company/1.gray.svg"
       - "/images/company/2.gray.svg"
@@ -48,74 +49,74 @@ slider:
   - "/images/company/image-2.png"
 
 why:
-  title: "Your future, rewarded"
-  subtitle: "Why Work Here"
+  title: "Why Choose Digital AI Leadership"
+  subtitle: "The Kowalah Advantage"
   image: "/images/company/why.png"
-  badge: "Discover the Perks"
-  reason: "Reflects the benefits you <br> offer and aligns"
-  content: "CrediSure is a cutting-edge financial technology platform offering <br> secure, seamless financial services ranging from credit scoring."
+  badge: "Strategic Benefits"
+  reason: "Beyond traditional consulting <br> and executive search"
+  content: "Kowalah delivers executive-level AI leadership that combines the strategic thinking of a seasoned CAIO <br> with the collective intelligence from thousands of successful AI implementations."
   points:
-    - title: "More Than Just a Job"
+    - title: "Immediate Availability"
       icon: "rocket"
-      content: "The world of recruitment is undergoing a significant transformation."
-    - title: "Invest in Your Well-being"
+      content: "Get expert AI leadership from day one, not after 6-12 months of executive search and onboarding."
+    - title: "Collective Intelligence"
       icon: "bullseye"
-      content: "The world of recruitment is undergoing a significant transformation."
+      content: "Benefit from insights across thousands of AI implementations, vendor evaluations, and best practices."
 
 job:
-  title: "Open Positions"
-  subtitle: "Featured Jobs"
+  title: "Join Our Mission"
+  subtitle: "Career Opportunities"
   jobs:
-    - title: "Product Designer"
-      description: "Generalist role responsible for the entire design process for product."
+    - title: "AI Strategy Director"
+      description: "Lead development of AI leadership frameworks and strategic guidance systems for enterprise clients."
       details:
         [
-          { info: "Stonehenge, England", icon: "location_pin" },
-          { info: "Part Time", icon: "case" },
-          { info: "10-100k", icon: "euro" },
-        ]
-    - title: "UX Designer"
-      description: "Focused on user experience and interaction design"
-      details:
-        [
-          { info: "Colosseum, Rome, Italy", icon: "location_pin" },
-          { info: "Part Time", icon: "case" },
-          { info: "20k-80k", icon: "euro" },
-        ]
-    - title: "Interaction Designer"
-      description: "Designs physical products, considering factors like usability, aesthetics, and functionality"
-      details:
-        [
-          { info: "Angkor Wat, Cambodia", icon: "location_pin" },
+          { info: "London, UK / Remote", icon: "location_pin" },
           { info: "Full Time", icon: "case" },
-          { info: "20k-80k", icon: "euro" },
+          { info: "80k-120k", icon: "euro" },
         ]
-    - title: "Industrial Designer"
-      description: "Specializes in designing intuitive and engaging user interactions"
+    - title: "Senior AI Engineer"
+      description: "Build and enhance our Digital CAIO platform with cutting-edge AI and LLM technologies."
       details:
         [
-          { info: "Acropolis, Athens, Greece", icon: "location_pin" },
-          { info: "Part Time", icon: "case" },
-          { info: "120k-160k", icon: "euro" },
+          { info: "London, UK / Remote", icon: "location_pin" },
+          { info: "Full Time", icon: "case" },
+          { info: "70k-100k", icon: "euro" },
         ]
-    - title: "Motion Designer"
-      description: "Similar to graphic designer, focusing on visual elements and aesthetics"
+    - title: "Enterprise Customer Success"
+      description: "Guide C-suite executives through their AI transformation journey and ensure implementation success."
       details:
         [
-          { info: "Notre Dame, France", icon: "location_pin" },
-          { info: "Part Time", icon: "case" },
-          { info: "80k-100k", icon: "euro" },
+          { info: "London, UK / Remote", icon: "location_pin" },
+          { info: "Full Time", icon: "case" },
+          { info: "60k-90k", icon: "euro" },
         ]
-    - title: "Design Manager"
-      description: "Ensures designs are accessible to users with disabilities"
+    - title: "AI Implementation Consultant"
+      description: "Deliver Expert Requests and hands-on AI implementation support for enterprise clients."
       details:
         [
-          { info: "Mount Rushmore, USA", icon: "location_pin" },
-          { info: "Part Time", icon: "case" },
-          { info: "10-100k", icon: "euro" },
+          { info: "London, UK / Remote", icon: "location_pin" },
+          { info: "Contract", icon: "case" },
+          { info: "500-800/day", icon: "euro" },
+        ]
+    - title: "Product Manager - Enterprise AI"
+      description: "Drive product strategy for enterprise AI leadership features and integrations."
+      details:
+        [
+          { info: "London, UK / Remote", icon: "location_pin" },
+          { info: "Full Time", icon: "case" },
+          { info: "75k-110k", icon: "euro" },
+        ]
+    - title: "AI Research Analyst"
+      description: "Research AI trends, vendor landscape, and best practices to enhance our Digital CAIO intelligence."
+      details:
+        [
+          { info: "London, UK / Remote", icon: "location_pin" },
+          { info: "Full Time", icon: "case" },
+          { info: "45k-65k", icon: "euro" },
         ]
 
 faq:
-  title: "Frequently Asked Questions"
-  subtitle: "FAQs and Instant Answer"
+  title: "About Digital AI Leadership"
+  subtitle: "Common Questions About Kowalah"
 ---
