@@ -16,10 +16,11 @@ Our Kowalah repositories consist of these - all within the kowalah-dev Github or
 ## Important Documentation
 
 - Astro MCP Server - use this to get implementation and configuration guidance on the Astro web framework
-- Syncmaster Astro Theme docs - from Theefisher give instructions on config for the theme we purchased https://docs.themefisher.com/syncmaster-astro
+- Syncmaster Astro Theme docs - from Themefisher (original template foundation) https://docs.themefisher.com/syncmaster-astro
 - @docs/product-overview.md provides detailed overview of the Kowalah application, value proposition and target market
-- @docs/context/messaging-framework.md
-- @docs/context/positioning-canvas.md
+- @docs/context/messaging-framework.md explains how we communicate aobout Kowalah
+- @docs/context/positioning-canvas.md explains how we position Kowalah against competing solutions
+- @docs/context/executive-visual-style-guide.md provides our image and visual appearance
 - @docs/sanity-integration.md explains how our Astro project pulls content from our Sanity CMS
 
 ## Development Commands
@@ -45,23 +46,23 @@ Our Kowalah repositories consist of these - all within the kowalah-dev Github or
 - **TypeScript:** Full TypeScript support with strict configuration
 
 ### Site Configuration
-- **Base URL:** https://syncmaster-astro.vercel.app/
-- **Site Title:** SyncMaster
+- **Base URL:** https://www.kowalah.com/
+- **Site Title:** Kowalah
 - **Theme:** System-based dark/light mode with sticky header disabled
 - **Search:** Enabled site-wide search functionality
 
 ### Content Architecture
 Uses Astro's Content Collections with comprehensive Zod schemas for:
-- **Homepage:** Hero sections, features, benefits, pricing plans
-- **Insights:** Blog posts with categories, authors, and dates
-- **Case Studies:** Portfolio items with stats and hero sections  
-- **Company:** About page with stats, team slider, job listings
-- **Pricing:** Plans with monthly/yearly toggle and feature comparison
-- **Contact:** Contact forms and company information
-- **Features:** Product feature showcases
-- **Integrations:** Third-party integration listings
-- **FAQ:** Frequently asked questions
-- **Changelog:** Product updates and version history
+- **Homepage:** Hero sections with Digital CAIO positioning, 7 core AI capabilities, value propositions, pricing tiers
+- **Insights:** AI leadership and industry transformation content
+- **Case Studies:** AI implementation success stories and ROI metrics
+- **Company:** Kowalah story, team, AI expertise, and career opportunities
+- **Pricing:** Digital AI Leadership plans (Free, Individual, Digital, Essential, Executive, Enterprise)
+- **Contact:** Lead generation forms for executive prospects
+- **Features:** 7 core AI leadership capabilities showcase
+- **Integrations:** Enterprise system connections (Slack, Teams, CRM, ERP)
+- **FAQ:** Digital Chief AI Officer and Expert Requests questions
+- **Reviews:** Executive testimonials and organizational outcomes
 
 ### Project Structure
 ```
@@ -112,11 +113,29 @@ TypeScript path mapping configured for:
 - **SEO:** Comprehensive meta tags and Open Graph support
 
 ### Development Workflow
-1. Content is managed through markdown files in `/src/content/`
+1. Content is managed through markdown files in `/src/content/` with Kowalah-specific schemas
 2. Each content type has a strict Zod schema for validation
 3. Components are organized by purpose (layouts, shortcodes, partials)
 4. Styles follow a modular approach with utilities and components
 5. TypeScript ensures type safety across the entire project
+6. Content migration follows phased approach: Foundation → Content → Pages → Integration → Testing
+
+## Kowalah Content Migration Status
+
+### Completed Phases
+- ✅ **Phase 1:** Foundation setup with Kowalah branding and infrastructure
+- ✅ **Task 2.1:** Homepage content updated with Digital CAIO positioning
+
+### Current Content Strategy
+- **Target Audience:** CEOs at mid-sized enterprises (1,000-10,000 employees)  
+- **Value Proposition:** Digital Chief AI Officer platform vs. hiring human CAIO
+- **Core Capabilities:** 7 AI leadership domains (Strategy, C-Suite, Governance, Talent, Implementation, Development, Change)
+- **Pricing Model:** 6 tiers from Free (£0) to Enterprise (£50,000+/month)
+
+### Brand Guidelines
+- **Executive-level messaging:** Professional, strategic, authoritative tone
+- **Competitive positioning:** vs. human CAIO hiring, consultants, DIY approaches
+- **Key differentiators:** Immediate availability, 24/7 access, collective intelligence, zero turnover risk
 
 ## Performance & Production
 - **Image optimization:** Sharp for image processing and optimization
