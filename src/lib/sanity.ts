@@ -177,5 +177,21 @@ export const queries = {
     "categories": categories[]->title,
     publishedAt,
     featured
+  }`,
+
+  // Legal pages (terms, privacy policy, etc.)
+  legalPage: (slug: string) => `*[_type == "legalPage" && slug.current == "${slug}"][0] {
+    ${commonFields}
+    title,
+    slug,
+    pageType,
+    effectiveDate,
+    lastUpdated,
+    content,
+    seo {
+      title,
+      description,
+      keywords
+    }
   }`
 };

@@ -103,6 +103,10 @@
           "url": "/career"
         },
         {
+          "name": "Terms & Conditions",
+          "url": "/terms-and-conditions"
+        },
+        {
           "name": "Privacy Policy",
           "url": "/privacy-policy"
         }

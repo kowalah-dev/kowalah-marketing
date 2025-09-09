@@ -24,16 +24,16 @@
     "copyright": "Copyright 2025, All Rights Reserved by Kowalah",
     "footer_text": "Kowalah is your Digital Chief AI Officer, providing executive-level AI leadership and strategy guidance to transform your organization's AI journey from confusion to confidence.",
     "award": {
-      "enable": true,
+      "enable": false,
       "title": "Golden Partner Award",
       "badges": [
         {
           "image": "/images/award-1.png",
-          "link": "https://themefisher.com/"
+          "link": "#"
         },
         {
           "image": "/images/award-2.png",
-          "link": "https://themefisher.com/"
+          "link": "#"
         }
       ]
     },
@@ -54,7 +54,7 @@
 
   "disqus": {
     "enable": true,
-    "shortname": "themefisher-template",
+    "shortname": "kowalah-marketing",
     "settings": {}
   },
 

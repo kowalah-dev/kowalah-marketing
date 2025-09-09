@@ -13,9 +13,9 @@
 ## Brand Color System
 
 ### Primary Colors
-- **Deep Executive Blue:** #1e3a8a - Primary brand color, conveys trust, stability, and strategic thinking
-- **Professional Blue:** #3b82f6 - Secondary blue for interfaces and supporting elements
-- **Kowalah Accent Pink:** #fa26a0 - Used sparingly for CTAs, key highlights, and brand moments
+- **Kowalah Primary Pink:** #fa26a0 - Primary brand color, sophisticated and authoritative
+- **Kowalah Secondary Purple:** #ae10e3 - Secondary brand color, creates elegant gradients with primary
+- **Primary Gradient:** Pink to purple (`from-primary to-secondary`) - Core brand expression for CTAs and key elements
 
 ### Supporting Palette
 - **Sophisticated Grays:** #64748b (medium), #94a3b8 (light), #475569 (dark)
@@ -66,7 +66,7 @@
 ### Illustration Aesthetic
 - **Style:** Clean, modern, minimalist with strategic color usage
 - **Complexity:** Sophisticated but not overcomplicated
-- **Color Usage:** Primarily blues and grays with strategic pink accents
+- **Color Usage:** Sophisticated grays as foundation with strategic pink-purple gradient accents
 - **Elements:** Geometric shapes, clean lines, professional iconography
 
 ## AI Image Generation Prompt Template
@@ -77,8 +77,8 @@ Create a [SIZE/ASPECT RATIO] professional business photograph/illustration featu
 Visual Style:
 - High-quality professional photography aesthetic (not pop art or cartoon)
 - Sophisticated corporate environment
-- Color palette: Deep blues (#1e3a8a, #3b82f6), sophisticated grays (#64748b, #94a3b8), clean whites
-- Strategic use of hot pink/magenta (#fa26a0) for key accent elements only
+- Color palette: Sophisticated grays (#64748b, #94a3b8, #475569), clean whites and neutrals
+- Strategic use of Kowalah brand pink (#fa26a0) and purple (#ae10e3) for key brand moments and gradients
 - Professional lighting with soft shadows
 - Clean, uncluttered composition
 
@@ -183,7 +183,8 @@ Avoid: Comic book styles, pop art aesthetics, casual startup environments, overl
 
 ### Logo Usage
 - Do NOT include "Kowalah" text or logos in AI-generated imagery
-- Hot pink accent color (#fa26a0) serves as brand recognition element
+- Kowalah primary pink (#fa26a0) and secondary purple (#ae10e3) serve as brand recognition elements
+- Use pink-purple gradient for key brand moments and CTAs
 - Maintain clean, professional aesthetic without explicit branding
 
 ### Consistency Requirements
