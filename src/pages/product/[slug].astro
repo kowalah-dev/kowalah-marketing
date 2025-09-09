@@ -5,6 +5,8 @@ import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 import Button from "@/shortcodes/Button";
+import AcceleratorCarousel from "@/components/AcceleratorCarousel.astro";
+import { getFeaturedAcceleratorsForCarousel } from "@/lib/accelerators";
 import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
 import { getCollection, getEntry } from "astro:content";
@@ -33,6 +35,8 @@ const {
   competitive_advantage,
   use_cases,
   integrations,
+  social_proof,
+  featured_accelerators,
   conversion
 } = product.data;
 
@@ -41,6 +45,9 @@ const call_to_action = (await getEntry(
   "sections",
   "call-to-action"
 )) as CollectionEntry<"sections">;
+
+// Get featured accelerators from data file
+const featuredAccelerators = getFeaturedAcceleratorsForCarousel();
 ---
 
 <Base title={title} meta_title={meta_title} description={description}>
@@ -276,6 +283,14 @@ const call_to_action = (await getEntry(
         </div>
       </div>
     </section>
+  )}
+
+  {featuredAccelerators && featuredAccelerators.length > 0 && (
+    <AcceleratorCarousel
+      title="Explore Real Accelerators from Our Platform"
+      subtitle="See the quality and depth of our implementation-ready AI solutions. These are actual accelerators used by organizations worldwide."
+      accelerators={featuredAccelerators}
+    />
   )}
 
   {conversion && (

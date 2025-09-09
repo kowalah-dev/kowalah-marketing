@@ -5,23 +5,11 @@
       "url": "",
       "hasChildren": true,
       "children": [
-        { "name": "Platform Overview", "url": "/product" },
-        { "name": "AI Strategy & Vision", "url": "/product/strategy" },
-        {
-          "name": "Implementation & Performance",
-          "url": "/product/implementation"
-        },
-        { "name": "Governance & Risk", "url": "/product/governance" },
-        {
-          "name": "Team & Change Management",
-          "url": "/product/team-management"
-        },
-        { "name": "Expert Services", "url": "/product/expert-services" },
-        {
-          "name": "Accelerators & Integrations",
-          "url": "/product/accelerators"
-        },
-        { "name": "Trust & Security", "url": "/product/security" }
+        { "name": "Product Overview", "url": "/product" },
+        { "name": "Digital Chief AI Officer", "url": "/product/digital-caio" },
+        { "name": "Projects", "url": "/product/projects" },
+        { "name": "Expert Requests", "url": "/product/expert-requests" },
+        { "name": "Accelerators", "url": "/product/accelerators" }
       ]
     },
     {

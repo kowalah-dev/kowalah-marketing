@@ -1,0 +1,208 @@
+---
+import AcceleratorCard from "./AcceleratorCard.astro";
+
+interface FeaturedAccelerator {
+  image: string;
+  title: string;
+  type: string;
+  difficulty: string;
+  description: string;
+  outcomes: string[];
+  link?: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  accelerators: FeaturedAccelerator[];
+}
+
+const { title, subtitle, accelerators } = Astro.props;
+---
+
+<section class="section bg-light/30">
+  <div class="container">
+    {title && (
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <div class="text-center mb-12">
+            <h2 class="h2 mb-4" data-aos="fade-up-sm">
+              {title}
+            </h2>
+            {subtitle && (
+              <p class="text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
+                {subtitle}
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+    )}
+
+    <!-- Carousel Container -->
+    <div class="row">
+      <div class="col-12">
+        <div 
+          class="accelerator-carousel overflow-hidden pb-8"
+          data-aos="fade-up-sm" 
+          data-aos-delay="100"
+        >
+          <div class="swiper-wrapper pb-4">
+            {accelerators.map((accelerator, index) => (
+              <div class="swiper-slide h-[600px] flex">
+                <AcceleratorCard
+                  image={accelerator.image}
+                  title={accelerator.title}
+                  type={accelerator.type}
+                  difficulty={accelerator.difficulty}
+                  description={accelerator.description}
+                  outcomes={accelerator.outcomes}
+                  link={accelerator.link}
+                />
+              </div>
+            ))}
+          </div>
+          
+          <!-- Pagination -->
+          <div class="swiper-pagination accelerator-pagination mt-8"></div>
+          
+          <!-- Navigation -->
+          <div class="swiper-button-prev accelerator-prev"></div>
+          <div class="swiper-button-next accelerator-next"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .accelerator-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Ensure swiper container stays within bounds */
+  .accelerator-carousel .swiper-wrapper {
+    will-change: transform;
+  }
+  
+  .accelerator-pagination .swiper-pagination-bullet {
+    background: #94a3b8;
+    opacity: 0.7;
+    width: 12px;
+    height: 12px;
+  }
+  
+  .accelerator-pagination .swiper-pagination-bullet-active {
+    background: #fa26a0;
+    opacity: 1;
+  }
+  
+  .accelerator-prev,
+  .accelerator-next {
+    color: #475569;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+  
+  .accelerator-prev:hover,
+  .accelerator-next:hover {
+    background: #fa26a0;
+    color: white;
+  }
+  
+  .accelerator-prev:after,
+  .accelerator-next:after {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  /* Ensure navigation buttons stay within container bounds */
+  .accelerator-prev {
+    left: 10px;
+  }
+  
+  .accelerator-next {
+    right: 10px;
+  }
+</style>
+
+<script>
+  import { Swiper } from "swiper";
+  import "swiper/css";
+  import "swiper/css/pagination";
+  import "swiper/css/navigation";
+  import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
+  document.addEventListener("astro:page-load", () => {
+    const acceleratorCarousel = new Swiper(".accelerator-carousel", {
+      modules: [Pagination, Navigation, Autoplay],
+      slidesPerView: 1,
+      spaceBetween: 24,
+      autoHeight: false,
+      watchSlidesProgress: true,
+      touchEventsTarget: 'container',
+      allowTouchMove: true,
+      touchRatio: 1,
+      touchAngle: 45,
+      preventInteractionOnTransition: true,
+      simulateTouch: true,
+      touchStartPreventDefault: false,
+      touchMoveStopPropagation: true,
+      shortSwipes: true,
+      longSwipes: true,
+      longSwipesRatio: 0.5,
+      longSwipesMs: 300,
+      followFinger: true,
+      threshold: 10,
+      touchStartForcePreventDefault: false,
+      resistance: true,
+      resistanceRatio: 0.85,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+      pagination: {
+        el: ".accelerator-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".accelerator-next",
+        prevEl: ".accelerator-prev",
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 24,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 32,
+        },
+      },
+      on: {
+        touchStart: function() {
+          // Prevent page scroll when touching carousel
+          document.body.style.overflow = 'hidden';
+        },
+        touchEnd: function() {
+          // Restore page scroll after carousel interaction
+          document.body.style.overflow = '';
+        }
+      }
+    });
+  });
+</script>

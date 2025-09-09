@@ -1,0 +1,225 @@
+{
+  "types": {
+    "Prompt": {
+      "name": "Prompt",
+      "color": "purple-500",
+      "icon": "message",
+      "description": "Ready-to-use prompts for specific business functions"
+    },
+    "GPT": {
+      "name": "GPT",
+      "color": "blue-500",
+      "icon": "robot",
+      "description": "Custom GPT applications for specialized workflows"
+    },
+    "Integration": {
+      "name": "Integration",
+      "color": "cyan-500",
+      "icon": "link",
+      "description": "Tools for connecting AI with existing systems"
+    },
+    "Code": {
+      "name": "Code",
+      "color": "green-500",
+      "icon": "code",
+      "description": "Code templates and development resources"
+    },
+    "Training Materials": {
+      "name": "Training Materials",
+      "color": "orange-500",
+      "icon": "education",
+      "description": "Educational content and workshop materials"
+    },
+    "Template": {
+      "name": "Template",
+      "color": "rose-500",
+      "icon": "document",
+      "description": "Document templates and frameworks"
+    }
+  },
+  "accelerators": [
+    {
+      "id": "deep-research-prompt-writer",
+      "title": "Deep Research Prompt Writer",
+      "description": "A GPT that creates a detailed prompt to use when requesting Deep Research reports",
+      "type": "GPT",
+      "difficulty": "Intermediate",
+      "image": "/images/product/screenshots/accelerator-detail-portrait-1.png",
+      "duration": "15 min implementation",
+      "outcomes": [
+        "Structured research prompts for complex topics",
+        "Consistent analysis format across reports", 
+        "30-minute time savings per research task"
+      ],
+      "featured": true
+    },
+    {
+      "id": "ai-policy-generator",
+      "title": "AI Policy Generator",
+      "description": "A single prompt to help senior executives create, improve, or edit their company-wide AI policy.",
+      "type": "Prompt",
+      "difficulty": "Beginner",
+      "image": "/images/accelerators/AI Policy Generator.png",
+      "duration": "5 min implementation",
+      "outcomes": [
+        "Complete AI-positive company policy",
+        "Clear governance and compliance framework",
+        "Employee empowerment and safety guidelines"
+      ],
+      "featured": true
+    },
+    {
+      "id": "chatgpt-101-video-session",
+      "title": "ChatGPT 101 - Video Session",
+      "description": "A 60 minute recording of our ChatGPT 101 session",
+      "type": "Training Materials",
+      "difficulty": "Beginner",
+      "image": "/images/accelerators/ChatGPT 101 - Video Session.png",
+      "duration": "60 minutes",
+      "outcomes": [
+        "Foundational ChatGPT knowledge and skills",
+        "Practical prompt engineering techniques",
+        "Ready-to-use productivity workflows"
+      ],
+      "featured": true
+    },
+    {
+      "id": "executive-ai-readiness-assessment",
+      "title": "Executive AI Readiness Assessment",
+      "description": "Comprehensive evaluation framework for leadership teams to assess organizational AI readiness and create strategic roadmaps.",
+      "type": "Template",
+      "difficulty": "Intermediate",
+      "image": "/images/product/mockups/ai-accelerators-dashboard.png",
+      "duration": "4-6 hours",
+      "outcomes": [
+        "Complete AI readiness assessment score",
+        "18-month strategic implementation roadmap", 
+        "Clear resource and budget requirements"
+      ],
+      "featured": true
+    },
+    {
+      "id": "chatgpt-desktop",
+      "title": "ChatGPT Desktop",
+      "description": "Complete setup guide and optimization tips for ChatGPT desktop application to maximize productivity and workflow integration.",
+      "type": "Integration",
+      "difficulty": "Beginner",
+      "image": "/images/accelerators/ChatGPT Desktop.png",
+      "duration": "15 min setup",
+      "outcomes": [
+        "Streamlined desktop AI workflow",
+        "Keyboard shortcuts and productivity hacks",
+        "Seamless workflow integration"
+      ],
+      "featured": true
+    },
+    {
+      "id": "find-a-gpt",
+      "title": "Find a GPT",
+      "description": "Comprehensive directory and evaluation framework for discovering, testing, and implementing the right GPTs for your specific business needs.",
+      "type": "Template", 
+      "difficulty": "Intermediate",
+      "image": "/images/accelerators/Find a GPT.png",
+      "duration": "30 min",
+      "outcomes": [
+        "Curated GPT discovery process",
+        "Business-specific GPT recommendations",
+        "Implementation and evaluation framework"
+      ],
+      "featured": true
+    },
+    {
+      "id": "playing-to-win-strategy-coach",
+      "title": "Playing to Win Strategy Coach",
+      "description": "AI-powered strategic planning assistant based on the Playing to Win framework for executives developing competitive strategies.",
+      "type": "GPT",
+      "difficulty": "Advanced",
+      "image": "/images/accelerators/Playing To Win Strategy Coach.png", 
+      "duration": "45 min",
+      "outcomes": [
+        "Complete strategic planning framework",
+        "Competitive positioning analysis",
+        "Actionable strategic recommendations"
+      ],
+      "featured": true
+    },
+    {
+      "id": "prompt-writer",
+      "title": "Prompt Writer",
+      "description": "Professional prompt engineering tool that helps you craft, test, and refine high-quality prompts for any AI application or business use case.",
+      "type": "GPT",
+      "difficulty": "Intermediate", 
+      "image": "/images/accelerators/Prompt Writer.png",
+      "duration": "20 min",
+      "outcomes": [
+        "Professional-grade prompt templates",
+        "Iterative prompt improvement process", 
+        "Cross-platform prompt optimization"
+      ],
+      "featured": true
+    },
+    {
+      "id": "chatgpt-enterprise-rollout-plan",
+      "title": "90-Day ChatGPT Enterprise Rollout Plan",
+      "description": "Complete deployment framework for ChatGPT Enterprise including phased rollout, training schedules, success metrics, and change management strategies.",
+      "type": "Template",
+      "difficulty": "Advanced",
+      "image": "/images/product/mockups/ai-accelerators-dashboard.png",
+      "duration": "90 days",
+      "outcomes": ["Enterprise deployment success", "85%+ adoption rates", "Measurable productivity gains"],
+      "featured": false
+    },
+    {
+      "id": "roi-measurement-toolkit",
+      "title": "AI ROI Measurement Toolkit",
+      "description": "Comprehensive frameworks for measuring and demonstrating AI initiative success and value.",
+      "type": "Template",
+      "difficulty": "Intermediate",
+      "image": "/images/product/screenshots/accelerator-detail-landscape-1.png",
+      "duration": "1-2 hours setup",
+      "outcomes": ["Complete ROI calculation framework", "Executive-ready dashboards", "Quantified success metrics"],
+      "featured": false
+    },
+    {
+      "id": "prompt-engineering-workshop",
+      "title": "Prompt Engineering Workshop Materials",
+      "description": "Hands-on workshop materials for teaching effective prompt engineering with exercises and evaluation frameworks.",
+      "type": "Training Materials",
+      "difficulty": "Intermediate",
+      "image": "/images/product/screenshots/accelerator-detail-portrait-1.png",
+      "duration": "3 hours",
+      "outcomes": ["Advanced prompt engineering skills", "Quality evaluation methods", "Professional prompt library"],
+      "featured": false
+    },
+    {
+      "id": "sales-ai-workflow-templates",
+      "title": "Sales Team AI Workflow Templates",
+      "description": "Ready-to-use AI workflows specifically designed for sales teams with CRM integration guides.",
+      "type": "Template",
+      "difficulty": "Beginner",
+      "image": "/images/product/screenshots/accelerator-detail-portrait-2.png",
+      "duration": "1 hour setup",
+      "outcomes": ["Automated prospecting workflows", "Improved customer communication", "Seamless CRM integration"],
+      "featured": false
+    },
+    {
+      "id": "ai-ethics-policy-framework",
+      "title": "AI Ethics Policy Framework",
+      "description": "Comprehensive ethical AI framework including bias detection, fairness guidelines, and transparency requirements.",
+      "type": "Template",
+      "difficulty": "Advanced",
+      "image": "/images/product/screenshots/accelerator-detail-landscape-1.png",
+      "duration": "4-6 hours",
+      "outcomes": ["Complete ethics policy document", "Bias detection processes", "Transparency and compliance guidelines"],
+      "featured": false
+    }
+  ],
+  "featured": [
+    "chatgpt-101-video-session",
+    "ai-policy-generator", 
+    "chatgpt-desktop",
+    "find-a-gpt",
+    "playing-to-win-strategy-coach",
+    "prompt-writer"
+  ]
+}

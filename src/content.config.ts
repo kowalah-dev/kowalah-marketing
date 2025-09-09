@@ -494,6 +494,20 @@ const productCollection = defineCollection({
       success_metrics: z.array(z.string()).optional()
     }).optional(),
     
+    // Featured accelerators carousel
+    featured_accelerators: z.object({
+      title: z.string(),
+      subtitle: z.string().optional(),
+      accelerators: z.array(z.object({
+        image: z.string(),
+        title: z.string(),
+        type: z.string(), // e.g., "Prompt", "GPT", "Template", "Workshop"
+        category: z.string(), // e.g., "AI Strategy", "Training", "Governance"
+        description: z.string(),
+        link: z.string().optional()
+      }))
+    }).optional(),
+    
     // Conversion section
     conversion: z.object({
       title: z.string(),
