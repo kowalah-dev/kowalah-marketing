@@ -255,8 +255,8 @@ const featuredAccelerators = getFeaturedAcceleratorsForCarousel();
   {competitive_advantage && (
     <section class="section bg-light">
       <div class="container">
-        <div class="row justify-center">
-          <div class="lg:col-8 text-center mb-12">
+        <div class="row items-center mb-16">
+          <div class="lg:col-6">
             <h2 class="h2 mb-4" data-aos="fade-up-sm">{competitive_advantage.title}</h2>
             <p class="text-lg text-text-dark mb-6" data-aos="fade-up-sm" data-aos-delay="50">
               {competitive_advantage.subtitle}
@@ -264,6 +264,15 @@ const featuredAccelerators = getFeaturedAcceleratorsForCarousel();
             <p class="text-lg font-medium" data-aos="fade-up-sm" data-aos-delay="100">
               {competitive_advantage.key_message}
             </p>
+          </div>
+          <div class="lg:col-6" data-aos="fade-up-sm" data-aos-delay="150">
+            <ImageMod
+              src="/images/accelerators/accelerators-in-use.png"
+              alt="Executive using AI accelerators in modern business environment"
+              width={600}
+              height={400}
+              class="w-full rounded-xl shadow-lg"
+            />
           </div>
         </div>
         
@@ -286,7 +295,7 @@ const featuredAccelerators = getFeaturedAcceleratorsForCarousel();
       <div class="container">
         <div class="row justify-center">
           <div class="lg:col-8 text-center mb-12">
-            <h2 class="h2" data-aos="fade-up-sm">Executive Use Cases</h2>
+            <h2 class="h2" data-aos="fade-up-sm">What Problems Do Accelerators Solve?</h2>
           </div>
         </div>
         

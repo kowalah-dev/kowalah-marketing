@@ -92,40 +92,34 @@ how_it_works:
 
 competitive_advantage:
   title: "Why Accelerators Beat Building From Scratch"
-  subtitle: "Stop reinventing the wheel. Leverage proven success patterns from thousands of AI implementations."
-  key_message: "Every accelerator represents successful implementations across multiple organizations. You get the collective intelligence of thousands of AI initiatives, not just theoretical frameworks."
+  subtitle: "Stop reinventing the wheel. Use proven success patterns from real AI implementations."
+  key_message: "Every accelerator represents successful implementations across multiple organizations. You get the collective intelligence from every Kowalah implementation, not just theoretical frameworks."
   advantages:
     - point: "Hours Not Months to Implementation"
-      description: "Go from idea to execution in hours instead of spending months figuring out what to build and how to build it effectively."
-    - point: "Proven Success Patterns"
-      description: "Every accelerator is based on successful real-world implementations, eliminating the trial-and-error phase of AI adoption."
-    - point: "Continuous Updates and Improvements"
-      description: "Accelerators evolve based on new successes and learnings, ensuring you always have access to the latest proven approaches."
-    - point: "Expert Curation and Validation"
-      description: "All accelerators are reviewed and validated by AI leadership professionals with deep implementation experience across industries."
-    - point: "Integration-Ready Solutions"
-      description: "Designed to work with your existing tools and processes, not as standalone solutions that require complete workflow changes."
+      description: "Copy a prompt, deploy a GPT, or implement a policy template today. No months of planning, no trial and error, no starting from scratch."
+    - point: "Based on Successful Implementations"
+      description: "Every accelerator comes from organizations that successfully deployed AI. You get their exact templates, prompts, and processes."
+    - point: "Updated from Real User Feedback"
+      description: "When users improve an accelerator or find better approaches, we update the library. You get the latest versions automatically."
+    - point: "Created by AI Implementation Experts"
+      description: "Built by professionals who have guided dozens of enterprise AI rollouts. Not theoretical frameworks - actual working solutions."
 
 use_cases:
-  - scenario: "We need to deploy ChatGPT Enterprise across 2,000 employees but don't know how to ensure adoption"
-    solution: "90-Day ChatGPT Enterprise Rollout Plan with phased deployment, training materials, success metrics, and change management framework"
-    outcome: "Successful enterprise-wide deployment with 85% adoption rate and measurable productivity improvements across all departments"
+  - scenario: "Our employees don't know how to write effective prompts and keep getting generic responses"
+    solution: "Prompt Libraries with ready-to-use templates for one-to-ones, weekly planning, strategic thinking, and decision-making"
+    outcome: "Teams immediately start getting better AI outputs and feel confident using ChatGPT for actual work tasks"
   
-  - scenario: "Our leadership team needs to assess our AI readiness and create a strategic roadmap"
-    solution: "Executive AI Readiness Assessment toolkit with evaluation frameworks, strategic planning templates, and board presentation materials"
-    outcome: "Comprehensive AI strategy with clear priorities, budget requirements, and 18-month implementation roadmap approved by leadership"
+  - scenario: "We want to deploy specific GPTs across our organization but don't know which ones or how to set them up"
+    solution: "Pre-Built GPTs collection including 'Find a GPT', 'Event Organiser', 'Customer Testimonial Gatherer', and 'Strategy Coach'"
+    outcome: "Departments quickly deploy relevant AI assistants and start seeing immediate productivity gains in their specific workflows"
   
-  - scenario: "We want to train department champions to lead AI adoption but lack structured materials"
-    solution: "Department AI Champion Training Kit with role-specific curricula, certification processes, and ongoing support resources"
-    outcome: "Network of 50+ certified AI champions driving adoption with consistent messaging and proven implementation approaches"
+  - scenario: "We need to train our teams on AI but lack structured materials and don't know where to start"
+    solution: "Training & Onboarding Materials including ChatGPT 101 videos, executive decks, and department-specific playbooks"
+    outcome: "Consistent AI knowledge across the organization with everyone speaking the same language about AI capabilities"
   
-  - scenario: "Our teams need better prompts and don't know how to engineer effective AI interactions"
-    solution: "Prompt Engineering Workshop Materials with hands-on exercises, evaluation frameworks, and extensive prompt libraries"
-    outcome: "Team-wide prompt engineering competency with 300% improvement in AI output quality and consistency"
-  
-  - scenario: "We need to measure ROI from our AI initiatives but lack proper frameworks"
-    solution: "ROI Measurement Toolkit with calculation methodologies, tracking templates, and executive reporting dashboards"
-    outcome: "Clear ROI demonstration showing 40% productivity improvements and $2M annual savings from AI implementations"
+  - scenario: "Leadership is asking for AI policies and governance but we don't have the expertise to create them"
+    solution: "Governance & Policy Templates with AI ethics policies, job descriptions, team structures, and risk frameworks"
+    outcome: "Complete AI governance framework implemented in days instead of months of consulting and internal development"
 
 integrations:
   title: "More Than Templates - Connected Solutions"
