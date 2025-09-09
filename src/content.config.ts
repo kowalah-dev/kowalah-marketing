@@ -186,7 +186,7 @@ const homepageCollection = defineCollection({
       button: z.array(
         z.object({ enable: z.boolean(), label: z.string(), link: z.string() }),
       ),
-      customer: z.object({ image: z.array(z.string()), note: z.string() }),
+      customer: z.object({ image: z.array(z.string()), note: z.string() }).optional(),
     }),
     feature: z.object({
       title: z.string(),

@@ -1,76 +1,69 @@
 ---
 hero:
-  title: "Your Digital <br> Chief AI Officer"
-  content: "Transform your organization's AI journey from confusion to confidence with executive-level expertise available 24/7. Get immediate access to strategic AI leadership without the cost and complexity of hiring a human CAIO."
+  title: "Meet your Digital <br> Chief AI Officer"
+  content: "Executive-level AI leadership for CEOs at mid-sized companies — available instantly, without the 6-month search and $375K+ salary of hiring a human CAIO."
   image: "/images/home/banner.png"
   button:
     - enable: true
       label: "Start Free Trial"
-      link: "/pricing"
+      link: "https://app.kowalah.com/sign-up"
     - enable: true
       label: "See How It Works"
-      link: "/features"
-  customer:
-    image:
-      - "/images/home/1.png"
-      - "/images/home/2.png"
-      - "/images/home/3.png"
-      - "/images/home/4.png"
-    note: "Trusted by executives at <br> 1,000+ organizations worldwide"
+      link: "/products"
 
 feature:
   title: "Complete AI Leadership Platform"
   subtitle: "Seven Core Capabilities for AI Success"
   features:
-    - title: "AI Strategy & Vision"
+    - title: "AI Strategy"
       badge: "Strategic Planning"
-      content: "Develop organizational AI strategy aligned with business objectives"
-      description: "Create AI vision statements, strategic roadmaps, conduct readiness assessments, and build compelling business cases for AI investments."
+      content: "Get board-ready AI roadmap that eliminates guesswork and prevents costly mistakes"
+      description: "Stop second-guessing AI decisions. Get a clear strategic roadmap with proven frameworks, compelling business cases, and board-ready presentations that position your company ahead of competitors."
       image: "/images/home/features/1.png"
       button:
         enable: true
         label: "Learn More"
         link: "/features"
-    - title: "C-Suite Collaboration"
+    - title: "Executive Leadership"
       badge: "Executive Leadership"
-      content: "Facilitate AI discussions with board members and executives"
-      description: "Translate technical AI concepts for business stakeholders, manage expectations, and coordinate cross-functional AI initiatives."
+      content: "Navigate AI discussions with confidence - from board meetings to vendor negotiations"
+      description: "Lead AI conversations with authority. Get expert guidance for board presentations, vendor evaluations, and stakeholder communications without needing to become an AI expert yourself."
       image: "/images/home/features/2.png"
       button:
         enable: true
         label: "Learn More"
         link: "/features"
-    - title: "AI Governance & Risk Management"
+    - title: "AI Governance"
       badge: "Risk Mitigation"
-      content: "Establish AI ethics frameworks and responsible AI practices"
-      description: "Develop AI policies, manage regulatory requirements, implement risk assessment strategies, and create incident response procedures."
+      content: "Avoid regulatory pitfalls and competitive risks while moving fast on AI opportunities"
+      description: "Protect your company from AI-related risks while maintaining competitive speed. Get expert guidance on compliance, data protection, and ethical AI practices that satisfy regulators and stakeholders."
       image: "/images/home/features/3.png"
       button:
         enable: true
         label: "Learn More"
         link: "/features"
-    - title: "Talent & Capability Building"
+    - title: "Talent Building"
       badge: "Team Development"
-      content: "Design AI upskilling and training programs for teams"
-      description: "Assess skill gaps, guide talent acquisition, create literacy programs, and develop AI change management strategies."
+      content: "Transform your workforce into AI-powered contributors without expensive training programs"
+      description: "Turn every employee into an AI user. Get customized guidance on skill development, team training, and capability building that actually increases productivity without breaking your budget."
       image: "/images/home/features/4.png"
       button:
         enable: true
         label: "Learn More"
         link: "/features"
-    - title: "AI Implementation & Performance"
+    - title: "AI Implementation"
       badge: "Technical Excellence"
-      content: "Guide AI technology selection and vendor evaluation"
-      description: "Oversee AI project planning, monitor system performance, manage infrastructure decisions, and coordinate integration with existing systems."
+      content: "Scale successful AI pilots across your organization without technical headaches"
+      description: "Move beyond proof-of-concepts to real business impact. Get expert guidance on technology selection, vendor management, and system integration that delivers results, not just reports."
       image: "/images/home/features/5.png"
       button:
         enable: true
         label: "Learn More"
         link: "/features"
-    - title: "App & Prompt Development"
+    - title: "Prompt Development"
       badge: "Custom Solutions"
-      content: "Provide guidance on building internal AI applications"
-      description: "Support prompt engineering, AI workflow design, tool customization, and integration of AI capabilities into business processes."
+      content: "Deploy custom AI solutions that actually work for your business processes"
+      description: "Stop wasting time on ineffective AI tools. Get custom prompts, workflows, and applications built specifically for your business needs through our Expert Requests - delivered, not just advised."
       image: "/images/home/features/6.png"
       button:
         enable: true
@@ -78,8 +71,8 @@ feature:
         link: "/features"
     - title: "Change Management"
       badge: "Transformation"
-      content: "Lead organizational AI transformation initiatives"
-      description: "Manage resistance to AI adoption, design communication strategies, support business process redesign, and facilitate adoption across departments."
+      content: "Drive organization-wide AI adoption that sticks - no resistance, no delays"
+      description: "Overcome organizational resistance and achieve lasting AI transformation. Get proven change management strategies, communication frameworks, and adoption techniques that actually work across departments."
       image: "/images/home/features/7.png"
       button:
         enable: true

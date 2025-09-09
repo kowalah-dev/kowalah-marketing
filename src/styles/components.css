@@ -175,7 +175,7 @@
 
 .hero {
   .hero-title {
-    @apply mb-5 text-balance text-4xl md:text-[2.5rem] lg:text-[3rem] 2xl:text-[4rem] leading-[43px] md:leading-[48px] xl:leading-[77px];
+    @apply mb-5 text-balance text-5xl md:text-[3.5rem] lg:text-[4.5rem] 2xl:text-[5.5rem] leading-[50px] md:leading-[60px] xl:leading-[90px];
   }
   .hero-content {
     @apply text-xl leading-9 text-balance text-text;

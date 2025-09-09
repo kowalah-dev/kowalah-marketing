@@ -1,10 +1,10 @@
 ---
 enable: true
-title: "Build modern SaaS website in days!"
-image: "/images/call-to-action.png"
-description: "A single license includes 6 months of free support + free lifetime updates."
+title: "Ready to Transform Your AI Strategy?"
+image: "/images/home/banner.png"
+description: "Join 100+ organizations using Kowalah to accelerate AI adoption. Get executive-level AI leadership available 24/7."
 button:
   enable: true
-  label: "Get This Template"
-  link: "https://themefisher.com/products/syncmaster-astro"
+  label: "Start Free Trial"
+  link: "https://app.kowalah.com/sign-up"
 ---

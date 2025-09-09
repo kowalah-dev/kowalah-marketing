@@ -56,10 +56,11 @@ const { feature } = Astro.props;
                     <div class="flex flex-col lg:flex-row">
                       <ImageMod
                         src={item.image}
-                        width={312}
-                        height={400}
+                        width={624}
+                        height={800}
                         alt={item.title}
-                        class="object-cover max-lg:mx-auto p-5 md:p-0"
+                        quality="max"
+                        class="object-cover max-lg:mx-auto p-5 md:p-0 w-[312px] h-[400px]"
                       />
                       <div class="p-5 md:p-10">
                         <p

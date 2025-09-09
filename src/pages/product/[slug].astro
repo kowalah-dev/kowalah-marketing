@@ -84,9 +84,12 @@ const featuredAccelerators = getFeaturedAcceleratorsForCarousel();
               <ImageMod
                 src={hero.product_screenshot}
                 alt={title}
-                width={1200}
-                height={800}
+                width={2400}
+                height={1600}
                 class="w-full rounded-3xl shadow-2xl"
+                loading="lazy"
+                decoding="async"
+                style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
               />
             </div>
           </div>

@@ -8,7 +8,7 @@ hero:
   subtitle: "Stop staring at blank ChatGPT screens. Get 50+ pre-built AI solutions your team can copy and implement today."
   cta_primary:
     label: "Start Free Trial"
-    link: "https://kowalah.com/signup"
+    link: "https://kowalah.com/sign-up"
     subtext: "Explore accelerators • Upgrade to access full library"
   product_screenshot: "/images/product/mockups/ai-accelerators-dashboard.png"
 
@@ -17,7 +17,7 @@ problem_solution:
   problem_statement: "Organizations spend months figuring out how to use AI effectively, often abandoning initiatives due to complexity and uncertainty. Teams stare at blank ChatGPT screens, not knowing what to build or how to start meaningful AI adoption."
   solution_overview: "AI Accelerators provide proven templates, frameworks, and step-by-step guidance for immediate implementation. Like Lego instruction manuals, they show you exactly what you can build before you start - eliminating guesswork and accelerating results."
   trust_elements:
-    - "50+ proven accelerators across 4 categories"
+    - "50+ proven accelerators across 8 categories"
     - "Used by 100+ organizations for faster AI adoption"
     - "Significant reduction in implementation time"
     - "Implementation-ready with no customization required"
@@ -70,8 +70,8 @@ capabilities:
     value_proposition: "Implement comprehensive AI governance in days, not months, with battle-tested templates from successful organizations."
 
 how_it_works:
-  title: "From Confusion to Implementation in 3 Steps"
-  subtitle: "See how accelerators transform AI possibilities into actionable plans your team can execute immediately."
+  title: "From Confusion to Confidence in 3 Steps"
+  subtitle: "Here's how teams actually start using ChatGPT successfully (without the guesswork)."
   steps:
     - step_number: 1
       title: "Browse Our Accelerator Library"
@@ -143,14 +143,6 @@ social_proof:
     - "500+ organizations successfully using accelerators"
     - "$2M+ average annual savings from accelerator-driven implementations"
 
-conversion:
-  title: "Start Your AI Transformation Today"
-  subtitle: "Experience the power of proven AI implementation frameworks. See why teams choose accelerators over building from scratch."
-  offer_description: "Start with a free trial to explore our accelerator library and see the quality of our implementation frameworks. Upgrade to Kowalah Digital or above to access the full collection of 50+ accelerators."
-  cta:
-    label: "Start Free Trial"
-    link: "https://kowalah.com/signup"
-    subtext: "Explore accelerators • No credit card required • Immediate access"
 ---
 
 # AI Accelerators: Your Implementation Lego Kit

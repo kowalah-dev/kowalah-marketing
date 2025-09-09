@@ -43,36 +43,38 @@ const { hero } = Astro.props;
         </div>
       </div>
 
-      <div class="col-12 sm:col-10 lg:col-8 mb-10 md:mb-24">
-        <div class="flex flex-col lg:flex-row gap-5 justify-center">
-          <div
-            class="flex max-lg:mx-auto"
-            data-aos="fade-left-sm"
-            data-aos-delay="300"
-          >
-            {
-              hero.customer.image.map((image: string, i: number) => (
-                <ImageMod
-                  class={`profile-images ${i === 0 && "translate-x-0"} last:mr-[-60px]`}
-                  src={image}
-                  alt="customer-logo"
-                  width={44}
-                  height={44}
-                  style={{
-                    transform: `translateX(${-i * 17}px)`,
-                  }}
-                />
-              ))
-            }
+      {hero.customer && (
+        <div class="col-12 sm:col-10 lg:col-8 mb-10 md:mb-24">
+          <div class="flex flex-col lg:flex-row gap-5 justify-center">
+            <div
+              class="flex max-lg:mx-auto"
+              data-aos="fade-left-sm"
+              data-aos-delay="300"
+            >
+              {
+                hero.customer.image.map((image: string, i: number) => (
+                  <ImageMod
+                    class={`profile-images ${i === 0 && "translate-x-0"} last:mr-[-60px]`}
+                    src={image}
+                    alt="customer-logo"
+                    width={44}
+                    height={44}
+                    style={{
+                      transform: `translateX(${-i * 17}px)`,
+                    }}
+                  />
+                ))
+              }
+            </div>
+            <p
+              set:html={markdownify(hero.customer.note)}
+              class="max-lg:text-center max-lg:mx-auto text-sm max-lg:[&>br]:hidden text-text-dark"
+              data-aos="fade-left-sm"
+              data-aos-delay="400"
+            />
           </div>
-          <p
-            set:html={markdownify(hero.customer.note)}
-            class="max-lg:text-center max-lg:mx-auto text-sm max-lg:[&>br]:hidden text-text-dark"
-            data-aos="fade-left-sm"
-            data-aos-delay="400"
-          />
         </div>
-      </div>
+      )}
 
       <div class="col-12 max-md:px-0">
         <div data-aos="fade-up-sm" data-aos-delay="500">

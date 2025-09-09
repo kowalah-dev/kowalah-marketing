@@ -63,8 +63,7 @@
             "title",
             "content",
             "image",
-            "button",
-            "customer"
+            "button"
           ],
           "additionalProperties": false
         },
