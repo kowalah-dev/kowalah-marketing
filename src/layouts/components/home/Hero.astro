@@ -81,10 +81,13 @@ const { hero } = Astro.props;
           <ImageMod
             src={hero.image}
             alt="hero-image"
-            width={1096}
-            height={382}
+            width={2960}
+            height={1520}
+            quality="max"
             format="webp"
-            class="mx-auto px-4 pt-4 bg-light rounded-t-3xl"
+            loading="eager"
+            decoding="async"
+            class="mx-auto px-4 pt-4 bg-light rounded-t-3xl max-w-full h-auto"
           />
         </div>
       </div>
