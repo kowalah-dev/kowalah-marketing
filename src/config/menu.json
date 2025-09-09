@@ -46,7 +46,7 @@
         { "name": "OpenAI Hub", "url": "/resources/openai" },
         { "name": "Case Studies", "url": "/case-studies" },
         { "name": "Tools & Templates", "url": "/resources/tools" },
-        { "name": "Documentation", "url": "/docs" }
+        { "name": "Documentation", "url": "https://docs.kowalah.com" }
       ]
     },
     { "name": "Pricing", "url": "/pricing" },
@@ -95,7 +95,7 @@
         },
         {
           "name": "Documentation",
-          "url": "/docs"
+          "url": "https://docs.kowalah.com"
         }
       ]
     },

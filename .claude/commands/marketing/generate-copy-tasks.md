@@ -165,13 +165,17 @@ The generated task list _must_ follow this structure:
 **IMPORTANT:** Always read the actual Sanity block schema files from `/sanity/kowalah/schemaTypes/blocks/` to get exact field requirements. Do not rely on generic assumptions.
 
 **Schema Analysis Required:**
-- Read the specific `.ts` file for each block type used in the page design
+- Read `src/content.config.ts` for Astro Collection schemas (e.g., productCollection)
+- For Sanity: Read the specific `.ts` file for each block type used in the page design
 - Extract exact field names, types, and validation rules
 - Note required vs optional fields
-- Identify nested objects (like features arrays, CTA objects)
+- Identify nested objects (like capabilities arrays, use_cases arrays, CTA objects)
 - Check character limits from validation rules
+- For product collection: Note YouTube video support in how_it_works.demo section
 
 **Common Validation Patterns:**
+
+**Sanity CMS:**
 - `headlineValidation`: max 100 characters
 - `subheadlineValidation`: max 200 characters 
 - `buttonTextValidation`: max 30 characters
@@ -179,6 +183,14 @@ The generated task list _must_ follow this structure:
 - Feature descriptions: typically max 200 characters
 - Stats validation: 2-4 items
 - Feature grid validation: 2-8 items
+
+**Astro Collections (Product Collection):**
+- All sections optional except `hero` (required)
+- `capabilities`: Array of capability objects (title, icon, description, details[], value_proposition)
+- `use_cases`: Array of use case objects (scenario, solution, outcome)
+- `how_it_works.demo`: Supports screenshots, YouTube video, or both
+- `competitive_advantage.advantages`: Array of advantage objects (point, description)
+- YouTube video fields: youtube_id (required), title/poster/start_time (optional)
 
 **URL Requirements:**
 - All URL fields need full URLs with protocol (e.g., "https://kowalah.com/signup")

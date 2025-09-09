@@ -40,11 +40,10 @@ To guide an AI assistant in creating a detailed Webpage Design Document in Markd
 - `contact` - Contact forms and information
 - `faq` - Frequently asked questions
 - `pages` - General pages (legal, terms, etc.)
+- `product` - Product showcase pages (Digital CAIO, Expert Requests, AI Accelerators) with flexible schema supporting capabilities, use cases, competitive advantages, and YouTube video demos
 
 **New Collections to Create:**
-- `product` - AI capability pages (Strategy, Implementation, Governance, etc.)
 - `solutions` - Industry and role-based solution pages
-- `openai` - OpenAI-specific content and guidance
 
 **Available Theme Components:**
 - Hero sections (various styles)

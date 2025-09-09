@@ -395,6 +395,119 @@ const sectionsCollection = defineCollection({
   }),
 });
 
+const productCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/product" }),
+  schema: z.object({
+    // Core metadata
+    title: z.string().optional(),
+    meta_title: z.string().optional(),
+    description: z.string().optional(),
+    
+    // Hero section for product value proposition
+    hero: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      cta_primary: z.object({
+        label: z.string(),
+        link: z.string(),
+        subtext: z.string().optional()
+      }),
+      product_screenshot: z.string().optional()
+    }),
+    
+    // Problem/solution positioning (flexible for different products)
+    problem_solution: z.object({
+      title: z.string(),
+      problem_statement: z.string(),
+      solution_overview: z.string(),
+      trust_elements: z.array(z.string())
+    }).optional(),
+    
+    // Product capabilities/features (flexible for different products)
+    capabilities: z.array(z.object({
+      title: z.string(),
+      icon: z.string(),
+      description: z.string(),
+      details: z.array(z.string()), // Tasks, features, or benefits
+      value_proposition: z.string()
+    })).optional(),
+    
+    // How it works demonstration with video support
+    how_it_works: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      steps: z.array(z.object({
+        step_number: z.number(),
+        title: z.string(),
+        description: z.string()
+      })),
+      demo: z.object({
+        type: z.enum(['screenshots', 'video', 'both']), // Specify demo content type
+        screenshots: z.array(z.string()).optional(), // Array of screenshot paths
+        video: z.object({
+          youtube_id: z.string(), // YouTube video ID
+          title: z.string().optional(), // Video title for accessibility
+          poster: z.string().optional(), // Custom thumbnail image
+          start_time: z.number().optional() // Start time in seconds
+        }).optional(),
+        description: z.string()
+      }).optional()
+    }).optional(),
+    
+    // Competitive advantage section
+    competitive_advantage: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      key_message: z.string(),
+      advantages: z.array(z.object({
+        point: z.string(),
+        description: z.string()
+      }))
+    }).optional(),
+    
+    // Use cases/scenarios
+    use_cases: z.array(z.object({
+      scenario: z.string(),
+      solution: z.string(),
+      outcome: z.string()
+    })).optional(),
+    
+    // Integrations section
+    integrations: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      current_state: z.string(),
+      available_integrations: z.array(z.string())
+    }).optional(),
+    
+    // Social proof
+    social_proof: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      testimonials: z.array(z.object({
+        name: z.string(),
+        role: z.string(),
+        company: z.string(),
+        quote: z.string(),
+        metrics: z.string().optional()
+      })).optional(),
+      success_metrics: z.array(z.string()).optional()
+    }).optional(),
+    
+    // Conversion section
+    conversion: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      offer_description: z.string(),
+      cta: z.object({
+        label: z.string(),
+        link: z.string(),
+        subtext: z.string()
+      })
+    }).optional()
+  })
+});
+
 // Export collections
 export const collections = {
   career: careerCollection,
@@ -409,6 +522,7 @@ export const collections = {
   integrations: integrationsCollection,
   pages: pagesCollection,
   pricing: pricingCollection,
+  product: productCollection,
   reviews: reviewsCollection,
   sections: sectionsCollection,
 };
