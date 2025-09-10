@@ -1,0 +1,75 @@
+---
+import Youtube from "@/shortcodes/Youtube";
+
+const { videos, title, subtitle, className = "" } = Astro.props;
+---
+
+<section class={`section ${className}`}>
+  <div class="container">
+    {title && (
+      <div class="mb-14 text-center" data-aos="fade-up-sm" data-aos-delay="100">
+        {subtitle && (
+          <p class="mb-4 text-sm text-gray-600 dark:text-gray-400">
+            {subtitle}
+          </p>
+        )}
+        <h2 class="h2 lg:h1">{title}</h2>
+      </div>
+    )}
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {videos && videos.map((video, index) => (
+        <div 
+          class="group bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300" 
+          data-aos="fade-up-sm" 
+          data-aos-delay={index * 100 + 200}
+        >
+          {/* Video Embed */}
+          <div class="aspect-video rounded-t-xl overflow-hidden">
+            <Youtube 
+              id={video.youtubeId} 
+              title={video.title}
+              client:load
+            />
+          </div>
+          
+          {/* Content */}
+          <div class="p-6">
+            <h3 class="h5 font-medium mb-3 group-hover:text-primary transition-colors duration-200 leading-tight">
+              {video.title}
+            </h3>
+            
+            {video.excerpt && (
+              <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-3 mb-3 leading-relaxed">
+                {video.excerpt}
+              </p>
+            )}
+            
+            {/* Metadata */}
+            <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-500">
+              {video.duration && (
+                <span class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
+                  {video.duration}
+                </span>
+              )}
+              {video.category && (
+                <span class="text-primary font-medium">
+                  {video.category}
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    {/* Empty State */}
+    {(!videos || videos.length === 0) && (
+      <div class="text-center py-16">
+        <p class="text-gray-500 dark:text-gray-400">
+          No videos available at the moment.
+        </p>
+      </div>
+    )}
+  </div>
+</section>

@@ -17,6 +17,7 @@
       "url": "",
       "hasChildren": true,
       "children": [
+        { "name": "ChatGPT Deployment", "url": "/solutions/chatgpt-enterprise-deployment" },
         { "name": "For CEOs", "url": "/solutions/ceos" },
         { "name": "For CIOs", "url": "/solutions/cios" },
         { "name": "For CFOs", "url": "/solutions/cfos" },
@@ -30,6 +31,7 @@
       "hasChildren": true,
       "children": [
         { "name": "Blog & Insights", "url": "/insights" },
+        { "name": "Videos", "url": "/resources/videos" },
         { "name": "Recommended Books", "url": "/resources/recommended-books" },
         { "name": "OpenAI Hub", "url": "/resources/openai" },
         { "name": "Case Studies", "url": "/case-studies" },
@@ -65,6 +67,10 @@
     {
       "title": "RESOURCES",
       "children": [
+        {
+          "name": "Videos",
+          "url": "/resources/videos"
+        },
         {
           "name": "Recommended Books",
           "url": "/resources/recommended-books"
