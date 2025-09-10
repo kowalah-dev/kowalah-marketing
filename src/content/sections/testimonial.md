@@ -1,24 +1,12 @@
 ---
 enable: true
 title: "What our customers are saying"
-subtitle: "The Financial Brighter Application"
+subtitle: "Digital AI Leadership That Drives Results"
 
 testimonials:
-  - name: "Lubahn Digital"
-    designation: "Product Manege"
-    avatar: "/images/testimonial/neitzsche.png"
-    content: "Our conversion rate increased by 30% in just a month after switching to this platform. The automated follow-ups have saved us so much time"
-    image: "/images/testimonial/1.png"
-
-  - name: "Lubahn Ventures"
-    designation: "Product Manege"
-    avatar: "/images/testimonial/neitzsche.png"
-    content: "Switching to this platform boosted our rate by 30% in one month, and automated follow-ups significantly reduced our time manual tasks."
-    image: "/images/testimonial/2.png"
-
-  - name: "Lubahn Digital"
-    designation: "Product Manege"
-    avatar: "/images/testimonial/neitzsche.png"
-    content: "Our conversion rate increased by 30% in just a month after switching to this platform. The automated follow-ups have saved us so much time"
-    image: "/images/testimonial/3.png"
+  - name: "Jonathan Corrie"
+    designation: "CEO at Precursive"
+    avatar: "/images/testimonial/precursive-logo.png"
+    content: "Kowalah's work with our business was transformational and I don't use that term lightly... We just closed a $1.3m TCV deal on Friday that was a direct result of an AI solution that reduced the level of effort for the client by 50 days."
+    image: "/images/testimonial/Jonathan-Corrie-CEO-Precursive-1.jpg"
 ---
