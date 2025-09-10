@@ -420,17 +420,21 @@ const productCollection = defineCollection({
       title: z.string(),
       problem_statement: z.string(),
       solution_overview: z.string(),
-      trust_elements: z.array(z.string())
+      trust_elements: z.array(z.string()),
+      image: z.string().optional() // Product-specific problem/solution image
     }).optional(),
     
     // Product capabilities/features (flexible for different products)
-    capabilities: z.array(z.object({
-      title: z.string(),
-      icon: z.string(),
-      description: z.string(),
-      details: z.array(z.string()), // Tasks, features, or benefits
-      value_proposition: z.string()
-    })).optional(),
+    capabilities: z.object({
+      title: z.string(), // Dynamic section title (e.g., "What Expert Requests Can We Create?")
+      items: z.array(z.object({
+        title: z.string(),
+        icon: z.string(),
+        description: z.string(),
+        details: z.array(z.string()), // Tasks, features, or benefits
+        value_proposition: z.string()
+      }))
+    }).optional(),
     
     // How it works demonstration with video support
     how_it_works: z.object({
@@ -466,11 +470,14 @@ const productCollection = defineCollection({
     }).optional(),
     
     // Use cases/scenarios
-    use_cases: z.array(z.object({
-      scenario: z.string(),
-      solution: z.string(),
-      outcome: z.string()
-    })).optional(),
+    use_cases: z.object({
+      title: z.string(), // Dynamic section title (e.g., "What Problems Do Expert Requests Solve?")
+      items: z.array(z.object({
+        scenario: z.string(),
+        solution: z.string(),
+        outcome: z.string()
+      }))
+    }).optional(),
     
     // Integrations section
     integrations: z.object({
@@ -494,15 +501,15 @@ const productCollection = defineCollection({
       success_metrics: z.array(z.string()).optional()
     }).optional(),
     
-    // Featured accelerators carousel
-    featured_accelerators: z.object({
+    // Featured showcase carousel
+    featured_showcase: z.object({
       title: z.string(),
       subtitle: z.string().optional(),
-      accelerators: z.array(z.object({
+      items: z.array(z.object({
         image: z.string(),
         title: z.string(),
-        type: z.string(), // e.g., "Prompt", "GPT", "Template", "Workshop"
-        category: z.string(), // e.g., "AI Strategy", "Training", "Governance"
+        type: z.string(), // e.g., "Prompt", "GPT", "Template", "Workshop", "Case Study", "Framework"
+        category: z.string(), // e.g., "AI Strategy", "Training", "Governance", "Implementation"
         description: z.string(),
         link: z.string().optional()
       }))

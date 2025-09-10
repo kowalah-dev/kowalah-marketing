@@ -39,7 +39,7 @@ To create properly formatted Astro Content Collection files for the Kowalah mark
 - `contact` - Contact forms and information
 - `faq` - Frequently asked questions
 - `pages` - General pages (legal, terms, etc.)
-- `product` - Product showcase pages with flexible schema supporting hero, capabilities, use cases, competitive advantages, how-it-works with YouTube video support, integrations, social proof, and conversion sections
+- `product` - Product showcase pages with flexible schema supporting hero, capabilities, use cases, competitive advantages, how-it-works with YouTube video support, featured_showcase carousel, integrations, social proof, and conversion sections
 
 **New Collections to Create:**
 - `solutions` - Industry and role-based solution pages

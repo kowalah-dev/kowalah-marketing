@@ -22,75 +22,77 @@ problem_solution:
     - "Zero turnover risk with continuously evolving capabilities"
 
 capabilities:
-  - title: "AI Strategy & Vision"
-    icon: "graph"
-    description: "Develop comprehensive AI strategies aligned with business objectives and competitive positioning."
-    details:
-      - "Create AI vision statements and strategic roadmaps"
-      - "Conduct AI readiness assessments and opportunity identification"
-      - "Build business cases for AI investments with ROI projections"
-      - "Define AI success metrics and KPIs for board reporting"
-    value_proposition: "Transform AI uncertainty into competitive advantage with expert-validated strategic direction."
-  
-  - title: "C-Suite Collaboration"
-    icon: "profile"
-    description: "Facilitate AI discussions and decision-making across executive leadership teams."
-    details:
-      - "Translate technical AI concepts for business stakeholders"
-      - "Facilitate board-level AI strategy discussions"
-      - "Manage AI-related stakeholder expectations and communications"
-      - "Coordinate cross-functional AI initiatives and governance"
-    value_proposition: "Ensure executive alignment on AI strategy with clear communication and shared understanding."
-  
-  - title: "AI Governance & Risk Management"
-    icon: "help"
-    description: "Establish comprehensive AI governance frameworks and risk mitigation strategies."
-    details:
-      - "Develop AI ethics frameworks and responsible AI practices"
-      - "Create AI policies, procedures, and compliance protocols"
-      - "Implement AI risk assessment and mitigation strategies"
-      - "Establish AI incident response and monitoring procedures"
-    value_proposition: "Minimize AI-related risks while maximizing strategic opportunities through proven governance frameworks."
-  
-  - title: "Talent & Capability Building"
-    icon: "bulb"
-    description: "Build organizational AI capabilities and manage workforce transformation."
-    details:
-      - "Design AI upskilling and training programs for teams"
-      - "Assess AI skill gaps and development needs across roles"
-      - "Guide AI talent acquisition and team structure planning"
-      - "Create AI literacy programs for different organizational levels"
-    value_proposition: "Transform your workforce into AI-capable contributors with structured development programs."
-  
-  - title: "AI Implementation & Performance"
-    icon: "cpu"
-    description: "Guide AI technology selection, implementation, and performance optimization."
-    details:
-      - "Guide AI technology selection and vendor evaluation"
-      - "Oversee AI project planning and execution frameworks"
-      - "Monitor AI system performance and optimization strategies"
-      - "Coordinate AI integration with existing enterprise systems"
-    value_proposition: "Ensure successful AI implementations that deliver measurable business outcomes."
-  
-  - title: "App & Prompt Development"
-    icon: "monitor"
-    description: "Provide strategic guidance on building internal AI applications and workflows."
-    details:
-      - "Guide prompt engineering and AI workflow optimization"
-      - "Advise on AI tool customization and business process integration"
-      - "Support AI application testing and deployment strategies"
-      - "Provide strategic direction for internal AI capability development"
-    value_proposition: "Accelerate AI application development with expert guidance and proven frameworks."
-  
-  - title: "Change Management"
-    icon: "rocket"
-    description: "Lead organizational AI transformation and cultural change initiatives."
-    details:
-      - "Design communication strategies for AI rollouts and adoption"
-      - "Manage resistance to AI adoption and cultural transformation"
-      - "Support business process redesign for AI integration"
-      - "Facilitate AI adoption across departments and business units"
-    value_proposition: "Drive successful organizational transformation with proven change management expertise."
+  title: "Your AI Leadership Capabilities"
+  items:
+    - title: "AI Strategy & Vision"
+      icon: "graph"
+      description: "Develop comprehensive AI strategies aligned with business objectives and competitive positioning."
+      details:
+        - "Create AI vision statements and strategic roadmaps"
+        - "Conduct AI readiness assessments and opportunity identification"
+        - "Build business cases for AI investments with ROI projections"
+        - "Define AI success metrics and KPIs for board reporting"
+      value_proposition: "Transform AI uncertainty into competitive advantage with expert-validated strategic direction."
+    
+    - title: "C-Suite Collaboration"
+      icon: "profile"
+      description: "Facilitate AI discussions and decision-making across executive leadership teams."
+      details:
+        - "Translate technical AI concepts for business stakeholders"
+        - "Facilitate board-level AI strategy discussions"
+        - "Manage AI-related stakeholder expectations and communications"
+        - "Coordinate cross-functional AI initiatives and governance"
+      value_proposition: "Ensure executive alignment on AI strategy with clear communication and shared understanding."
+    
+    - title: "AI Governance & Risk Management"
+      icon: "help"
+      description: "Establish comprehensive AI governance frameworks and risk mitigation strategies."
+      details:
+        - "Develop AI ethics frameworks and responsible AI practices"
+        - "Create AI policies, procedures, and compliance protocols"
+        - "Implement AI risk assessment and mitigation strategies"
+        - "Establish AI incident response and monitoring procedures"
+      value_proposition: "Minimize AI-related risks while maximizing strategic opportunities through proven governance frameworks."
+    
+    - title: "Talent & Capability Building"
+      icon: "bulb"
+      description: "Build organizational AI capabilities and manage workforce transformation."
+      details:
+        - "Design AI upskilling and training programs for teams"
+        - "Assess AI skill gaps and development needs across roles"
+        - "Guide AI talent acquisition and team structure planning"
+        - "Create AI literacy programs for different organizational levels"
+      value_proposition: "Transform your workforce into AI-capable contributors with structured development programs."
+    
+    - title: "AI Implementation & Performance"
+      icon: "cpu"
+      description: "Guide AI technology selection, implementation, and performance optimization."
+      details:
+        - "Guide AI technology selection and vendor evaluation"
+        - "Oversee AI project planning and execution frameworks"
+        - "Monitor AI system performance and optimization strategies"
+        - "Coordinate AI integration with existing enterprise systems"
+      value_proposition: "Ensure successful AI implementations that deliver measurable business outcomes."
+    
+    - title: "App & Prompt Development"
+      icon: "monitor"
+      description: "Provide strategic guidance on building internal AI applications and workflows."
+      details:
+        - "Guide prompt engineering and AI workflow optimization"
+        - "Advise on AI tool customization and business process integration"
+        - "Support AI application testing and deployment strategies"
+        - "Provide strategic direction for internal AI capability development"
+      value_proposition: "Accelerate AI application development with expert guidance and proven frameworks."
+    
+    - title: "Change Management"
+      icon: "rocket"
+      description: "Lead organizational AI transformation and cultural change initiatives."
+      details:
+        - "Design communication strategies for AI rollouts and adoption"
+        - "Manage resistance to AI adoption and cultural transformation"
+        - "Support business process redesign for AI integration"
+        - "Facilitate AI adoption across departments and business units"
+      value_proposition: "Drive successful organizational transformation with proven change management expertise."
 
 how_it_works:
   title: "How Your Digital CAIO Works"
@@ -128,25 +130,73 @@ competitive_advantage:
       description: "Never lose institutional knowledge or restart strategic initiatives due to executive turnover."
 
 use_cases:
-  - scenario: "Help me develop our comprehensive AI strategy roadmap"
-    solution: "Strategic framework development with 12-18 month roadmap, competitive analysis, and implementation priorities"
-    outcome: "Board-ready strategic document with clear milestones, budget requirements, and success metrics"
-  
-  - scenario: "Draft a board presentation on our AI strategy and competitive positioning"
-    solution: "Executive presentation materials with strategic rationale, risk assessment, and investment recommendations"
-    outcome: "Professional board materials that secure AI initiative approval and funding"
-  
-  - scenario: "What are the biggest risks of delaying AI adoption for our industry?"
-    solution: "Comprehensive risk analysis with competitive threats, market disruption scenarios, and mitigation strategies"
-    outcome: "Strategic urgency justification with clear risk-reward framework for decision making"
-  
-  - scenario: "Help me prioritize AI use cases across our organization for maximum impact"
-    solution: "Opportunity assessment framework with ROI analysis, implementation complexity, and strategic value scoring"
-    outcome: "Data-driven prioritization matrix with clear implementation sequencing and resource requirements"
-  
-  - scenario: "Help me build the business case and quantify ROI for our AI initiatives"
-    solution: "Financial modeling templates with cost-benefit analysis, payback calculations, and success metrics framework"
-    outcome: "Compelling business case with quantified benefits and clear ROI projections for stakeholder approval"
+  title: "What Can Your Digital CAIO Help You With?"
+  items:
+    - scenario: "Help me develop our comprehensive AI strategy roadmap"
+      solution: "Strategic framework development with 12-18 month roadmap, competitive analysis, and implementation priorities"
+      outcome: "Board-ready strategic document with clear milestones, budget requirements, and success metrics"
+    
+    - scenario: "Draft a board presentation on our AI strategy and competitive positioning"
+      solution: "Executive presentation materials with strategic rationale, risk assessment, and investment recommendations"
+      outcome: "Professional board materials that secure AI initiative approval and funding"
+    
+    - scenario: "What are the biggest risks of delaying AI adoption for our industry?"
+      solution: "Comprehensive risk analysis with competitive threats, market disruption scenarios, and mitigation strategies"
+      outcome: "Strategic urgency justification with clear risk-reward framework for decision making"
+    
+    - scenario: "Help me prioritize AI use cases across our organization for maximum impact"
+      solution: "Opportunity assessment framework with ROI analysis, implementation complexity, and strategic value scoring"
+      outcome: "Data-driven prioritization matrix with clear implementation sequencing and resource requirements"
+    
+    - scenario: "Help me build the business case and quantify ROI for our AI initiatives"
+      solution: "Financial modeling templates with cost-benefit analysis, payback calculations, and success metrics framework"
+      outcome: "Compelling business case with quantified benefits and clear ROI projections for stakeholder approval"
+
+featured_showcase:
+  title: "Executive-Ready AI Frameworks"
+  subtitle: "Strategic templates and governance tools that demonstrate the professional depth of AI leadership guidance available through your Digital CAIO"
+  items:
+    - image: "/images/accelerators/AI Policy Generator.webp"
+      title: "AI Governance Accelerator"
+      type: "Governance Framework"
+      category: "Risk Management"
+      description: "Complete AI governance framework with policies, risk assessments, and compliance protocols for board approval"
+      link: "#"
+    
+    - image: "/images/accelerators/Playing To Win Strategy Coach.webp"
+      title: "AI Strategy Canvas"
+      type: "Strategic Framework"
+      category: "Strategy"
+      description: "Executive strategy template for AI vision development, competitive positioning, and implementation roadmapping"
+      link: "#"
+    
+    - image: "/images/accelerators/Prompt Writer.webp"
+      title: "Executive Decision Prompts"
+      type: "Executive Toolkit"
+      category: "Leadership"
+      description: "Strategic decision-making prompts for AI investment evaluation, vendor assessment, and board communications"
+      link: "#"
+    
+    - image: "/images/accelerators/ChatGPT 101 - Video Session.webp"
+      title: "Board AI Readiness Assessment"
+      type: "Assessment Tool"
+      category: "Strategic Planning"
+      description: "Comprehensive organizational AI maturity evaluation with board-ready recommendations and action plans"
+      link: "#"
+    
+    - image: "/images/accelerators/Find a GPT.webp"
+      title: "AI ROI Calculator"
+      type: "Financial Tool"
+      category: "Business Case"
+      description: "Executive-level ROI modeling template for quantifying AI initiative value and securing investment approval"
+      link: "#"
+    
+    - image: "/images/accelerators/ChatGPT Desktop.webp"
+      title: "Change Management Blueprint"
+      type: "Implementation Guide"
+      category: "Transformation"
+      description: "Proven framework for driving organizational AI adoption with stakeholder engagement and success metrics"
+      link: "#"
 
 integrations:
   title: "More Than Chat - Connected Action"

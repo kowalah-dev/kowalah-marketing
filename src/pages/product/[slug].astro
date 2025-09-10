@@ -6,7 +6,6 @@ import CallToAction from "@/partials/CallToAction.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 import Button from "@/shortcodes/Button";
 import AcceleratorCarousel from "@/components/AcceleratorCarousel.astro";
-import { getFeaturedAcceleratorsForCarousel } from "@/lib/accelerators";
 import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
 import { getCollection, getEntry } from "astro:content";
@@ -36,7 +35,7 @@ const {
   use_cases,
   integrations,
   social_proof,
-  featured_accelerators,
+  featured_showcase,
   conversion
 } = product.data;
 
@@ -46,8 +45,7 @@ const call_to_action = (await getEntry(
   "call-to-action"
 )) as CollectionEntry<"sections">;
 
-// Get featured accelerators from data file
-const featuredAccelerators = getFeaturedAcceleratorsForCarousel();
+// Note: Removed fallback accelerators - now using content-driven featured_showcase only
 ---
 
 <Base title={title} meta_title={meta_title} description={description}>
@@ -98,11 +96,11 @@ const featuredAccelerators = getFeaturedAcceleratorsForCarousel();
     </div>
   </section>
 
-  {featuredAccelerators && featuredAccelerators.length > 0 && (
+  {featured_showcase && (
     <AcceleratorCarousel
-      title="Explore Real Accelerators from Our Platform"
-      subtitle="See the quality and depth of our implementation-ready AI solutions. These are actual accelerators used by organizations worldwide."
-      accelerators={featuredAccelerators}
+      title={featured_showcase.title}
+      subtitle={featured_showcase.subtitle}
+      accelerators={featured_showcase.items}
     />
   )}
 
@@ -119,15 +117,17 @@ const featuredAccelerators = getFeaturedAcceleratorsForCarousel();
                 {problem_solution.problem_statement}
               </p>
               
-              <div class="mb-12" data-aos="fade-up-sm" data-aos-delay="75">
-                <ImageMod
-                  src="/images/accelerators/what-am-i-supposed-to-type.png"
-                  alt="Team member staring at blank ChatGPT screen wondering what to type"
-                  width={600}
-                  height={400}
-                  class="w-full max-w-md mx-auto rounded-2xl shadow-lg"
-                />
-              </div>
+              {problem_solution.image && (
+                <div class="mb-12" data-aos="fade-up-sm" data-aos-delay="75">
+                  <ImageMod
+                    src={problem_solution.image}
+                    alt={`${title} problem illustration`}
+                    width={600}
+                    height={400}
+                    class="w-full max-w-md mx-auto rounded-2xl shadow-lg"
+                  />
+                </div>
+              )}
               
               <p class="mb-8 text-lg font-medium" data-aos="fade-up-sm" data-aos-delay="100">
                 {problem_solution.solution_overview}
@@ -157,12 +157,12 @@ const featuredAccelerators = getFeaturedAcceleratorsForCarousel();
       <div class="container">
         <div class="row justify-center">
           <div class="lg:col-8 text-center mb-16">
-            <h2 class="h2" data-aos="fade-up-sm">What's in Our Accelerator Library?</h2>
+            <h2 class="h2" data-aos="fade-up-sm">{capabilities.title}</h2>
           </div>
         </div>
         
         <div class="row g-4">
-          {capabilities.map((capability: any, index: number) => (
+          {capabilities.items.map((capability: any, index: number) => (
             <div class="lg:col-6 mb-8" data-aos="fade-up-sm" data-aos-delay={index * 100}>
               <div class="h-full bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
                 <div class="flex items-start gap-4 mb-6">
@@ -215,7 +215,7 @@ const featuredAccelerators = getFeaturedAcceleratorsForCarousel();
               <p class="text-text-dark mb-6">{step.description}</p>
               <div class="flex justify-center">
                 <ImageMod
-                  src={`/images/accelerators/accelerators-step-${step.step_number}.png`}
+                  src={`/images/product/${product.id}/step-${step.step_number}.png`}
                   alt={`Step ${step.step_number}: ${step.title}`}
                   width={600}
                   height={600}
@@ -270,8 +270,8 @@ const featuredAccelerators = getFeaturedAcceleratorsForCarousel();
           </div>
           <div class="lg:col-6" data-aos="fade-up-sm" data-aos-delay="150">
             <ImageMod
-              src="/images/accelerators/accelerators-in-use.png"
-              alt="Executive using AI accelerators in modern business environment"
+              src={`/images/product/${product.id}/competitive-advantage.png`}
+              alt={`Executive using ${title} in modern business environment`}
               width={600}
               height={400}
               class="w-full rounded-xl shadow-lg"
@@ -298,12 +298,12 @@ const featuredAccelerators = getFeaturedAcceleratorsForCarousel();
       <div class="container">
         <div class="row justify-center">
           <div class="lg:col-8 text-center mb-12">
-            <h2 class="h2" data-aos="fade-up-sm">What Problems Do Accelerators Solve?</h2>
+            <h2 class="h2" data-aos="fade-up-sm">{use_cases.title}</h2>
           </div>
         </div>
         
         <div class="row g-4">
-          {use_cases.map((useCase: any, index: number) => (
+          {use_cases.items.map((useCase: any, index: number) => (
             <div class="lg:col-12 mb-8" data-aos="fade-up-sm" data-aos-delay={index * 100}>
               <div class="bg-white rounded-2xl p-8 shadow-sm">
                 <div class="row">
@@ -329,28 +329,33 @@ const featuredAccelerators = getFeaturedAcceleratorsForCarousel();
   )}
 
   {conversion && (
-    <section class="section bg-gradient">
+    <section class="section pb-0">
       <div class="container">
-        <div class="row justify-center">
-          <div class="lg:col-8 text-center">
-            <h2 class="h2 text-white mb-6" data-aos="fade-up-sm">
-              {conversion.title}
-            </h2>
-            <p class="text-lg text-white/90 mb-8" data-aos="fade-up-sm" data-aos-delay="50">
-              {conversion.subtitle}
-            </p>
-            <p class="text-white/80 mb-10" data-aos="fade-up-sm" data-aos-delay="100">
-              {conversion.offer_description}
-            </p>
-            
-            <div data-aos="fade-up-sm" data-aos-delay="150">
-              <Button
-                label={conversion.cta.label}
-                link={conversion.cta.link}
-                style="secondary"
-                className="mb-4"
-              />
-              <p class="text-sm text-white/70">{conversion.cta.subtext}</p>
+        <div
+          class="rounded-3xl bg-gradient-to-br from-primary to-secondary px-5 pt-7 md:px-12 md:pt-16 pb-16"
+          data-aos="fade-up-sm"
+        >
+          <div class="row justify-center">
+            <div class="lg:col-8 text-center">
+              <h2 class="h2 text-white mb-6" data-aos="fade-up-sm">
+                {conversion.title}
+              </h2>
+              <p class="text-lg text-white/90 mb-8" data-aos="fade-up-sm" data-aos-delay="50">
+                {conversion.subtitle}
+              </p>
+              <p class="text-white/80 mb-10" data-aos="fade-up-sm" data-aos-delay="100">
+                {conversion.offer_description}
+              </p>
+              
+              <div data-aos="fade-up-sm" data-aos-delay="150">
+                <Button
+                  label={conversion.cta.label}
+                  link={conversion.cta.link}
+                  style="light"
+                  className="mb-4"
+                />
+                <p class="text-sm text-white/70">{conversion.cta.subtext}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -358,5 +363,8 @@ const featuredAccelerators = getFeaturedAcceleratorsForCarousel();
     </section>
   )}
 
-  <CallToAction call_to_action={call_to_action} />
+  {/* Only show global CTA if no product-specific conversion exists */}
+  {!conversion && (
+    <CallToAction call_to_action={call_to_action} />
+  )}
 </Base>
