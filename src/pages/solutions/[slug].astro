@@ -1,0 +1,482 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import Button from "@/shortcodes/Button";
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const solutions = await getCollection("solution");
+  return solutions.map((solution) => ({
+    params: { slug: solution.id },
+    props: { solution },
+  }));
+}
+
+interface Props {
+  solution: CollectionEntry<"solution">;
+}
+
+const { solution } = Astro.props;
+const { 
+  title, 
+  meta_title, 
+  description, 
+  hero, 
+  problem_solution,
+  solution_approach,
+  solution_components,
+  success_outcomes,
+  implementation,
+  business_case,
+  use_cases,
+  requirements,
+  investment,
+  featured_resources,
+  social_proof,
+  conversion
+} = solution.data;
+
+// Get call to action section
+const call_to_action = (await getEntry(
+  "sections",
+  "call-to-action"
+)) as CollectionEntry<"sections">;
+---
+
+<Base title={title} meta_title={meta_title} description={description}>
+  <!-- Hero Section -->
+  <section class="section-sm pt-24 bg-gradient">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="xl:col-10 lg:col-12">
+          <div class="text-center">
+            <h1 class="h1 text-dark" data-aos="fade-up-sm">
+              {hero.title}
+            </h1>
+            <p class="mt-6 text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
+              {hero.subtitle}
+            </p>
+            <div class="mt-8" data-aos="fade-up-sm" data-aos-delay="100">
+              <Button
+                label={hero.cta_primary.label}
+                link={hero.cta_primary.link}
+                className="me-4 mb-4"
+              />
+              {hero.cta_primary.subtext && (
+                <p class="mt-2 text-sm text-text-light">{hero.cta_primary.subtext}</p>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {hero.solution_image && (
+        <div class="row justify-center mt-16">
+          <div class="lg:col-10">
+            <div data-aos="fade-up-sm" data-aos-delay="150">
+              <ImageMod
+                src={hero.solution_image}
+                alt={title}
+                width={2400}
+                height={1600}
+                class="w-full rounded-3xl shadow-2xl"
+                loading="lazy"
+                decoding="async"
+                style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  {problem_solution && (
+    <section class="section">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-8">
+            <div class="text-center">
+              <h2 class="h2 mb-6" data-aos="fade-up-sm">
+                {problem_solution.title}
+              </h2>
+              <p class="mb-8 text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
+                {problem_solution.problem_statement}
+              </p>
+              
+              {problem_solution.image && (
+                <div class="mb-12" data-aos="fade-up-sm" data-aos-delay="75">
+                  <ImageMod
+                    src={problem_solution.image}
+                    alt={`${title} problem illustration`}
+                    width={600}
+                    height={400}
+                    class="w-full max-w-md mx-auto rounded-2xl shadow-lg"
+                  />
+                </div>
+              )}
+              
+              <p class="mb-8 text-lg font-medium" data-aos="fade-up-sm" data-aos-delay="100">
+                {problem_solution.solution_overview}
+              </p>
+              
+              {problem_solution.trust_elements && (
+                <div class="row justify-center mt-12">
+                  {problem_solution.trust_elements.map((element: string, index: number) => (
+                    <div class="lg:col-6 mb-4" data-aos="fade-up-sm" data-aos-delay={150 + index * 50}>
+                      <div class="flex items-center justify-center text-center">
+                        <Icon name="check" size={20} class="text-primary me-3 flex-shrink-0" />
+                        <span class="text-text-dark">{element}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {problem_solution.pain_points && (
+                <div class="mt-12">
+                  <h3 class="h4 mb-6">Common Challenges We Address:</h3>
+                  <div class="row justify-center">
+                    {problem_solution.pain_points.map((point: string, index: number) => (
+                      <div class="lg:col-6 mb-4" data-aos="fade-up-sm" data-aos-delay={150 + index * 50}>
+                        <div class="flex items-start text-left">
+                          <Icon name="cross" size={16} class="text-red-500 me-3 flex-shrink-0 mt-1" />
+                          <span class="text-text-dark">{point}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {solution_approach && (
+    <section class="section bg-light">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-8 text-center mb-16">
+            <h2 class="h2 mb-4" data-aos="fade-up-sm">{solution_approach.title}</h2>
+            <p class="text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
+              {solution_approach.subtitle}
+            </p>
+          </div>
+        </div>
+        
+        <div class="row g-4">
+          {solution_approach.phases.map((phase: any, index: number) => (
+            <div class="lg:col-4 mb-8" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+              <div class="h-full bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
+                <div class="mb-6">
+                  <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                    {phase.phase_number}
+                  </div>
+                  <h3 class="h5 mb-3">{phase.title}</h3>
+                  <p class="text-text-dark mb-6">{phase.description}</p>
+                </div>
+                
+                <div class="mb-6">
+                  <h4 class="text-sm font-medium text-primary mb-3">Deliverables:</h4>
+                  <ul class="space-y-2">
+                    {phase.deliverables.map((deliverable: string) => (
+                      <li class="flex items-start gap-2">
+                        <div class="w-2 h-2 bg-primary rounded-full flex-shrink-0 mt-2"></div>
+                        <span class="text-sm text-text-dark">{deliverable}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                {phase.timeline && (
+                  <p class="text-sm font-medium text-primary">Timeline: {phase.timeline}</p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {solution_components && (
+    <section class="section">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-8 text-center mb-16">
+            <h2 class="h2" data-aos="fade-up-sm">{solution_components.title}</h2>
+          </div>
+        </div>
+        
+        <div class="row g-4">
+          {solution_components.items.map((component: any, index: number) => (
+            <div class="lg:col-6 mb-8" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+              <div class="h-full bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
+                <div class="flex items-start gap-4 mb-6">
+                  <Icon name={component.icon} size={32} class="text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 class="h5 mb-3">{component.title}</h3>
+                    <p class="text-text-dark mb-4">{component.description}</p>
+                  </div>
+                </div>
+                
+                <ul class="mb-6 space-y-3">
+                  {component.details.map((detail: string) => (
+                    <li class="flex items-start gap-3">
+                      <div class="w-2 h-2 bg-primary rounded-full flex-shrink-0 mt-2"></div>
+                      <span class="text-sm text-text-dark">{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <p class="text-sm font-medium text-primary">{component.value_proposition}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {implementation && (
+    <section class="section bg-light">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-8 text-center mb-16">
+            <h2 class="h2 mb-4" data-aos="fade-up-sm">{implementation.title}</h2>
+            <p class="text-lg text-text-dark mb-4" data-aos="fade-up-sm" data-aos-delay="50">
+              {implementation.subtitle}
+            </p>
+            <p class="text-xl font-medium text-primary" data-aos="fade-up-sm" data-aos-delay="100">
+              {implementation.duration}
+            </p>
+          </div>
+        </div>
+        
+        <div class="row g-4">
+          {implementation.steps.map((step: any, index: number) => (
+            <div class="lg:col-6 mb-6" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+              <div class="bg-white rounded-xl p-6 h-full">
+                <div class="flex items-start gap-4">
+                  <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+                    {step.step_number}
+                  </div>
+                  <div>
+                    <h3 class="h6 mb-3">{step.title}</h3>
+                    <p class="text-text-dark mb-2">{step.description}</p>
+                    {step.duration && (
+                      <p class="text-sm text-primary font-medium">Duration: {step.duration}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {business_case && (
+    <section class="section">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-8 text-center mb-12">
+            <h2 class="h2 mb-4" data-aos="fade-up-sm">{business_case.title}</h2>
+            <p class="text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
+              {business_case.subtitle}
+            </p>
+          </div>
+        </div>
+        
+        <div class="row g-4 mb-12">
+          {business_case.roi_metrics.map((metric: any, index: number) => (
+            <div class="lg:col-4 text-center" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h3 class="text-3xl font-bold text-primary mb-2">{metric.value}</h3>
+                <p class="font-medium text-text-dark mb-2">{metric.metric}</p>
+                <p class="text-sm text-text-light">{metric.timeframe}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="row">
+          {business_case.cost_savings && (
+            <div class="lg:col-6 mb-8">
+              <h3 class="h5 mb-6">Cost Savings:</h3>
+              <ul class="space-y-3">
+                {business_case.cost_savings.map((saving: string) => (
+                  <li class="flex items-start gap-3">
+                    <Icon name="doller" size={16} class="text-green-600 flex-shrink-0 mt-1" />
+                    <span class="text-text-dark">{saving}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {business_case.efficiency_gains && (
+            <div class="lg:col-6 mb-8">
+              <h3 class="h5 mb-6">Efficiency Gains:</h3>
+              <ul class="space-y-3">
+                {business_case.efficiency_gains.map((gain: string) => (
+                  <li class="flex items-start gap-3">
+                    <Icon name="upward" size={16} class="text-primary flex-shrink-0 mt-1" />
+                    <span class="text-text-dark">{gain}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {use_cases && (
+    <section class="section bg-light">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-8 text-center mb-12">
+            <h2 class="h2" data-aos="fade-up-sm">{use_cases.title}</h2>
+          </div>
+        </div>
+        
+        <div class="row g-4">
+          {use_cases.items.map((useCase: any, index: number) => (
+            <div class="lg:col-12 mb-8" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+              <div class="bg-white rounded-2xl p-8 shadow-sm">
+                <div class="row">
+                  <div class="lg:col-3">
+                    <h3 class="h6 mb-4 text-primary">Scenario</h3>
+                    <p class="text-text-dark font-medium">"{useCase.scenario}"</p>
+                  </div>
+                  <div class="lg:col-3">
+                    <h3 class="h6 mb-4 text-primary">Challenge</h3>
+                    <p class="text-text-dark">{useCase.challenge}</p>
+                  </div>
+                  <div class="lg:col-3">
+                    <h3 class="h6 mb-4 text-primary">Solution</h3>
+                    <p class="text-text-dark">{useCase.solution}</p>
+                  </div>
+                  <div class="lg:col-3">
+                    <h3 class="h6 mb-4 text-primary">Outcome</h3>
+                    <p class="text-text-dark">{useCase.outcome}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {investment && (
+    <section class="section">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-8 text-center">
+            <h2 class="h2 mb-4" data-aos="fade-up-sm">{investment.title}</h2>
+            <p class="text-lg text-text-dark mb-8" data-aos="fade-up-sm" data-aos-delay="50">
+              {investment.subtitle}
+            </p>
+            
+            <div class="bg-white rounded-2xl p-8 shadow-sm" data-aos="fade-up-sm" data-aos-delay="100">
+              <p class="text-lg mb-4">{investment.pricing_model}</p>
+              {investment.starting_price && (
+                <p class="text-2xl font-bold text-primary mb-6">{investment.starting_price}</p>
+              )}
+              
+              {investment.pricing_factors && (
+                <div class="mb-8">
+                  <h3 class="h6 mb-4">Pricing factors include:</h3>
+                  <ul class="text-text-dark space-y-2">
+                    {investment.pricing_factors.map((factor: string) => (
+                      <li>• {factor}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div>
+                <h3 class="h6 mb-4">What's included:</h3>
+                <ul class="text-text-dark space-y-2">
+                  {investment.what_included.map((item: string) => (
+                    <li class="flex items-start gap-3">
+                      <Icon name="check" size={16} class="text-primary flex-shrink-0 mt-1" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {conversion && (
+    <section class="section pb-0">
+      <div class="container">
+        <div
+          class="rounded-3xl bg-gradient-to-br from-primary to-secondary px-5 pt-7 md:px-12 md:pt-16 pb-16"
+          data-aos="fade-up-sm"
+        >
+          <div class="row justify-center">
+            <div class="lg:col-8 text-center">
+              <h2 class="h2 text-white mb-6" data-aos="fade-up-sm">
+                {conversion.title}
+              </h2>
+              <p class="text-lg text-white/90 mb-8" data-aos="fade-up-sm" data-aos-delay="50">
+                {conversion.subtitle}
+              </p>
+              <p class="text-white/80 mb-10" data-aos="fade-up-sm" data-aos-delay="100">
+                {conversion.offer_description}
+              </p>
+              
+              <div data-aos="fade-up-sm" data-aos-delay="150">
+                <Button
+                  label={conversion.cta.label}
+                  link={conversion.cta.link}
+                  style="light"
+                  className="mb-4"
+                />
+                <p class="text-sm text-white/70">{conversion.cta.subtext}</p>
+              </div>
+
+              {conversion.consultation_offer && (
+                <div class="mt-12 bg-white/10 rounded-2xl p-6" data-aos="fade-up-sm" data-aos-delay="200">
+                  <h3 class="h5 text-white mb-4">{conversion.consultation_offer.title}</h3>
+                  <p class="text-white/80 mb-4">{conversion.consultation_offer.description}</p>
+                  <p class="text-sm text-white/70 mb-4">Duration: {conversion.consultation_offer.duration}</p>
+                  <Button
+                    label={conversion.consultation_offer.cta.label}
+                    link={conversion.consultation_offer.cta.link}
+                    style="light"
+                    size="sm"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {/* Only show global CTA if no solution-specific conversion exists */}
+  {!conversion && (
+    <CallToAction call_to_action={call_to_action} />
+  )}
+</Base>

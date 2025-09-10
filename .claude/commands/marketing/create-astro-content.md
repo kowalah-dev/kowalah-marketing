@@ -54,7 +54,8 @@ To create properly formatted Astro Content Collection files for the Kowalah mark
 4. **Generate Content:** Create all content sections based on design specifications
 5. **Quality Validation:** Apply brand alignment, SEO, and technical validation
 6. **Create File:** Generate properly formatted markdown with frontmatter
-7. **Provide Implementation:** Show exact file path and next steps
+7. **Generate Image Creation Document:** Create comprehensive visual asset roadmap with AI prompts and specifications
+8. **Provide Implementation:** Show exact file path, image creation document, and next steps
 
 ### For Manual Input
 1. **Receive Content Request:** User specifies collection type and page details
@@ -126,7 +127,9 @@ Before creating the file, verify:
 - [ ] File path follows collection directory structure
 - [ ] Filename uses kebab-case convention
 - [ ] YAML syntax is correct with proper indentation
-- [ ] **Icon validation:** All icon references use existing icons from `src/icons/`
+- [ ] **Icon validation:** Run `ls src/icons/ | sed 's/\.svg$//'` and verify ALL icon references exist
+- [ ] **No Heroicons:** Confirm no Heroicon names (e.g., ChartBarIcon, UserIcon) are used
+- [ ] **Image path format:** ALL image paths start with forward slash (`/images/...`, NOT `images/...`)
 - [ ] **No YAML comments:** All comments removed from frontmatter to prevent parsing errors
 
 ### Content Quality Validation
@@ -177,27 +180,45 @@ Content must align with Kowalah framework:
 ### Implementation Steps:
 1. Create file at: `src/content/[collection]/[filename].md`
 2. Add the generated content (shown below)  
-3. Test with `npm run dev` to verify schema validation
-4. Navigate to page to test rendering
-5. Add any required image assets to `/public/images/`
-6. Commit changes when content is validated
+3. Create image creation document at: `tasks/image-creation-[page-name].md`
+4. Test with `npm run dev` to verify schema validation
+5. Navigate to page to test rendering
+6. Work through image creation document to generate all visual assets
+7. Add completed image assets to organized `/public/images/` directories
+8. Commit changes when content and images are complete
 
 ### Generated Content:
 ```markdown
 [Complete markdown content with properly structured YAML frontmatter]
 ```
 
-### Visual Assets Required:
-- [List of images needed with dimensions and alt text]
-- **AI Image Prompts:** [Number] executive/business scene images needed
-- **Product Screenshots:** [Number] interface screenshots needed  
-- **Icon Requirements:** [List of Heroicons needed]
+### Image Creation Document:
+**File:** `tasks/image-creation-[page-name].md`
+**Purpose:** Comprehensive roadmap for creating all visual assets
+
+**Document includes:**
+- Prioritized image creation list with dimensions and specifications
+- AI generation prompts including dimensions for executive/business scenes using brand guidelines
+- Resource template designs with specific content requirements
+- Platform screenshot specifications for UI/dashboard captures
+- Brand guidelines reference with color codes and style requirements
+- Implementation checklist organized by priority and creation method
+
+**Benefits:**
+- Systematic approach to visual asset creation
+- Consistent brand application across all images
+- Clear AI prompts that produce executive-appropriate imagery
+- Organized workflow from high-priority hero images to enhancement assets
 
 ### Next Steps:
 - Review content against original design document
-- **Generate visual assets:** Run `/create-image-prompts [content-file]` for automated image creation
-- Test page rendering and responsiveness
-- Optimize images for web performance
+- **Work through image creation document systematically:**
+  - Start with Priority 1 images (hero section, essential visuals)
+  - Generate AI images using provided prompts and brand guidelines
+  - Create resource template designs with professional formatting
+  - Capture platform screenshots for UI demonstrations
+- Test page rendering and responsiveness with placeholder images
+- Optimize completed images for web performance (WebP format)
 - Consider adding structured data for SEO
 ```
 
@@ -292,9 +313,15 @@ Follow the existing structure in `/public/images/`:
 - **Case Studies:** `/public/images/case-studies/`
 
 ### Image Path Examples
-- Hero screenshot: `"images/product/mockups/digital-caio-hero-interface.png"`
-- Demo screenshots: `"images/product/screenshots/dashboard-overview.png"`
-- Feature images: `"images/product/features/capability-icon.png"`
+- Hero screenshot: `"/images/product/mockups/digital-caio-hero-interface.png"`
+- Demo screenshots: `"/images/product/screenshots/dashboard-overview.png"`
+- Feature images: `"/images/product/features/capability-icon.png"`
+
+**⚠️ CRITICAL: Image Path Format**
+- **ALWAYS start image paths with a forward slash:** `/images/...`
+- **NEVER use relative paths:** `images/...` (missing leading slash)
+- **Correct format:** `"/images/solutions/hero-image.png"`
+- **Incorrect format:** `"images/solutions/hero-image.png"`
 
 ## Icon System Integration
 
@@ -307,20 +334,31 @@ Follow the existing structure in `/public/images/`:
 ls src/icons/
 ```
 
-**Currently Available Icons:**
+**CRITICAL: Always verify available icons before use:**
+```bash
+ls src/icons/ | sed 's/\.svg$//' | sort
+```
+
+**Currently Available Icons (verify before use):**
 - `auto`, `bulb`, `bullseye`, `case`, `check`, `cloud`, `compass`
 - `cpu`, `cross`, `dirt`, `doller`, `euro`, `graph`, `help`
 - `history`, `location_pin`, `location`, `mail`, `minus`, `monitor`  
 - `phone`, `profile`, `right`, `rocket`, `speed`, `task`
 - `tick`, `time`, `up`, `upward`
 
+**⚠️ WARNING:** Icon list may change. Always run the command above to get current icons.
+
 **Step 2: Map Capabilities to Available Icons**
-For AI leadership capabilities, use semantic mapping:
-- **Strategy/Analytics:** `graph`, `bullseye`, `compass`
-- **Leadership/People:** `profile`, `help`, `task`  
-- **Technology/Systems:** `cpu`, `monitor`, `cloud`
-- **Innovation/Growth:** `bulb`, `rocket`, `up`, `upward`
-- **Performance/Success:** `tick`, `check`, `speed`
+For AI leadership capabilities, use ONLY verified available icons:
+- **Strategy/Analytics:** `graph`, `bullseye`, `compass` ✅
+- **Leadership/People:** `profile`, `help`, `task` ✅  
+- **Technology/Systems:** `cpu`, `monitor`, `cloud` ✅
+- **Innovation/Growth:** `bulb`, `rocket`, `up`, `upward` ✅
+- **Performance/Success:** `tick`, `check`, `speed` ✅
+- **Business/Financial:** `doller`, `euro`, `case` ✅
+- **Communication:** `mail`, `phone` ✅
+- **Time/Process:** `time`, `history`, `auto` ✅
+- **Location/Direction:** `location`, `location_pin`, `right` ✅
 
 **Step 3: Content Icon Usage**
 ```yaml
@@ -386,8 +424,9 @@ When processing content creation requests, the AI must follow this workflow:
    - Identify required vs optional fields
    - Note nested object structures and array requirements
    - Validate field types (string, number, array, object, boolean)
-   - **Check available icons:** Review `src/icons/` directory for valid icon names
-   - **Map icon requirements:** Assign semantic icon names to content sections
+   - **MANDATORY: Verify available icons:** Run `ls src/icons/` and strip `.svg` extensions to get valid icon names
+   - **Map icon requirements:** Assign ONLY verified icon names from the actual directory listing
+   - **Icon validation:** Cross-reference every icon used in content against the verified list
 
 3. **Content Generation with Brand Alignment**
    - Reference `/docs/context/messaging-framework.md` for tone and positioning
@@ -407,9 +446,17 @@ When processing content creation requests, the AI must follow this workflow:
    - **Create clean YAML frontmatter:** No comments, proper indentation, valid syntax
    - **Use validated icons only:** Reference existing icons from `src/icons/` directory  
    - Include all content sections from design requirements
-   - **Use organized image directory paths** (product/mockups/, product/screenshots/, etc.)
+   - **Use organized image directory paths with leading slashes** (/images/product/mockups/, /images/product/screenshots/, etc.)
    - Provide visual asset specifications with correct directory structure
    - Deliver implementation-ready markdown file
+
+6. **Create Image Creation Document**
+   - **Generate comprehensive visual asset roadmap:** Extract all image references from content
+   - **Categorize by creation method:** AI-generated, platform screenshots, template designs
+   - **Provide detailed AI prompts:** Use executive visual style guide for consistent branding
+   - **Include specifications:** Dimensions, file paths, and organized directory structure
+   - **Prioritize by importance:** Hero images first, supporting visuals second, enhancements third
+   - **Create actionable checklist:** Phase-based implementation with clear completion criteria
 
 ### For Manual Input
 1. **Receive User Specifications**
@@ -448,14 +495,43 @@ When processing content creation requests, the AI must follow this workflow:
 - **YAML Syntax Errors:** Incorrect indentation or formatting
 - **YAML Comments:** Comments in frontmatter (use `#`) break Astro parsing - NEVER include
 - **Invalid Icons:** Using non-existent icon names instead of checking `src/icons/` directory first
+- **Heroicon References:** Using Heroicon names (e.g., "ChartBarIcon") instead of local icon names
 - **Brand Inconsistency:** Content that doesn't align with Kowalah positioning
 - **Data Fabrication:** Inventing statistics, testimonials, or company information
 - **Poor Mobile Experience:** Content that doesn't work well on mobile devices
 
-### Success Criteria
+### Image Creation Document Feature
+
+### Overview
+The enhanced Create Astro Content command now automatically generates a comprehensive image creation document alongside each content file. This systematic approach ensures no visual assets are missed and provides clear guidance for creating professional, brand-consistent imagery.
+
+### How It Works
+1. **Automatic Extraction:** AI analyzes the generated content file and extracts all image references
+2. **Categorization:** Images are sorted by creation method (AI-generated, screenshots, templates)
+3. **Prioritization:** Critical hero images come first, supporting visuals second, enhancements third
+4. **Detailed Specifications:** Each image includes dimensions, file paths, and creation guidance
+5. **AI Prompt Generation:** Executive-appropriate prompts using brand visual guidelines
+6. **Implementation Checklist:** Phase-based workflow with completion tracking
+
+### Document Structure
+- **Priority 1:** Essential images (hero sections, critical visuals)
+- **Priority 2:** Supporting content (resource previews, section imagery)  
+- **Priority 3:** Enhancement visuals (optional improvements for future iterations)
+- **Brand Guidelines:** Color codes, style requirements, quality standards
+- **Implementation Checklist:** Organized workflow for systematic completion
+
+### Benefits
+- **No Missing Assets:** Comprehensive extraction ensures complete visual coverage
+- **Brand Consistency:** Detailed prompts and guidelines maintain professional standards
+- **Efficient Workflow:** Prioritized approach focuses on high-impact visuals first
+- **Quality Control:** Specifications ensure proper dimensions and formats
+- **Reusable Process:** Standardized approach scales across all content creation
+
+## Success Criteria
 - Content maps exactly to design document requirements
 - All schema fields properly populated and validated
 - Brand messaging aligns with Kowalah framework
 - Executive tone appropriate for target audience
 - SEO optimization naturally integrated
-- Implementation-ready file with clear next steps
+- **Image creation document provides complete visual asset roadmap**
+- Implementation-ready files with clear next steps

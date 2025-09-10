@@ -529,6 +529,200 @@ const productCollection = defineCollection({
   })
 });
 
+const solutionCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/solution" }),
+  schema: z.object({
+    // Core metadata
+    title: z.string().optional(),
+    meta_title: z.string().optional(),
+    description: z.string().optional(),
+    
+    // Solution type classification
+    solution_type: z.enum(['service', 'role', 'industry']), // service (ChatGPT deployment), role (CEO/CIO), industry (healthcare/finance)
+    target_audience: z.string(), // e.g., "CEOs at mid-sized enterprises", "CIOs implementing ChatGPT"
+    industry: z.string().optional(), // For industry-specific solutions
+    
+    // Hero section for solution value proposition
+    hero: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      cta_primary: z.object({
+        label: z.string(),
+        link: z.string(),
+        subtext: z.string().optional()
+      }),
+      solution_image: z.string().optional() // Solution-specific hero image
+    }),
+    
+    // Problem/solution positioning (critical for solutions)
+    problem_solution: z.object({
+      title: z.string(),
+      problem_statement: z.string(),
+      solution_overview: z.string(),
+      trust_elements: z.array(z.string()),
+      pain_points: z.array(z.string()).optional(), // Specific challenges this solution addresses
+      image: z.string().optional() // Solution-specific problem/solution image
+    }),
+    
+    // Solution approach/process (how Kowalah delivers the solution)
+    solution_approach: z.object({
+      title: z.string(), // e.g., "Our ChatGPT Enterprise Deployment Process"
+      subtitle: z.string(),
+      phases: z.array(z.object({
+        phase_number: z.number(),
+        title: z.string(),
+        description: z.string(),
+        deliverables: z.array(z.string()), // What clients receive in this phase
+        timeline: z.string().optional() // e.g., "Week 1-2", "30 days"
+      }))
+    }).optional(),
+    
+    // Solution capabilities/components (what's included)
+    solution_components: z.object({
+      title: z.string(), // e.g., "What's Included in ChatGPT Enterprise Deployment"
+      items: z.array(z.object({
+        title: z.string(),
+        icon: z.string(),
+        description: z.string(),
+        details: z.array(z.string()), // Specific tasks, deliverables, or benefits
+        value_proposition: z.string()
+      }))
+    }).optional(),
+    
+    // Success outcomes and metrics
+    success_outcomes: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      metrics: z.array(z.object({
+        metric: z.string(),
+        value: z.string(),
+        description: z.string()
+      })),
+      success_stories: z.array(z.string()).optional()
+    }).optional(),
+    
+    // Implementation timeline and process
+    implementation: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      duration: z.string(), // e.g., "6-8 weeks", "90 days"
+      steps: z.array(z.object({
+        step_number: z.number(),
+        title: z.string(),
+        description: z.string(),
+        duration: z.string().optional()
+      })),
+      demo: z.object({
+        type: z.enum(['screenshots', 'video', 'both']),
+        screenshots: z.array(z.string()).optional(),
+        video: z.object({
+          youtube_id: z.string(),
+          title: z.string().optional(),
+          poster: z.string().optional(),
+          start_time: z.number().optional()
+        }).optional(),
+        description: z.string()
+      }).optional()
+    }).optional(),
+    
+    // ROI and business case
+    business_case: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      roi_metrics: z.array(z.object({
+        metric: z.string(),
+        value: z.string(),
+        timeframe: z.string()
+      })),
+      cost_savings: z.array(z.string()).optional(),
+      efficiency_gains: z.array(z.string()).optional()
+    }).optional(),
+    
+    // Use cases/scenarios specific to this solution
+    use_cases: z.object({
+      title: z.string(),
+      items: z.array(z.object({
+        scenario: z.string(),
+        challenge: z.string(),
+        solution: z.string(),
+        outcome: z.string()
+      }))
+    }).optional(),
+    
+    // Requirements and prerequisites
+    requirements: z.object({
+      title: z.string(),
+      prerequisites: z.array(z.string()),
+      technical_requirements: z.array(z.string()).optional(),
+      organizational_requirements: z.array(z.string()).optional()
+    }).optional(),
+    
+    // Pricing/investment information
+    investment: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      pricing_model: z.string(), // e.g., "Fixed project fee", "Monthly retainer", "Success-based"
+      starting_price: z.string().optional(),
+      pricing_factors: z.array(z.string()).optional(),
+      what_included: z.array(z.string())
+    }).optional(),
+    
+    // Featured resources and templates
+    featured_resources: z.object({
+      title: z.string(),
+      subtitle: z.string().optional(),
+      items: z.array(z.object({
+        image: z.string(),
+        title: z.string(),
+        type: z.string(), // e.g., "Template", "Framework", "Checklist", "Training"
+        category: z.string(), // e.g., "Implementation", "Change Management", "Governance"
+        description: z.string(),
+        link: z.string().optional()
+      }))
+    }).optional(),
+    
+    // Social proof specific to this solution
+    social_proof: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      testimonials: z.array(z.object({
+        name: z.string(),
+        role: z.string(),
+        company: z.string(),
+        quote: z.string(),
+        metrics: z.string().optional()
+      })).optional(),
+      case_studies: z.array(z.object({
+        company_type: z.string(),
+        challenge: z.string(),
+        solution: z.string(),
+        result: z.string()
+      })).optional()
+    }).optional(),
+    
+    // Next steps/conversion section
+    conversion: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      offer_description: z.string(),
+      cta: z.object({
+        label: z.string(),
+        link: z.string(),
+        subtext: z.string()
+      }),
+      consultation_offer: z.object({
+        title: z.string(),
+        description: z.string(),
+        duration: z.string(),
+        cta: z.object({
+          label: z.string(),
+          link: z.string()
+        })
+      }).optional()
+    })
+  })
+});
+
 // Export collections
 export const collections = {
   career: careerCollection,
@@ -546,4 +740,5 @@ export const collections = {
   product: productCollection,
   reviews: reviewsCollection,
   sections: sectionsCollection,
+  solution: solutionCollection,
 };
