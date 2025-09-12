@@ -138,43 +138,6 @@ const faqCollection = defineCollection({
   }),
 });
 
-const featuresCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/features" }),
-  schema: z.object({
-    title: z.string().optional(),
-    meta_title: z.string().optional(),
-    description: z.string().optional(),
-    hero: z.object({ title: z.string().optional(), content: z.string() }),
-    features: z.array(
-      z.object({
-        title: z.string().optional(),
-        subtitle: z.string(),
-        image: z.unknown(),
-        points: z.array(z.object({ icon: z.string(), detail: z.string() })),
-        button: z.object({
-          enable: z.boolean(),
-          label: z.string(),
-          link: z.string(),
-        }),
-      }),
-    ),
-    conversion: z.object({
-      title: z.string().optional(),
-      subtitle: z.string(),
-      card: z.array(
-        z.object({
-          title: z.string().optional(),
-          image: z.string(),
-          button: z.object({
-            enable: z.boolean(),
-            label: z.string(),
-            link: z.string(),
-          }),
-        }),
-      ),
-    }),
-  }),
-});
 
 const homepageCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/homepage" }),
@@ -515,16 +478,42 @@ const productCollection = defineCollection({
       }))
     }).optional(),
     
+    // Features list (for product overview page)
+    features: z.array(
+      z.object({
+        title: z.string().optional(),
+        subtitle: z.string(),
+        image: z.unknown(),
+        points: z.array(z.object({ icon: z.string(), detail: z.string() })),
+        button: z.object({
+          enable: z.boolean(),
+          label: z.string(),
+          link: z.string(),
+        }),
+      }),
+    ).optional(),
+    
     // Conversion section
     conversion: z.object({
       title: z.string(),
       subtitle: z.string(),
-      offer_description: z.string(),
+      offer_description: z.string().optional(),
       cta: z.object({
         label: z.string(),
         link: z.string(),
         subtext: z.string()
-      })
+      }).optional(),
+      card: z.array(
+        z.object({
+          title: z.string().optional(),
+          image: z.string(),
+          button: z.object({
+            enable: z.boolean(),
+            label: z.string(),
+            link: z.string(),
+          }),
+        }),
+      ).optional()
     }).optional()
   })
 });
@@ -731,7 +720,6 @@ export const collections = {
   company: companyCollection,
   contact: contactCollection,
   faq: faqCollection,
-  features: featuresCollection,
   homepage: homepageCollection,
   insights: insightsCollection,
   integrations: integrationsCollection,

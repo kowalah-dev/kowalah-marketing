@@ -11,9 +11,9 @@ import type { CollectionEntry } from "astro:content";
 import { getEntry } from "astro:content";
 
 const featureIndex = (await getEntry(
-  "product",
+  "features",
   "-index"
-)) as CollectionEntry<"product">;
+)) as CollectionEntry<"features">;
 const { title, meta_title, description, hero, features, conversion } =
   featureIndex.data;
 const testimonial = (await getEntry(
@@ -27,7 +27,7 @@ const call_to_action = (await getEntry(
 ---
 
 <Base title={title} meta_title={meta_title} description={description}>
-  <PageHeader title={hero.title} content={hero.subtitle} />
+  <PageHeader title={hero.title} content={hero.content} />
 
   <section>
     <div class="container">
@@ -85,7 +85,6 @@ const call_to_action = (await getEntry(
                           alt={feature.title}
                           width={337}
                           height={339}
-                          quality="high"
                           class="border-b-4 border-text/10 rounded-3xl bg-light mx-auto"
                         />
                       </div>
@@ -97,7 +96,6 @@ const call_to_action = (await getEntry(
                             alt={feature.title}
                             width={407}
                             height={109}
-                            quality="high"
                             class="border border-text/10 rounded-3xl relative z-10 translate-y-1.5 bg-light mx-auto"
                           />
                         </div>
@@ -107,7 +105,6 @@ const call_to_action = (await getEntry(
                             alt={feature.title}
                             width={399}
                             height={227}
-                            quality="high"
                             class="border-b-4 border-text/10 rounded-3xl -translate-y-1.5 mx-auto"
                           />
                         </div>

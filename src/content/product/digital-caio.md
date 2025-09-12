@@ -152,51 +152,6 @@ use_cases:
       solution: "Financial modeling templates with cost-benefit analysis, payback calculations, and success metrics framework"
       outcome: "Compelling business case with quantified benefits and clear ROI projections for stakeholder approval"
 
-featured_showcase:
-  title: "Executive-Ready AI Frameworks"
-  subtitle: "Strategic templates and governance tools that demonstrate the professional depth of AI leadership guidance available through your Digital CAIO"
-  items:
-    - image: "/images/accelerators/AI Policy Generator.webp"
-      title: "AI Governance Accelerator"
-      type: "Governance Framework"
-      category: "Risk Management"
-      description: "Complete AI governance framework with policies, risk assessments, and compliance protocols for board approval"
-      link: "#"
-    
-    - image: "/images/accelerators/Playing To Win Strategy Coach.webp"
-      title: "AI Strategy Canvas"
-      type: "Strategic Framework"
-      category: "Strategy"
-      description: "Executive strategy template for AI vision development, competitive positioning, and implementation roadmapping"
-      link: "#"
-    
-    - image: "/images/accelerators/Prompt Writer.webp"
-      title: "Executive Decision Prompts"
-      type: "Executive Toolkit"
-      category: "Leadership"
-      description: "Strategic decision-making prompts for AI investment evaluation, vendor assessment, and board communications"
-      link: "#"
-    
-    - image: "/images/accelerators/ChatGPT 101 - Video Session.webp"
-      title: "Board AI Readiness Assessment"
-      type: "Assessment Tool"
-      category: "Strategic Planning"
-      description: "Comprehensive organizational AI maturity evaluation with board-ready recommendations and action plans"
-      link: "#"
-    
-    - image: "/images/accelerators/Find a GPT.webp"
-      title: "AI ROI Calculator"
-      type: "Financial Tool"
-      category: "Business Case"
-      description: "Executive-level ROI modeling template for quantifying AI initiative value and securing investment approval"
-      link: "#"
-    
-    - image: "/images/accelerators/ChatGPT Desktop.webp"
-      title: "Change Management Blueprint"
-      type: "Implementation Guide"
-      category: "Transformation"
-      description: "Proven framework for driving organizational AI adoption with stakeholder engagement and success metrics"
-      link: "#"
 
 integrations:
   title: "More Than Chat - Connected Action"
