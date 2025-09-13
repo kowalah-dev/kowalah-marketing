@@ -166,41 +166,47 @@ featured_showcase:
       title: "Executive Prompt Library"
       type: "Prompt Collection"
       category: "Leadership"
+      difficulty: "Intermediate"
       description: "200+ professional prompts for strategic decision-making, board communications, and executive analysis"
       link: "#"
-    
+
     - image: "/images/accelerators/AI Policy Generator.webp"
       title: "AI Governance Framework"
       type: "Policy Framework"
       category: "Governance"
+      difficulty: "Advanced"
       description: "Complete AI governance documentation including policies, procedures, and implementation guidelines"
       link: "#"
-    
+
     - image: "/images/accelerators/ChatGPT 101 - Video Session.webp"
       title: "Executive AI Workshop"
       type: "Training Session"
       category: "Training"
+      difficulty: "Beginner"
       description: "Custom 2-hour executive briefing on AI strategy and implementation for leadership teams"
       link: "#"
-    
+
     - image: "/images/accelerators/Playing To Win Strategy Coach.webp"
       title: "Strategy Development GPT"
       type: "Custom GPT"
       category: "Strategy"
+      difficulty: "Advanced"
       description: "AI assistant trained on your organization's strategic frameworks and decision-making processes"
       link: "#"
-    
+
     - image: "/images/accelerators/ChatGPT Desktop.webp"
       title: "AI Implementation Dashboard"
       type: "Web Application"
       category: "Implementation"
+      difficulty: "Advanced"
       description: "Custom web app for tracking AI initiatives, measuring ROI, and managing organizational adoption"
       link: "#"
-    
+
     - image: "/images/accelerators/Find a GPT.webp"
       title: "GPT Discovery Platform"
       type: "Custom Application"
       category: "Productivity"
+      difficulty: "Intermediate"
       description: "Internal platform for employees to discover, share, and manage custom GPTs across departments"
       link: "#"
 

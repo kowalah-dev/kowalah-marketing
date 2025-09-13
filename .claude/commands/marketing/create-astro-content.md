@@ -5,7 +5,7 @@ description: Creates Astro Content Collection files with proper schema validatio
 
 ## Goal
 
-To create properly formatted Astro Content Collection files for the Kowalah marketing website directly from page design documents or manual specifications, ensuring they match existing schema structure, follow best practices, and align with Kowalah brand messaging.
+To create properly formatted content files for the Kowalah marketing website directly from page design documents or manual specifications, automatically determining whether to create static pages (with markdown content files) or dynamic collections based on content requirements and architectural best practices.
 
 ## Command Syntax
 
@@ -29,6 +29,71 @@ To create properly formatted Astro Content Collection files for the Kowalah mark
 **`--with-review`** - Pause for approval at each major section before proceeding  
 **Example:** `/create-astro-content tasks/page-design-digital-caio.md --with-review`
 
+## Content Architecture Decision Framework
+
+### **CRITICAL: Choose the Right Pattern**
+
+Before creating any content, determine the correct architectural approach:
+
+### **Pattern 1: Static Pages with Markdown Content Files**
+
+**When to Use:**
+- ✅ Single, unique pages (product overviews, company pages, landing pages)
+- ✅ Content that doesn't share a schema with other pages
+- ✅ Pages where each one has unique sections and requirements
+- ✅ Content that changes infrequently
+
+**Implementation:**
+- **File Location:** `src/content/[category]/[page-name].md`
+- **Page Creation:** `src/pages/[category]/[page-name].astro` (static)
+- **Content Access:** Custom `getMarkdownData()` utility
+- **Schema Validation:** None (flexible frontmatter structure)
+
+**Examples:**
+- `/product/accelerators` → `src/content/product/accelerators.md`
+- `/product/expert-requests` → `src/content/product/expert-requests.md`
+- `/company/about` → `src/content/company/about.md`
+
+### **Pattern 2: Collections for Similar Content Types**
+
+**When to Use:**
+- ✅ Multiple content items sharing the same schema
+- ✅ Need dynamic routing with `[slug].astro`
+- ✅ Content that benefits from consistent structure
+- ✅ Blog posts, case studies, individual accelerator pages
+
+**Implementation:**
+- **File Location:** `src/content/[collection]/[item-name].md`
+- **Collection Definition:** Must be defined in `src/content.config.ts`
+- **Page Creation:** `src/pages/[collection]/[slug].astro` (dynamic)
+- **Content Access:** Astro's `getCollection()` and `getEntry()`
+- **Schema Validation:** Strict Zod validation
+
+**Examples:**
+- Blog posts: `src/content/blog/post-1.md` with `[slug].astro`
+- Case studies: `src/content/case-studies/company-a.md` with `[slug].astro`
+- Team members: `src/content/team/john-doe.md` with `[slug].astro`
+
+### **Decision Criteria**
+
+**Choose Static Pages When:**
+- Each page has unique content structure
+- No shared schema across pages
+- Content doesn't need dynamic routing
+- Simple content management needs
+
+**Choose Collections When:**
+- Multiple items share the same schema
+- Need dynamic routing with slugs
+- Want type safety and validation
+- Content benefits from consistent structure
+
+### **Anti-Patterns to Avoid**
+- ❌ Using collections for single overview pages
+- ❌ Forcing schema constraints on unique pages
+- ❌ Creating collections with only one item
+- ❌ Mixing inconsistent styling between pages
+
 ## Content Collections Available
 
 **Existing Collections:**
@@ -49,13 +114,14 @@ To create properly formatted Astro Content Collection files for the Kowalah mark
 
 ### For Design Document Input
 1. **Read Design Document:** Parse page design document for content strategy and requirements
-2. **Analyze Schema:** Examine `src/content.config.ts` to understand collection field requirements
-3. **Map Requirements:** Internally map design requirements to exact schema fields
-4. **Generate Content:** Create all content sections based on design specifications
-5. **Quality Validation:** Apply brand alignment, SEO, and technical validation
-6. **Create File:** Generate properly formatted markdown with frontmatter
-7. **Generate Image Creation Document:** Create comprehensive visual asset roadmap with AI prompts and specifications
-8. **Provide Implementation:** Show exact file path, image creation document, and next steps
+2. **Architectural Decision:** Determine if this should be a static page or collection using decision framework
+3. **Static Page Path:** If static page, use custom markdown utility; if collection, analyze schema
+4. **Map Requirements:** Map design requirements to appropriate content structure
+5. **Generate Content:** Create all content sections based on design specifications and chosen architecture
+6. **Quality Validation:** Apply brand alignment, SEO, and technical validation
+7. **Create File:** Generate properly formatted content with correct implementation pattern
+8. **Generate Image Creation Document:** Create comprehensive visual asset roadmap with AI prompts and specifications
+9. **Provide Implementation:** Show exact file path, architecture choice rationale, and next steps
 
 ### For Manual Input
 1. **Receive Content Request:** User specifies collection type and page details
@@ -312,6 +378,33 @@ Follow the existing structure in `/public/images/`:
 - **Team:** `/public/images/team/`
 - **Case Studies:** `/public/images/case-studies/`
 
+### Standardized Image Dimensions
+Use these four standardized dimensions for all new images to ensure consistency and performance:
+
+**1. Square Format: 800×800 pixels**
+- **Usage:** Profile images, icons, social media, general purpose
+- **Display size:** Usually 400×400 or smaller
+- **Aspect ratio:** 1:1
+- **Examples:** Avatar images, testimonial photos, company logos
+
+**2. Wide Horizontal: 800×200 pixels**
+- **Usage:** Banner-style images, overlays, header graphics
+- **Display size:** Usually 400×100 to 512×141  
+- **Aspect ratio:** 4:1 (wide and thin)
+- **Examples:** C-suite collaboration overlays, banner graphics
+
+**3. Standard Landscape: 800×450 pixels**
+- **Usage:** Feature cards, blog images, general content images
+- **Display size:** Usually 400×225 to 600×400
+- **Aspect ratio:** 16:9 (standard video/screen ratio)
+- **Examples:** Product screenshots, feature illustrations, case study images
+
+**4. Portrait Format: 400×600 pixels**
+- **Usage:** Book covers, mobile-first content, tall cards
+- **Display size:** Usually 300×450 or 400×600
+- **Aspect ratio:** 2:3 (portrait orientation)
+- **Examples:** Book covers, mobile layouts, tall feature cards
+
 ### Image Path Examples
 - Hero screenshot: `"/images/product/mockups/digital-caio-hero-interface.png"`
 - Demo screenshots: `"/images/product/screenshots/dashboard-overview.png"`
@@ -418,12 +511,12 @@ When processing content creation requests, the AI must follow this workflow:
    - **Note Requirements:** Visual asset specifications, SEO requirements, and conversion goals
    - **Understand User Journey:** Page flow, CTAs, and success metrics
 
-2. **Schema Analysis and Mapping**
-   - Read the specific collection schema from `src/content.config.ts`
-   - Map design sections to exact schema field names
-   - Identify required vs optional fields
-   - Note nested object structures and array requirements
-   - Validate field types (string, number, array, object, boolean)
+2. **Architectural Decision and Analysis**
+   - **Apply Decision Framework:** Use the criteria above to determine static page vs collection
+   - **For Static Pages:** Use custom markdown utility and flexible frontmatter structure
+   - **For Collections:** Read specific collection schema from `src/content.config.ts`
+   - Map design sections to appropriate content structure (flexible for static, schema-bound for collections)
+   - **If Collection:** Identify required vs optional fields, nested structures, and array requirements
    - **MANDATORY: Verify available icons:** Run `ls src/icons/` and strip `.svg` extensions to get valid icon names
    - **Map icon requirements:** Assign ONLY verified icon names from the actual directory listing
    - **Icon validation:** Cross-reference every icon used in content against the verified list
@@ -503,27 +596,31 @@ When processing content creation requests, the AI must follow this workflow:
 ### Image Creation Document Feature
 
 ### Overview
-The enhanced Create Astro Content command now automatically generates a comprehensive image creation document alongside each content file. This systematic approach ensures no visual assets are missed and provides clear guidance for creating professional, brand-consistent imagery.
+The enhanced Create Astro Content command now automatically generates a comprehensive image creation document alongside each content file. This systematic approach ensures no visual assets are missed and provides clear guidance for creating professional, brand-consistent imagery using standardized dimensions.
 
 ### How It Works
 1. **Automatic Extraction:** AI analyzes the generated content file and extracts all image references
-2. **Categorization:** Images are sorted by creation method (AI-generated, screenshots, templates)
-3. **Prioritization:** Critical hero images come first, supporting visuals second, enhancements third
-4. **Detailed Specifications:** Each image includes dimensions, file paths, and creation guidance
-5. **AI Prompt Generation:** Executive-appropriate prompts using brand visual guidelines
-6. **Implementation Checklist:** Phase-based workflow with completion tracking
+2. **Standardized Dimensions:** All images use the four standardized dimension formats (800×800, 800×200, 800×450, 400×600)
+3. **Categorization:** Images are sorted by creation method (AI-generated, screenshots, templates)
+4. **Prioritization:** Critical hero images come first, supporting visuals second, enhancements third
+5. **Detailed Specifications:** Each image includes standardized dimensions, file paths, and creation guidance
+6. **AI Prompt Generation:** Executive-appropriate prompts using brand visual guidelines with exact dimensions
+7. **Implementation Checklist:** Phase-based workflow with completion tracking
 
 ### Document Structure
-- **Priority 1:** Essential images (hero sections, critical visuals)
-- **Priority 2:** Supporting content (resource previews, section imagery)  
-- **Priority 3:** Enhancement visuals (optional improvements for future iterations)
+- **Priority 1:** Essential images (hero sections, critical visuals) - typically 800×450 or 800×200
+- **Priority 2:** Supporting content (resource previews, section imagery) - typically 800×450 or 800×800
+- **Priority 3:** Enhancement visuals (optional improvements) - any of the four standard formats
+- **Standardized Specifications:** All images use one of four approved dimension formats
 - **Brand Guidelines:** Color codes, style requirements, quality standards
 - **Implementation Checklist:** Organized workflow for systematic completion
 
 ### Benefits
 - **No Missing Assets:** Comprehensive extraction ensures complete visual coverage
+- **Dimension Consistency:** All images use standardized formats for predictable scaling
 - **Brand Consistency:** Detailed prompts and guidelines maintain professional standards
 - **Efficient Workflow:** Prioritized approach focuses on high-impact visuals first
+- **Performance Optimization:** Standardized dimensions enable better caching and optimization
 - **Quality Control:** Specifications ensure proper dimensions and formats
 - **Reusable Process:** Standardized approach scales across all content creation
 

@@ -1,0 +1,310 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import Button from "@/shortcodes/Button";
+import AcceleratorCarousel from "@/components/AcceleratorCarousel.astro";
+import { Icon } from "astro-icon/components";
+import { getEntry, type CollectionEntry } from "astro:content";
+
+// Get sections from theme
+const call_to_action = (await getEntry(
+  "sections",
+  "call-to-action"
+)) as CollectionEntry<"sections">;
+
+// Import content from markdown file
+import { getMarkdownData } from "@/lib/utils/markdown";
+const pageData = getMarkdownData("product/expert-requests.md");
+---
+
+<Base title={pageData.title} meta_title={pageData.meta_title} description={pageData.description}>
+  <!-- Hero Section -->
+  <section class="section-sm pt-24 bg-gradient">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="xl:col-10 lg:col-12">
+          <div class="text-center">
+            <h1 class="h1 text-dark" data-aos="fade-up-sm">
+              {pageData.hero.title}
+            </h1>
+            <p class="mt-6 text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
+              {pageData.hero.subtitle}
+            </p>
+            <div class="mt-8" data-aos="fade-up-sm" data-aos-delay="100">
+              <Button
+                label={pageData.hero.cta_primary.label}
+                link={pageData.hero.cta_primary.link}
+                className="me-4 mb-4"
+              />
+              {pageData.hero.cta_primary.subtext && (
+                <p class="mt-2 text-sm text-text-light">{pageData.hero.cta_primary.subtext}</p>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {pageData.hero.product_screenshot && (
+        <div class="row justify-center mt-16">
+          <div class="lg:col-10">
+            <div data-aos="fade-up-sm" data-aos-delay="150">
+              <ImageMod
+                src={pageData.hero.product_screenshot}
+                alt={pageData.title}
+                width={2400}
+                height={1600}
+                class="w-full rounded-3xl shadow-2xl"
+                loading="lazy"
+                decoding="async"
+                style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Problem/Solution Section -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <div class="text-center">
+            <h2 class="h2 mb-6" data-aos="fade-up-sm">
+              {pageData.problem_solution.title}
+            </h2>
+            <p class="mb-8 text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
+              {pageData.problem_solution.problem_statement}
+            </p>
+
+            <p class="mb-8 text-lg font-medium" data-aos="fade-up-sm" data-aos-delay="100">
+              {pageData.problem_solution.solution_overview}
+            </p>
+
+            {pageData.problem_solution.trust_elements && (
+              <div class="row justify-center mt-12">
+                {pageData.problem_solution.trust_elements.map((element, index) => (
+                  <div class="lg:col-6 mb-4" data-aos="fade-up-sm" data-aos-delay={150 + index * 50}>
+                    <div class="flex items-center justify-center text-center">
+                      <Icon name="check" size={20} class="text-primary me-3 flex-shrink-0" />
+                      <span class="text-text-dark">{element}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capabilities Section -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8 text-center mb-16">
+          <h2 class="h2" data-aos="fade-up-sm">{pageData.capabilities.title}</h2>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        {pageData.capabilities.items.map((item, index) => (
+          <div class="lg:col-6 mb-8" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+            <div class="h-full bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
+              <div class="flex items-start gap-4 mb-6">
+                <Icon name={item.icon} size={32} class="text-primary flex-shrink-0 mt-1" />
+                <div>
+                  <h3 class="h5 mb-3">{item.title}</h3>
+                  <p class="text-text-dark mb-4">{item.description}</p>
+                </div>
+              </div>
+
+              <ul class="mb-6 space-y-3">
+                {item.details.map((detail) => (
+                  <li class="flex items-start gap-3">
+                    <div class="w-2 h-2 bg-primary rounded-full flex-shrink-0 mt-2"></div>
+                    <span class="text-sm text-text-dark">{detail}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <p class="text-sm font-medium text-primary">{item.value_proposition}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  {pageData.how_it_works && (
+    <section class="section">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-8 text-center mb-16">
+            <h2 class="h2 mb-4" data-aos="fade-up-sm">{pageData.how_it_works.title}</h2>
+            <p class="text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
+              {pageData.how_it_works.subtitle}
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4 mb-16">
+          {pageData.how_it_works.steps.map((step: any, index: number) => (
+            <div class="lg:col-4 text-center" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+              <div class="mb-6">
+                <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">
+                  {step.step_number}
+                </div>
+              </div>
+              <h3 class="h5 mb-4">{step.title}</h3>
+              <p class="text-text-dark mb-6">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Competitive Advantage Section -->
+  {pageData.competitive_advantage && (
+    <section class="section bg-light">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-8 text-center mb-16">
+            <h2 class="h2 mb-4" data-aos="fade-up-sm">{pageData.competitive_advantage.title}</h2>
+            <p class="text-lg text-text-dark mb-6" data-aos="fade-up-sm" data-aos-delay="50">
+              {pageData.competitive_advantage.subtitle}
+            </p>
+            <p class="text-lg font-medium" data-aos="fade-up-sm" data-aos-delay="100">
+              {pageData.competitive_advantage.key_message}
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          {pageData.competitive_advantage.advantages.map((advantage: any, index: number) => (
+            <div class="lg:col-6 mb-6" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+              <div class="bg-white rounded-xl p-6 h-full">
+                <h3 class="h6 mb-3 text-primary">{advantage.point}</h3>
+                <p class="text-text-dark">{advantage.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Use Cases Section -->
+  {pageData.use_cases && (
+    <section class="section">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-8 text-center mb-12">
+            <h2 class="h2" data-aos="fade-up-sm">{pageData.use_cases.title}</h2>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          {pageData.use_cases.items.map((useCase: any, index: number) => (
+            <div class="lg:col-12 mb-8" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+              <div class="bg-white rounded-2xl p-8 shadow-sm">
+                <div class="row">
+                  <div class="lg:col-4">
+                    <h3 class="h6 mb-4 text-primary">Scenario</h3>
+                    <p class="text-text-dark font-medium">"{useCase.scenario}"</p>
+                  </div>
+                  <div class="lg:col-4">
+                    <h3 class="h6 mb-4 text-primary">Solution</h3>
+                    <p class="text-text-dark">{useCase.solution}</p>
+                  </div>
+                  <div class="lg:col-4">
+                    <h3 class="h6 mb-4 text-primary">Outcome</h3>
+                    <p class="text-text-dark">{useCase.outcome}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Featured Showcase Carousel -->
+  <AcceleratorCarousel
+    title={pageData.featured_showcase.title}
+    subtitle={pageData.featured_showcase.subtitle}
+    accelerators={pageData.featured_showcase.items}
+  />
+
+  <!-- Social Proof Section -->
+  {pageData.social_proof && (
+    <section class="section bg-light">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-8 text-center mb-12">
+            <h2 class="h2 mb-4" data-aos="fade-up-sm">{pageData.social_proof.title}</h2>
+            <p class="text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
+              {pageData.social_proof.subtitle}
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          {pageData.social_proof.success_metrics.map((metric: string, index: number) => (
+            <div class="lg:col-6 mb-6" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+              <div class="bg-white rounded-xl p-6 h-full text-center">
+                <p class="font-medium text-text-dark">{metric}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Final Conversion Section -->
+  <section class="section pb-0">
+    <div class="container">
+      <div
+        class="rounded-3xl bg-gradient-to-br from-primary to-secondary px-5 pt-7 md:px-12 md:pt-16 pb-16"
+        data-aos="fade-up-sm"
+      >
+        <div class="row justify-center">
+          <div class="lg:col-8 text-center">
+            <h2 class="h2 text-white mb-6" data-aos="fade-up-sm">
+              {pageData.conversion.title}
+            </h2>
+            <p class="text-lg text-white/90 mb-6" data-aos="fade-up-sm" data-aos-delay="50">
+              {pageData.conversion.subtitle}
+            </p>
+            <p class="text-white/90 mb-8" data-aos="fade-up-sm" data-aos-delay="100">
+              {pageData.conversion.offer_description}
+            </p>
+
+            <div data-aos="fade-up-sm" data-aos-delay="150">
+              <Button
+                label={pageData.conversion.cta.label}
+                link={pageData.conversion.cta.link}
+                style="light"
+                className="mb-4"
+              />
+            </div>
+
+            <p class="text-sm text-white/80">{pageData.conversion.cta.subtext}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Theme CallToAction Component -->
+  <CallToAction call_to_action={call_to_action} />
+</Base>

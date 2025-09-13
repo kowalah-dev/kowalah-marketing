@@ -1,85 +1,101 @@
 ---
-description: Generate AI image prompts and automate screenshot capture based on Astro content file requirements, following executive visual style guide and organized directory structure
+description: Generate conceptual mockup specifications for Canva creation based on Astro content file requirements, providing detailed functionality descriptions and text suggestions for platform features
 ---
 # Command: Create Image Prompts
 
 ## Goal
 
-To automatically generate detailed AI image prompts and coordinate Playwright screenshot capture based on Astro content file image requirements, ensuring visual consistency with Kowalah's executive brand and organized asset management.
+To automatically generate detailed Canva mockup specifications based on Astro content file image requirements, providing conceptual functionality descriptions, suggested text content, and visual guidance for creating polished platform demonstrations that showcase Kowalah's Digital CAIO capabilities.
 
 ## Command Syntax
 
-### Complete Image Generation (Recommended)
+### Complete Mockup Specifications (Recommended)
 ```bash
 /create-image-prompts [astro-content-file]
 ```
 **Example:** `/create-image-prompts src/content/product/digital-caio.md`
-*Generates AI prompts and captures screenshots for all image requirements*
+*Generates Canva mockup specifications for all image requirements*
 
 ### Selective Generation
 ```bash
-/create-image-prompts [astro-content-file] --screenshots-only
-/create-image-prompts [astro-content-file] --ai-only
+/create-image-prompts [astro-content-file] --platform-only
+/create-image-prompts [astro-content-file] --conceptual-only
 /create-image-prompts [astro-content-file] --batch
 ```
-- **`--screenshots-only`** - Only capture application interface screenshots via Playwright
-- **`--ai-only`** - Only generate AI image prompts for executive/business scenes
+- **`--platform-only`** - Only create specifications for platform interface mockups
+- **`--conceptual-only`** - Only generate conceptual business/executive scene descriptions
 - **`--batch`** - Process multiple content files (provide directory path)
 
 ## Process Workflow
 
 ### 1. Content File Analysis
 1. **Parse Frontmatter** - Extract all image field requirements from YAML
-2. **Identify Image Types** - Categorize as product screenshots, AI-generated scenes, or icons
+2. **Identify Image Types** - Categorize as platform mockups, conceptual scenes, or feature demonstrations
 3. **Map Directory Structure** - Determine correct `/public/images/` subdirectories
-4. **Extract Specifications** - Get dimensions, alt text, and purpose requirements
+4. **Extract Context** - Get dimensions, alt text, purpose, and platform functionality requirements
 
-### 2. AI Image Prompt Generation
-1. **Apply Visual Style Guide** - Reference `/docs/context/executive-visual-style-guide.md`
-2. **Generate Detailed Prompts** - Create comprehensive prompts for each AI-generated image
-3. **Include Technical Specs** - Add dimensions, format, and style requirements
-4. **Provide Implementation Guide** - Instructions for using prompts with AI generation tools
+### 2. Platform Mockup Specification
+1. **Analyze Platform Features** - Reference product knowledge for realistic functionality
+2. **Generate Detailed Mockup Specs** - Create comprehensive Canva creation instructions
+3. **Suggest Interface Content** - Provide realistic text, messages, and UI elements
+4. **Include Brand Guidelines** - Apply Kowalah visual style and design standards
 
-### 3. Playwright Screenshot Automation
-1. **Navigate to Application** - Use Playwright MCP to access live Kowalah application at app.kowalah.com (NOT kowalah.com)
-2. **Await Authentication** - Wait for user to login and access dashboard at app.kowalah.com/new
-3. **Configure Viewports** - Set exact dimensions: 1200x800px (hero), 1000x750px (screenshots)
-4. **Capture Multiple Views** - Take varied screenshots showing different capabilities and workflows
-5. **Auto-move Files** - Use bash commands to move from Playwright temp directory to final location
+### 3. Conceptual Scene Specification
+1. **Business Context Creation** - Define executive scenarios and use cases
+2. **Visual Composition Guide** - Describe layout, subjects, and environmental elements
+3. **Brand Integration** - Ensure alignment with executive visual style guide
+4. **Messaging Alignment** - Connect visuals to content strategy and value propositions
 
-### 4. Asset Organization
-1. **Directory Creation** - Ensure correct `/public/images/` subdirectory structure exists
-2. **File Naming** - Use consistent naming that matches content file references
-3. **Optimization** - Compress images for web performance while maintaining quality
-4. **Validation** - Verify all required images are generated and accessible
+### 4. Canva Implementation Guide
+1. **Directory Organization** - Ensure correct `/public/images/` subdirectory structure
+2. **Creation Instructions** - Step-by-step Canva mockup creation guidance
+3. **Brand Asset Integration** - Reference Kowalah colors, fonts, and visual elements
+4. **Quality Standards** - Professional polish appropriate for executive audience
 
 ## Image Type Classification
 
-### Product Screenshots (Playwright Automation)
+### Platform Mockups (Canva Creation)
 **Directory:** `/public/images/product/`
-- **`mockups/`** - Hero product interface shots, polished dashboard views
-- **`screenshots/`** - Raw interface captures, feature demonstrations  
-- **`demos/`** - How-it-works process screenshots, user flow captures
+- **`mockups/`** - Hero product interface mockups, polished dashboard views
+- **`screenshots/`** - Conceptual interface demonstrations, feature showcases
+- **`demos/`** - How-it-works process mockups, user flow illustrations
 
-**Playwright Configuration:**
-- **Hero Screenshots:** 1200x800px viewport for hero product mockups
-- **Demo Screenshots:** 1000x750px viewport for interface demonstrations  
-- **Executive Display:** Professional appearance with clean UI state
-- **Element Selection:** Full viewport captures, specific UI interactions
-- **Quality:** PNG format for crisp interface details
-- **File Management:** Auto-move from `.playwright-mcp/` temp directory to final `/public/images/` location
+**Platform Features to Showcase:**
+- **Digital CAIO Chat Interface** - Strategic AI conversations, expert guidance interactions
+- **Projects Dashboard** - AI initiative tracking, progress monitoring, team collaboration
+- **Expert Requests** - Custom prompt development, GPT creation, training session requests
+- **Accelerators** - Quick-start AI implementations, governance templates, policy frameworks
+- **Admin Functionality** - User management, organization settings, usage analytics
+- **Integrations** - Slack, Teams, email connections, workflow automation
+- **Reporting** - Board-ready AI progress reports, ROI analytics, strategic insights
 
-### AI-Generated Business Scenes
+**Mockup Specifications with Standardized Dimensions:**
+- **Hero Interfaces:** 800x450px (16:9 landscape) for primary product demonstrations
+- **Feature Showcases:** 800x450px for capability-specific mockups
+- **Wide Dashboard Views:** 800x200px (4:1 wide) for banner-style interface elements
+- **Square Feature Icons:** 800x800px for individual capability demonstrations
+- **Professional Polish:** Clean UI state, realistic data, executive-appropriate content
+- **Brand Integration:** Kowalah colors, typography, and visual design language
+
+### Conceptual Business Scenes
 **Directory:** `/public/images/heroes/`, `/public/images/backgrounds/`
-- **Executive Photography:** C-suite professionals in strategic settings
-- **Corporate Environments:** Boardrooms, modern offices, professional consultations
-- **Industry Contexts:** Manufacturing, finance, healthcare professional settings
+- **Executive Strategy Sessions:** C-suite professionals in strategic AI planning contexts
+- **Digital Transformation Scenarios:** Modern offices with AI technology integration
+- **Industry-Specific Contexts:** Manufacturing, finance, healthcare professional environments
 
-**AI Generation Requirements:**
-- **Style:** Professional photography aesthetic (not illustrations)
-- **Quality:** High-resolution, publication-ready
+**Conceptual Scene Specifications:**
+- **Style:** Professional, sophisticated visual storytelling through Canva design
+- **Quality:** Executive-appropriate, polished presentation quality
 - **Subjects:** Mature business leaders (40-60+ age range), diverse representation
-- **Settings:** Modern corporate environments, strategic contexts
+- **Settings:** Modern corporate environments, strategic contexts, AI-enabled workplaces
+
+**Dimension Standards for Canva Creation:**
+- **Hero Images:** 800x450px (16:9 landscape) for primary page heroes
+- **Banner Images:** 800x200px (4:1 wide) for section headers and concept illustrations
+- **Profile/Avatar Images:** 800x800px (1:1 square) for executive representations
+- **Portrait Scenes:** 400x600px (2:3 portrait) for vertical business contexts
+- **Brand Integration:** Kowalah gradient backgrounds, professional color palette
+- **Format:** PNG with transparency or high-quality designs optimized for web
 
 ### Icons and Graphics
 **Directory:** `/public/images/icons/`, `/public/images/product/features/`
@@ -92,78 +108,74 @@ To automatically generate detailed AI image prompts and coordinate Playwright sc
 - **✅ CORRECT:** `/images/product/mockups/digital-caio-hero-interface.png` (leading slash)
 - **❌ INCORRECT:** `images/product/mockups/digital-caio-hero-interface.png` (no leading slash)
 
-## AI Image Prompt Template
+## Canva Mockup Specification Template
 
-### Executive Photography Prompt Structure
+### Platform Mockup Specification Structure
 ```
-Create a [DIMENSIONS] professional business photograph featuring [SCENE DESCRIPTION].
+**Image: [MOCKUP_NAME]**
+**Dimensions:** [STANDARDIZED_DIMENSIONS]
+**Purpose:** [FUNCTIONALITY_DEMONSTRATION]
 
-**Visual Style:**
-- High-quality professional photography aesthetic (not illustration or cartoon)
-- Sophisticated corporate environment with modern, clean design
-- Color palette: Deep blues (#1e3a8a, #3b82f6), sophisticated grays (#64748b, #94a3b8), clean whites
-- Strategic use of Kowalah accent pink (#fa26a0) for key elements only
-- Professional lighting with soft shadows and natural depth of field
+**Platform Feature Context:**
+- **Functionality:** [SPECIFIC_PLATFORM_CAPABILITY]
+- **User Journey:** [WHERE_IN_WORKFLOW_THIS_APPEARS]
+- **Value Demonstration:** [WHAT_BENEFIT_THIS_SHOWS]
 
-**Subjects:**
-- C-suite executives and mature business leaders (40-60+ age range)
-- Professional business attire (suits, blazers, sophisticated dress)
-- Confident, authoritative expressions and strategic thinking poses
-- Diverse representation across gender, age, and ethnicity
-- [SPECIFIC SCENE REQUIREMENTS]
+**Mockup Content Specifications:**
+- **Interface Elements:** [SPECIFIC_UI_COMPONENTS_TO_SHOW]
+- **Text Content:** [REALISTIC_MESSAGES_LABELS_HEADINGS]
+- **Data Examples:** [SAMPLE_CONTENT_THAT_DEMONSTRATES_VALUE]
+- **Interactive Elements:** [BUTTONS_MENUS_FORMS_TO_INCLUDE]
 
-**Environment:**
-- Modern corporate settings (boardrooms, executive offices, professional meeting spaces)
-- Professional technology (premium laptops, large monitors, clean interfaces)
-- [INDUSTRY-SPECIFIC CONTEXT if applicable]
-- Clean, sophisticated interior design with strategic furniture placement
+**Visual Design Guidelines:**
+- **Brand Integration:** Kowalah gradient background (#fa26a0 to #ae10e3)
+- **Color Palette:** Professional grays (#64748b, #94a3b8), clean whites, strategic pink accents
+- **Typography:** Clean, modern fonts consistent with executive brand
+- **Layout:** Sophisticated, uncluttered design with clear hierarchy
 
-**Mood & Composition:**
-- [CONFIDENT/STRATEGIC/AUTHORITATIVE/PROFESSIONAL/CONTEMPLATIVE]
-- Strong focal points with executive subjects as primary focus
-- Balanced composition with sophisticated framing
-- Natural depth of field with professional bokeh
+**Canva Creation Instructions:**
+1. **Canvas Setup:** Create [DIMENSIONS] canvas in Canva
+2. **Background:** Apply Kowalah gradient or clean professional background
+3. **Interface Layout:** [SPECIFIC_LAYOUT_GUIDANCE]
+4. **Content Population:** [STEP_BY_STEP_CONTENT_CREATION]
+5. **Brand Polish:** [FINAL_BRANDING_AND_REFINEMENT_STEPS]
 
-**Technical Specifications:**
-- **Dimensions:** [EXACT_DIMENSIONS]
-- **Format:** PNG or high-quality JPEG
-- **Resolution:** High-resolution for web optimization
-- **Alt Text Purpose:** [SPECIFIC_ALT_TEXT_CONTEXT]
+**Text Content Suggestions:**
+- **Primary Heading:** "[SUGGESTED_HEADING]"
+- **Interface Labels:** [LIST_OF_UI_TEXT_ELEMENTS]
+- **Sample Messages/Data:** [REALISTIC_CONTENT_EXAMPLES]
+- **Call-to-Action Text:** [RELEVANT_BUTTON_TEXT]
 
-**Specific Scene:** [DETAILED_SCENE_DESCRIPTION_FROM_CONTENT_REQUIREMENTS]
-
-**Avoid:** Comic book styles, pop art aesthetics, casual startup environments, overly futuristic elements, bright cartoon colors, young/casual subjects, amateur photography appearance.
-```
-
-## Playwright MCP Integration
-
-### Screenshot Automation Workflow
-```javascript
-// Playwright automation examples (to be implemented via MCP)
-
-// Navigate to specific application sections
-await page.goto('https://app.kowalah.com/digital-caio');
-await page.setViewportSize({ width: 1200, height: 800 });
-
-// Capture specific interface elements
-await page.locator('[data-testid="capabilities-grid"]').screenshot({
-  path: 'public/images/product/screenshots/digital-caio-capabilities.png',
-  quality: 90
-});
-
-// Full page screenshots for hero sections
-await page.screenshot({
-  path: 'public/images/product/mockups/digital-caio-hero-interface.png',
-  fullPage: false,
-  clip: { x: 0, y: 0, width: 1200, height: 800 }
-});
+**Quality Standards:**
+- Executive-appropriate professional appearance
+- Realistic platform functionality demonstration
+- Brand-consistent visual design
+- Clear value proposition communication
 ```
 
-### Authentication & Access
-- **Development Environment:** Use development/staging application URLs
-- **Authentication:** Handle login flow for protected application sections
-- **State Management:** Ensure consistent application state for screenshot quality
-- **Error Handling:** Graceful failure with manual screenshot fallback instructions
+## Platform Knowledge Integration
+
+### Digital CAIO Chat Interface Examples
+```yaml
+Chat Scenarios:
+  Strategic Planning:
+    User: "Can you help me design our AI strategy document?"
+    CAIO: "Absolutely, a pragmatic AI strategy will help you align your team and plan the tactical next steps for your journey at [Company Name]. Tell me, what's driving this program? What do you want to get out of an 'AI strategy'?"
+    
+  Vendor Evaluation:
+    User: "We're evaluating ChatGPT Enterprise vs Google Workspace AI. What should we consider?"
+    CAIO: "Let me help you evaluate both platforms against your specific requirements. First, what's your primary use case - employee productivity, customer service, or specialized workflows?"
+    
+  Implementation Guidance:
+    User: "How do we roll out AI tools without overwhelming our teams?"
+    CAIO: "A phased rollout approach works best. Start with power users in each department, then expand based on adoption success. What's your current team's AI experience level?"
+```
+
+### Platform Features for Mockup Creation
+- **Projects Dashboard:** AI initiative tracking, milestone progress, team assignments
+- **Expert Requests:** Custom prompt development queue, GPT creation status, training session bookings
+- **Accelerators:** Pre-built templates, governance frameworks, policy starters
+- **Admin Interface:** User management, organization settings, usage analytics, billing overview
 
 ## Output Format
 
@@ -310,40 +322,43 @@ When processing image prompt generation requests, the AI must:
 
 Based on successful Digital CAIO implementation:
 
-### 1. Setup and Navigation
-```bash
-# Navigate to correct application URL
-mcp__playwright__browser_navigate app.kowalah.com
-# Ensure user authentication is complete
-mcp__playwright__browser_snapshot  # Verify dashboard access
+### 1. Content Analysis and Mockup Planning
+```yaml
+Mockup Planning Process:
+  Content Review: Analyze image requirements from Astro content file
+  Feature Mapping: Match image needs to specific platform capabilities
+  Scenario Creation: Develop realistic use cases and data examples
+  Text Generation: Create authentic interface content and messaging
 ```
 
-### 2. Screenshot Capture Process
-```bash
-# Set viewport for hero screenshots
-mcp__playwright__browser_resize 1200 800
-mcp__playwright__browser_take_screenshot "hero-interface.png"
-
-# Set viewport for demo screenshots  
-mcp__playwright__browser_resize 1000 750
-mcp__playwright__browser_take_screenshot "dashboard-view.png"
-
-# Interact with interface for varied captures
-mcp__playwright__browser_click [capability-button] [ref]
-mcp__playwright__browser_take_screenshot "capabilities-view.png"
+### 2. Canva Mockup Creation Process (Standardized Dimensions)
+```yaml
+Creation Workflow:
+  Canvas Setup: Create canvas with standardized dimensions
+  Background Application: Apply Kowalah gradient or professional background
+  Interface Layout: Structure mockup with realistic UI elements
+  Content Population: Add suggested text, messages, and data examples
+  Brand Polish: Apply final branding, colors, and visual refinements
 ```
 
-### 3. File Management (CRITICAL)
-```bash
-# Move from Playwright temp directory to final location
-mv "/.playwright-mcp/[temp-filename].png" "/public/images/product/mockups/[final-name].png"
-mv "/.playwright-mcp/[temp-filename].png" "/public/images/product/screenshots/[final-name].png"
+### 3. Quality Standards and Brand Integration
+```yaml
+Quality Checklist:
+  Executive Appropriate: Professional appearance suitable for CEO audience
+  Platform Realistic: Authentic demonstration of actual functionality
+  Brand Consistent: Kowalah colors, typography, and visual style
+  Message Aligned: Clear value proposition and benefit communication
+  Technically Accurate: Realistic platform capabilities and workflows
 ```
 
-### 4. Validation
-- Verify all required image paths match content file references exactly
-- Confirm all image paths start with leading slash (`/images/...`)
-- Test images load correctly in development server
+### 4. File Organization and Implementation
+```yaml
+Implementation Process:
+  Directory Structure: Organize mockups in correct /public/images/ subdirectories
+  File Naming: Use names that match content file references exactly
+  Path Formatting: Ensure all paths start with leading slash (/images/...)
+  Quality Validation: Test mockups load correctly in development environment
+```
 
 ## Success Criteria
 

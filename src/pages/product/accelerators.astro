@@ -3,41 +3,10 @@ import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
-import PageHeader from "@/partials/PageHeader.astro";
 import Button from "@/shortcodes/Button";
 import AcceleratorCarousel from "@/components/AcceleratorCarousel.astro";
 import { Icon } from "astro-icon/components";
-import type { CollectionEntry } from "astro:content";
-import { getCollection, getEntry } from "astro:content";
-
-export async function getStaticPaths() {
-  const products = await getCollection("product");
-  return products.map((product) => ({
-    params: { slug: product.id },
-    props: { product },
-  }));
-}
-
-interface Props {
-  product: CollectionEntry<"product">;
-}
-
-const { product } = Astro.props;
-const { 
-  title, 
-  meta_title, 
-  description, 
-  hero, 
-  problem_solution,
-  capabilities,
-  how_it_works,
-  competitive_advantage,
-  use_cases,
-  integrations,
-  social_proof,
-  featured_showcase,
-  conversion
-} = product.data;
+import { getEntry, type CollectionEntry } from "astro:content";
 
 // Get call to action section
 const call_to_action = (await getEntry(
@@ -45,10 +14,12 @@ const call_to_action = (await getEntry(
   "call-to-action"
 )) as CollectionEntry<"sections">;
 
-// Note: Removed fallback accelerators - now using content-driven featured_showcase only
+// Import content from markdown file
+import { getMarkdownData } from "@/lib/utils/markdown";
+const pageData = getMarkdownData("product/accelerators.md");
 ---
 
-<Base title={title} meta_title={meta_title} description={description}>
+<Base title={pageData.title} meta_title={pageData.meta_title} description={pageData.description}>
   <!-- Hero Section -->
   <section class="section-sm pt-24 bg-gradient">
     <div class="container">
@@ -56,32 +27,32 @@ const call_to_action = (await getEntry(
         <div class="xl:col-10 lg:col-12">
           <div class="text-center">
             <h1 class="h1 text-dark" data-aos="fade-up-sm">
-              {hero.title}
+              {pageData.hero.title}
             </h1>
             <p class="mt-6 text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
-              {hero.subtitle}
+              {pageData.hero.subtitle}
             </p>
             <div class="mt-8" data-aos="fade-up-sm" data-aos-delay="100">
               <Button
-                label={hero.cta_primary.label}
-                link={hero.cta_primary.link}
+                label={pageData.hero.cta_primary.label}
+                link={pageData.hero.cta_primary.link}
                 className="me-4 mb-4"
               />
-              {hero.cta_primary.subtext && (
-                <p class="mt-2 text-sm text-text-light">{hero.cta_primary.subtext}</p>
+              {pageData.hero.cta_primary.subtext && (
+                <p class="mt-2 text-sm text-text-light">{pageData.hero.cta_primary.subtext}</p>
               )}
             </div>
           </div>
         </div>
       </div>
-      
-      {hero.product_screenshot && (
+
+      {pageData.hero.product_screenshot && (
         <div class="row justify-center mt-16">
           <div class="lg:col-10">
             <div data-aos="fade-up-sm" data-aos-delay="150">
               <ImageMod
-                src={hero.product_screenshot}
-                alt={title}
+                src={pageData.hero.product_screenshot}
+                alt={pageData.title}
                 width={2400}
                 height={1600}
                 class="w-full rounded-3xl shadow-2xl"
@@ -96,46 +67,34 @@ const call_to_action = (await getEntry(
     </div>
   </section>
 
-  {featured_showcase && (
-    <AcceleratorCarousel
-      title={featured_showcase.title}
-      subtitle={featured_showcase.subtitle}
-      accelerators={featured_showcase.items}
-    />
-  )}
+  <!-- Featured Accelerators Carousel -->
+  <AcceleratorCarousel
+    title={pageData.featured_showcase.title}
+    subtitle={pageData.featured_showcase.subtitle}
+    accelerators={pageData.featured_showcase.items}
+  />
 
-  {problem_solution && (
+  <!-- Problem/Solution Section -->
+  {pageData.problem_solution && (
     <section class="section">
       <div class="container">
         <div class="row justify-center">
           <div class="lg:col-8">
             <div class="text-center">
               <h2 class="h2 mb-6" data-aos="fade-up-sm">
-                {problem_solution.title}
+                {pageData.problem_solution.title}
               </h2>
               <p class="mb-8 text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
-                {problem_solution.problem_statement}
+                {pageData.problem_solution.problem_statement}
               </p>
-              
-              {problem_solution.image && (
-                <div class="mb-12" data-aos="fade-up-sm" data-aos-delay="75">
-                  <ImageMod
-                    src={problem_solution.image}
-                    alt={`${title} problem illustration`}
-                    width={600}
-                    height={400}
-                    class="w-full max-w-md mx-auto rounded-2xl shadow-lg"
-                  />
-                </div>
-              )}
-              
+
               <p class="mb-8 text-lg font-medium" data-aos="fade-up-sm" data-aos-delay="100">
-                {problem_solution.solution_overview}
+                {pageData.problem_solution.solution_overview}
               </p>
-              
-              {problem_solution.trust_elements && (
+
+              {pageData.problem_solution.trust_elements && (
                 <div class="row justify-center mt-12">
-                  {problem_solution.trust_elements.map((element: string, index: number) => (
+                  {pageData.problem_solution.trust_elements.map((element: string, index: number) => (
                     <div class="lg:col-6 mb-4" data-aos="fade-up-sm" data-aos-delay={150 + index * 50}>
                       <div class="flex items-center justify-center text-center">
                         <Icon name="check" size={20} class="text-primary me-3 flex-shrink-0" />
@@ -152,17 +111,18 @@ const call_to_action = (await getEntry(
     </section>
   )}
 
-  {capabilities && (
+  <!-- Capabilities Section -->
+  {pageData.capabilities && (
     <section class="section bg-light">
       <div class="container">
         <div class="row justify-center">
           <div class="lg:col-8 text-center mb-16">
-            <h2 class="h2" data-aos="fade-up-sm">{capabilities.title}</h2>
+            <h2 class="h2" data-aos="fade-up-sm">{pageData.capabilities.title}</h2>
           </div>
         </div>
-        
+
         <div class="row g-4">
-          {capabilities.items.map((capability: any, index: number) => (
+          {pageData.capabilities.items.map((capability: any, index: number) => (
             <div class="lg:col-6 mb-8" data-aos="fade-up-sm" data-aos-delay={index * 100}>
               <div class="h-full bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
                 <div class="flex items-start gap-4 mb-6">
@@ -172,7 +132,7 @@ const call_to_action = (await getEntry(
                     <p class="text-text-dark mb-4">{capability.description}</p>
                   </div>
                 </div>
-                
+
                 <ul class="mb-6 space-y-3">
                   {capability.details.map((detail: string) => (
                     <li class="flex items-start gap-3">
@@ -181,7 +141,7 @@ const call_to_action = (await getEntry(
                     </li>
                   ))}
                 </ul>
-                
+
                 <p class="text-sm font-medium text-primary">{capability.value_proposition}</p>
               </div>
             </div>
@@ -191,20 +151,21 @@ const call_to_action = (await getEntry(
     </section>
   )}
 
-  {how_it_works && (
+  <!-- How It Works Section -->
+  {pageData.how_it_works && (
     <section class="section">
       <div class="container">
         <div class="row justify-center">
           <div class="lg:col-8 text-center mb-16">
-            <h2 class="h2 mb-4" data-aos="fade-up-sm">{how_it_works.title}</h2>
+            <h2 class="h2 mb-4" data-aos="fade-up-sm">{pageData.how_it_works.title}</h2>
             <p class="text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
-              {how_it_works.subtitle}
+              {pageData.how_it_works.subtitle}
             </p>
           </div>
         </div>
-        
+
         <div class="row g-4 mb-16">
-          {how_it_works.steps.map((step: any, index: number) => (
+          {pageData.how_it_works.steps.map((step: any, index: number) => (
             <div class="lg:col-4 text-center" data-aos="fade-up-sm" data-aos-delay={index * 100}>
               <div class="mb-6">
                 <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">
@@ -213,74 +174,31 @@ const call_to_action = (await getEntry(
               </div>
               <h3 class="h5 mb-4">{step.title}</h3>
               <p class="text-text-dark mb-6">{step.description}</p>
-              <div class="flex justify-center">
-                <ImageMod
-                  src={`/images/product/${product.id}/step-${step.step_number}.png`}
-                  alt={`Step ${step.step_number}: ${step.title}`}
-                  width={600}
-                  height={600}
-                  class="w-[300px] h-[300px] object-cover rounded-lg shadow-md"
-                  loading="lazy"
-                  decoding="async"
-                  style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
-                />
-              </div>
             </div>
           ))}
         </div>
-
-        {how_it_works.demo && how_it_works.demo.screenshots && (
-          <div class="row justify-center">
-            <div class="lg:col-10">
-              <div class="text-center mb-8">
-                <p class="text-text-dark">{how_it_works.demo.description}</p>
-              </div>
-              <div class="row g-4">
-                {how_it_works.demo.screenshots.map((screenshot: string, index: number) => (
-                  <div class="lg:col-4" data-aos="fade-up-sm" data-aos-delay={index * 100}>
-                    <ImageMod
-                      src={screenshot}
-                      alt={`Demo screenshot ${index + 1}`}
-                      width={400}
-                      height={300}
-                      class="w-full rounded-xl shadow-lg"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   )}
 
-  {competitive_advantage && (
+  <!-- Competitive Advantage Section -->
+  {pageData.competitive_advantage && (
     <section class="section bg-light">
       <div class="container">
-        <div class="row items-center mb-16">
-          <div class="lg:col-6">
-            <h2 class="h2 mb-4" data-aos="fade-up-sm">{competitive_advantage.title}</h2>
+        <div class="row justify-center">
+          <div class="lg:col-8 text-center mb-16">
+            <h2 class="h2 mb-4" data-aos="fade-up-sm">{pageData.competitive_advantage.title}</h2>
             <p class="text-lg text-text-dark mb-6" data-aos="fade-up-sm" data-aos-delay="50">
-              {competitive_advantage.subtitle}
+              {pageData.competitive_advantage.subtitle}
             </p>
             <p class="text-lg font-medium" data-aos="fade-up-sm" data-aos-delay="100">
-              {competitive_advantage.key_message}
+              {pageData.competitive_advantage.key_message}
             </p>
           </div>
-          <div class="lg:col-6" data-aos="fade-up-sm" data-aos-delay="150">
-            <ImageMod
-              src={`/images/product/${product.id}/competitive-advantage.png`}
-              alt={`Executive using ${title} in modern business environment`}
-              width={600}
-              height={400}
-              class="w-full rounded-xl shadow-lg"
-            />
-          </div>
         </div>
-        
+
         <div class="row g-4">
-          {competitive_advantage.advantages.map((advantage: any, index: number) => (
+          {pageData.competitive_advantage.advantages.map((advantage: any, index: number) => (
             <div class="lg:col-6 mb-6" data-aos="fade-up-sm" data-aos-delay={index * 100}>
               <div class="bg-white rounded-xl p-6 h-full">
                 <h3 class="h6 mb-3 text-primary">{advantage.point}</h3>
@@ -293,17 +211,18 @@ const call_to_action = (await getEntry(
     </section>
   )}
 
-  {use_cases && (
+  <!-- Use Cases Section -->
+  {pageData.use_cases && (
     <section class="section">
       <div class="container">
         <div class="row justify-center">
           <div class="lg:col-8 text-center mb-12">
-            <h2 class="h2" data-aos="fade-up-sm">{use_cases.title}</h2>
+            <h2 class="h2" data-aos="fade-up-sm">{pageData.use_cases.title}</h2>
           </div>
         </div>
-        
+
         <div class="row g-4">
-          {use_cases.items.map((useCase: any, index: number) => (
+          {pageData.use_cases.items.map((useCase: any, index: number) => (
             <div class="lg:col-12 mb-8" data-aos="fade-up-sm" data-aos-delay={index * 100}>
               <div class="bg-white rounded-2xl p-8 shadow-sm">
                 <div class="row">
@@ -328,43 +247,35 @@ const call_to_action = (await getEntry(
     </section>
   )}
 
-  {conversion && (
-    <section class="section pb-0">
-      <div class="container">
-        <div
-          class="rounded-3xl bg-gradient-to-br from-primary to-secondary px-5 pt-7 md:px-12 md:pt-16 pb-16"
-          data-aos="fade-up-sm"
-        >
-          <div class="row justify-center">
-            <div class="lg:col-8 text-center">
-              <h2 class="h2 text-white mb-6" data-aos="fade-up-sm">
-                {conversion.title}
-              </h2>
-              <p class="text-lg text-white/90 mb-8" data-aos="fade-up-sm" data-aos-delay="50">
-                {conversion.subtitle}
-              </p>
-              <p class="text-white/80 mb-10" data-aos="fade-up-sm" data-aos-delay="100">
-                {conversion.offer_description}
-              </p>
-              
-              <div data-aos="fade-up-sm" data-aos-delay="150">
-                <Button
-                  label={conversion.cta.label}
-                  link={conversion.cta.link}
-                  style="light"
-                  className="mb-4"
-                />
-                <p class="text-sm text-white/70">{conversion.cta.subtext}</p>
-              </div>
+  <!-- Conversion Section -->
+  <section class="section pb-0">
+    <div class="container">
+      <div
+        class="rounded-3xl bg-gradient-to-br from-primary to-secondary px-5 pt-7 md:px-12 md:pt-16 pb-16"
+        data-aos="fade-up-sm"
+      >
+        <div class="row justify-center">
+          <div class="lg:col-8 text-center">
+            <h2 class="h2 text-white mb-6" data-aos="fade-up-sm">
+              Ready to Transform Your AI Strategy?
+            </h2>
+            <p class="text-lg text-white/90 mb-8" data-aos="fade-up-sm" data-aos-delay="50">
+              Join 100+ organizations using Kowalah to accelerate AI adoption. Get executive-level AI leadership available 24/7.
+            </p>
+
+            <div data-aos="fade-up-sm" data-aos-delay="150">
+              <Button
+                label="Start Free Trial"
+                link="https://app.kowalah.com/sign-up"
+                style="light"
+                className="mb-4"
+              />
             </div>
           </div>
         </div>
       </div>
-    </section>
-  )}
+    </div>
+  </section>
 
-  {/* Only show global CTA if no product-specific conversion exists */}
-  {!conversion && (
-    <CallToAction call_to_action={call_to_action} />
-  )}
+  <CallToAction call_to_action={call_to_action} />
 </Base>

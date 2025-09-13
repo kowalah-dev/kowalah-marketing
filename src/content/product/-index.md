@@ -29,8 +29,8 @@ features:
   - title: "C-Suite Collaboration"
     subtitle: "Executive Alignment"
     image:
-      - "/images/features/2.png"
-      - "/images/features/2.2.png"
+      - "/images/product/product-overview/2.png"
+      - "/images/product/product-overview/2.2.png"
     points:
       - icon: "profile"
         detail: "Facilitate AI discussions with board members and executives"
@@ -47,8 +47,8 @@ features:
   - title: "AI Governance and Risk Management"
     subtitle: "Risk & Compliance"
     image:
-      - "/images/features/3.png"
-      - "/images/features/3.3.png"
+      - "/images/product/product-overview/3.png"
+      - "/images/product/product-overview/3.3.png"
     points:
       - icon: "up"
         detail: "Establish AI ethics frameworks and responsible AI practices"
@@ -64,7 +64,7 @@ features:
       link: "/contact"
   - title: "Talent and Capability Building"
     subtitle: "Team Development"
-    image: "/images/features/4.png"
+    image: "/images/product/product-overview/4.png"
     points:
       - icon: "bulb"
         detail: "Design AI upskilling and training programs for teams"
@@ -80,7 +80,9 @@ features:
       link: "/contact"
   - title: "AI Implementation and Performance"
     subtitle: "Technical Execution"
-    image: "/images/features/5.png"
+    image: 
+      - "/images/product/product-overview/5.png"
+      - "/images/product/product-overview/5.5.png"
     points:
       - icon: "speed"
         detail: "Guide AI technology selection and vendor evaluation"
@@ -96,7 +98,7 @@ features:
       link: "/contact"
   - title: "App and Prompt Development"
     subtitle: "Custom AI Solutions"
-    image: "/images/features/6.png"
+    image: "/images/product/product-overview/6.png"
     points:
       - icon: "bulb"
         detail: "Provide guidance on building internal AI applications"
@@ -112,7 +114,7 @@ features:
       link: "/contact"
   - title: "Change Management"
     subtitle: "Organizational Transformation"
-    image: "/images/features/7.png"
+    image: "/images/product/product-overview/7.png"
     points:
       - icon: "upward"
         detail: "Lead organizational AI transformation initiatives"

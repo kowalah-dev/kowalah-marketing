@@ -1,0 +1,466 @@
+---
+import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+
+const pageData = {
+  title: "Your Digital Chief AI Officer",
+  meta_title: "Digital Chief AI Officer | Executive AI Leadership | Kowalah",
+  description: "Get executive-level AI guidance without the $500K hire. 24/7 access to AI leadership expertise across strategy, governance, and implementation.",
+
+  hero: {
+    title: "Your AI executive advisor is ready. No hiring, no onboarding, no turnover.",
+    subtitle: "Get executive-level AI leadership expertise with 24/7 availability, collective intelligence from thousands of implementations, and zero turnover risk. Start with 10 free conversations.",
+    cta_primary: {
+      label: "Start Your Free Trial",
+      link: "https://kowalah.com/signup",
+      subtext: "10 free conversations with your Digital CAIO"
+    },
+    product_screenshot: "/images/product/mockups/digital-caio-hero-interface.png"
+  },
+
+  problem_solution: {
+    title: "The Executive AI Leadership Gap",
+    problem_statement: "Finding and hiring a qualified Chief AI Officer takes 6+ months and costs $300,000-$500,000+ annually. Most qualified candidates don't exist anyway, leaving organizations without the AI leadership they need to stay competitive.",
+    solution_overview: "Get immediate access to executive-level AI expertise with strategic thinking, operational experience, and collective intelligence from thousands of AI implementations. Your Digital CAIO is available 24/7, scales with your needs, and never leaves.",
+    trust_elements: [
+      "Experience across thousands of AI implementations",
+      "Collective intelligence that no single executive can match",
+      "24/7 availability with immediate strategic guidance",
+      "Zero turnover risk with continuously evolving capabilities"
+    ]
+  },
+
+  capabilities: {
+    title: "Your AI Leadership Capabilities",
+    items: [
+      {
+        title: "AI Strategy & Vision",
+        icon: "graph",
+        description: "Develop comprehensive AI strategies aligned with business objectives and competitive positioning.",
+        details: [
+          "Create AI vision statements and strategic roadmaps",
+          "Conduct AI readiness assessments and opportunity identification",
+          "Build business cases for AI investments with ROI projections",
+          "Define AI success metrics and KPIs for board reporting"
+        ],
+        value_proposition: "Transform AI uncertainty into competitive advantage with expert-validated strategic direction."
+      },
+      {
+        title: "C-Suite Collaboration",
+        icon: "profile",
+        description: "Facilitate AI discussions and decision-making across executive leadership teams.",
+        details: [
+          "Translate technical AI concepts for business stakeholders",
+          "Facilitate board-level AI strategy discussions",
+          "Manage AI-related stakeholder expectations and communications",
+          "Coordinate cross-functional AI initiatives and governance"
+        ],
+        value_proposition: "Ensure executive alignment on AI strategy with clear communication and shared understanding."
+      },
+      {
+        title: "AI Governance & Risk Management",
+        icon: "help",
+        description: "Establish comprehensive AI governance frameworks and risk mitigation strategies.",
+        details: [
+          "Develop AI ethics frameworks and responsible AI practices",
+          "Create AI policies, procedures, and compliance protocols",
+          "Implement AI risk assessment and mitigation strategies",
+          "Establish AI incident response and monitoring procedures"
+        ],
+        value_proposition: "Minimize AI-related risks while maximizing strategic opportunities through proven governance frameworks."
+      },
+      {
+        title: "Talent & Capability Building",
+        icon: "bulb",
+        description: "Build organizational AI capabilities and manage workforce transformation.",
+        details: [
+          "Design AI upskilling and training programs for teams",
+          "Assess AI skill gaps and development needs across roles",
+          "Guide AI talent acquisition and team structure planning",
+          "Create AI literacy programs for different organizational levels"
+        ],
+        value_proposition: "Transform your workforce into AI-capable contributors with structured development programs."
+      },
+      {
+        title: "AI Implementation & Performance",
+        icon: "cpu",
+        description: "Guide AI technology selection, implementation, and performance optimization.",
+        details: [
+          "Guide AI technology selection and vendor evaluation",
+          "Oversee AI project planning and execution frameworks",
+          "Monitor AI system performance and optimization strategies",
+          "Coordinate AI integration with existing enterprise systems"
+        ],
+        value_proposition: "Ensure successful AI implementations that deliver measurable business outcomes."
+      },
+      {
+        title: "App & Prompt Development",
+        icon: "monitor",
+        description: "Provide strategic guidance on building internal AI applications and workflows.",
+        details: [
+          "Guide prompt engineering and AI workflow optimization",
+          "Advise on AI tool customization and business process integration",
+          "Support AI application testing and deployment strategies",
+          "Provide strategic direction for internal AI capability development"
+        ],
+        value_proposition: "Accelerate AI application development with expert guidance and proven frameworks."
+      },
+      {
+        title: "Change Management",
+        icon: "rocket",
+        description: "Lead organizational AI transformation and cultural change initiatives.",
+        details: [
+          "Design communication strategies for AI rollouts and adoption",
+          "Manage resistance to AI adoption and cultural transformation",
+          "Support business process redesign for AI integration",
+          "Facilitate AI adoption across departments and business units"
+        ],
+        value_proposition: "Drive successful organizational transformation with proven change management expertise."
+      }
+    ]
+  },
+
+  how_it_works: {
+    title: "How Your Digital CAIO Works",
+    subtitle: "Get curated, executive-level AI guidance in three simple steps.",
+    steps: [
+      {
+        step_number: 1,
+        title: "Choose Your AI Leadership Focus",
+        description: "Select from seven core AI leadership capabilities or ask custom strategic questions."
+      },
+      {
+        step_number: 2,
+        title: "Get Curated Executive Tasks",
+        description: "Access pre-built frameworks and executive-level guidance tailored to your specific challenges."
+      },
+      {
+        step_number: 3,
+        title: "Receive Actionable Strategic Guidance",
+        description: "Get frameworks, documents, and strategic recommendations you can implement immediately."
+      }
+    ],
+    demo: {
+      type: "screenshots",
+      screenshots: [
+        "/images/product/screenshots/digital-caio-dashboard.png",
+        "/images/product/screenshots/digital-caio-capabilities.png",
+        "/images/product/screenshots/digital-caio-task-selection.png"
+      ],
+      description: "Professional interface designed for executive-level strategic guidance and decision support."
+    }
+  },
+
+  competitive_advantage: {
+    title: "The Collective Intelligence Advantage",
+    subtitle: "Unlike human CAIOs limited to their own experience, your Digital CAIO learns from thousands of implementations.",
+    key_message: "Every interaction makes Kowalah smarter. Your Digital CAIO has strategic experience and operational knowledge that no single human executive can match.",
+    advantages: [
+      {
+        point: "Immediate Availability vs. 6+ Month Search",
+        description: "Start getting strategic AI guidance today instead of waiting months to find and hire a qualified executive."
+      },
+      {
+        point: "24/7 Access vs. Business Hours Only",
+        description: "Get AI leadership support whenever you need it, not just during traditional business hours."
+      },
+      {
+        point: "Collective Intelligence vs. Individual Experience",
+        description: "Benefit from insights across thousands of AI implementations rather than one person's limited experience."
+      },
+      {
+        point: "Zero Turnover Risk vs. 2-3 Year Average Tenure",
+        description: "Never lose institutional knowledge or restart strategic initiatives due to executive turnover."
+      }
+    ]
+  },
+
+  use_cases: {
+    title: "What Can Your Digital CAIO Help You With?",
+    items: [
+      {
+        scenario: "Help me develop our comprehensive AI strategy roadmap",
+        solution: "Strategic framework development with 12-18 month roadmap, competitive analysis, and implementation priorities",
+        outcome: "Board-ready strategic document with clear milestones, budget requirements, and success metrics"
+      },
+      {
+        scenario: "Draft a board presentation on our AI strategy and competitive positioning",
+        solution: "Executive presentation materials with strategic rationale, risk assessment, and investment recommendations",
+        outcome: "Professional board materials that secure AI initiative approval and funding"
+      },
+      {
+        scenario: "What are the biggest risks of delaying AI adoption for our industry?",
+        solution: "Comprehensive risk analysis with competitive threats, market disruption scenarios, and mitigation strategies",
+        outcome: "Strategic urgency justification with clear risk-reward framework for decision making"
+      },
+      {
+        scenario: "Help me prioritize AI use cases across our organization for maximum impact",
+        solution: "Opportunity assessment framework with ROI analysis, implementation complexity, and strategic value scoring",
+        outcome: "Data-driven prioritization matrix with clear implementation sequencing and resource requirements"
+      },
+      {
+        scenario: "Help me build the business case and quantify ROI for our AI initiatives",
+        solution: "Financial modeling templates with cost-benefit analysis, payback calculations, and success metrics framework",
+        outcome: "Compelling business case with quantified benefits and clear ROI projections for stakeholder approval"
+      }
+    ]
+  },
+
+  integrations: {
+    title: "More Than Chat - Connected Action",
+    subtitle: "Your Digital CAIO connects to your systems and takes action, not just provides advice.",
+    current_state: "Currently integrates with email and calendar systems for contextual guidance and strategic planning support.",
+    available_integrations: [
+      "Google Drive and SharePoint document management",
+      "Slack and Microsoft Teams collaboration",
+      "CRM systems for customer strategy integration",
+      "ERP systems for operational AI insights",
+      "Business intelligence platforms for data-driven decisions"
+    ]
+  },
+
+  conversion: {
+    title: "Start Your AI Leadership Journey Today",
+    subtitle: "See why executives choose Digital CAIO over expensive hires and lengthy consultant engagements.",
+    offer_description: "Start with 10 free conversations to experience executive-level AI guidance. No commitment required - see the difference strategic AI leadership makes for your organization.",
+    cta: {
+      label: "Start Free Trial",
+      link: "https://kowalah.com/signup",
+      subtext: "10 free conversations • No credit card required • Immediate access"
+    }
+  }
+};
+---
+
+<Base title={pageData.title} meta_title={pageData.meta_title} description={pageData.description}>
+  <!-- Hero Section -->
+  <section class="section pb-0">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 lg:col-8 text-center">
+          <h1 set:html={markdownify(pageData.hero.title)} class="h1 mb-6" />
+          <p set:html={markdownify(pageData.hero.subtitle)} class="text-lg mb-8" />
+          <div class="mb-8">
+            <a href={pageData.hero.cta_primary.link} class="btn btn-primary">
+              {pageData.hero.cta_primary.label}
+            </a>
+            <p class="text-sm text-light mt-2">{pageData.hero.cta_primary.subtext}</p>
+          </div>
+        </div>
+      </div>
+      {pageData.hero.product_screenshot && (
+        <div class="row justify-center">
+          <div class="col-12 lg:col-10">
+            <Image
+              src={pageData.hero.product_screenshot}
+              alt="Digital CAIO Interface"
+              width={1200}
+              height={800}
+              class="rounded-lg shadow-lg mx-auto"
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Problem/Solution Section -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 lg:col-10">
+          <div class="text-center mb-12">
+            <h2 set:html={markdownify(pageData.problem_solution.title)} class="h2 mb-6" />
+            <p set:html={markdownify(pageData.problem_solution.problem_statement)} class="text-lg mb-6 text-light" />
+            <p set:html={markdownify(pageData.problem_solution.solution_overview)} class="text-lg" />
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {pageData.problem_solution.trust_elements.map((element) => (
+              <div class="text-center p-4 border rounded-lg">
+                <p class="font-medium">{element}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capabilities Section -->
+  <section class="section bg-theme-light">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 text-center mb-12">
+          <h2 set:html={markdownify(pageData.capabilities.title)} class="h2" />
+        </div>
+      </div>
+      <div class="row">
+        {pageData.capabilities.items.map((item, index) => (
+          <div class="col-12 lg:col-6 mb-8">
+            <div class="h-full p-6 border rounded-lg bg-body">
+              <div class="mb-4">
+                <h3 class="h4 mb-3">{item.title}</h3>
+                <p class="text-light mb-4">{item.description}</p>
+              </div>
+              <ul class="mb-4 list-disc list-inside text-sm">
+                {item.details.map((detail) => (
+                  <li class="mb-1">{detail}</li>
+                ))}
+              </ul>
+              <p class="text-sm font-medium text-primary">{item.value_proposition}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 text-center mb-12">
+          <h2 set:html={markdownify(pageData.how_it_works.title)} class="h2 mb-4" />
+          <p set:html={markdownify(pageData.how_it_works.subtitle)} class="text-lg text-light" />
+        </div>
+      </div>
+      <div class="row justify-center">
+        <div class="col-12 lg:col-10">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {pageData.how_it_works.steps.map((step) => (
+              <div class="text-center">
+                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl mb-4 mx-auto">
+                  {step.step_number}
+                </div>
+                <h3 class="h5 mb-3">{step.title}</h3>
+                <p class="text-light">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Demo Screenshots -->
+      {pageData.how_it_works.demo && (
+        <div class="row justify-center mt-12">
+          <div class="col-12 lg:col-10">
+            <div class="text-center mb-8">
+              <p class="text-lg text-light">{pageData.how_it_works.demo.description}</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {pageData.how_it_works.demo.screenshots.map((screenshot, index) => (
+                <div class="border rounded-lg overflow-hidden">
+                  <Image
+                    src={screenshot}
+                    alt={`Digital CAIO Interface ${index + 1}`}
+                    width={400}
+                    height={300}
+                    class="w-full h-auto"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Competitive Advantage Section -->
+  <section class="section bg-theme-light">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 text-center mb-12">
+          <h2 set:html={markdownify(pageData.competitive_advantage.title)} class="h2 mb-4" />
+          <p set:html={markdownify(pageData.competitive_advantage.subtitle)} class="text-lg mb-6 text-light" />
+          <p class="text-lg font-medium">{pageData.competitive_advantage.key_message}</p>
+        </div>
+      </div>
+      <div class="row">
+        {pageData.competitive_advantage.advantages.map((advantage) => (
+          <div class="col-12 lg:col-6 mb-6">
+            <div class="p-6 border rounded-lg bg-body h-full">
+              <h3 class="h5 mb-3 text-primary">{advantage.point}</h3>
+              <p class="text-light">{advantage.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 text-center mb-12">
+          <h2 set:html={markdownify(pageData.use_cases.title)} class="h2" />
+        </div>
+      </div>
+      <div class="row">
+        {pageData.use_cases.items.map((useCase, index) => (
+          <div class="col-12 mb-8">
+            <div class="p-6 border rounded-lg h-full">
+              <div class="mb-4">
+                <h4 class="h6 text-primary mb-2">Question:</h4>
+                <p class="text-sm mb-4 italic">"{useCase.scenario}"</p>
+              </div>
+              <div class="mb-4">
+                <h4 class="h6 text-primary mb-2">What you get:</h4>
+                <p class="text-sm mb-4">{useCase.solution}</p>
+              </div>
+              <div>
+                <h4 class="h6 text-primary mb-2">Outcome:</h4>
+                <p class="text-sm font-medium">{useCase.outcome}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Integrations Section -->
+  <section class="section bg-theme-light">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 text-center mb-12">
+          <h2 set:html={markdownify(pageData.integrations.title)} class="h2 mb-4" />
+          <p set:html={markdownify(pageData.integrations.subtitle)} class="text-lg text-light mb-6" />
+          <p class="text-lg">{pageData.integrations.current_state}</p>
+        </div>
+      </div>
+      <div class="row justify-center">
+        <div class="col-12 lg:col-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {pageData.integrations.available_integrations.map((integration) => (
+              <div class="text-center p-4 border rounded-lg bg-body">
+                <p class="font-medium">{integration}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conversion Section -->
+  <section class="section bg-primary text-white">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 lg:col-8 text-center">
+          <h2 set:html={markdownify(pageData.conversion.title)} class="h2 mb-4" />
+          <p set:html={markdownify(pageData.conversion.subtitle)} class="text-lg mb-6" />
+          <p class="mb-8">{pageData.conversion.offer_description}</p>
+          <div class="mb-4">
+            <a href={pageData.conversion.cta.link} class="btn btn-white">
+              {pageData.conversion.cta.label}
+            </a>
+            <p class="text-sm mt-2 opacity-80">{pageData.conversion.cta.subtext}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

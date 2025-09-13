@@ -24,7 +24,7 @@ To guide an AI assistant in creating a detailed Webpage Design Document in Markd
 
 1. **Receive Initial Request:** The user provides a brief description of the webpage they want to create.
 2. **Ask Clarifying Questions:** Before writing the document, the AI *must* ask clarifying questions to understand the page's purpose, audience, content needs, and preferred page architecture.
-3. **Determine Content Strategy:** Identify whether this should be an Astro Collection page (static) or Sanity-powered page (dynamic).
+3. **Determine Content Architecture:** Apply decision framework to choose between Static Page, Collection, or Sanity CMS based on content requirements and usage patterns.
 4. **Discover Available Components:** Use the Read tool to examine existing Astro Content Collections in `src/content.config.ts` and available theme components.
 5. **Design Page Architecture:** Select appropriate content structure and components based on user needs and best practices.
 6. **Generate Webpage Design Document:** Based on the initial request, user answers, and architecture decisions, generate a comprehensive webpage design document.
@@ -83,9 +83,10 @@ The generated document should include the following sections:
    - Position in user journey
 
 2. **Content Architecture Decision**
-   - Rationale for Astro Collection or Sanity approach
-   - Collection type (if Astro) or content type (if Sanity)
+   - Rationale for Static Page, Collection, or Sanity approach
+   - Implementation pattern chosen (static markdown, collection with schema, or Sanity CMS)
    - Schema considerations and customizations needed
+   - Architectural justification using decision framework criteria
 
 3. **Key Messages**
    - Primary value proposition
@@ -177,18 +178,84 @@ The AI should reference these files when available:
 14. **Consider user journey** - how page fits into conversion funnel
 15. **Do NOT create actual content** - focus on design and architecture planning only
 
-## Content Strategy Decision Tree
+## Content Architecture Decision Framework
 
-**Use Astro Collections when:**
+### **CRITICAL: Choose the Right Pattern**
+
+Before designing any page, determine the correct architectural approach:
+
+### **Pattern 1: Static Pages with Markdown Content Files**
+
+**When to Use:**
+- ✅ Single, unique pages (product overviews, company pages, landing pages)
+- ✅ Content that doesn't share a schema with other pages
+- ✅ Pages where each one has unique sections and requirements
+- ✅ Content that changes infrequently
+
+**Implementation:**
+- **File Location:** `src/content/[category]/[page-name].md`
+- **Page Creation:** `src/pages/[category]/[page-name].astro` (static)
+- **Content Access:** Custom `getMarkdownData()` utility
+- **Schema Validation:** None (flexible frontmatter structure)
+
+**Examples:**
+- `/product/accelerators` → `src/content/product/accelerators.md`
+- `/product/expert-requests` → `src/content/product/expert-requests.md`
+- `/company/about` → `src/content/company/about.md`
+
+### **Pattern 2: Collections for Similar Content Types**
+
+**When to Use:**
+- ✅ Multiple content items sharing the same schema
+- ✅ Need dynamic routing with `[slug].astro`
+- ✅ Content that benefits from consistent structure
+- ✅ Blog posts, case studies, individual accelerator pages
+
+**Implementation:**
+- **File Location:** `src/content/[collection]/[item-name].md`
+- **Collection Definition:** Must be defined in `src/content.config.ts`
+- **Page Creation:** `src/pages/[collection]/[slug].astro` (dynamic)
+- **Content Access:** Astro's `getCollection()` and `getEntry()`
+- **Schema Validation:** Strict Zod validation
+
+**Examples:**
+- Blog posts: `src/content/blog/post-1.md` with `[slug].astro`
+- Case studies: `src/content/case-studies/company-a.md` with `[slug].astro`
+- Team members: `src/content/team/john-doe.md` with `[slug].astro`
+
+### **Pattern 3: Sanity CMS (For Dynamic Content)**
+
+**When to Use:**
+- ✅ Content updates frequently (weekly/monthly)
+- ✅ Rich media management is needed
+- ✅ Multiple editors need access
+- ✅ Content has complex relationships
+
+**Examples:**
+- Blog posts, Case studies, Team profiles, Press releases
+
+### **Decision Criteria**
+
+**Choose Static Pages When:**
+- Each page has unique content structure
+- No shared schema across pages
+- Content doesn't need dynamic routing
+- Simple content management needs
+
+**Choose Collections When:**
+- Multiple items share the same schema
+- Need dynamic routing with slugs
+- Want type safety and validation
+- Content benefits from consistent structure
+
+**Choose Sanity When:**
 - Content changes infrequently (quarterly or less)
 - SEO performance is critical
 - Content is primarily text-based
 - Version control is important
-- Examples: Product pages, Pricing, Company info
 
-**Use Sanity when:**
-- Content updates frequently (weekly/monthly)
-- Rich media management is needed
-- Multiple editors need access
-- Content has complex relationships
-- Examples: Blog posts, Case studies, Team profiles, Press releases
+### **Anti-Patterns to Avoid**
+- ❌ Using collections for single overview pages
+- ❌ Forcing schema constraints on unique pages
+- ❌ Creating collections with only one item
+- ❌ Mixing inconsistent styling between pages

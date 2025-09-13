@@ -1,0 +1,568 @@
+---
+import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+import AcceleratorCarousel from "@/components/AcceleratorCarousel.astro";
+
+const pageData = {
+  title: "AI Projects: Team Collaboration Platform",
+  meta_title: "AI Projects: Team Collaboration Platform | Kowalah Digital CAIO",
+  description: "Transform individual AI conversations into collaborative project success. AI teams use Kowalah Projects for shared context, team alignment, and structured initiative management.",
+
+  hero: {
+    title: "AI Projects: From Individual Chats to Team Success",
+    subtitle: "Transform scattered AI conversations into structured, collaborative initiatives with shared context and team alignment",
+    cta_primary: {
+      label: "Start Team Collaboration",
+      link: "/signup?product=projects",
+      subtext: "No credit card required. Invite up to 5 team members"
+    },
+    product_screenshot: "images/product/mockups/projects-dashboard-hero.png"
+  },
+
+  problem_solution: {
+    title: "From Isolated AI Chats to Collaborative Project Leadership",
+    problem_statement: "Your AI Center of Excellence is using Digital CAIO individually, but major initiatives like ChatGPT enterprise rollouts or regional AI deployments require coordinated team effort with shared context and aligned strategy. Without collaborative structure, teams struggle with inconsistent guidance, duplicated research, and misaligned execution.",
+    solution_overview: "Projects provide a collaborative workspace where your AI team can work together on specific initiatives, sharing documents, maintaining context, and ensuring everyone has access to the same strategic guidance. Transform individual AI expertise into coordinated team success with initiative-focused organization.",
+    trust_elements: [
+      "AI Center of Excellence Ready",
+      "Enterprise Team Collaboration",
+      "Secure Document Sharing",
+      "Initiative-Focused Organization"
+    ],
+    image: "images/product/features/individual-vs-collaborative-ai.png"
+  },
+
+  capabilities: {
+    title: "What AI Initiatives Can Your Team Collaborate On?",
+    items: [
+      {
+        title: "Technology Rollouts",
+        icon: "rocket",
+        description: "Coordinate enterprise AI tool deployments with shared strategy, consistent training, and unified governance across departments",
+        details: [
+          "ChatGPT Enterprise deployment planning",
+          "Microsoft Copilot rollout coordination",
+          "AI tool selection and evaluation",
+          "Cross-departmental training alignment",
+          "Governance framework implementation"
+        ],
+        value_proposition: "89% faster deployment with coordinated team approach vs. isolated planning"
+      },
+      {
+        title: "Regional & Divisional Strategy",
+        icon: "compass",
+        description: "Develop localized AI strategies while maintaining global alignment and corporate standards across geographic regions",
+        details: [
+          "Regional expansion AI planning",
+          "Local market adaptation strategies",
+          "Cultural context integration",
+          "Regulatory compliance alignment",
+          "Resource allocation coordination"
+        ],
+        value_proposition: "Maintain strategic consistency while adapting to local requirements and opportunities"
+      },
+      {
+        title: "AI Team Building",
+        icon: "profile",
+        description: "Coordinate hiring, onboarding, and capability development for internal AI teams with structured role definitions",
+        details: [
+          "AI talent recruitment strategy",
+          "Role definition and requirements",
+          "Interview process coordination",
+          "Onboarding program development",
+          "Skills assessment frameworks"
+        ],
+        value_proposition: "90-day team integration success with coordinated hiring and development approach"
+      },
+      {
+        title: "System Integrations",
+        icon: "cpu",
+        description: "Plan and execute AI integrations with existing enterprise systems through coordinated technical and business alignment",
+        details: [
+          "CRM AI enhancement projects",
+          "ERP system AI integration",
+          "Workflow automation design",
+          "Data pipeline coordination",
+          "API integration planning"
+        ],
+        value_proposition: "Seamless integration with existing enterprise infrastructure and workflows"
+      },
+      {
+        title: "Governance & Compliance",
+        icon: "help",
+        description: "Develop comprehensive AI governance frameworks with stakeholder collaboration and regulatory compliance",
+        details: [
+          "AI policy development",
+          "Risk assessment frameworks",
+          "Regulatory compliance planning",
+          "Ethical AI guidelines",
+          "Audit trail establishment"
+        ],
+        value_proposition: "Enterprise-ready governance that scales with AI adoption across the organization"
+      },
+      {
+        title: "Change Management",
+        icon: "upward",
+        description: "Lead organization-wide AI transformation with structured adoption strategies and resistance management",
+        details: [
+          "Cultural transformation planning",
+          "Resistance management strategies",
+          "Communication framework development",
+          "Training program coordination",
+          "Success metric establishment"
+        ],
+        value_proposition: "95% adoption rate with structured change management vs. ad-hoc transformation efforts"
+      }
+    ]
+  },
+
+  how_it_works: {
+    title: "How AI Teams Collaborate on Projects",
+    subtitle: "From project creation to successful delivery with your Digital CAIO",
+    steps: [
+      {
+        step_number: 1,
+        title: "Create Project Workspace",
+        description: "Define initiative scope, add team members, upload project documents and background materials for shared context"
+      },
+      {
+        step_number: 2,
+        title: "Share Context & Instructions",
+        description: "Upload background files, define project goals, establish team roles, and ensure everyone has access to the same strategic foundation"
+      },
+      {
+        step_number: 3,
+        title: "Collaborate with Digital CAIO",
+        description: "Team members access shared project context, receive aligned strategic guidance, and make coordinated decisions"
+      },
+      {
+        step_number: 4,
+        title: "Track Progress Together",
+        description: "Monitor project milestones, share insights across team members, and maintain alignment throughout initiative delivery"
+      }
+    ],
+    demo: {
+      type: "screenshots",
+      screenshots: [
+        "images/product/screenshots/project-creation-flow.png",
+        "images/product/screenshots/document-sharing-interface.png",
+        "images/product/screenshots/team-collaboration-dashboard.png",
+        "images/product/screenshots/progress-tracking-view.png"
+      ],
+      description: "See how AI teams create, collaborate, and deliver successful projects with shared context and aligned guidance"
+    }
+  },
+
+  competitive_advantage: {
+    title: "Why Kowalah Projects Beat Traditional Project Management",
+    subtitle: "AI-native collaboration that understands your initiative context",
+    key_message: "The only project collaboration platform built specifically for AI initiatives with integrated Digital CAIO guidance",
+    advantages: [
+      {
+        point: "Shared AI Context",
+        description: "Everyone accesses the same project knowledge and strategic guidance, eliminating information silos and inconsistent decision-making"
+      },
+      {
+        point: "Digital CAIO Integration",
+        description: "Built-in AI leadership rather than generic project management - your team gets expert AI guidance specific to your initiative context"
+      },
+      {
+        point: "Initiative-Focused",
+        description: "Designed specifically for AI transformation projects, not general task management - optimized for AI strategy and implementation workflows"
+      },
+      {
+        point: "Team Alignment",
+        description: "Ensures consistent AI strategy across all team members with shared context and coordinated guidance from your Digital CAIO"
+      }
+    ]
+  },
+
+  use_cases: {
+    title: "Real AI Initiative Success Stories",
+    items: [
+      {
+        scenario: "ChatGPT Enterprise Rollout: 500-person manufacturing company needed coordinated ChatGPT deployment across 5 departments with consistent training and governance",
+        solution: "Projects workspace with shared deployment framework, training templates, and governance policies. Team collaborated on timeline, roles, and success metrics with Digital CAIO guidance",
+        outcome: "Successful 60-day rollout with 89% adoption rate and consistent policy implementation across all departments"
+      },
+      {
+        scenario: "Regional AI Strategy: Financial services firm expanding AI capabilities to South American operations needed localized strategy with global alignment",
+        solution: "Collaborative project combining global AI strategy with regional market context. Team shared regulatory research, cultural considerations, and implementation timeline coordination",
+        outcome: "Cohesive regional strategy maintaining corporate standards while addressing local requirements and opportunities"
+      },
+      {
+        scenario: "AI Team Hiring: Healthcare organization building internal AI team needed coordinated approach to roles, requirements, and onboarding",
+        solution: "Projects workspace for role definition, interview coordination, and onboarding program development. Shared candidate evaluation criteria and integration timeline",
+        outcome: "Successfully hired and integrated 4-person AI team in 90 days with clear roles and immediate productivity"
+      }
+    ]
+  },
+
+  integrations: {
+    title: "Integrate with Your Existing Workflow",
+    subtitle: "Projects work where your team already collaborates",
+    current_state: "Available integrations for seamless team workflow integration with existing enterprise collaboration tools",
+    available_integrations: [
+      "Slack team channels",
+      "Microsoft Teams",
+      "Google Workspace",
+      "Document sharing platforms",
+      "Calendar integration"
+    ]
+  },
+
+  social_proof: {
+    title: "AI Teams Love Collaborative Projects",
+    subtitle: "See how AI Centers of Excellence use Projects for better outcomes",
+    testimonials: [
+      {
+        name: "Sarah Chen",
+        role: "Chief Information Officer",
+        company: "Manufacturing Enterprise",
+        quote: "Projects transformed our AI team from isolated conversations to coordinated strategy execution. The shared context means everyone gets consistent guidance.",
+        metrics: "89% faster project completion"
+      },
+      {
+        name: "Marcus Rodriguez",
+        role: "AI Center of Excellence Lead",
+        company: "Financial Services",
+        quote: "The shared context means everyone on the team gets consistent strategic guidance. No more duplicated research or conflicting approaches.",
+        metrics: "95% team alignment improvement"
+      }
+    ],
+    success_metrics: [
+      "3x faster project completion",
+      "95% team alignment scores",
+      "60% reduction in project confusion"
+    ]
+  },
+
+  featured_showcase: {
+    title: "Ready-to-Use AI Project Templates",
+    subtitle: "Start your team collaboration with proven frameworks",
+    items: [
+      {
+        image: "images/product/templates/chatgpt-rollout-template.png",
+        title: "ChatGPT Enterprise Rollout Template",
+        type: "Framework",
+        category: "Technology Deployment",
+        difficulty: "Intermediate",
+        description: "Complete deployment framework with team roles, timeline, training materials, and governance policies for successful ChatGPT enterprise rollout",
+        outcomes: [
+          "Structured deployment timeline",
+          "Team role definitions",
+          "Training and governance materials"
+        ]
+      },
+      {
+        image: "images/product/templates/ai-governance-project.png",
+        title: "AI Governance Project Framework",
+        type: "Template",
+        category: "Governance & Compliance",
+        difficulty: "Advanced",
+        description: "Policy development template with stakeholder collaboration, risk assessment, and compliance framework for enterprise AI governance",
+        outcomes: [
+          "Stakeholder collaboration framework",
+          "Risk assessment procedures",
+          "Compliance documentation"
+        ]
+      },
+      {
+        image: "images/product/templates/regional-strategy-framework.png",
+        title: "Regional AI Strategy Framework",
+        type: "Framework",
+        category: "Strategic Planning",
+        difficulty: "Advanced",
+        description: "Expansion planning template with local context integration, resource allocation, and alignment with global AI strategy",
+        outcomes: [
+          "Local context integration",
+          "Resource allocation planning",
+          "Global strategy alignment"
+        ]
+      },
+      {
+        image: "images/product/templates/training-program-template.png",
+        title: "AI Training Program Template",
+        type: "Template",
+        category: "Capability Building",
+        difficulty: "Intermediate",
+        description: "Organization-wide capability building framework with role-specific training, progress tracking, and adoption measurement",
+        outcomes: [
+          "Role-specific training programs",
+          "Progress tracking systems",
+          "Adoption measurement frameworks"
+        ]
+      },
+      {
+        image: "images/product/templates/integration-framework.png",
+        title: "Integration Project Framework",
+        type: "Framework",
+        category: "System Integration",
+        difficulty: "Advanced",
+        description: "System integration template with change management, technical coordination, and stakeholder alignment for AI system implementations",
+        outcomes: [
+          "Technical coordination workflows",
+          "Change management procedures",
+          "Stakeholder alignment processes"
+        ]
+      }
+    ]
+  },
+
+  conversion: {
+    title: "Transform Your AI Team Collaboration Today",
+    subtitle: "Start your first collaborative AI project with Digital CAIO guidance",
+    offer_description: "Try Projects free for 14 days with your AI team. Create your first project workspace, invite team members, and see how collaboration amplifies your Digital CAIO impact.",
+    cta: {
+      label: "Start Team Collaboration",
+      link: "/signup?product=projects&trial=14days",
+      subtext: "No credit card required. Invite up to 5 team members"
+    }
+  }
+};
+---
+
+<Base title={pageData.title} meta_title={pageData.meta_title} description={pageData.description}>
+  <!-- Hero Section -->
+  <section class="section pb-0">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 lg:col-8 text-center">
+          <h1 set:html={markdownify(pageData.hero.title)} class="h1 mb-6" />
+          <p set:html={markdownify(pageData.hero.subtitle)} class="text-lg mb-8" />
+          <div class="mb-8">
+            <a href={pageData.hero.cta_primary.link} class="btn btn-primary">
+              {pageData.hero.cta_primary.label}
+            </a>
+            <p class="text-sm text-light mt-2">{pageData.hero.cta_primary.subtext}</p>
+          </div>
+        </div>
+      </div>
+      {pageData.hero.product_screenshot && (
+        <div class="row justify-center">
+          <div class="col-12 lg:col-10">
+            <Image
+              src={pageData.hero.product_screenshot}
+              alt="Projects Dashboard"
+              width={1200}
+              height={800}
+              class="rounded-lg shadow-lg mx-auto"
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Problem/Solution Section -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 lg:col-10">
+          <div class="text-center mb-12">
+            <h2 set:html={markdownify(pageData.problem_solution.title)} class="h2 mb-6" />
+            <p set:html={markdownify(pageData.problem_solution.problem_statement)} class="text-lg mb-6 text-light" />
+            <p set:html={markdownify(pageData.problem_solution.solution_overview)} class="text-lg" />
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {pageData.problem_solution.trust_elements.map((element) => (
+              <div class="text-center p-4 border rounded-lg">
+                <p class="font-medium">{element}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capabilities Section -->
+  <section class="section bg-theme-light">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 text-center mb-12">
+          <h2 set:html={markdownify(pageData.capabilities.title)} class="h2" />
+        </div>
+      </div>
+      <div class="row">
+        {pageData.capabilities.items.map((item, index) => (
+          <div class="col-12 lg:col-6 mb-8">
+            <div class="h-full p-6 border rounded-lg bg-body">
+              <div class="mb-4">
+                <h3 class="h4 mb-3">{item.title}</h3>
+                <p class="text-light mb-4">{item.description}</p>
+              </div>
+              <ul class="mb-4 list-disc list-inside text-sm">
+                {item.details.map((detail) => (
+                  <li class="mb-1">{detail}</li>
+                ))}
+              </ul>
+              <p class="text-sm font-medium text-primary">{item.value_proposition}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 text-center mb-12">
+          <h2 set:html={markdownify(pageData.how_it_works.title)} class="h2 mb-4" />
+          <p set:html={markdownify(pageData.how_it_works.subtitle)} class="text-lg text-light" />
+        </div>
+      </div>
+      <div class="row justify-center">
+        <div class="col-12 lg:col-10">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {pageData.how_it_works.steps.map((step) => (
+              <div class="text-center">
+                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl mb-4 mx-auto">
+                  {step.step_number}
+                </div>
+                <h3 class="h5 mb-3">{step.title}</h3>
+                <p class="text-light">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Competitive Advantage Section -->
+  <section class="section bg-theme-light">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 text-center mb-12">
+          <h2 set:html={markdownify(pageData.competitive_advantage.title)} class="h2 mb-4" />
+          <p set:html={markdownify(pageData.competitive_advantage.subtitle)} class="text-lg mb-6 text-light" />
+          <p class="text-lg font-medium">{pageData.competitive_advantage.key_message}</p>
+        </div>
+      </div>
+      <div class="row">
+        {pageData.competitive_advantage.advantages.map((advantage) => (
+          <div class="col-12 lg:col-6 mb-6">
+            <div class="p-6 border rounded-lg bg-body h-full">
+              <h3 class="h5 mb-3 text-primary">{advantage.point}</h3>
+              <p class="text-light">{advantage.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 text-center mb-12">
+          <h2 set:html={markdownify(pageData.use_cases.title)} class="h2" />
+        </div>
+      </div>
+      <div class="row">
+        {pageData.use_cases.items.map((useCase, index) => (
+          <div class="col-12 mb-8">
+            <div class="p-6 border rounded-lg h-full">
+              <div class="mb-4">
+                <h4 class="h6 text-primary mb-2">Scenario:</h4>
+                <p class="text-sm mb-4">{useCase.scenario}</p>
+              </div>
+              <div class="mb-4">
+                <h4 class="h6 text-primary mb-2">Solution:</h4>
+                <p class="text-sm mb-4">{useCase.solution}</p>
+              </div>
+              <div>
+                <h4 class="h6 text-primary mb-2">Outcome:</h4>
+                <p class="text-sm font-medium">{useCase.outcome}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Showcase Section -->
+  <section class="section bg-theme-light">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 text-center mb-12">
+          <h2 set:html={markdownify(pageData.featured_showcase.title)} class="h2 mb-4" />
+          <p set:html={markdownify(pageData.featured_showcase.subtitle)} class="text-lg text-light" />
+        </div>
+      </div>
+      <AcceleratorCarousel accelerators={pageData.featured_showcase.items} />
+    </div>
+  </section>
+
+  <!-- Social Proof Section -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 text-center mb-12">
+          <h2 set:html={markdownify(pageData.social_proof.title)} class="h2 mb-4" />
+          <p set:html={markdownify(pageData.social_proof.subtitle)} class="text-lg text-light" />
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      {pageData.social_proof.testimonials && (
+        <div class="row mb-12">
+          {pageData.social_proof.testimonials.map((testimonial) => (
+            <div class="col-12 lg:col-6 mb-6">
+              <div class="p-6 border rounded-lg h-full">
+                <p class="mb-4 italic">"{testimonial.quote}"</p>
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="font-medium">{testimonial.name}</p>
+                    <p class="text-sm text-light">{testimonial.role}, {testimonial.company}</p>
+                  </div>
+                  <div class="text-right">
+                    <p class="text-sm font-medium text-primary">{testimonial.metrics}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <!-- Success Metrics -->
+      <div class="row justify-center">
+        <div class="col-12 lg:col-10">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {pageData.social_proof.success_metrics.map((metric) => (
+              <div class="text-center p-6 border rounded-lg">
+                <p class="font-medium">{metric}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conversion Section -->
+  <section class="section bg-primary text-white">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 lg:col-8 text-center">
+          <h2 set:html={markdownify(pageData.conversion.title)} class="h2 mb-4" />
+          <p set:html={markdownify(pageData.conversion.subtitle)} class="text-lg mb-6" />
+          <p class="mb-8">{pageData.conversion.offer_description}</p>
+          <div class="mb-4">
+            <a href={pageData.conversion.cta.link} class="btn btn-white">
+              {pageData.conversion.cta.label}
+            </a>
+            <p class="text-sm mt-2 opacity-80">{pageData.conversion.cta.subtext}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
