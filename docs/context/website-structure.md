@@ -1,28 +1,28 @@
-# Kowalah Website Structure - Refined Navigation
+# Kowalah Website Structure - Services-Focused Navigation
 
 # Site Outline
 
-* Home  
-* Product  
-  * Platform Overview \- Our Digital CAIO capabilities  
-  * AI Strategy & Vision \- Strategic planning tools  
-  * Implementation & Performance \- Deployment and monitoring  
-  * Governance & Risk \- Compliance and ethics frameworks  
-  * Team & Change Management \- Adoption and training tools  
-  * Expert Services \- Human support and delivery  
-  * Accelerators & Integrations \- prebuilt prompts, GPTs and integrations to accelerate your deployment  
-  * Trust & Security \- Security framework and compliance  
-* Solutions  
-  * For CEOs \- "Drive AI Transformation Across Your Organization"  
-  * For CIOs \- "Navigate Complex AI Procurement with Confidence"  
-  * For CFOs \- "Maximize ROI from AI Investments"  
-  * For HR Leaders \- "Lead Workforce Transformation Through AI Adoption"  
-  * By Industry:  
-    * Manufacturing \- Predictive maintenance, quality control, supply chain optimization  
+* Home
+* Services
+  * ChatGPT Enterprise Deployment \- Transform failed Copilot/Gemini rollouts into successful ChatGPT adoption
+  * AI Change Enablement \- 16-week organizational transformation program with training, governance, and culture change
+  * Expert Requests \- On-demand delivery of custom GPTs, prompts, and training workshops
+  * AI Accelerators \- Pre-built solutions and templates for quick wins and capability discovery
+  * AI Advisory Platform \- 24/7 intelligent guidance system with organizational memory and continuous learning
+* Solutions
+  <!-- Note: Solutions focus on WHO we serve (personas & industries) and their specific contexts.
+       Services focus on WHAT we deliver (our core offerings). Removed redundant ChatGPT deployment
+       from Solutions as it's now covered comprehensively in Services. -->
+  * For CEOs \- "Drive AI Transformation Across Your Organization"
+  * For CIOs \- "Navigate Complex AI Procurement with Confidence"
+  * For CFOs \- "Maximize ROI from AI Investments"
+  * For HR Leaders \- "Lead Workforce Transformation Through AI Adoption"
+  * By Industry:
+    * Manufacturing \- Predictive maintenance, quality control, supply chain optimization
+    * Financial Services \- Risk assessment, fraud detection, customer analytics
+    * Healthcare \- Patient care optimization, administrative efficiency
+    * Professional Services \- Document automation, client analytics, proposal generation
     * Retail & E-commerce \- Personalization, inventory management, customer service  
-    * Financial Services \- Risk assessment, fraud detection, customer analytics  
-    * Healthcare \- Patient care optimization, administrative efficiency  
-    * Professional Services \- Document automation, client analytics, proposal generation  
 * Resources  
   * Blog & Insights \- Thought leadership and insights  
   * OpenAI Hub  
