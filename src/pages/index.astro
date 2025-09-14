@@ -4,6 +4,8 @@ import Features from "@/components/home/Features.astro";
 import Hero from "@/components/home/Hero.astro";
 import Offering from "@/components/home/Offering.astro";
 import Plans from "@/components/home/Plans.astro";
+import ProgramDepth from "@/components/home/ProgramDepth.astro";
+import Transformation from "@/components/home/Transformation.astro";
 import Base from "@/layouts/Base.astro";
 import CallToAction from "@/partials/CallToAction.astro";
 import Testimonial from "@/partials/Testimonial.astro";
@@ -22,12 +24,14 @@ const call_to_action = (await getEntry(
   "sections",
   "call-to-action"
 )) as CollectionEntry<"sections">;
-const { hero, feature, offering, benefits, plan } = homepage.data;
+const { hero, feature, offering, benefits, plan, transformation, program_depth } = homepage.data;
 ---
 
 <Base>
   <Hero {hero} />
   <Features {feature} />
+  {transformation && <Transformation {transformation} />}
+  {program_depth && <ProgramDepth {program_depth} />}
   <Offering {offering} />
   <Benefits {benefits} />
   <Testimonial testimonial={testimonial} />

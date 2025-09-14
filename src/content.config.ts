@@ -169,6 +169,39 @@ const homepageCollection = defineCollection({
         }),
       ),
     }),
+    transformation: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      before: z.object({
+        organizational: z.array(z.string()),
+        individual: z.array(z.string()),
+      }),
+      after: z.object({
+        organizational: z.array(z.string()),
+        individual: z.array(z.string()),
+      }),
+      mindset_shift: z.object({
+        from: z.string(),
+        to: z.string(),
+      }),
+    }).optional(),
+    program_depth: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      differentiator: z.string(),
+      categories: z.array(
+        z.object({
+          title: z.string(),
+          icon: z.string().optional(),
+          elements: z.array(
+            z.object({
+              name: z.string(),
+              description: z.string(),
+            }),
+          ),
+        }),
+      ),
+    }).optional(),
     offering: z.array(
       z.object({
         title: z.string(),

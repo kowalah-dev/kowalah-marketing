@@ -136,6 +136,144 @@
           ],
           "additionalProperties": false
         },
+        "transformation": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "before": {
+              "type": "object",
+              "properties": {
+                "organizational": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "individual": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "organizational",
+                "individual"
+              ],
+              "additionalProperties": false
+            },
+            "after": {
+              "type": "object",
+              "properties": {
+                "organizational": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "individual": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "organizational",
+                "individual"
+              ],
+              "additionalProperties": false
+            },
+            "mindset_shift": {
+              "type": "object",
+              "properties": {
+                "from": {
+                  "type": "string"
+                },
+                "to": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "from",
+                "to"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "title",
+            "subtitle",
+            "before",
+            "after",
+            "mindset_shift"
+          ],
+          "additionalProperties": false
+        },
+        "program_depth": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "differentiator": {
+              "type": "string"
+            },
+            "categories": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  },
+                  "elements": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "description"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "title",
+                  "elements"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "title",
+            "subtitle",
+            "differentiator",
+            "categories"
+          ],
+          "additionalProperties": false
+        },
         "offering": {
           "type": "array",
           "items": {

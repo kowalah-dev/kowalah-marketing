@@ -1,187 +1,246 @@
 ---
 hero:
-  title: "Meet your Digital <br> Chief AI Officer"
-  content: "Executive-level AI leadership for CEOs at mid-sized companies — available instantly, without the 6-month search and $375K+ salary of hiring a human CAIO."
+  title: "Turn Shadow ChatGPT Usage <br> Into Enterprise-Wide Success"
+  content: "Transform shadow ChatGPT usage and underperforming Copilot/Gemini deployments into successful enterprise-wide adoption with expert training and ongoing support."
   image: "/images/home/banner.png"
   button:
     - enable: true
-      label: "Start Free Trial"
-      link: "https://app.kowalah.com/sign-up"
+      label: "Get ChatGPT Assessment"
+      link: "/contact"
     - enable: true
-      label: "See How It Works"
-      link: "/products"
+      label: "See Success Stories"
+      link: "/case-studies"
+
+transformation:
+  title: "The ChatGPT Enterprise Reality"
+  subtitle: "Most organizations are stuck between shadow AI chaos and failed corporate deployments. We bridge that gap."
+  before:
+    organizational:
+      - "Shadow ChatGPT usage across departments with no governance or oversight"
+      - "Stalled Microsoft Copilot or Google Gemini deployments with low adoption rates"
+      - "IT teams blocking AI tools due to security and compliance concerns"
+      - "Inconsistent AI policies creating confusion and limiting productivity gains"
+      - "Lack of executive alignment on AI strategy and implementation approach"
+      - "No clear pathway from pilot programs to organization-wide transformation"
+    individual:
+      - "Employees secretly using free ChatGPT for work tasks despite policy restrictions"
+      - "Frustration with clunky corporate AI tools that don't meet actual workflow needs"
+      - "Basic prompt skills limiting the value employees get from AI interactions"
+      - "No training on advanced ChatGPT capabilities like GPTs, voice, and custom workflows"
+      - "Fear of job displacement creating resistance to AI adoption initiatives"
+      - "Inconsistent AI skill levels across teams hampering collaborative productivity"
+  after:
+    organizational:
+      - "Unified ChatGPT Business/Enterprise deployment with proper governance and security"
+      - "100% employee training completion through engaging ChatGPT 101 & 102 programs"
+      - "AI Ambassadors network (10% of workforce) driving adoption and capability sharing"
+      - "Custom GPT library tailored to specific business processes and workflows"
+      - "Clear AI governance framework balancing innovation with risk management"
+      - "Measurable productivity gains and competitive advantages from strategic AI integration"
+    individual:
+      - "Confident ChatGPT power users leveraging advanced capabilities for creative problem-solving"
+      - "Voice-based coaching and role-playing partnerships transforming daily workflows"
+      - "Departmental AI workflows that eliminate repetitive tasks and enhance decision-making"
+      - "Continuous skill development through Expert Requests and custom training programs"
+      - "AI-enabled career growth through enhanced capabilities and strategic thinking"
+      - "Collaborative AI culture where teams share successful prompts and workflows"
+  mindset_shift:
+    from: "AI is a threat to control and job security"
+    to: "ChatGPT is a creative co-worker and competitive advantage"
+
+program_depth:
+  title: "20+ Program Elements That Set Us Apart"
+  subtitle: "Complete organizational transformation, not just training workshops"
+  differentiator: "This depth of expertise is what separates true ChatGPT specialists from general AI consultants."
+  categories:
+    - title: "Strategic Foundation"
+      icon: "strategy"
+      elements:
+        - name: "Executive Alignment Workshop"
+          description: "C-suite alignment on AI vision, success metrics, and transformation roadmap"
+        - name: "Shadow AI Assessment"
+          description: "Comprehensive audit of current AI tool usage across all departments"
+        - name: "Business Case Development"
+          description: "ROI projections and financial justification for ChatGPT enterprise investment"
+        - name: "Governance Framework Design"
+          description: "AI policies, procedures, and compliance protocols tailored to your industry"
+        - name: "Success Metrics Definition"
+          description: "KPIs and measurement frameworks for tracking transformation progress"
+    - title: "People & Change"
+      icon: "people"
+      elements:
+        - name: "AI Ambassadors Program"
+          description: "Train 10% of workforce as change champions and peer support network"
+        - name: "Change Management Strategy"
+          description: "Comprehensive plan for overcoming resistance and driving adoption"
+        - name: "ChatGPT 101 Foundation Training"
+          description: "Organization-wide basic ChatGPT skills and capability awareness"
+        - name: "ChatGPT 102 Advanced Training"
+          description: "Power user techniques, GPTs, voice capabilities, and workflow integration"
+        - name: "Executive Communication Support"
+          description: "Messaging frameworks for leadership to communicate AI vision effectively"
+    - title: "Technical Implementation"
+      icon: "technical"
+      elements:
+        - name: "ChatGPT Enterprise Procurement"
+          description: "Vendor negotiation, contract optimization, and deployment planning"
+        - name: "Security & Compliance Setup"
+          description: "Data protection, access controls, and regulatory compliance configuration"
+        - name: "System Integration Planning"
+          description: "Connecting ChatGPT with existing enterprise systems and workflows"
+        - name: "Custom GPT Development"
+          description: "15-20 business-specific GPTs for departmental workflows and processes"
+        - name: "API Integration Support"
+          description: "Technical guidance for connecting ChatGPT to business applications"
+    - title: "Ongoing Capability Building"
+      icon: "training"
+      elements:
+        - name: "Expert Requests Quota"
+          description: "Monthly allocation of custom prompt, GPT, and workflow development"
+        - name: "Accelerator Library Access"
+          description: "Pre-built templates, prompts, and workflows for common business functions"
+        - name: "Specialist Training Sessions"
+          description: "Department-specific workshops for sales, marketing, operations, and support teams"
+        - name: "Innovation Pipeline Management"
+          description: "Systematic approach to identifying and implementing new AI use cases"
+        - name: "Performance Optimization Reviews"
+          description: "Quarterly assessments and improvements to maximize ChatGPT ROI"
 
 feature:
-  title: "Complete AI Leadership Platform"
-  subtitle: "Seven Core Capabilities for AI Success"
+  title: "Complete ChatGPT Transformation Journey"
+  subtitle: "From Shadow AI to Strategic Advantage"
   features:
-    - title: "AI Strategy"
-      badge: "Strategic Planning"
-      content: "Board-ready AI roadmap without the guesswork"
-      description: "Stop second-guessing AI decisions. Get a clear strategic roadmap with proven frameworks, compelling business cases, and board-ready presentations that position your company ahead of competitors."
+    - title: "ChatGPT Change Enablement"
+      badge: "16-Week Program"
+      content: "Complete organizational transformation in 16 weeks"
+      description: "Executive alignment & stakeholder management. Procure and deploy ChatGPT Business or ChatGPT Enterprise. Organization-wide ChatGPT 101/102 training. AI Ambassadors program (10% of employees). Custom GPT development."
       image: "/images/home/features/1.png"
       button:
         enable: true
         label: "Learn More"
         link: "/products"
-    - title: "Executive Leadership"
-      badge: "Executive Leadership"
-      content: "Lead AI conversations with executive authority"
-      description: "Lead AI conversations with authority. Get expert guidance for board presentations, vendor evaluations, and stakeholder communications without needing to become an AI expert yourself."
+    - title: "Expert Requests & Accelerators"
+      badge: "Ongoing Support"
+      content: "Monthly quota of expert deliverables"
+      description: "Accelerator library with prebuilt assets. Custom prompts, GPTs, and training workshops. Hands-on implementation support. Department-specific solutions. Keep innovation flowing without overwhelming internal teams."
       image: "/images/home/features/2.png"
       button:
         enable: true
         label: "Learn More"
         link: "/products"
-    - title: "AI Governance"
-      badge: "Risk Mitigation"
-      content: "Protect against AI risks while maintaining speed"
-      description: "Protect your company from AI-related risks while maintaining competitive speed. Get expert guidance on compliance, data protection, and ethical AI practices that satisfy regulators and stakeholders."
+    - title: "Ongoing Managed Services"
+      badge: "Permanent Partnership"
+      content: "Named AI Strategy Director and continuous capability expansion"
+      description: "Latest ChatGPT features and techniques. Permanent AI extension to your team. Continuous capability expansion. Future-proofing as AI technology evolves with expert guidance that grows smarter with every implementation."
       image: "/images/home/features/3.png"
-      button:
-        enable: true
-        label: "Learn More"
-        link: "/products"
-    - title: "Talent Building"
-      badge: "Team Development"
-      content: "Build AI-capable workforce cost-effectively"
-      description: "Turn every employee into an AI user. Get customized guidance on skill development, team training, and capability building that actually increases productivity without breaking your budget."
-      image: "/images/home/features/4.png"
-      button:
-        enable: true
-        label: "Learn More"
-        link: "/products"
-    - title: "AI Implementation"
-      badge: "Technical Excellence"
-      content: "Scale AI pilots to enterprise-wide impact"
-      description: "Move beyond proof-of-concepts to real business impact. Get expert guidance on technology selection, vendor management, and system integration that delivers results, not just reports."
-      image: "/images/home/features/5.png"
-      button:
-        enable: true
-        label: "Learn More"
-        link: "/products"
-    - title: "Prompt Development"
-      badge: "Custom Solutions"
-      content: "Custom AI solutions that deliver results"
-      description: "Stop wasting time on ineffective AI tools. Get custom prompts, workflows, and applications built specifically for your business needs through our Expert Requests - delivered, not just advised."
-      image: "/images/home/features/6.png"
-      button:
-        enable: true
-        label: "Learn More"
-        link: "/products"
-    - title: "Change Management"
-      badge: "Transformation"
-      content: "Accelerate AI adoption without resistance"
-      description: "Overcome organizational resistance and achieve lasting AI transformation. Get proven change management strategies, communication frameworks, and adoption techniques that actually work across departments."
-      image: "/images/home/features/7.png"
       button:
         enable: true
         label: "Learn More"
         link: "/products"
 
 offering:
-  - title: "Turn AI Anxiety Into Strategic Confidence"
-    subtitle: "Expert-Validated AI Strategy"
+  - title: "Channel Existing AI Energy Into Business Results"
+    subtitle: "Embrace ChatGPT, Transform Your Organization"
     image: "/images/home/offering/offering-1.1.png"
     image_1: "/images/home/offering/offering-1.png"
-    content: "Stop worrying about falling behind and start moving forward with expert-validated AI strategy that avoids costly mistakes. Get 24/7 access to executive-level AI expertise without executive-level investment."
+    content: "Embrace shadow ChatGPT usage - recognize ChatGPT is winning the user battle. Recognize that this is an application battle (not models) and ChatGPT has better applications (GPTs/Projects/Voice)."
     points:
-      - "Strategic AI roadmap aligned with your business objectives, with proven frameworks that eliminate guesswork and trial-and-error."
-      - "Expert validation before major AI investments or vendor commitments, plus board-ready progress reports and risk assessments."
-  - title: "Get Expert AI Skills Instantly Without Hiring"
-    subtitle: "On-Demand AI Talent & Delivery"
+      - "Transform frustrated Copilot users into engaged ChatGPT power users with 100% training completion through ChatGPT 101 & 102."
+      - "Proper governance while giving employees tools they want. Complete elimination of shadow AI usage through strategic alignment."
+  - title: "Turn ChatGPT Into Creative Co-Worker"
+    subtitle: "Beyond Basic Tasks to Creative Partnership"
     image: "/images/home/offering/offering-2.2.png"
     image_1: "/images/home/offering/offering-2.png"
-    content: "Access specialized AI talent on-demand instead of building expensive internal teams or waiting for lengthy recruitment. Expert Requests deliver actual work."
+    content: "Move beyond basic tasks to creative business partner. Turn ChatGPT into a coach, workshop facilitator, role-play partner, teacher. Build ChatGPT use cases for other people not yourself - other teams, direct reports, customers."
     points:
-      - "Team of prompt engineers, developers, and AI specialists ready to execute prompts, GPTs, custom apps, and training sessions."
-      - "Scale your AI capabilities up or down based on project needs with no hiring delays, onboarding costs, or turnover risk."
-  - title: "Transform Every Employee Into an AI-Powered Contributor"
-    subtitle: "Organization-Wide AI Adoption"
+      - "Voice capabilities for role-playing and coaching. Custom GPTs for department workflows. Advanced features most teams don't know exist."
+      - "'I didn't know it could do that' capability discovery moments that spark organization-wide innovation and competitive differentiation."
+  - title: "Sustain Momentum Through Expert Delivery"
+    subtitle: "Keep Innovation Flowing Without Overwhelming Teams"
     image: "/images/home/offering/offering-3.3.png"
     image_1: "/images/home/offering/offering-3.png"
-    content: "Drive organization-wide AI adoption with change management that gets your entire workforce engaged and productive with AI."
+    content: "Expert Requests deliver custom solutions on demand. Recognize that mapping out processes and building GPTs/Prompts takes time. Recognize people are busy with the day job and need support."
     points:
-      - "Customized training programs for different roles and skill levels, with change management frameworks that overcome resistance."
-      - "Expert-led workshops and training sessions through Expert Requests, plus prebuilt Kowalah GPTs to accelerate core work tasks."
+      - "15-20 custom business GPTs within 6 months. Continuous pipeline of new use cases spreading across departments."
+      - "Focus on your job while experts build ChatGPT tools and workflows. Always-on access to AI specialists who handle the technical building."
 
 benefits:
   title: "Why Choose Kowalah Over Alternatives"
   subtitle: "Competitive Advantages That Matter"
   points:
-    - title: "AI Governance & Security"
-      content: "Built-in accelerators guide employees on secure AI usage. Get instant governance decisions with company-specific context."
+    - title: "Business Focus, Not Just Change"
+      content: "We take the business to AI not vice versa. Business focus, Change focus, ChatGPT expertise, ongoing partnership vs. basic AI consultants."
       image: "/images/home/benefits/benefits-1.png"
-    - title: "Strategic Decision Support"
-      content: "Get expert guidance on complex decisions like AI vendor evaluation - personalized with your company context, not generic advice."
+    - title: "At the Front Line of AI Development"
+      content: "Business context, advanced capabilities, change management, at the front line of AI development vs. internal IT teams."
       image: "/images/home/benefits/benefits-2.png"
-    - title: "Project-Based Intelligence"
-      content: "Build deep context and knowledge around specific AI initiatives. Your Digital CAIO learns and adapts to your unique projects."
+    - title: "Proven Frameworks & Expert Validation"
+      content: "Proven frameworks, expert validation, faster results vs. DIY approach. 'Leagues ahead' ChatGPT knowledge."
       image: "/images/home/benefits/benefits-3.png"
-    - title: "Instant Training Access"
-      content: "Immediate access to comprehensive training resources like ChatGPT 101 and 102 sessions. No waiting for scheduled courses."
+    - title: "Capability Revelation Others Miss"
+      content: "Capability revelation others miss. Implementation confidence for IT/Legal teams. 'I didn't know it could do that' moments."
       image: "/images/home/benefits/benefits-4.png"
-    - title: "Expert Requests"
-      content: "Get actual work delivered by our AI specialists. Custom prompts, GPTs, and training sessions - execution, not just consultation."
+    - title: "Competitive Advantage Outcomes"
+      content: "Competitive advantage outcomes not just productivity gains. Move from cost-saving mindset to revenue growth and competitive differentiation."
       image: "/images/home/benefits/benefits-5.png"
 
 plan:
-  title: "Digital AI Leadership Plans"
-  subtitle: "Executive-Level AI Guidance for Every Organization"
+  title: "ChatGPT Change Enablement Services"
+  subtitle: "Expert-Led Programs for Enterprise Transformation"
   plans_labels:
-    - "Billed Yearly"
-    - "Billed Monthly"
+    - "Self-Service"
+    - "Service Packages"
   plans:
-    - title: "Free"
-      description: "Try Digital AI Leadership"
-      price_prefix: "£"
+    - title: "Discovery Resources"
+      description: "Free Self-Service Tools"
+      price_prefix: "$"
       price_monthly: "0"
       price_yearly: "0"
       price_suffix:
         one: "forever"
         two: ""
       features:
-        - 10 messages to test capabilities
-        - Basic AI strategy guidance
-        - Core frameworks access
-        - No organizational memory
-        - Perfect for evaluation
-      button:
-        enable: true
-        label: "Start Free"
-        link: "/pricing"
-    - title: "Individual"
-      description: "Personal AI Chief AI Officer"
-      price_prefix: "£"
-      price_monthly: "59"
-      price_yearly: "590"
-      price_suffix:
-        one: "per"
-        two: "month"
-      features:
-        - Single user unlimited access
-        - Personal AI strategy support
-        - Basic features and frameworks
-        - No team collaboration
-        - Ideal for solo practitioners
+        - ChatGPT readiness assessment tool
+        - Shadow AI detection checklist
+        - Capability demonstration library
+        - Use case identification framework
+        - Access to accelerator examples
       button:
         enable: true
         label: "Get Started"
-        link: "/pricing"
-    - title: "Digital"
-      description: "AI Leadership Platform for Teams"
-      price_prefix: "£"
-      price_monthly: "2,000"
-      price_yearly: "20,000"
+        link: "/contact"
+    - title: "Pilot Program"
+      description: "Department-Level Rollout"
+      price_prefix: "$"
+      price_monthly: "7,000"
+      price_yearly: "84,000"
       price_suffix:
         one: "per"
         two: "month"
       features:
-        - Up to 10 users
-        - Unlimited Digital CAIO chat
-        - Basic integrations (Email/Slack)
-        - Organizational memory
-        - Perfect for AI Centers of Excellence
+        - Department-level ChatGPT rollout (50-200 employees)
+        - ChatGPT 101 & 102 training
+        - Basic governance setup
+        - Proof of concept for larger rollout
+        - 2-3 month program duration
+      button:
+        enable: true
+        label: "Contact Sales"
+        link: "/contact"
+    - title: "Change Enablement Program"
+      description: "Complete 16-Week Transformation"
+      price_prefix: "$"
+      price_monthly: "200-450"
+      price_yearly: "per employee"
+      price_suffix:
+        one: "total"
+        two: "program"
+      features:
+        - "All 20+ program elements (AI Ambassadors, Business Partners, etc.)"
+        - "Organization-wide training and rollout"
+        - "Dedicated Program Director and specialist team"
+        - "One-time transformation program"
+        - "Example: 1,000 employees costs $200k-450k total"
       button:
         enable: true
         label: "Contact Sales"

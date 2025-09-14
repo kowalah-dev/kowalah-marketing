@@ -1,0 +1,99 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+
+const { program_depth } = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-center">
+      <div class="lg:col-10 text-center">
+        <h2
+          set:html={markdownify(program_depth.title)}
+          class="mb-4"
+          data-aos="fade-up-sm"
+        />
+        <p
+          set:html={markdownify(program_depth.subtitle)}
+          class="mb-4 text-lg text-light/70"
+          data-aos="fade-up-sm"
+          data-aos-delay="100"
+        />
+        <p
+          class="mb-16 text-base text-primary font-medium"
+          data-aos="fade-up-sm"
+          data-aos-delay="200"
+        >
+          {program_depth.differentiator}
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-6">
+      {program_depth.categories.map((category: any, categoryIndex: number) => (
+        <div class="lg:col-6" data-aos="fade-up-sm" data-aos-delay={300 + (categoryIndex * 100)}>
+          <div class="h-full p-8 rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300">
+
+            <!-- Category Header -->
+            <div class="mb-6">
+              <div class="flex items-center mb-4">
+                <div class="inline-flex items-center justify-center w-12 h-12 mr-4 rounded-xl bg-primary text-white">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    {category.icon === 'strategy' && (
+                      <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" clip-rule="evenodd" />
+                    )}
+                    {category.icon === 'people' && (
+                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+                    )}
+                    {category.icon === 'technical' && (
+                      <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    )}
+                    {category.icon === 'training' && (
+                      <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+                    )}
+                    {!category.icon && (
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    )}
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-dark dark:text-light mb-1">{category.title}</h3>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category Elements -->
+            <div class="space-y-4">
+              {category.elements.map((element: any, elementIndex: number) => (
+                <div class="border-l-4 border-primary/30 pl-4 py-2 hover:border-primary/60 transition-colors">
+                  <h4 class="font-semibold text-dark dark:text-light mb-1 text-sm">
+                    {element.name}
+                  </h4>
+                  <p class="text-xs text-light/70 leading-relaxed">
+                    {element.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Summary Statement -->
+    <div class="row justify-center mt-16">
+      <div class="lg:col-10 text-center">
+        <div
+          class="p-8 rounded-2xl bg-gradient-to-r from-primary/5 to-secondary/5 border border-primary/20"
+          data-aos="zoom-in"
+          data-aos-delay="600"
+        >
+          <h3 class="text-2xl font-bold text-primary mb-4">Key Differentiator</h3>
+          <p class="text-lg text-dark dark:text-light font-medium italic">
+            "This isn't a training course or consulting project - it's a complete organizational transformation with 20+ specialized roles, proven methodologies, and ongoing support infrastructure."
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

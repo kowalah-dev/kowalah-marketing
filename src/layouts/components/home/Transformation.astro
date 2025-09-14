@@ -1,0 +1,147 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+
+const { transformation } = Astro.props;
+---
+
+<section class="section bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+  <div class="container">
+    <div class="row justify-center">
+      <div class="lg:col-10 text-center">
+        <h2
+          set:html={markdownify(transformation.title)}
+          class="mb-4 text-primary"
+          data-aos="fade-up-sm"
+        />
+        <p
+          set:html={markdownify(transformation.subtitle)}
+          class="mb-12 text-lg text-light/70 dark:text-light/60"
+          data-aos="fade-up-sm"
+          data-aos-delay="100"
+        />
+      </div>
+    </div>
+
+    <div class="row g-4 items-stretch">
+      <!-- BEFORE: Fragmented AI Chaos -->
+      <div class="lg:col-6">
+        <div
+          class="h-full p-8 rounded-2xl border-2 border-red-200 dark:border-red-800 bg-red-50/50 dark:bg-red-900/20"
+          data-aos="fade-right"
+          data-aos-delay="200"
+        >
+          <div class="mb-6 text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-red-100 dark:bg-red-900">
+              <svg class="w-8 h-8 text-red-600 dark:text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-red-700 dark:text-red-400 mb-2">BEFORE: Fragmented AI Chaos</h3>
+            <p class="text-sm text-red-600 dark:text-red-400 italic">The typical state when we first meet organizations</p>
+          </div>
+
+          <div class="space-y-6">
+            <div>
+              <h4 class="font-semibold text-red-700 dark:text-red-400 mb-3">Organizational Level:</h4>
+              <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                {transformation.before.organizational.map((item: string) => (
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 text-red-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                    <span set:html={markdownify(item)} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-red-700 dark:text-red-400 mb-3">Individual Level:</h4>
+              <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                {transformation.before.individual.map((item: string) => (
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 text-red-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                    <span set:html={markdownify(item)} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AFTER: Strategic AI-First Organization -->
+      <div class="lg:col-6">
+        <div
+          class="h-full p-8 rounded-2xl border-2 border-green-200 dark:border-green-800 bg-green-50/50 dark:bg-green-900/20"
+          data-aos="fade-left"
+          data-aos-delay="300"
+        >
+          <div class="mb-6 text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-green-100 dark:bg-green-900">
+              <svg class="w-8 h-8 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-green-700 dark:text-green-400 mb-2">AFTER: Strategic AI-First Organization</h3>
+            <p class="text-sm text-green-600 dark:text-green-400 italic">What organizations look like after our 16-week transformation</p>
+          </div>
+
+          <div class="space-y-6">
+            <div>
+              <h4 class="font-semibold text-green-700 dark:text-green-400 mb-3">Organizational Level:</h4>
+              <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                {transformation.after.organizational.map((item: string) => (
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span set:html={markdownify(item)} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-green-700 dark:text-green-400 mb-3">Individual Level:</h4>
+              <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                {transformation.after.individual.map((item: string) => (
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span set:html={markdownify(item)} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Mindset Shift -->
+    <div class="row justify-center mt-16">
+      <div class="lg:col-8 text-center">
+        <div
+          class="p-8 rounded-2xl bg-primary/10 dark:bg-primary/20 border border-primary/20"
+          data-aos="zoom-in"
+          data-aos-delay="400"
+        >
+          <h3 class="text-xl font-bold text-primary mb-4">THE KEY MINDSET SHIFT</h3>
+          <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-lg">
+            <div class="px-6 py-3 rounded-lg bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-400">
+              <strong>From:</strong> "{transformation.mindset_shift.from}"
+            </div>
+            <div class="text-2xl text-primary">→</div>
+            <div class="px-6 py-3 rounded-lg bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400">
+              <strong>To:</strong> "{transformation.mindset_shift.to}"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
