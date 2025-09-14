@@ -15,7 +15,7 @@ const { program_depth } = Astro.props;
         />
         <p
           set:html={markdownify(program_depth.subtitle)}
-          class="mb-4 text-lg text-light/70"
+          class="mb-4 text-lg text-slate-600 dark:text-slate-300"
           data-aos="fade-up-sm"
           data-aos-delay="100"
         />
@@ -32,48 +32,95 @@ const { program_depth } = Astro.props;
     <div class="row g-6">
       {program_depth.categories.map((category: any, categoryIndex: number) => (
         <div class="lg:col-6" data-aos="fade-up-sm" data-aos-delay={300 + (categoryIndex * 100)}>
-          <div class="h-full p-8 rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300">
+          <!-- Interactive flip card with accessible toggle -->
+          <div class="group relative h-full min-h-[360px] md:min-h-[420px] [perspective:1200px]">
+            <!-- Mobile/keyboard toggle -->
+            <input id={`pd-toggle-${categoryIndex}`} type="checkbox" class="peer sr-only" aria-hidden="true" />
 
-            <!-- Category Header -->
-            <div class="mb-6">
-              <div class="flex items-center mb-4">
-                <div class="inline-flex items-center justify-center w-12 h-12 mr-4 rounded-xl bg-primary text-white">
-                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                    {category.icon === 'strategy' && (
-                      <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" clip-rule="evenodd" />
-                    )}
-                    {category.icon === 'people' && (
-                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
-                    )}
-                    {category.icon === 'technical' && (
-                      <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    )}
-                    {category.icon === 'training' && (
-                      <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
-                    )}
-                    {!category.icon && (
-                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                    )}
+            <div class="relative h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus-within:[transform:rotateY(180deg)] peer-checked:[transform:rotateY(180deg)] motion-reduce:transition-none motion-reduce:transform-none">
+              <!-- FRONT: Features list (no descriptions) -->
+              <div class="absolute inset-0 p-8 rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow duration-300 [backface-visibility:hidden] overflow-hidden">
+                <!-- Category Header -->
+                <div class="mb-6">
+                  <div class="flex items-center mb-4">
+                    <div class="inline-flex items-center justify-center w-12 h-12 mr-4 rounded-xl bg-primary text-white ring-2 ring-primary/20">
+                      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        {category.icon === 'strategy' && (
+                          <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" clip-rule="evenodd" />
+                        )}
+                        {category.icon === 'people' && (
+                          <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+                        )}
+                        {category.icon === 'technical' && (
+                          <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        )}
+                        {category.icon === 'training' && (
+                          <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+                        )}
+                        {!category.icon && (
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        )}
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-bold text-dark dark:text-light mb-1">{category.title}</h3>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Elements (names only) -->
+                <div class="space-y-3">
+                  {category.elements.map((element: any, elementIndex: number) => (
+                    <div class="flex items-start gap-3">
+                      <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                      <h4 class="font-medium text-slate-800 dark:text-slate-200 text-sm">{element.name}</h4>
+                    </div>
+                  ))}
+                </div>
+
+                <!-- Mobile toggle hint -->
+                <label for={`pd-toggle-${categoryIndex}`} class="mt-6 inline-flex items-center gap-2 text-primary text-sm cursor-pointer md:hidden">
+                  <span>Why it matters</span>
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 011.08 1.04l-4.24 4.38a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                   </svg>
-                </div>
-                <div>
-                  <h3 class="text-xl font-bold text-dark dark:text-light mb-1">{category.title}</h3>
-                </div>
+                </label>
               </div>
-            </div>
 
-            <!-- Category Elements -->
-            <div class="space-y-4">
-              {category.elements.map((element: any, elementIndex: number) => (
-                <div class="border-l-4 border-primary/30 pl-4 py-2 hover:border-primary/60 transition-colors">
-                  <h4 class="font-semibold text-dark dark:text-light mb-1 text-sm">
-                    {element.name}
-                  </h4>
-                  <p class="text-xs text-light/70 leading-relaxed">
-                    {element.description}
-                  </p>
+              <!-- BACK: Why it matters -->
+              <div class="absolute inset-0 p-8 rounded-2xl bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 border border-primary/30 shadow-lg [transform:rotateY(180deg)] [backface-visibility:hidden] overflow-auto">
+                <div class="mb-6 flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-primary text-white flex items-center justify-center ring-2 ring-primary/30">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM9 7a1 1 0 112 0v4a1 1 0 11-2 0V7zm1 6a1.5 1.5 0 100 3 1.5 1.5 0 000-3z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-bold text-primary">Why it matters</h3>
+                    <p class="text-xs text-slate-700 dark:text-slate-300">The impact behind these program elements</p>
+                  </div>
                 </div>
-              ))}
+
+                <ul class="space-y-3">
+                  {category.elements.slice(0, 3).map((element: any, i: number) => (
+                    <li class="flex items-start gap-3" data-aos="fade-up-sm" data-aos-delay={150 + i * 80}>
+                      <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                      <p class="text-sm text-slate-800 dark:text-slate-200 leading-relaxed">{element.description}</p>
+                    </li>
+                  ))}
+                </ul>
+
+                <!-- Desktop hint -->
+                <p class="mt-6 hidden md:block text-xs text-primary/80">Hover to flip back • Tab to focus</p>
+
+                <!-- Mobile close -->
+                <label for={`pd-toggle-${categoryIndex}`} class="mt-6 inline-flex items-center gap-2 text-primary text-sm cursor-pointer md:hidden">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10.78 9.72a.75.75 0 00-1.06 0L5.47 13.97a.75.75 0 001.06 1.06L10 11.56l3.47 3.47a.75.75 0 001.06-1.06L10.78 9.72z" clip-rule="evenodd" />
+                  </svg>
+                  <span>Back</span>
+                </label>
+              </div>
             </div>
           </div>
         </div>
