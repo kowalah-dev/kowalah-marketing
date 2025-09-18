@@ -1,0 +1,57 @@
+---
+interface Phase {
+  phase_number: number;
+  title: string;
+  description: string;
+  deliverables: string[];
+  timeline: string;
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  phases: Phase[];
+}
+
+const { title, subtitle, phases }: Props = Astro.props;
+---
+
+<section class="section bg-body/60">
+  <div class="container">
+    <div class="row justify-center text-center">
+      <div class="col-12 lg:col-10">
+        <h2 class="h2 mb-4" data-aos="fade-up-sm">{title}</h2>
+        {subtitle && (
+          <p class="text-lg text-text-dark/75" data-aos="fade-up-sm" data-aos-delay="100">
+            {subtitle}
+          </p>
+        )}
+      </div>
+    </div>
+
+    <div class="row g-6 mt-12">
+      {phases.map((phase, index) => (
+        <div class="col-12 lg:col-4" data-aos="fade-up-sm" data-aos-delay={150 + index * 80}>
+          <div class="h-full rounded-3xl border border-border/40 bg-white/[0.04] p-8">
+            <div class="mb-4 flex items-center justify-between">
+              <span class="text-xs font-semibold uppercase tracking-[0.35em] text-secondary/70">
+                Phase {phase.phase_number}
+              </span>
+              <span class="text-xs font-medium text-text-dark/60">{phase.timeline}</span>
+            </div>
+            <h3 class="text-xl font-semibold text-text-dark mb-3">{phase.title}</h3>
+            <p class="text-sm text-text-dark/75 mb-6">{phase.description}</p>
+            <ul class="space-y-3 text-sm text-text-dark/75">
+              {phase.deliverables.map((item) => (
+                <li class="flex gap-3">
+                  <span class="mt-1 inline-block h-2 w-2 rounded-full bg-secondary"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

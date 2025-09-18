@@ -1,0 +1,73 @@
+---
+interface Metric {
+  metric: string;
+  value: string;
+  timeframe: string;
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  metrics: Metric[];
+  costSavings: string[];
+  efficiencyGains: string[];
+}
+
+const { title, subtitle, metrics, costSavings, efficiencyGains }: Props = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-center text-center">
+      <div class="col-12 lg:col-10">
+        <h2 class="h2 mb-4" data-aos="fade-up-sm">{title}</h2>
+        {subtitle && (
+          <p class="text-lg text-text-dark/75" data-aos="fade-up-sm" data-aos-delay="100">
+            {subtitle}
+          </p>
+        )}
+      </div>
+    </div>
+
+    <div class="row g-6 mt-12">
+      {metrics.map((item, index) => (
+        <div class="col-12 md:col-4" data-aos="fade-up-sm" data-aos-delay={150 + index * 50}>
+          <div class="h-full rounded-3xl border border-secondary/30 bg-secondary/10 p-6 text-center">
+            <p class="text-4xl font-bold text-secondary mb-2">{item.value}</p>
+            <p class="text-sm uppercase tracking-[0.35em] text-secondary/70 mb-3">{item.timeframe}</p>
+            <p class="text-sm text-text-dark/80">{item.metric}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="row g-6 mt-12">
+      <div class="col-12 lg:col-6" data-aos="fade-up-sm">
+        <div class="h-full rounded-3xl border border-border/30 bg-white/[0.03] p-8">
+          <h3 class="text-xl font-semibold text-text-dark mb-4">Cost Savings & Risk Reduction</h3>
+          <ul class="space-y-3 text-sm text-text-dark/75">
+            {costSavings.map((item) => (
+              <li class="flex gap-3">
+                <span class="mt-1 inline-block h-2 w-2 rounded-full bg-secondary"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 lg:col-6" data-aos="fade-up-sm" data-aos-delay="50">
+        <div class="h-full rounded-3xl border border-border/30 bg-white/[0.03] p-8">
+          <h3 class="text-xl font-semibold text-text-dark mb-4">Productivity & Efficiency Gains</h3>
+          <ul class="space-y-3 text-sm text-text-dark/75">
+            {efficiencyGains.map((item) => (
+              <li class="flex gap-3">
+                <span class="mt-1 inline-block h-2 w-2 rounded-full bg-secondary"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

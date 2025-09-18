@@ -1,0 +1,68 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  pricingModel: string;
+  startingPrice: string;
+  pricingFactors: string[];
+  inclusions: string[];
+}
+
+const { title, subtitle, pricingModel, startingPrice, pricingFactors, inclusions }: Props = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-center text-center">
+      <div class="col-12 lg:col-8">
+        <h2 class="h2 mb-4" data-aos="fade-up-sm">{title}</h2>
+        {subtitle && (
+          <p class="text-lg text-text-dark/75" data-aos="fade-up-sm" data-aos-delay="100">
+            {subtitle}
+          </p>
+        )}
+      </div>
+    </div>
+
+    <div class="row justify-center mt-12">
+      <div class="col-12 lg:col-10" data-aos="fade-up-sm" data-aos-delay="150">
+        <div class="rounded-3xl border border-secondary/30 bg-secondary/10 p-8">
+          <p class="text-sm font-semibold uppercase tracking-[0.35em] text-secondary/70 mb-3">
+            Pricing Model
+          </p>
+          <p class="text-xl font-semibold text-text-dark mb-2">{pricingModel}</p>
+          <p class="text-3xl font-bold text-secondary">{startingPrice}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-6 mt-12">
+      <div class="col-12 lg:col-6" data-aos="fade-up-sm">
+        <div class="h-full rounded-3xl border border-border/30 bg-white/[0.03] p-8">
+          <h3 class="text-xl font-semibold text-text-dark mb-4">What impacts pricing</h3>
+          <ul class="space-y-3 text-sm text-text-dark/75">
+            {pricingFactors.map((item) => (
+              <li class="flex gap-3">
+                <span class="mt-1 inline-block h-2 w-2 rounded-full bg-secondary"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 lg:col-6" data-aos="fade-up-sm" data-aos-delay="50">
+        <div class="h-full rounded-3xl border border-border/30 bg-white/[0.03] p-8">
+          <h3 class="text-xl font-semibold text-text-dark mb-4">Included in every deployment</h3>
+          <ul class="space-y-3 text-sm text-text-dark/75">
+            {inclusions.map((item) => (
+              <li class="flex gap-3">
+                <span class="mt-1 inline-block h-2 w-2 rounded-full bg-secondary"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

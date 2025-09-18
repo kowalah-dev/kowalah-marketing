@@ -1,0 +1,53 @@
+---
+interface Props {
+  title: string;
+  problemStatement: string;
+  solutionOverview: string;
+  trustElements: string[];
+  painPoints: string[];
+}
+
+const { title, problemStatement, solutionOverview, trustElements, painPoints }: Props = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-center text-center">
+      <div class="col-12 lg:col-10">
+        <h2 class="h2 mb-6" data-aos="fade-up-sm">{title}</h2>
+        <p class="text-lg text-text-dark/80 mb-6" data-aos="fade-up-sm" data-aos-delay="100">
+          {problemStatement}
+        </p>
+        <p class="text-lg text-text-dark/80" data-aos="fade-up-sm" data-aos-delay="150">
+          {solutionOverview}
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-6 mt-12">
+      {trustElements.map((element, index) => (
+        <div class="col-12 md:col-6 lg:col-4" data-aos="fade-up-sm" data-aos-delay={200 + index * 50}>
+          <div class="h-full rounded-3xl border border-border/30 bg-white/[0.05] p-6 text-center">
+            <p class="text-base font-medium text-text-dark/85">{element}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="row justify-center mt-12">
+      <div class="col-12 lg:col-10">
+        <div class="rounded-3xl border border-secondary/30 bg-secondary/10 p-8" data-aos="fade-up-sm">
+          <h3 class="h4 text-center mb-6">Common Pain Points We Solve</h3>
+          <div class="grid gap-4 md:grid-cols-2">
+            {painPoints.map((point, index) => (
+              <div class="flex items-start gap-3" data-aos="fade-up-sm" data-aos-delay={index * 40}>
+                <span class="mt-2 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-secondary"></span>
+                <span class="text-sm text-text-dark/80">{point}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

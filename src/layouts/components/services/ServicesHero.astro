@@ -1,0 +1,56 @@
+---
+import Button from "@/shortcodes/Button";
+import ImageMod from "@/components/ImageMod.astro";
+
+interface CTA {
+  label: string;
+  link: string;
+  subtext?: string;
+}
+
+interface Props {
+  title: string;
+  subtitle: string;
+  cta: CTA;
+  image?: string;
+  imageAlt?: string;
+}
+
+const { title, subtitle, cta, image, imageAlt }: Props = Astro.props;
+---
+
+<section class="section pb-0">
+  <div class="container">
+    <div class="row justify-center text-center">
+      <div class="col-12 lg:col-8">
+        <h1 class="h1 mb-6" data-aos="fade-up-sm">{title}</h1>
+        <p class="text-lg text-text-dark/80 mb-8" data-aos="fade-up-sm" data-aos-delay="100">
+          {subtitle}
+        </p>
+        <div class="mb-10 flex flex-col items-center gap-3" data-aos="fade-up-sm" data-aos-delay="150">
+          <Button
+            label={cta.label}
+            link={cta.link}
+            style="primary"
+            target="_self"
+            className="w-full max-w-xs"
+          />
+          {cta.subtext && <p class="text-sm text-text-dark/70">{cta.subtext}</p>}
+        </div>
+      </div>
+    </div>
+    {image && (
+      <div class="row justify-center">
+        <div class="col-12 lg:col-10" data-aos="fade-up-sm" data-aos-delay="200">
+          <ImageMod
+            src={image}
+            alt={imageAlt ?? title}
+            width={1200}
+            height={750}
+            class="mx-auto w-full rounded-3xl border border-border/20 shadow-xl"
+          />
+        </div>
+      </div>
+    )}
+  </div>
+</section>

@@ -1,0 +1,49 @@
+---
+interface Pillar {
+  title: string;
+  icon?: string;
+  description: string;
+  details: string[];
+  value_proposition: string;
+}
+
+interface Props {
+  title: string;
+  items: Pillar[];
+}
+
+const { title, items }: Props = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-center text-center">
+      <div class="col-12 lg:col-10">
+        <h2 class="h2 mb-10" data-aos="fade-up-sm">{title}</h2>
+      </div>
+    </div>
+
+    <div class="row g-6">
+      {items.map((item, index) => (
+        <div class="col-12 lg:col-4" data-aos="fade-up-sm" data-aos-delay={100 + index * 60}>
+          <div class="h-full rounded-3xl border border-border/30 bg-white/[0.03] p-8">
+            <h3 class="text-xl font-semibold text-text-dark mb-4">{item.title}</h3>
+            <p class="text-sm text-text-dark/75 mb-6">{item.description}</p>
+            <ul class="mb-6 space-y-3 text-sm text-text-dark/75">
+              {item.details.map((detail) => (
+                <li class="flex gap-3">
+                  <span class="mt-1 inline-block h-2 w-2 rounded-full bg-secondary"></span>
+                  <span>{detail}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="rounded-2xl border border-secondary/30 bg-secondary/10 p-4 text-sm text-text-dark/80">
+              <strong class="block text-secondary mb-2">Why it matters</strong>
+              {item.value_proposition}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

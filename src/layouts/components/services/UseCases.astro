@@ -1,0 +1,47 @@
+---
+interface UseCase {
+  scenario: string;
+  challenge: string;
+  solution: string;
+  outcome: string;
+}
+
+interface Props {
+  title: string;
+  items: UseCase[];
+}
+
+const { title, items }: Props = Astro.props;
+---
+
+<section class="section bg-body/60">
+  <div class="container">
+    <div class="row justify-center text-center">
+      <div class="col-12 lg:col-10">
+        <h2 class="h2 mb-10" data-aos="fade-up-sm">{title}</h2>
+      </div>
+    </div>
+
+    <div class="row g-6">
+      {items.map((item, index) => (
+        <div class="col-12 lg:col-4" data-aos="fade-up-sm" data-aos-delay={120 + index * 60}>
+          <div class="h-full rounded-3xl border border-border/30 bg-white/[0.03] p-7">
+            <p class="text-xs font-semibold uppercase tracking-[0.35em] text-secondary/70 mb-3">Use Case</p>
+            <h3 class="text-xl font-semibold text-text-dark mb-4">{item.scenario}</h3>
+            <div class="space-y-3 text-sm text-text-dark/75">
+              <p>
+                <strong class="text-text-dark">Challenge:</strong> {item.challenge}
+              </p>
+              <p>
+                <strong class="text-text-dark">Solution:</strong> {item.solution}
+              </p>
+              <p>
+                <strong class="text-text-dark">Outcome:</strong> {item.outcome}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
