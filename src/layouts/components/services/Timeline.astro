@@ -4,6 +4,17 @@ interface Step {
   title: string;
   description: string;
   duration: string;
+  focus?: string;
+  workstreams?: string[];
+  stakeholders?: string[];
+  deliverables?: string[];
+  checkpoint?: string;
+}
+
+interface PostLaunch {
+  title: string;
+  cadence?: string;
+  items: string[];
 }
 
 interface Props {
@@ -11,9 +22,10 @@ interface Props {
   subtitle?: string;
   durationLabel?: string;
   steps: Step[];
+  postLaunch?: PostLaunch;
 }
 
-const { title, subtitle, durationLabel, steps }: Props = Astro.props;
+const { title, subtitle, durationLabel, steps, postLaunch }: Props = Astro.props;
 ---
 
 <section class="section bg-body/60">
@@ -51,8 +63,85 @@ const { title, subtitle, durationLabel, steps }: Props = Astro.props;
             <p class="text-sm text-text-dark/70 md:text-right">{step.duration}</p>
           </div>
           <p class="mt-4 text-sm text-text-dark/80">{step.description}</p>
+
+          {step.stakeholders && (
+            <div class="mt-4 flex flex-wrap gap-2">
+              {step.stakeholders.map((owner) => (
+                <span class="rounded-full border border-secondary/30 bg-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-secondary">
+                  {owner}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {step.focus && (
+            <div class="mt-4 rounded-2xl border border-border/30 bg-white/[0.04] p-4 text-sm text-text-dark/80">
+              <strong class="text-secondary">Focus</strong>
+              <p class="mt-2">{step.focus}</p>
+            </div>
+          )}
+
+          <div class="mt-4 grid gap-6 md:grid-cols-2">
+            {step.workstreams && step.workstreams.length > 0 && (
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.35em] text-secondary/70 mb-3">
+                  Workstreams
+                </p>
+                <ul class="space-y-2 text-sm text-text-dark/75">
+                  {step.workstreams.map((item) => (
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-secondary"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {step.deliverables && step.deliverables.length > 0 && (
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.35em] text-secondary/70 mb-3">
+                  Key Artifacts & Outputs
+                </p>
+                <ul class="space-y-2 text-sm text-text-dark/75">
+                  {step.deliverables.map((item) => (
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-secondary"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          {step.checkpoint && (
+            <div class="mt-6 rounded-2xl border border-secondary/30 bg-secondary/10 p-4 text-sm text-text-dark/85">
+              <strong class="text-secondary">Decision Gate</strong>
+              <p class="mt-2">{step.checkpoint}</p>
+            </div>
+          )}
         </div>
       ))}
     </div>
+
+    {postLaunch && (
+      <div class="mt-10" data-aos="fade-up-sm" data-aos-delay={160 + steps.length * 60}>
+        <div class="rounded-3xl border border-border/30 bg-white/[0.03] p-6 md:p-8">
+          <p class="text-xs font-semibold uppercase tracking-[0.35em] text-secondary/70 mb-2">
+            {postLaunch.cadence ?? "Ongoing cadence"}
+          </p>
+          <h3 class="text-xl font-semibold text-text-dark mb-4">{postLaunch.title}</h3>
+          <ul class="space-y-2 text-sm text-text-dark/75">
+            {postLaunch.items.map((item) => (
+              <li class="flex gap-3">
+                <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-secondary"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    )}
   </div>
 </section>

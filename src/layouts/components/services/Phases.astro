@@ -44,7 +44,7 @@ const { title, subtitle, phases }: Props = Astro.props;
             <ul class="space-y-3 text-sm text-text-dark/75">
               {phase.deliverables.map((item) => (
                 <li class="flex gap-3">
-                  <span class="mt-1 inline-block h-2 w-2 rounded-full bg-secondary"></span>
+                  <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-secondary"></span>
                   <span>{item}</span>
                 </li>
               ))}

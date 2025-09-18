@@ -46,7 +46,7 @@ const { title, subtitle, before, after }: Props = Astro.props;
           <ul class="space-y-4 text-sm leading-relaxed text-text-dark opacity-80">
             {before.items.map((item) => (
               <li class="flex items-start gap-3">
-                <span class="mt-1 inline-block h-2 w-2 rounded-full bg-secondary/70"></span>
+                <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-secondary/70"></span>
                 <span>{item}</span>
               </li>
             ))}
@@ -66,7 +66,7 @@ const { title, subtitle, before, after }: Props = Astro.props;
           <ul class="space-y-4 text-sm leading-relaxed text-text-dark opacity-90">
             {after.items.map((item) => (
               <li class="flex items-start gap-3">
-                <span class="mt-1 inline-block h-2 w-2 rounded-full bg-primary"></span>
+                <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-primary"></span>
                 <span>{item}</span>
               </li>
             ))}

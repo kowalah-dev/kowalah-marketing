@@ -26,7 +26,11 @@ const { title, problemStatement, solutionOverview, trustElements, painPoints }: 
 
     <div class="row g-6 mt-12">
       {trustElements.map((element, index) => (
-        <div class="col-12 md:col-6 lg:col-4" data-aos="fade-up-sm" data-aos-delay={200 + index * 50}>
+        <div
+          class="col-12 md:col-6 lg:col-4 mb-6"
+          data-aos="fade-up-sm"
+          data-aos-delay={200 + index * 50}
+        >
           <div class="h-full rounded-3xl border border-border/30 bg-white/[0.05] p-6 text-center">
             <p class="text-base font-medium text-text-dark/85">{element}</p>
           </div>

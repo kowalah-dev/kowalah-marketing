@@ -1,6 +1,7 @@
 ---
 import Base from "@/layouts/Base.astro";
 import ServicesHero from "@/layouts/components/services/ServicesHero.astro";
+import ServicesInclusions from "@/layouts/components/services/ServicesInclusions.astro";
 import ProblemSolution from "@/layouts/components/services/ProblemSolution.astro";
 import Phases from "@/layouts/components/services/Phases.astro";
 import Pillars from "@/layouts/components/services/Pillars.astro";
@@ -12,21 +13,69 @@ import ConsultationOffer from "@/layouts/components/services/ConsultationOffer.a
 
 const pageData = {
   title: "ChatGPT Enterprise Deployment | Complete Workforce Transformation",
-  meta_title: "ChatGPT Enterprise Deployment | 6-Week Complete Rollout | Kowalah",
+  meta_title: "ChatGPT Enterprise Deployment | Multi-Phase Transformation | Kowalah",
   description:
-    "Transform ChatGPT chaos into enterprise excellence in 6 weeks. Complete deployment with change enablement, training, and ongoing support. Schedule your free consultation.",
+    "Enterprise ChatGPT programme covering strategy, procurement, deployment, change enablement, and ongoing optimisation. Book a 60-minute assessment to map your roadmap.",
 
   hero: {
-    title: "Transform ChatGPT Chaos into Enterprise Excellence in 6 Weeks",
+    title: "Transform ChatGPT Chaos into Enterprise Excellence",
     subtitle:
-      "Stop worrying about ungoverned AI usage. Get a complete ChatGPT Enterprise deployment with change enablement that transforms every employee from intern to CEO into confident AI users.",
+      "This flagship engagement orchestrates strategy, procurement, technical rollout, change enablement, and ongoing optimisation so every employee—from intern to CEO—operates with governed ChatGPT confidence.",
     cta: {
       label: "Schedule Your Deployment Consultation",
       link: "/contact",
-      subtext: "Free 60-minute assessment and customized deployment roadmap",
+      subtext: "Free 60-minute assessment and customised multi-phase roadmap",
     },
     image: "/images/solutions/chatgpt-deployment-hero.png",
     imageAlt: "ChatGPT Enterprise deployment roadmap",
+  },
+
+  program_overview: {
+    title: "Everything you need for a governed ChatGPT-first enterprise",
+    subtitle:
+      "Each module can stand alone, but together they accelerate lasting adoption across leadership, technology, and the workforce.",
+    items: [
+      {
+        title: "Strategy, Procurement & Governance",
+        description:
+          "Align leadership, secure licensing, and install the guardrails that make enterprise AI accountable.",
+        points: [
+          "C-suite AI operating model, roadmap, and success metrics",
+          "ChatGPT Enterprise procurement, legal, and commercial diligence",
+          "Responsible AI, security, and data governance frameworks",
+        ],
+      },
+      {
+        title: "Technical Deployment & Integration",
+        description:
+          "Configure ChatGPT Enterprise, integrate core systems, and provision governed access for every persona.",
+        points: [
+          "Tenant setup, SSO, policy enforcement, and user provisioning",
+          "Knowledge base, workflow, and analytics connectors",
+          "Pilot playbooks and measurement for early adopter teams",
+        ],
+      },
+      {
+        title: "Change Enablement & Workforce Adoption",
+        description:
+          "Embed the communications, leadership backing, and ambassador network that turns sanctioned ChatGPT into daily behaviour.",
+        points: [
+          "Stakeholder mapping, comms orchestration, and readiness analytics",
+          "AI Ambassador and business partner programmes",
+          "Policy education, risk controls, and leadership enablement",
+        ],
+      },
+      {
+        title: "Structured Training & Ongoing Optimisation",
+        description:
+          "Deliver ChatGPT 101/102/201 curricula and keep momentum through Expert Requests, accelerators, and optimisation loops.",
+        points: [
+          "Role-specific training pathways with live workshops and labs",
+          "Expert Requests for prompt, GPT, and workflow development",
+          "Continuous analytics, optimisation sprints, and innovation roadmap",
+        ],
+      },
+    ],
   },
 
   problem_solution: {
@@ -39,13 +88,14 @@ const pageData = {
       "Proven framework from inspiration to mastery to ongoing support",
       "Complete workforce transformation, not just technical setup",
       "Expert-led training sessions and custom AI development",
+      "Prebuilt Kowalah accelerators to showcase best-practice use cases",
       "24/7 Digital CAIO support through Kowalah platform access",
       "Zero turnover risk with continuously evolving capabilities",
     ],
     pain_points: [
       "Unmanaged free ChatGPT usage creating security risks",
-      "Employees lack proper AI skills and governance understanding",
-      "No structured approach to enterprise-wide AI adoption",
+      "Employees haven't been shown how to get value from ChatGPT",
+      "No structured approach to enterprise-wide ChatGPT adoption",
       "Technical implementation without change management fails",
       "Compliance concerns and data privacy risks",
       "Resistance to new AI workflows and technologies",
@@ -54,48 +104,47 @@ const pageData = {
 
   solution_approach: {
     title: "Our Proven ChatGPT Enterprise Deployment Process",
-    subtitle: "From 0 to go-live in 6 weeks with complete workforce transformation",
+    subtitle:
+      "A 14–21 week transformation anchored in three phases: establish the guardrails, activate the workforce, and embed ongoing optimisation",
     phases: [
       {
         phase_number: 1,
-        title: "AI Inspiration",
+        title: "Strategy, Procurement & Governance",
         description:
-          "Executive alignment and vision setting with company-wide AI inspiration sessions that build excitement and eliminate resistance",
+          "Align leadership on the ChatGPT vision, complete enterprise licensing, and install responsible AI guardrails across the organisation.",
         deliverables: [
-          "AI strategy alignment workshop with executive team",
-          "Leadership buy-in and change champion identification",
-          "Employee excitement through AI demonstration sessions",
-          "Governance framework foundation and risk assessment",
+          "Executive AI charter, success metrics, and investment roadmap",
+          "ChatGPT Enterprise commercial + legal approval",
+          "Risk register with mitigation plan and governance framework",
+          "Stakeholder map, communications plan, and measurement cadence",
         ],
-        timeline: "Week 1",
+        timeline: "Weeks 1–3",
       },
       {
         phase_number: 2,
-        title: "Foundation Training",
+        title: "Technical Deployment & Pilot Activation",
         description:
-          "Progressive skill-building from fundamentals to advanced role-specific AI applications across your entire workforce",
+          "Configure the platform, integrate priority systems, and launch governed pilot teams with tailored playbooks and support.",
         deliverables: [
-          "ChatGPT 101: Fundamentals training for all employees",
-          "ChatGPT 102: Intermediate skills and business applications",
-          "ChatGPT 201: Advanced techniques and department-specific training",
-          "Custom prompts and role-specific GPT development",
-          "Comprehensive governance framework implementation",
+          "Tenant configuration, SSO, policy enforcement, and user provisioning",
+          "Knowledge base and workflow integrations with testing sign-off",
+          "Pilot success scorecard and adoption analytics setup",
+          "Ambassador enablement toolkit and coaching calendar",
         ],
-        timeline: "Weeks 2-4",
+        timeline: "Weeks 4–7",
       },
       {
         phase_number: 3,
-        title: "Managed Services Launch",
+        title: "Change Enablement, Rollout & Optimisation",
         description:
-          "Live enterprise system with ongoing expert support and continuous optimization for sustained AI excellence",
+          "Scale beyond pilots with structured training, communications, and a managed services layer that keeps results compounding.",
         deliverables: [
-          "Kowalah platform access with pre-built AI accelerators",
-          "Expert Requests quota for custom prompts, GPTs, and integrations",
-          "Ongoing support through Digital CAIO and human specialists",
-          "Performance monitoring and optimization framework",
-          "Continuous learning paths and advanced use case development",
+          "ChatGPT 101/102/201 curricula and advanced labs across departments",
+          "Leadership enablement, policy education, and comms cadence",
+          "Expert Requests backlog, accelerator deployment, and custom GPT builds",
+          "Adoption dashboards, optimisation sprints, and innovation roadmap",
         ],
-        timeline: "Weeks 5-6 launch, ongoing service",
+        timeline: "Weeks 8–21",
       },
     ],
   },
@@ -195,39 +244,109 @@ const pageData = {
   },
 
   implementation: {
-    title: "Your 6-Week Transformation Timeline",
-    subtitle: "From planning to full deployment with measurable milestones",
-    duration: "6 weeks to full deployment",
+    title: "Programme Execution Timeline",
+    subtitle: "Detailed workstreams, owners, and decision gates across the 14–21 week engagement",
+    duration: "14–21 weeks to full deployment and embedded operations",
     steps: [
       {
         step_number: 1,
-        title: "Week 1: AI Inspiration & Executive Alignment",
+        title: "Weeks 1–3: Strategy, Procurement & Governance",
         description:
-          "Strategy sessions, leadership buy-in, and organization-wide AI excitement building",
-        duration: "5 business days",
+          "Secure executive sponsorship, complete licensing, and install the governance guardrails required for scale.",
+        duration: "3 weeks",
+        focus: "Align the organisation on the ChatGPT vision and codify how success will be managed.",
+        stakeholders: ["Executive Sponsor", "Procurement", "Legal", "InfoSec"],
+        workstreams: [
+          "Executive AI operating model, success metrics, and investment case",
+          "ChatGPT Enterprise commercial, legal, and security diligence",
+          "Shadow usage baseline and priority department identification",
+          "Communications and change measurement plan",
+        ],
+        deliverables: [
+          "Signed ChatGPT Enterprise contract and governance framework",
+          "Risk register with mitigation plan",
+          "Stakeholder map and comms cadence",
+          "Executive go-live charter",
+        ],
+        checkpoint: "Executive go/no-go to configure tenant and provision pilot teams",
       },
       {
         step_number: 2,
-        title: "Weeks 2-3: Foundation Training Rollout",
+        title: "Weeks 4–7: Technical Configuration & Pilot Activation",
         description:
-          "ChatGPT 101/102 training for all employees with role-specific skill development",
-        duration: "10 business days",
+          "Deploy the ChatGPT Enterprise tenant, connect priority systems, and launch governed pilot teams.",
+        duration: "4 weeks",
+        focus: "Prove value safely with early adopters before enterprise rollout.",
+        stakeholders: ["Platform Lead", "IT", "InfoSec", "AI Change Office"],
+        workstreams: [
+          "Tenant configuration, SSO, policy enforcement, and provisioning",
+          "Integrations into knowledge bases, workflows, and analytics",
+          "Pilot playbooks, use case enablement, and measurement",
+          "Ambassador enablement and coaching clinics",
+        ],
+        deliverables: [
+          "Configuration runbook and admin playbook",
+          "Integration checklist with testing sign-off",
+          "Pilot success scorecard and telemetry dashboards",
+          "Ambassador roster and enablement toolkit",
+        ],
+        checkpoint: "Pilot launch readiness review with security and executive sponsors",
       },
       {
         step_number: 3,
-        title: "Week 4: Advanced Training & Custom Development",
+        title: "Weeks 8–13: Change Enablement & Workforce Training",
         description:
-          "ChatGPT 201 advanced techniques and department-specific GPT creation",
-        duration: "5 business days",
+          "Scale adoption with structured communications, leadership enablement, and ChatGPT 101/102/201 pathways.",
+        duration: "6 weeks",
+        focus: "Turn sanctioned ChatGPT access into everyday behaviour across departments.",
+        stakeholders: ["Change Enablement Lead", "L&D", "HR", "Department Sponsors"],
+        workstreams: [
+          "Deliver role-based training, labs, and certifications",
+          "Run Ambassador forums, office hours, and change clinics",
+          "Leadership enablement and policy education",
+          "Adoption dashboards, sentiment surveys, and feedback loops",
+        ],
+        deliverables: [
+          "Training schedules, attendance, and capability lift metrics",
+          "Employee AI knowledge base and policy hub",
+          "Leadership communications pack",
+          "Live adoption dashboard and issue resolution log",
+        ],
+        checkpoint: "Enterprise go-live sign-off and scale-up decision",
       },
       {
         step_number: 4,
-        title: "Weeks 5-6: System Launch & Optimization",
+        title: "Weeks 14–21: Managed Services & Optimisation",
         description:
-          "Enterprise platform deployment with ongoing support and performance monitoring",
-        duration: "10 business days + ongoing",
+          "Embed continuous improvement through Expert Requests, accelerators, and regular optimisation reviews.",
+        duration: "8 weeks + ongoing",
+        focus: "Keep ChatGPT usage growing in sophistication and measurable impact.",
+        stakeholders: ["Digital CAIO", "Department Champions", "Analytics Lead"],
+        workstreams: [
+          "Expert Requests backlog and custom GPT development",
+          "Accelerator deployment and advanced use case expansion",
+          "Monthly optimisation sprints with KPI and guardrail reviews",
+          "Roadmap refresh and governance updates",
+        ],
+        deliverables: [
+          "Operational GPT/prompt library with documentation",
+          "Optimisation backlog prioritised with business owners",
+          "Monthly adoption and ROI reporting pack",
+          "Updated innovation roadmap and governance artefacts",
+        ],
+        checkpoint: "Quarterly strategy review confirming new objectives and investment focus",
       },
     ],
+    postLaunch: {
+      title: "Managed services cadence beyond Week 21",
+      cadence: "Ongoing partnership",
+      items: [
+        "Monthly optimisation workshops and KPI reviews",
+        "Continuous Expert Requests support for new use cases",
+        "Quarterly roadmap refresh with AI leadership team",
+        "Annual governance and risk posture reassessment",
+      ],
+    },
   },
 
   business_case: {
@@ -269,33 +388,46 @@ const pageData = {
     items: [
       {
         scenario: "Executive Team Strategic Planning",
-        challenge: "Complex strategic decisions require extensive research and analysis",
-        solution: "AI-powered market analysis, competitive intelligence, and scenario planning",
-        outcome: "Faster strategic decisions with comprehensive data-backed insights",
+        challenge:
+          "Leadership needs rapid, trustworthy synthesis of market signals, competitive moves, and internal performance to steer AI-enabled growth.",
+        solution:
+          "Deep Research insights fused with executive prompt libraries to produce board-ready scenario plans, risk heatmaps, and strategic recommendations in minutes",
+        outcome: "Faster strategic decisions backed by ChatGPT-synthesised insight and clear action options",
       },
       {
-        scenario: "Sales Team Proposal Creation",
-        challenge: "Time-consuming custom proposal development for each prospect",
-        solution: "AI-generated personalized proposals with role-specific templates",
-        outcome: "75% faster proposal creation with higher conversion rates",
+        scenario: "Sales Prospecting & Negotiation Enablement",
+        challenge: "Reps struggle to practice objection handling and negotiation in realistic settings before live calls",
+        solution:
+          "GPT Voice-powered role-play simulations that mimic prospect personas, objections, and negotiation styles with instant coaching",
+        outcome: "Better-prepared reps, higher confidence, and measurable uplift in win rates",
       },
       {
-        scenario: "Marketing Team Content Production",
-        challenge: "Consistent, high-quality content creation across multiple channels",
-        solution: "AI-assisted campaign development, content optimization, and audience targeting",
-        outcome: "3x content output with improved engagement metrics",
+        scenario: "Marketing Campaign Planning",
+        challenge: "Orchestrating multi-channel campaigns while aligning messaging, assets, and analytics consumes weeks",
+        solution:
+          "ChatGPT Project workspace with Google Drive, analytics, and CRM connectors to draft briefs, build calendars, and generate creative variations in context",
+        outcome: "Campaigns launch faster with unified messaging, streamlined approvals, and data-informed creative",
       },
       {
-        scenario: "Operations Team Process Optimization",
-        challenge: "Identifying efficiency opportunities in complex workflows",
-        solution: "AI-powered process analysis, automation recommendations, and optimization",
-        outcome: "Significant operational efficiency gains and cost reductions",
+        scenario: "Product Development Workflow",
+        challenge: "Product, engineering, and design need a shared view of backlog priorities, customer feedback, and release updates",
+        solution:
+          "ChatGPT workspace integrated with GitHub and Linear that summarises issues, surfaces risks, and drafts release communications",
+        outcome: "Shorter iteration cycles with better cross-functional visibility and fewer context switches",
       },
       {
-        scenario: "HR Team Communication Enhancement",
-        challenge: "Standardized yet personalized employee communications",
-        solution: "AI-generated policies, training materials, and employee engagement content",
-        outcome: "Improved employee satisfaction and streamlined HR operations",
+        scenario: "Operations Knowledge Sharing",
+        challenge: "Teams require always-current guidance on policies, SOPs, and compliance steps",
+        solution:
+          "Shared GPTs that deliver policy Q&A, decision trees, and best-practice templates with advanced search and version control",
+        outcome: "Reduced process errors, faster onboarding, and consistent compliance adherence",
+      },
+      {
+        scenario: "Candidate Experience & Talent Attraction",
+        challenge: "Recruiters want to give personalised candidate support without adding manual workload",
+        solution:
+          "Branded candidate GPT that answers questions, shares interview prep tailored to the role, and captures sentiment for recruiters",
+        outcome: "Higher candidate satisfaction, better-prepared interviews, and insight into talent pipeline questions",
       },
     ],
   },
@@ -353,6 +485,12 @@ const pageData = {
     imageAlt={pageData.hero.imageAlt}
   />
 
+  <ServicesInclusions
+    title={pageData.program_overview.title}
+    subtitle={pageData.program_overview.subtitle}
+    items={pageData.program_overview.items}
+  />
+
   <ProblemSolution
     title={pageData.problem_solution.title}
     problemStatement={pageData.problem_solution.problem_statement}
@@ -374,6 +512,7 @@ const pageData = {
     subtitle={pageData.implementation.subtitle}
     durationLabel={pageData.implementation.duration}
     steps={pageData.implementation.steps}
+    postLaunch={pageData.implementation.postLaunch}
   />
 
   <BusinessCase
