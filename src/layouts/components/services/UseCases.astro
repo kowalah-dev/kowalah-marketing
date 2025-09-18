@@ -22,9 +22,13 @@ const { title, items }: Props = Astro.props;
       </div>
     </div>
 
-    <div class="row g-6">
+    <div class="row g-6 gap-y-8 lg:gap-y-12">
       {items.map((item, index) => (
-        <div class="col-12 lg:col-4" data-aos="fade-up-sm" data-aos-delay={120 + index * 60}>
+        <div
+          class="col-12 lg:col-4"
+          data-aos="fade-up-sm"
+          data-aos-delay={120 + index * 60}
+        >
           <div class="h-full rounded-3xl border border-border/30 bg-white/[0.03] p-7">
             <p class="text-xs font-semibold uppercase tracking-[0.35em] text-secondary/70 mb-3">Use Case</p>
             <h3 class="text-xl font-semibold text-text-dark mb-4">{item.scenario}</h3>
