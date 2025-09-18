@@ -32,23 +32,25 @@ const { title, subtitle, phases }: Props = Astro.props;
     <div class="row g-6 mt-12">
       {phases.map((phase, index) => (
         <div class="col-12 lg:col-4" data-aos="fade-up-sm" data-aos-delay={150 + index * 80}>
-          <div class="h-full rounded-3xl border border-border/40 bg-white/[0.04] p-8">
-            <div class="mb-4 flex items-center justify-between">
-              <span class="text-xs font-semibold uppercase tracking-[0.35em] text-secondary/70">
-                Phase {phase.phase_number}
-              </span>
-              <span class="text-xs font-medium text-text-dark/60">{phase.timeline}</span>
+          <div class="h-full rounded-3xl bg-gradient-to-br from-primary/25 via-secondary/15 to-transparent p-[1px]">
+            <div class="h-full rounded-[calc(1.5rem-1px)] bg-white/[0.04] p-8">
+              <div class="mb-4 flex items-center justify-between">
+                <span class="text-xs font-semibold uppercase tracking-[0.35em] text-secondary/70">
+                  Phase {phase.phase_number}
+                </span>
+                <span class="text-xs font-medium text-text-dark/60">{phase.timeline}</span>
+              </div>
+              <h3 class="text-xl font-semibold text-text-dark mb-3">{phase.title}</h3>
+              <p class="text-sm text-text-dark/75 mb-6">{phase.description}</p>
+              <ul class="space-y-3 text-sm text-text-dark/75">
+                {phase.deliverables.map((item) => (
+                  <li class="flex gap-3">
+                    <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-primary"></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <h3 class="text-xl font-semibold text-text-dark mb-3">{phase.title}</h3>
-            <p class="text-sm text-text-dark/75 mb-6">{phase.description}</p>
-            <ul class="space-y-3 text-sm text-text-dark/75">
-              {phase.deliverables.map((item) => (
-                <li class="flex gap-3">
-                  <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-secondary"></span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       ))}

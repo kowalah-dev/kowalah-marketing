@@ -67,7 +67,7 @@ const { title, subtitle, durationLabel, steps, postLaunch }: Props = Astro.props
           {step.stakeholders && (
             <div class="mt-4 flex flex-wrap gap-2">
               {step.stakeholders.map((owner) => (
-                <span class="rounded-full border border-secondary/30 bg-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-secondary">
+                <span class="rounded-full bg-gradient-to-r from-primary/40 to-secondary/40 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/90">
                   {owner}
                 </span>
               ))}
@@ -75,7 +75,7 @@ const { title, subtitle, durationLabel, steps, postLaunch }: Props = Astro.props
           )}
 
           {step.focus && (
-            <div class="mt-4 rounded-2xl border border-border/30 bg-white/[0.04] p-4 text-sm text-text-dark/80">
+            <div class="mt-4 rounded-2xl border border-border/30 bg-gradient-to-r from-primary/15 via-secondary/10 to-transparent p-4 text-sm text-text-dark/80">
               <strong class="text-secondary">Focus</strong>
               <p class="mt-2">{step.focus}</p>
             </div>
@@ -90,7 +90,7 @@ const { title, subtitle, durationLabel, steps, postLaunch }: Props = Astro.props
                 <ul class="space-y-2 text-sm text-text-dark/75">
                   {step.workstreams.map((item) => (
                     <li class="flex gap-3">
-                      <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-secondary"></span>
+                      <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-primary"></span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -106,7 +106,7 @@ const { title, subtitle, durationLabel, steps, postLaunch }: Props = Astro.props
                 <ul class="space-y-2 text-sm text-text-dark/75">
                   {step.deliverables.map((item) => (
                     <li class="flex gap-3">
-                      <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-secondary"></span>
+                      <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-primary"></span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -116,7 +116,7 @@ const { title, subtitle, durationLabel, steps, postLaunch }: Props = Astro.props
           </div>
 
           {step.checkpoint && (
-            <div class="mt-6 rounded-2xl border border-secondary/30 bg-secondary/10 p-4 text-sm text-text-dark/85">
+            <div class="mt-6 rounded-2xl border border-secondary/30 bg-gradient-to-r from-primary/20 via-secondary/15 to-transparent p-4 text-sm text-text-dark/85">
               <strong class="text-secondary">Decision Gate</strong>
               <p class="mt-2">{step.checkpoint}</p>
             </div>
@@ -127,7 +127,8 @@ const { title, subtitle, durationLabel, steps, postLaunch }: Props = Astro.props
 
     {postLaunch && (
       <div class="mt-10" data-aos="fade-up-sm" data-aos-delay={160 + steps.length * 60}>
-        <div class="rounded-3xl border border-border/30 bg-white/[0.03] p-6 md:p-8">
+        <div class="rounded-3xl bg-gradient-to-br from-primary/20 via-secondary/15 to-transparent p-[1px]">
+          <div class="rounded-[calc(1.5rem-1px)] bg-white/[0.03] p-6 md:p-8">
           <p class="text-xs font-semibold uppercase tracking-[0.35em] text-secondary/70 mb-2">
             {postLaunch.cadence ?? "Ongoing cadence"}
           </p>
@@ -135,11 +136,12 @@ const { title, subtitle, durationLabel, steps, postLaunch }: Props = Astro.props
           <ul class="space-y-2 text-sm text-text-dark/75">
             {postLaunch.items.map((item) => (
               <li class="flex gap-3">
-                <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-secondary"></span>
+                <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-primary"></span>
                 <span>{item}</span>
               </li>
             ))}
           </ul>
+          </div>
         </div>
       </div>
     )}

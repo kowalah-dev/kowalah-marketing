@@ -26,41 +26,47 @@ const { title, subtitle, pricingModel, startingPrice, pricingFactors, inclusions
 
     <div class="row justify-center mt-12">
       <div class="col-12 lg:col-10" data-aos="fade-up-sm" data-aos-delay="150">
-        <div class="rounded-3xl border border-secondary/30 bg-secondary/10 p-8">
-          <p class="text-sm font-semibold uppercase tracking-[0.35em] text-secondary/70 mb-3">
-            Pricing Model
-          </p>
-          <p class="text-xl font-semibold text-text-dark mb-2">{pricingModel}</p>
-          <p class="text-3xl font-bold text-secondary">{startingPrice}</p>
+        <div class="rounded-3xl bg-gradient-to-r from-primary/25 via-secondary/20 to-transparent p-[1px] shadow-lg shadow-primary/20">
+          <div class="rounded-[calc(1.5rem-1px)] bg-white/95 p-8">
+            <p class="text-sm font-semibold uppercase tracking-[0.35em] text-secondary/70 mb-3">
+              Pricing Model
+            </p>
+            <p class="text-xl font-semibold text-text-dark mb-2">{pricingModel}</p>
+            <p class="text-3xl font-bold text-secondary">{startingPrice}</p>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="row g-6 mt-12">
       <div class="col-12 lg:col-6" data-aos="fade-up-sm">
-        <div class="h-full rounded-3xl border border-border/30 bg-white/[0.03] p-8">
-          <h3 class="text-xl font-semibold text-text-dark mb-4">What impacts pricing</h3>
-          <ul class="space-y-3 text-sm text-text-dark/75">
-            {pricingFactors.map((item) => (
-              <li class="flex gap-3">
-                <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-secondary"></span>
+        <div class="h-full rounded-3xl bg-gradient-to-br from-primary/20 via-secondary/15 to-transparent p-[1px] shadow-md shadow-primary/10">
+          <div class="rounded-[calc(1.5rem-1px)] bg-white/95 p-8 h-full">
+            <h3 class="text-xl font-semibold text-text-dark mb-4">What impacts pricing</h3>
+            <ul class="space-y-3 text-sm text-text-dark/75">
+              {pricingFactors.map((item) => (
+                <li class="flex gap-3">
+                  <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-primary"></span>
                 <span>{item}</span>
               </li>
             ))}
           </ul>
+          </div>
         </div>
       </div>
       <div class="col-12 lg:col-6" data-aos="fade-up-sm" data-aos-delay="50">
-        <div class="h-full rounded-3xl border border-border/30 bg-white/[0.03] p-8">
-          <h3 class="text-xl font-semibold text-text-dark mb-4">Included in every deployment</h3>
-          <ul class="space-y-3 text-sm text-text-dark/75">
-            {inclusions.map((item) => (
-              <li class="flex gap-3">
-                <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-secondary"></span>
+        <div class="h-full rounded-3xl bg-gradient-to-br from-primary/20 via-secondary/15 to-transparent p-[1px] shadow-md shadow-primary/10">
+          <div class="rounded-[calc(1.5rem-1px)] bg-white/95 p-8 h-full">
+            <h3 class="text-xl font-semibold text-text-dark mb-4">Included in every deployment</h3>
+            <ul class="space-y-3 text-sm text-text-dark/75">
+              {inclusions.map((item) => (
+                <li class="flex gap-3">
+                  <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-primary"></span>
                 <span>{item}</span>
               </li>
             ))}
           </ul>
+          </div>
         </div>
       </div>
     </div>

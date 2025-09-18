@@ -32,10 +32,12 @@ const { title, subtitle, metrics, costSavings, efficiencyGains }: Props = Astro.
     <div class="row g-6 mt-12">
       {metrics.map((item, index) => (
         <div class="col-12 md:col-4" data-aos="fade-up-sm" data-aos-delay={150 + index * 50}>
-          <div class="h-full rounded-3xl border border-secondary/30 bg-secondary/10 p-6 text-center">
-            <p class="text-4xl font-bold text-secondary mb-2">{item.value}</p>
-            <p class="text-sm uppercase tracking-[0.35em] text-secondary/70 mb-3">{item.timeframe}</p>
-            <p class="text-sm text-text-dark/80">{item.metric}</p>
+          <div class="h-full rounded-3xl bg-gradient-to-br from-primary/25 via-secondary/15 to-transparent p-[1px] text-center shadow-lg shadow-primary/20">
+            <div class="rounded-[calc(1.5rem-1px)] bg-white/95 p-6">
+              <p class="text-4xl font-bold text-secondary mb-2">{item.value}</p>
+              <p class="text-sm uppercase tracking-[0.35em] text-secondary/70 mb-3">{item.timeframe}</p>
+              <p class="text-sm text-text-dark/80">{item.metric}</p>
+            </div>
           </div>
         </div>
       ))}
@@ -48,7 +50,7 @@ const { title, subtitle, metrics, costSavings, efficiencyGains }: Props = Astro.
           <ul class="space-y-3 text-sm text-text-dark/75">
             {costSavings.map((item) => (
               <li class="flex gap-3">
-                <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-secondary"></span>
+                <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-primary"></span>
                 <span>{item}</span>
               </li>
             ))}
@@ -61,7 +63,7 @@ const { title, subtitle, metrics, costSavings, efficiencyGains }: Props = Astro.
           <ul class="space-y-3 text-sm text-text-dark/75">
             {efficiencyGains.map((item) => (
               <li class="flex gap-3">
-                <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-secondary"></span>
+                <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-primary"></span>
                 <span>{item}</span>
               </li>
             ))}
