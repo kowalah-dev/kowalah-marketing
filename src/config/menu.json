@@ -5,6 +5,7 @@
       "url": "",
       "hasChildren": true,
       "children": [
+        { "name": "Services Overview", "url": "/services" },
         { "name": "ChatGPT Enterprise Deployment", "url": "/services/chatgpt-enterprise-deployment" },
         { "name": "AI Change Enablement", "url": "/services/ai-change-enablement" },
         { "name": "ChatGPT Training", "url": "/services/chatgpt-training" },
