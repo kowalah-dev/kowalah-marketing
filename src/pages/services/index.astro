@@ -1,0 +1,305 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/layouts/partials/PageHeader.astro";
+import BeforeAfterPanels from "@/layouts/components/services/BeforeAfterPanels.astro";
+import ServiceOfferingsGrid from "@/layouts/components/services/ServiceOfferingsGrid.astro";
+import ProcessOutcomes from "@/layouts/components/services/ProcessOutcomes.astro";
+import DecisionGuide from "@/layouts/components/services/DecisionGuide.astro";
+import ResourceHighlights from "@/layouts/components/services/ResourceHighlights.astro";
+import FinalCtaBanner from "@/layouts/components/services/FinalCtaBanner.astro";
+import Button from "@/shortcodes/Button";
+
+const pageMeta = {
+  title: "ChatGPT Services",
+  meta_title: "Enterprise ChatGPT Services | Kowalah",
+  description:
+    "Explore Kowalah's enterprise ChatGPT services. Choose the right blend of deployment, change enablement, training, accelerators, expert delivery, and advisory support for your organization.",
+};
+
+const hero = {
+  title: "Move from Shadow ChatGPT to AI-First Execution",
+  subtitle:
+    "Every executive arrives with a different challenge. Whether you need immediate deployment confidence, workforce training, or an always-on advisory partner, Kowalah keeps your organization aligned, secure, and moving fast.",
+  cta_primary: { label: "Talk to an AI Advisor", link: "/contact" },
+  cta_secondary: { label: "Explore Services", link: "#services-overview" },
+};
+
+const transformationSection = {
+  title: "From Shadow Usage to Coordinated AI",
+  subtitle:
+    "Most companies sit between unmanaged experimentation and underperforming enterprise rollouts. We replace that limbo with a governed, ChatGPT-first operating model.",
+  before: {
+    heading: "Shadow usage and stalled rollouts",
+    items: [
+      "Teams relying on personal ChatGPT accounts with no governance or oversight",
+      "Fragmented AI initiatives with stalled Copilot/Gemini deployments",
+      "Executives unsure how to prove ROI or set the right adoption milestones",
+      "Policy drafts and security concerns blocking meaningful experimentation",
+    ],
+  },
+  after: {
+    heading: "Governed, AI-first operating rhythm",
+    items: [
+      "ChatGPT Enterprise deployed with governed access and measurable guardrails",
+      "Role-based training ladders that turn teams into confident AI contributors",
+      "Executive dashboards tracking outcomes, not just licenses and logins",
+      "An AI-first culture supported by ambassadors, accelerators, and expert delivery",
+    ],
+  },
+};
+
+const servicesSection = {
+  title: "Select the Service Track That Matches Your Next Move",
+  subtitle:
+    "Each service is built to meet you where you are—whether you need rapid deployment, cultural adoption, or an always-on AI partner.",
+  services: [
+    {
+      title: "ChatGPT Enterprise Deployment",
+      description:
+        "Launch ChatGPT Enterprise with the change enablement needed to transform every employee from curious to confident in six weeks.",
+      bullets: [
+        "Rapid discovery, governance, and procurement guidance",
+        "Company-wide training experience from inspiration to mastery",
+        "Digital CAIO support plus on-demand experts for complex use cases",
+      ],
+      ctaLabel: "See Deployment Blueprint",
+      ctaLink: "/services/chatgpt-enterprise-deployment",
+    },
+    {
+      title: "ChatGPT Change Enablement",
+      description:
+        "Run a 16-week transformation program that aligns leadership, equips ambassadors, and embeds AI-first ways of working across the enterprise.",
+      bullets: [
+        "Executive alignment and AI amnesty assessments",
+        "Ambassador programs with communications and resistance playbooks",
+        "Measurement framework to sustain adoption momentum",
+      ],
+      ctaLabel: "Review Change Program",
+      ctaLink: "/services/ai-change-enablement",
+    },
+    {
+      title: "ChatGPT Training",
+      description:
+        "Deliver immersive workshops from ChatGPT 101 to executive-level mastery that unlock advanced capabilities most teams never reach.",
+      bullets: [
+        "ChatGPT 101 and 102 give employees the foundational skills",
+        "ChatGPT 201 role-specific prompt workshops",
+        "ChatGPT for Leaders focuses on responsible, high-impact usage",
+      ],
+      ctaLabel: "Explore Training Tracks",
+      ctaLink: "/services/chatgpt-training",
+    },
+    {
+      title: "Expert Requests",
+      description:
+        "Give your teams instant access to prompt engineers and AI specialists who build GPTs, automations, and tailored playbooks on demand.",
+      bullets: [
+        "Pre-agreed quota of quarterly Expert Requests",
+        "Rapid turnaround on department-specific workflows",
+        "Request prompts, GPTs, web apps and training workshops",
+      ],
+      ctaLabel: "See Expert Delivery",
+      ctaLink: "/services/expert-requests",
+    },
+    {
+      title: "AI Accelerators",
+      description:
+        "Deploy a library of pre-built prompts, templates, and governance kits that create quick wins and expand capability discovery in days.",
+      bullets: [
+        "Industry and function-specific accelerator packs",
+        "Governance templates to fast-track security approvals",
+        "Enablement guides that embed best practices inside teams",
+      ],
+      ctaLabel: "Browse Accelerators",
+      ctaLink: "/services/ai-accelerators",
+    },
+    {
+      title: "AI Advisory Platform",
+      description:
+        "Stay ahead with a permanent Digital CAIO extension that delivers 24/7 guidance, roadmaps, and board-ready intelligence.",
+      bullets: [
+        "Named strategic advisor to keep you informed",
+        "Quarterly roadmap refresh with emerging capability reviews",
+        "24/7 chat interface loaded with collective intelligence",
+      ],
+      ctaLabel: "Understand Advisory Support",
+      ctaLink: "/services/ai-advisory-platform",
+    },
+  ],
+};
+
+const processSection = {
+  title: "How We Deliver End-to-End Change",
+  subtitle:
+    "Every engagement follows a proven sequence that balances strategy, enablement, and long-term partnership.",
+  steps: [
+    {
+      label: "Discover & Diagnose",
+      description:
+        "Map your current usage, risks, and stakeholder goals. Align on priority use cases and success metrics in the first weeks.",
+    },
+    {
+      label: "Deploy & Enable",
+      description:
+        "Combine technical rollout with immersive training, ambassador enablement, and accelerator deployment to drive adoption.",
+    },
+    {
+      label: "Scale & Optimize",
+      description:
+        "Monitor outcomes, expand advanced use cases, and keep leaders informed with continuous advisory support and expert delivery.",
+    },
+  ],
+  outcomeTitle: "Outcomes You Can Count On",
+  outcomeSubtitle:
+    "We focus on measurable executive outcomes and durable employee adoption rather than short-lived pilot activity.",
+  outcomes: [
+    {
+      title: "Executive Confidence",
+      description:
+        "Risk-managed deployment, clear governance, and board-ready reporting that shows measurable progress every quarter.",
+    },
+    {
+      title: "AI-Enabled Workforce",
+      description:
+        "Role-based mastery programs and ambassador networks that replace shadow usage with confident, compliant ChatGPT adoption.",
+    },
+    {
+      title: "Accelerated Time-to-Value",
+      description:
+        "Pre-built accelerators, expert delivery, and structured roadmaps that unlock quick wins without overloading your internal teams.",
+    },
+    {
+      title: "Sustained Momentum",
+      description:
+        "Always-on advisory and expert services that evolve with new ChatGPT capabilities and keep innovation flowing.",
+    },
+  ],
+};
+
+const decisionSection = {
+  title: "Not Sure Where to Start?",
+  subtitle: "Use this quick guide to match your current situation with the right Kowalah service.",
+  items: [
+    {
+      service: "ChatGPT Enterprise Deployment",
+      bestFor: "Companies needing a governed rollout in under two months",
+      trigger: "Shadow usage, stalled Copilot/Gemini pilots, or pending ChatGPT Enterprise purchase",
+      nextStep: "Book a deployment consultation call",
+    },
+    {
+      service: "AI Change Enablement",
+      bestFor: "Executives who need cultural adoption alongside tooling",
+      trigger: "Low usage of current AI investments or rising resistance",
+      nextStep: "Review 16-week enablement plan with our team",
+    },
+    {
+      service: "ChatGPT Training",
+      bestFor: "Leaders investing in scalable workforce capability",
+      trigger: "Teams plateauing on basic prompts or lacking advanced multi-modal skills",
+      nextStep: "Schedule curriculum planning workshop",
+    },
+    {
+      service: "Expert Requests & Accelerators",
+      bestFor: "Organizations needing rapid builds without extra headcount",
+      trigger: "Backlog of GPTs, automations, or departmental requests",
+      nextStep: "Set up an expert delivery intake session",
+    },
+    {
+      service: "AI Advisory Platform",
+      bestFor: "Executives who want an ongoing strategic partner",
+      trigger: "Need for continuous roadmap refresh and board reporting",
+      nextStep: "Discuss advisory engagement structure",
+    },
+  ],
+};
+
+const resourceSection = {
+  resources: [
+    {
+      title: "See a Complete Deployment Journey",
+      description:
+        "Walk through our ChatGPT Enterprise Deployment playbook and understand how we orchestrate inspiration to go-live.",
+      cta: "Read Solution Overview",
+      link: "/solutions/chatgpt-enterprise-deployment",
+    },
+    {
+      title: "Stay Current with Executive Insights",
+      description:
+        "Get the latest guidance on enterprise AI rollouts, governance updates, and leadership strategies.",
+      cta: "Browse Insights",
+      link: "/insights",
+    },
+  ],
+};
+
+const finalCta = {
+  title: "Ready to build an AI-first organization?",
+  subtitle:
+    "Schedule a strategy session and we’ll map the exact service mix that delivers business outcomes in weeks, not quarters.",
+  primary: { label: "Book a ChatGPT Strategy Call", link: "/contact", style: "primary" },
+  secondary: {
+    label: "Explore AI Adoption Resources",
+    link: "/insights",
+    style: "outline",
+  },
+};
+---
+
+<Base title={pageMeta.title} meta_title={pageMeta.meta_title} description={pageMeta.description}>
+  <PageHeader title={hero.title} content={hero.subtitle}>
+    <div class="mt-10 flex w-full flex-col items-center gap-4 sm:flex-row sm:justify-center">
+      <Button
+        label={hero.cta_primary.label}
+        link={hero.cta_primary.link}
+        style="primary"
+        target="_self"
+        className="w-full max-w-xs sm:w-auto"
+      />
+      <Button
+        label={hero.cta_secondary.label}
+        link={hero.cta_secondary.link}
+        style="outline"
+        target="_self"
+        className="w-full max-w-xs sm:w-auto"
+      />
+    </div>
+  </PageHeader>
+
+  <BeforeAfterPanels
+    title={transformationSection.title}
+    subtitle={transformationSection.subtitle}
+    before={transformationSection.before}
+    after={transformationSection.after}
+  />
+
+  <ServiceOfferingsGrid
+    title={servicesSection.title}
+    subtitle={servicesSection.subtitle}
+    services={servicesSection.services}
+    id="services-overview"
+  />
+
+  <ProcessOutcomes
+    title={processSection.title}
+    subtitle={processSection.subtitle}
+    steps={processSection.steps}
+    outcomeTitle={processSection.outcomeTitle}
+    outcomeSubtitle={processSection.outcomeSubtitle}
+    outcomes={processSection.outcomes}
+  />
+
+  <DecisionGuide
+    title={decisionSection.title}
+    subtitle={decisionSection.subtitle}
+    items={decisionSection.items}
+  />
+
+  <ResourceHighlights resources={resourceSection.resources} />
+
+  <FinalCtaBanner
+    title={finalCta.title}
+    subtitle={finalCta.subtitle}
+    primary={finalCta.primary}
+    secondary={finalCta.secondary}
+  />
+</Base>

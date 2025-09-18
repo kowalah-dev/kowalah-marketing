@@ -1,0 +1,41 @@
+---
+import Button from "@/shortcodes/Button";
+
+interface ResourceCard {
+  title: string;
+  description: string;
+  cta: string;
+  link: string;
+}
+
+interface Props {
+  resources: ResourceCard[];
+}
+
+const { resources }: Props = Astro.props;
+---
+
+<section class="section pt-0">
+  <div class="container">
+    <div class="row g-6">
+      {resources.map((resource, index) => (
+        <div class="col-12 md:col-6" data-aos="fade-up-sm" data-aos-delay={150 + index * 50}>
+          <div class="h-full rounded-3xl border border-border/30 bg-white/[0.03] p-7">
+            <p class="mb-3 text-xs font-semibold uppercase tracking-[0.35em] text-secondary/70">
+              Resource Highlight
+            </p>
+            <h3 class="mb-3 text-xl font-semibold text-text-dark">{resource.title}</h3>
+            <p class="mb-6 text-sm leading-relaxed text-text-dark opacity-80">{resource.description}</p>
+            <Button
+              label={resource.cta}
+              link={resource.link}
+              style="ghost"
+              icon="FaAngleRight"
+              className="p-0 text-secondary hover:text-secondary/80"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

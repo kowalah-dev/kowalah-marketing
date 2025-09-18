@@ -1,15 +1,16 @@
 {
   "main": [
     {
-      "name": "Product",
+      "name": "Services",
       "url": "",
       "hasChildren": true,
       "children": [
-        { "name": "Product Overview", "url": "/product" },
-        { "name": "Digital Chief AI Officer", "url": "/product/digital-caio" },
-        { "name": "Projects", "url": "/product/projects" },
-        { "name": "Expert Requests", "url": "/product/expert-requests" },
-        { "name": "Accelerators", "url": "/product/accelerators" }
+        { "name": "ChatGPT Enterprise Deployment", "url": "/services/chatgpt-enterprise-deployment" },
+        { "name": "AI Change Enablement", "url": "/services/ai-change-enablement" },
+        { "name": "ChatGPT Training", "url": "/services/chatgpt-training" },
+        { "name": "Expert Requests", "url": "/services/expert-requests" },
+        { "name": "AI Accelerators", "url": "/services/ai-accelerators" },
+        { "name": "AI Advisory Platform", "url": "/services/ai-advisory-platform" }
       ]
     },
     {
@@ -47,8 +48,8 @@
       "title": "NAVIGATION",
       "children": [
         {
-          "name": "Product",
-          "url": "/product"
+          "name": "Services",
+          "url": "/services"
         },
         {
           "name": "Solutions",

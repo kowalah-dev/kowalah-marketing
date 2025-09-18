@@ -9,6 +9,7 @@ const Button = ({
   rel,
   className = "",
   icon,
+  target,
 }: {
   label: string;
   link: string;
@@ -23,6 +24,7 @@ const Button = ({
   rel?: string;
   className?: string;
   icon?: any;
+  target?: "_self" | "_blank";
 }) => {
   // Determine base button style
   const getButtonStyle = () => {
@@ -42,14 +44,31 @@ const Button = ({
     }
   };
 
+  const resolvedTarget = target ?? "_blank";
+  const relParts: string[] = [];
+
+  if (resolvedTarget === "_blank") {
+    relParts.push("noopener", "noreferrer");
+    if (rel && rel !== "follow") {
+      relParts.push(rel);
+    }
+    if (!rel) {
+      relParts.push("nofollow");
+    }
+  } else if (rel && rel !== "follow") {
+    relParts.push(rel);
+  }
+
+  const relAttr = relParts.length > 0 ? relParts.join(" ") : undefined;
+
   return (
     <a
       href={link}
-      target="_blank"
-      rel={`noopener noreferrer ${
-        rel ? (rel === "follow" ? "" : rel) : "nofollow"
-      }`}
-      className={`${type ? type : "btn"} ${getButtonStyle()} ${icon && "flex justify-center items-center gap-3 "} ${className}`}
+      target={resolvedTarget}
+      rel={relAttr}
+      className={`${type ? type : "btn"} ${getButtonStyle()} ${
+        icon && "flex justify-center items-center gap-3 "
+      } ${className}`}
     >
       {label}
       {icon && <DynamicIcon icon={icon} />}

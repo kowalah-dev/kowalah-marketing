@@ -1,0 +1,74 @@
+---
+import Button from "@/shortcodes/Button";
+
+interface ServiceCard {
+  title: string;
+  description: string;
+  bullets: string[];
+  ctaLabel: string;
+  ctaLink: string;
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  services: ServiceCard[];
+  id?: string;
+}
+
+const { title, subtitle, services, id }: Props = Astro.props;
+---
+
+<section class="section" id={id}>
+  <div class="container">
+    <div class="row justify-center text-center">
+      <div class="lg:col-8">
+        <h2 class="mb-4 h2" data-aos="fade-up-sm">{title}</h2>
+        {subtitle && (
+          <p
+            class="mb-12 text-lg text-text-dark opacity-80"
+            data-aos="fade-up-sm"
+            data-aos-delay="100"
+          >
+            {subtitle}
+          </p>
+        )}
+      </div>
+    </div>
+
+    <div class="row g-6">
+      {services.map((service, index) => (
+        <div
+          class="col-12 md:col-6 xl:col-4 mb-6 md:mb-10"
+          data-aos="fade-up-sm"
+          data-aos-delay={150 + index * 50}
+        >
+          <div class="flex h-full flex-col rounded-3xl border border-border/30 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-secondary/40 hover:shadow-xl">
+            <p class="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-secondary/80">
+              Service Offering
+            </p>
+            <h3 class="mb-3 text-2xl font-semibold text-text-dark">{service.title}</h3>
+            <p class="mb-6 text-base leading-relaxed text-text-dark opacity-80">{service.description}</p>
+            <ul class="mb-8 space-y-3 text-sm leading-relaxed text-text-dark opacity-75">
+              {service.bullets.map((bullet) => (
+                <li class="flex gap-3">
+                  <span class="mt-1.5 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-secondary"></span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="mt-auto">
+              <Button
+                label={service.ctaLabel}
+                link={service.ctaLink}
+                style="ghost"
+                icon="FaAngleRight"
+                className="p-0 text-secondary hover:text-secondary/80"
+              />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

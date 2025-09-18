@@ -1,0 +1,78 @@
+---
+interface ColumnProps {
+  heading: string;
+  subheading?: string;
+  items: string[];
+  tone?: "baseline" | "highlight";
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  before: ColumnProps;
+  after: ColumnProps;
+}
+
+const { title, subtitle, before, after }: Props = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-center text-center">
+      <div class="lg:col-8">
+        <h2 class="mb-4 h2" data-aos="fade-up-sm">{title}</h2>
+        {subtitle && (
+          <p
+            class="mb-12 text-lg text-text-dark opacity-80"
+            data-aos="fade-up-sm"
+            data-aos-delay="100"
+          >
+            {subtitle}
+          </p>
+        )}
+      </div>
+    </div>
+
+    <div class="row g-6">
+      <div class="lg:col-6" data-aos="fade-up-sm" data-aos-delay="150">
+        <div class="h-full rounded-3xl border border-border/30 bg-white/[0.03] p-8 backdrop-blur-sm">
+          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-secondary">
+            Before
+          </p>
+          <h3 class="mb-2 text-2xl font-semibold text-text-dark">{before.heading}</h3>
+          {before.subheading && (
+            <p class="mb-6 text-sm text-text-dark opacity-70">{before.subheading}</p>
+          )}
+          <ul class="space-y-4 text-sm leading-relaxed text-text-dark opacity-80">
+            {before.items.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-1 inline-block h-2 w-2 rounded-full bg-secondary/70"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="lg:col-6" data-aos="fade-up-sm" data-aos-delay="200">
+        <div class="h-full rounded-3xl border border-secondary/30 bg-gradient-to-br from-secondary/15 via-secondary/5 to-transparent p-8">
+          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-secondary">
+            After
+          </p>
+          <h3 class="mb-2 text-2xl font-semibold text-text-dark">{after.heading}</h3>
+          {after.subheading && (
+            <p class="mb-6 text-sm text-text-dark opacity-70">{after.subheading}</p>
+          )}
+          <ul class="space-y-4 text-sm leading-relaxed text-text-dark opacity-90">
+            {after.items.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-1 inline-block h-2 w-2 rounded-full bg-primary"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

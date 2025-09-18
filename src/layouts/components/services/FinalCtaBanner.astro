@@ -1,0 +1,55 @@
+---
+import Button from "@/shortcodes/Button";
+
+interface CtaLink {
+  label: string;
+  link: string;
+  style?: string;
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  primary: CtaLink;
+  secondary?: CtaLink;
+}
+
+const { title, subtitle, primary, secondary }: Props = Astro.props;
+---
+
+<section class="section pt-0">
+  <div class="container">
+    <div class="rounded-3xl bg-gradient-to-r from-secondary/20 via-secondary/10 to-primary/10 p-10 text-center" data-aos="fade-up-sm">
+      <h2 class="mb-4 h2">{title}</h2>
+      {subtitle && <p class="mb-8 text-lg text-text-dark opacity-80">{subtitle}</p>}
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <Button
+          label={primary.label}
+          link={primary.link}
+          style={(primary.style ?? "primary") as
+            | "primary"
+            | "secondary"
+            | "light"
+            | "outline"
+            | "ghost"
+            | "transparent"}
+          className="min-w-[220px]"
+        />
+        {secondary && (
+          <Button
+            label={secondary.label}
+            link={secondary.link}
+            style={(secondary.style ?? "outline") as
+              | "primary"
+              | "secondary"
+              | "light"
+              | "outline"
+              | "ghost"
+              | "transparent"}
+            className="min-w-[220px]"
+          />
+        )}
+      </div>
+    </div>
+  </div>
+</section>

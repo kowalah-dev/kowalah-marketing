@@ -1,0 +1,68 @@
+---
+interface Step {
+  label: string;
+  description: string;
+}
+
+interface Outcome {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  steps: Step[];
+  outcomeTitle: string;
+  outcomeSubtitle?: string;
+  outcomes: Outcome[];
+}
+
+const { title, subtitle, steps, outcomeTitle, outcomeSubtitle, outcomes }: Props = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="row g-10 lg:items-start">
+      <div class="lg:col-6" data-aos="fade-up-sm">
+        <h2 class="mb-4 h2">{title}</h2>
+        {subtitle && (
+          <p
+            class="mb-8 text-lg text-text-dark opacity-80"
+            data-aos="fade-up-sm"
+            data-aos-delay="100"
+          >
+            {subtitle}
+          </p>
+        )}
+        <div class="space-y-6">
+          {steps.map((step, index) => (
+            <div class="rounded-3xl border border-border/30 bg-white/[0.03] p-6" data-aos="fade-up-sm" data-aos-delay={150 + index * 80}>
+              <p class="mb-2 text-xs font-semibold uppercase tracking-[0.35em] text-secondary/70">
+                Step {index + 1}
+              </p>
+              <h3 class="mb-3 text-xl font-semibold text-text-dark">{step.label}</h3>
+              <p class="text-base leading-relaxed text-text-dark opacity-80">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="lg:col-6" data-aos="fade-up-sm" data-aos-delay="200">
+        <div class="rounded-3xl border border-secondary/30 bg-gradient-to-bl from-secondary/15 via-secondary/5 to-transparent p-8 h-full">
+          <h3 class="mb-3 text-2xl font-semibold text-text-dark">{outcomeTitle}</h3>
+          {outcomeSubtitle && (
+            <p class="mb-6 text-base text-text-dark opacity-80">{outcomeSubtitle}</p>
+          )}
+          <ul class="space-y-5">
+            {outcomes.map((outcome, index) => (
+              <li class="rounded-2xl border border-white/10 bg-white/[0.02] p-5" data-aos="fade-up-sm" data-aos-delay={250 + index * 80}>
+                <p class="text-lg font-semibold text-text-dark">{outcome.title}</p>
+                <p class="mt-2 text-sm leading-relaxed text-text-dark opacity-80">{outcome.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
