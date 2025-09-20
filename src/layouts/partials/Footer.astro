@@ -28,33 +28,35 @@ const { copyright, footer_text, award } = config.params;
           set:html={markdownify(footer_text)}
           data-aos="fade-up-sm"
         />
-        <div class="flex flex-col md:flex-row md:items-center gap-4">
-          <p
-            set:html={markdownify(award.title)}
-            class="text-sm text-text-dark leading-[25px] tracking-[-0.2px]"
-            data-aos="fade-up-sm"
-          />
-          <div class="flex gap-4">
-            {
-              award.badges.map(
-                (badge: { link: string; image: string }, i: number) => (
-                  <a
-                    href={badge.link}
-                    data-aos="fade-up-sm"
-                    data-aos-delay={200 + i * 50}
-                  >
-                    <ImageMod
-                      src={badge.image}
-                      alt={badge.link}
-                      width={47}
-                      height={56}
-                    />
-                  </a>
+        {award.enable && (
+          <div class="flex flex-col md:flex-row md:items-center gap-4">
+            <p
+              set:html={markdownify(award.title)}
+              class="text-sm text-text-dark leading-[25px] tracking-[-0.2px]"
+              data-aos="fade-up-sm"
+            />
+            <div class="flex gap-4">
+              {
+                award.badges.map(
+                  (badge: { link: string; image: string }, i: number) => (
+                    <a
+                      href={badge.link}
+                      data-aos="fade-up-sm"
+                      data-aos-delay={200 + i * 50}
+                    >
+                      <ImageMod
+                        src={badge.image}
+                        alt={badge.link}
+                        width={47}
+                        height={56}
+                      />
+                    </a>
+                  )
                 )
-              )
-            }
+              }
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       <div class="col-12 lg:col-6">

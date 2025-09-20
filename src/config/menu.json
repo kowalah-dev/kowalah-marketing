@@ -20,10 +20,7 @@
       "hasChildren": true,
       "children": [
         { "name": "For CEOs", "url": "/solutions/for-ceos" },
-        { "name": "For CIOs", "url": "/solutions/for-cios" },
-        { "name": "For CFOs", "url": "/solutions/for-cfos" },
-        { "name": "For HR Leaders", "url": "/solutions/for-hr-leaders" },
-        { "name": "By Industry", "url": "/solutions/industries" }
+        { "name": "For CIOs", "url": "/solutions/for-cios" }
       ]
     },
     {
@@ -34,9 +31,6 @@
         { "name": "Blog & Insights", "url": "/insights" },
         { "name": "Videos", "url": "/resources/videos" },
         { "name": "Recommended Books", "url": "/resources/recommended-books" },
-        { "name": "OpenAI Hub", "url": "/resources/openai" },
-        { "name": "Case Studies", "url": "/case-studies" },
-        { "name": "Tools & Templates", "url": "/resources/tools" },
         { "name": "Documentation", "url": "https://docs.kowalah.com" }
       ]
     },
@@ -58,10 +52,6 @@
         {
           "name": "Pricing",
           "url": "/pricing"
-        },
-        {
-          "name": "Resources",
-          "url": "/insights"
         }
       ]
     },
@@ -69,24 +59,16 @@
       "title": "RESOURCES",
       "children": [
         {
+          "name": "Insights",
+          "url": "/insights"
+        },
+        {
           "name": "Videos",
           "url": "/resources/videos"
         },
         {
           "name": "Recommended Books",
           "url": "/resources/recommended-books"
-        },
-        {
-          "name": "OpenAI Hub",
-          "url": "/resources/openai"
-        },
-        {
-          "name": "Case Studies",
-          "url": "/case-studies"
-        },
-        {
-          "name": "Tools & Templates",
-          "url": "/resources/tools"
         },
         {
           "name": "Documentation",
