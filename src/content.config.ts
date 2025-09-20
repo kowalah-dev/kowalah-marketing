@@ -219,19 +219,35 @@ const homepageCollection = defineCollection({
         z.object({ title: z.string(), content: z.string(), image: z.string() }),
       ),
     }),
-    plan: z.object({
+    service_components: z.object({
       title: z.string(),
       subtitle: z.string(),
-      plans_labels: z.array(z.string()),
-      plans: z.array(
+      components: z.array(
         z.object({
           title: z.string(),
           description: z.string(),
-          price_prefix: z.string(),
-          price_monthly: z.string(),
-          price_yearly: z.string(),
-          price_suffix: z.object({ one: z.string(), two: z.string() }),
+          pricing: z.object({
+            USD: z.object({
+              prefix: z.string(),
+              amount: z.string(),
+              suffix: z.string(),
+              detail: z.string(),
+            }),
+            EUR: z.object({
+              prefix: z.string(),
+              amount: z.string(),
+              suffix: z.string(),
+              detail: z.string(),
+            }),
+            GBP: z.object({
+              prefix: z.string(),
+              amount: z.string(),
+              suffix: z.string(),
+              detail: z.string(),
+            }),
+          }),
           features: z.array(z.string()),
+          what_included: z.string(),
           button: z.object({
             enable: z.boolean(),
             label: z.string(),

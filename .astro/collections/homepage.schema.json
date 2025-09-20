@@ -352,7 +352,7 @@
           ],
           "additionalProperties": false
         },
-        "plan": {
+        "service_components": {
           "type": "object",
           "properties": {
             "title": {
@@ -361,13 +361,7 @@
             "subtitle": {
               "type": "string"
             },
-            "plans_labels": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "plans": {
+            "components": {
               "type": "array",
               "items": {
                 "type": "object",
@@ -378,28 +372,86 @@
                   "description": {
                     "type": "string"
                   },
-                  "price_prefix": {
-                    "type": "string"
-                  },
-                  "price_monthly": {
-                    "type": "string"
-                  },
-                  "price_yearly": {
-                    "type": "string"
-                  },
-                  "price_suffix": {
+                  "pricing": {
                     "type": "object",
                     "properties": {
-                      "one": {
-                        "type": "string"
+                      "USD": {
+                        "type": "object",
+                        "properties": {
+                          "prefix": {
+                            "type": "string"
+                          },
+                          "amount": {
+                            "type": "string"
+                          },
+                          "suffix": {
+                            "type": "string"
+                          },
+                          "detail": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "prefix",
+                          "amount",
+                          "suffix",
+                          "detail"
+                        ],
+                        "additionalProperties": false
                       },
-                      "two": {
-                        "type": "string"
+                      "EUR": {
+                        "type": "object",
+                        "properties": {
+                          "prefix": {
+                            "type": "string"
+                          },
+                          "amount": {
+                            "type": "string"
+                          },
+                          "suffix": {
+                            "type": "string"
+                          },
+                          "detail": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "prefix",
+                          "amount",
+                          "suffix",
+                          "detail"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "GBP": {
+                        "type": "object",
+                        "properties": {
+                          "prefix": {
+                            "type": "string"
+                          },
+                          "amount": {
+                            "type": "string"
+                          },
+                          "suffix": {
+                            "type": "string"
+                          },
+                          "detail": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "prefix",
+                          "amount",
+                          "suffix",
+                          "detail"
+                        ],
+                        "additionalProperties": false
                       }
                     },
                     "required": [
-                      "one",
-                      "two"
+                      "USD",
+                      "EUR",
+                      "GBP"
                     ],
                     "additionalProperties": false
                   },
@@ -408,6 +460,9 @@
                     "items": {
                       "type": "string"
                     }
+                  },
+                  "what_included": {
+                    "type": "string"
                   },
                   "button": {
                     "type": "object",
@@ -433,11 +488,9 @@
                 "required": [
                   "title",
                   "description",
-                  "price_prefix",
-                  "price_monthly",
-                  "price_yearly",
-                  "price_suffix",
+                  "pricing",
                   "features",
+                  "what_included",
                   "button"
                 ],
                 "additionalProperties": false
@@ -447,8 +500,7 @@
           "required": [
             "title",
             "subtitle",
-            "plans_labels",
-            "plans"
+            "components"
           ],
           "additionalProperties": false
         },
@@ -461,7 +513,7 @@
         "feature",
         "offering",
         "benefits",
-        "plan"
+        "service_components"
       ],
       "additionalProperties": false
     }

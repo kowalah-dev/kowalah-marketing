@@ -5,10 +5,12 @@ import InvestmentExamples from './InvestmentExamples';
 
 interface PricingSectionProps {
   serviceComponents: any[];
-  investmentExamples: any;
+  investmentExamples?: any;
+  title?: string;
+  subtitle?: string;
 }
 
-const PricingSection: React.FC<PricingSectionProps> = ({ serviceComponents, investmentExamples }) => {
+const PricingSection: React.FC<PricingSectionProps> = ({ serviceComponents, investmentExamples, title, subtitle }) => {
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
 
   // Debug: log the service components to understand the data structure
@@ -28,10 +30,10 @@ const PricingSection: React.FC<PricingSectionProps> = ({ serviceComponents, inve
           <div className="row justify-center">
             <div className="col-12 mb-16">
               <h2 className="h2 text-center mb-4" data-aos="fade-up-sm">
-                Three Service Components for Complete AI Transformation
+                {title || "Three Service Components for Complete AI Transformation"}
               </h2>
               <p className="text-center text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8" data-aos="fade-up-sm" data-aos-delay="100">
-                Choose the services that match your organization's current ChatGPT situation and transformation goals
+                {subtitle || "Choose the services that match your organization's current ChatGPT situation and transformation goals"}
               </p>
 
               {/* Currency Selector */}

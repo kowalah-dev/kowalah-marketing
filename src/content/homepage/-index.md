@@ -184,65 +184,98 @@ benefits:
       content: "Competitive advantage outcomes not just productivity gains. Move from cost-saving mindset to revenue growth and competitive differentiation."
       image: "/images/home/benefits/benefits-5.png"
 
-plan:
-  title: "ChatGPT Change Enablement Services"
-  subtitle: "Expert-Led Programs for Enterprise Transformation"
-  plans_labels:
-    - "Self-Service"
-    - "Service Packages"
-  plans:
-    - title: "Discovery Resources"
-      description: "Free Self-Service Tools"
-      price_prefix: "$"
-      price_monthly: "0"
-      price_yearly: "0"
-      price_suffix:
-        one: "forever"
-        two: ""
+service_components:
+  title: "Three Service Components for Complete AI Transformation"
+  subtitle: "Choose the services that match your organization's current ChatGPT situation and transformation goals"
+  components:
+    - title: "ChatGPT Enterprise Deployment"
+      description: "Complete technical rollout with governance and initial training"
+      pricing:
+        USD:
+          prefix: "from $"
+          amount: "32,000"
+          suffix: ""
+          detail: "Starting from $32,000 for organizations up to 1,000 employees"
+        EUR:
+          prefix: "from €"
+          amount: "27,200"
+          suffix: ""
+          detail: "Starting from €27,200 for organizations up to 1,000 employees"
+        GBP:
+          prefix: "from £"
+          amount: "23,360"
+          suffix: ""
+          detail: "Starting from £23,360 for organizations up to 1,000 employees"
       features:
-        - ChatGPT readiness assessment tool
-        - Shadow AI detection checklist
-        - Capability demonstration library
-        - Use case identification framework
-        - Access to accelerator examples
+        - Rapid discovery and security assessment
+        - ChatGPT Enterprise procurement guidance
+        - Governance framework and policy development
+        - Technical deployment and integration setup
+        - Initial workforce training and activation
+        - 6-week implementation timeline
+      what_included: "Everything needed to deploy ChatGPT Enterprise with confidence and security"
       button:
         enable: true
-        label: "Get Started"
-        link: "/contact"
-    - title: "Pilot Program"
-      description: "Department-Level Rollout"
-      price_prefix: "$"
-      price_monthly: "7,000"
-      price_yearly: "84,000"
-      price_suffix:
-        one: "per"
-        two: "month"
-      features:
-        - Department-level ChatGPT rollout (50-200 employees)
-        - ChatGPT 101 & 102 training
-        - Basic governance setup
-        - Proof of concept for larger rollout
-        - 2-3 month program duration
-      button:
-        enable: true
-        label: "Contact Sales"
-        link: "/contact"
+        label: "Discuss Deployment"
+        link: "/contact?service=deployment"
     - title: "Change Enablement Program"
-      description: "Complete 16-Week Transformation"
-      price_prefix: "$"
-      price_monthly: "200-450"
-      price_yearly: "per employee"
-      price_suffix:
-        one: "total"
-        two: "program"
+      description: "Transform your workforce from confused users to confident AI collaborators"
+      pricing:
+        USD:
+          prefix: "from $"
+          amount: "160"
+          suffix: "per employee"
+          detail: "Comprehensive 8-16 week transformation program"
+        EUR:
+          prefix: "from €"
+          amount: "136"
+          suffix: "per employee"
+          detail: "Comprehensive 8-16 week transformation program"
+        GBP:
+          prefix: "from £"
+          amount: "117"
+          suffix: "per employee"
+          detail: "Comprehensive 8-16 week transformation program"
       features:
-        - "All 20+ program elements (AI Ambassadors, Business Partners, etc.)"
-        - "Organization-wide training and rollout"
-        - "Dedicated Program Director and specialist team"
-        - "One-time transformation program"
-        - "Example: 1,000 employees costs $200k-450k total"
+        - Executive alignment and communication strategy
+        - AI Ambassador network development
+        - Structured training ladders (101, 102, 201, Leadership)
+        - Resistance management and cultural transformation
+        - Recognition systems and adoption tracking
+        - Ongoing optimization and support
+      what_included: "Complete workforce transformation with measurable adoption outcomes"
       button:
         enable: true
-        label: "Contact Sales"
-        link: "/contact"
+        label: "Plan Enablement"
+        link: "/contact?service=enablement"
+    - title: "Managed AI Services"
+      description: "Ongoing strategic guidance and expert delivery for continuous AI leadership"
+      pricing:
+        USD:
+          prefix: "from $"
+          amount: "16,000"
+          suffix: "per month"
+          detail: "Your permanent Digital CAIO and expert delivery team"
+        EUR:
+          prefix: "from €"
+          amount: "13,600"
+          suffix: "per month"
+          detail: "Your permanent Digital CAIO and expert delivery team"
+        GBP:
+          prefix: "from £"
+          amount: "11,680"
+          suffix: "per month"
+          detail: "Your permanent Digital CAIO and expert delivery team"
+      features:
+        - 24/7 AI Advisory Platform access
+        - Quarterly Expert Requests for custom development
+        - Strategic roadmap updates and emerging capability reviews
+        - Board-ready reporting and success metrics
+        - Integration with enterprise systems
+        - Continuous optimization and innovation support
+      what_included: "Complete ongoing AI leadership with expert delivery and strategic guidance"
+      button:
+        enable: true
+        label: "Explore Managed Services"
+        link: "/contact?service=managed"
 ---
