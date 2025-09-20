@@ -391,7 +391,129 @@ const sectionsCollection = defineCollection({
   }),
 });
 
+const solutionsCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/solutions" }),
+  schema: z.object({
+    title: z.string(),
+    meta_title: z.string().optional(),
+    description: z.string().optional(),
 
+    // Core identifiers for flexible content
+    solution_type: z.enum(["role", "industry"]),
+    solution_category: z.string(), // "ceos", "cios", "manufacturing", "healthcare"
+
+    hero: z.object({
+      title: z.string(),
+      content: z.string(),
+      image: z.string(),
+      button: z.array(
+        z.object({
+          enable: z.boolean(),
+          label: z.string(),
+          link: z.string()
+        })
+      )
+    }),
+
+    // Flexible challenges section - adapts to role vs industry
+    challenges: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      items: z.array(
+        z.object({
+          title: z.string(),
+          description: z.string(),
+          icon: z.string(),
+          category: z.string().optional() // "strategic", "operational", "compliance"
+        })
+      )
+    }),
+
+    solution: z.object({
+      title: z.string(),
+      content: z.string(),
+      image: z.string(),
+      points: z.array(z.string())
+    }),
+
+    benefits: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      points: z.array(
+        z.object({
+          title: z.string(),
+          content: z.string(),
+          image: z.string(),
+          metric: z.string().optional() // ROI, compliance score, efficiency gain
+        })
+      )
+    }),
+
+    social_proof: z.object({
+      testimonials: z.array(
+        z.object({
+          name: z.string(),
+          title: z.string(),
+          company: z.string(),
+          company_size: z.string().optional(),
+          industry: z.string(),
+          quote: z.string(),
+          image: z.string(),
+          proof_type: z.enum(["role_peer", "industry_peer", "case_study"])
+        })
+      ),
+      case_studies: z.array(
+        z.object({
+          title: z.string(),
+          company: z.string(),
+          industry: z.string(),
+          challenge: z.string(),
+          solution: z.string(),
+          results: z.array(z.string()),
+          link: z.string().optional()
+        })
+      ).optional()
+    }),
+
+    implementation: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      approach: z.enum(["executive", "industry", "technical"]),
+      steps: z.array(
+        z.object({
+          title: z.string(),
+          description: z.string(),
+          icon: z.string(),
+          timeline: z.string().optional()
+        })
+      )
+    }),
+
+    // Industry-specific fields (optional)
+    regulatory: z.object({
+      title: z.string(),
+      requirements: z.array(z.string()),
+      compliance_note: z.string()
+    }).optional(),
+
+    // Role-specific fields (optional)
+    executive_focus: z.object({
+      board_reporting: z.boolean(),
+      strategic_alignment: z.boolean(),
+      risk_management: z.boolean()
+    }).optional(),
+
+    cta: z.object({
+      title: z.string(),
+      content: z.string(),
+      button: z.object({
+        enable: z.boolean(),
+        label: z.string(),
+        link: z.string()
+      })
+    })
+  })
+});
 
 // Export collections
 export const collections = {
@@ -408,4 +530,5 @@ export const collections = {
   pricing: pricingCollection,
   reviews: reviewsCollection,
   sections: sectionsCollection,
+  solutions: solutionsCollection,
 };

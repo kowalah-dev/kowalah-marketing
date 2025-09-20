@@ -19,11 +19,10 @@
       "url": "",
       "hasChildren": true,
       "children": [
-        { "name": "ChatGPT Deployment", "url": "/solutions/chatgpt-enterprise-deployment" },
-        { "name": "For CEOs", "url": "/solutions/ceos" },
-        { "name": "For CIOs", "url": "/solutions/cios" },
-        { "name": "For CFOs", "url": "/solutions/cfos" },
-        { "name": "For HR Leaders", "url": "/solutions/hr-leaders" },
+        { "name": "For CEOs", "url": "/solutions/for-ceos" },
+        { "name": "For CIOs", "url": "/solutions/for-cios" },
+        { "name": "For CFOs", "url": "/solutions/for-cfos" },
+        { "name": "For HR Leaders", "url": "/solutions/for-hr-leaders" },
         { "name": "By Industry", "url": "/solutions/industries" }
       ]
     },
@@ -54,7 +53,7 @@
         },
         {
           "name": "Solutions",
-          "url": "/solutions/ceos"
+          "url": "/solutions/for-ceos"
         },
         {
           "name": "Pricing",

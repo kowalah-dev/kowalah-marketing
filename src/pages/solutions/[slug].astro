@@ -1,0 +1,442 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import type { CollectionEntry } from "astro:content";
+import { getEntry, getCollection } from "astro:content";
+
+// Import components
+import Hero from "@/layouts/components/home/Hero.astro";
+import Benefits from "@/layouts/components/home/Benefits.astro";
+import CallToAction from "@/layouts/partials/CallToAction.astro";
+import TestimonialSlider from "@/layouts/partials/TestimonialSlider.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import Button from "@/layouts/shortcodes/Button.tsx";
+import ImageMod from "@/layouts/components/ImageMod.astro";
+
+export async function getStaticPaths() {
+  const solutions = await getCollection("solutions");
+
+  const paths = solutions.map((solution) => ({
+    params: {
+      slug: solution.id,
+    },
+    props: { solution },
+  }));
+  return paths;
+}
+
+const { solution } = Astro.props;
+const {
+  title,
+  meta_title,
+  description,
+  solution_type,
+  solution_category,
+  hero,
+  challenges,
+  solution: solutionData,
+  benefits,
+  social_proof,
+  implementation,
+  regulatory,
+  executive_focus,
+  cta
+} = solution.data;
+
+// Get call to action section for footer CTA
+const call_to_action = (await getEntry(
+  "sections",
+  "call-to-action"
+)) as CollectionEntry<"sections">;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+>
+  <!-- Hero Section -->
+  <Hero hero={hero} />
+
+  <!-- Challenges/Problem Recognition Section -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="sm:col-10 lg:col-8 text-center mb-8">
+          <h2
+            set:html={markdownify(challenges.title)}
+            class="mb-4"
+            data-aos="fade-up-sm"
+          />
+          <p
+            set:html={markdownify(challenges.subtitle)}
+            class="text-lg text-dark/70"
+            data-aos="fade-up-sm"
+            data-aos-delay="100"
+          />
+        </div>
+      </div>
+      <div class="row justify-center">
+        <div class="col-12">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up-sm" data-aos-delay="200">
+            {challenges.items.map((item: any, index: number) => (
+              <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                      <span class="text-white font-semibold">!</span>
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-lg font-semibold mb-2" set:html={markdownify(item.title)} />
+                    <p class="text-dark/70" set:html={markdownify(item.description)} />
+                    {item.category && (
+                      <span class="inline-block mt-2 px-2 py-1 bg-primary/10 text-primary text-sm rounded-full">
+                        {item.category}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Overview Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <div class="row items-center">
+        <div class="lg:col-6 mb-8 lg:mb-0">
+          <h2
+            set:html={markdownify(solutionData.title)}
+            class="mb-4"
+            data-aos="fade-up-sm"
+          />
+          <p
+            set:html={markdownify(solutionData.content)}
+            class="text-lg mb-6"
+            data-aos="fade-up-sm"
+            data-aos-delay="100"
+          />
+          <ul class="space-y-3" data-aos="fade-up-sm" data-aos-delay="200">
+            {solutionData.points.map((point: string) => (
+              <li class="flex items-start space-x-3">
+                <div class="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <span set:html={markdownify(point)} />
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="lg:col-6" data-aos="fade-left" data-aos-delay="300">
+          <ImageMod
+            src={solutionData.image}
+            class="rounded-xl shadow-lg"
+            alt={solutionData.title}
+            width={600}
+            height={400}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <Benefits benefits={benefits} />
+
+  <!-- Social Proof Section -->
+  {social_proof.testimonials.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="sm:col-10 lg:col-8 text-center mb-12">
+            <h2 class="mb-4" data-aos="fade-up-sm">
+              {solution_type === "role" ? "Trusted by Executive Peers" : "Industry Success Stories"}
+            </h2>
+            <p class="text-lg text-dark/70" data-aos="fade-up-sm" data-aos-delay="100">
+              {solution_type === "role"
+                ? "See how other executives are bridging the AI leadership gap"
+                : "Proven results across the industry"
+              }
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up-sm" data-aos-delay="200">
+              {social_proof.testimonials.map((testimonial: any) => (
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div class="flex items-center mb-4">
+                    <ImageMod
+                      src={testimonial.image}
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt={testimonial.name}
+                      width={48}
+                      height={48}
+                    />
+                    <div>
+                      <h4 class="font-semibold">{testimonial.name}</h4>
+                      <p class="text-sm text-dark/70">{testimonial.title}</p>
+                      <p class="text-sm text-primary font-medium">{testimonial.company}</p>
+                      {testimonial.company_size && (
+                        <p class="text-xs text-dark/50">{testimonial.company_size} • {testimonial.industry}</p>
+                      )}
+                    </div>
+                  </div>
+                  <blockquote class="text-dark/80 italic" set:html={markdownify(testimonial.quote)} />
+                  <div class="mt-4 flex items-center justify-between">
+                    <span class="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">
+                      {testimonial.proof_type === "role_peer" ? "Executive Peer" :
+                       testimonial.proof_type === "industry_peer" ? "Industry Peer" : "Case Study"}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Case Studies Section (if any) -->
+  {social_proof.case_studies && social_proof.case_studies.length > 0 && (
+    <section class="section bg-gray-50">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="sm:col-10 lg:col-8 text-center mb-12">
+            <h2 class="mb-4" data-aos="fade-up-sm">Implementation Success Stories</h2>
+            <p class="text-lg text-dark/70" data-aos="fade-up-sm" data-aos-delay="100">
+              Real results from organizations like yours
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="grid md:grid-cols-2 gap-8" data-aos="fade-up-sm" data-aos-delay="200">
+              {social_proof.case_studies.map((caseStudy: any) => (
+                <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+                  <div class="mb-4">
+                    <h3 class="text-xl font-semibold mb-2" set:html={markdownify(caseStudy.title)} />
+                    <p class="text-primary font-medium">{caseStudy.company} • {caseStudy.industry}</p>
+                  </div>
+                  <div class="space-y-4">
+                    <div>
+                      <h4 class="font-semibold text-sm uppercase tracking-wide text-dark/70 mb-2">Challenge</h4>
+                      <p set:html={markdownify(caseStudy.challenge)} />
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-sm uppercase tracking-wide text-dark/70 mb-2">Solution</h4>
+                      <p set:html={markdownify(caseStudy.solution)} />
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-sm uppercase tracking-wide text-dark/70 mb-2">Results</h4>
+                      <ul class="space-y-1">
+                        {caseStudy.results.map((result: string) => (
+                          <li class="flex items-start space-x-2">
+                            <span class="text-primary">•</span>
+                            <span set:html={markdownify(result)} />
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  {caseStudy.link && (
+                    <div class="mt-6">
+                      <Button
+                        label="Read Full Case Study"
+                        link={caseStudy.link}
+                        style="outline"
+                        size="sm"
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Implementation Section -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="sm:col-10 lg:col-8 text-center mb-12">
+          <h2
+            set:html={markdownify(implementation.title)}
+            class="mb-4"
+            data-aos="fade-up-sm"
+          />
+          <p
+            set:html={markdownify(implementation.subtitle)}
+            class="text-lg text-dark/70"
+            data-aos="fade-up-sm"
+            data-aos-delay="100"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up-sm" data-aos-delay="200">
+            {implementation.steps.map((step: any, index: number) => (
+              <div class="text-center">
+                <div class="relative mb-6">
+                  <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-white font-bold text-lg">{index + 1}</span>
+                  </div>
+                  {step.timeline && (
+                    <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+                      <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">
+                        {step.timeline}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <h3 class="text-lg font-semibold mb-3" set:html={markdownify(step.title)} />
+                <p class="text-dark/70" set:html={markdownify(step.description)} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Regulatory Section (Industry-specific) -->
+  {regulatory && (
+    <section class="section bg-yellow-50 border-l-4 border-yellow-400">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="sm:col-10 lg:col-8">
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold mb-4" set:html={markdownify(regulatory.title)} />
+                <div class="mb-4">
+                  <h4 class="font-semibold mb-2">Key Requirements:</h4>
+                  <ul class="space-y-1">
+                    {regulatory.requirements.map((requirement: string) => (
+                      <li class="flex items-start space-x-2">
+                        <span class="text-yellow-600">•</span>
+                        <span>{requirement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <p class="text-dark/70" set:html={markdownify(regulatory.compliance_note)} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Executive Focus Highlights (Role-specific) -->
+  {executive_focus && (
+    <section class="section bg-primary/5">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="sm:col-10 lg:col-8 text-center mb-8">
+            <h3 class="text-xl font-semibold mb-4" data-aos="fade-up-sm">Executive Leadership Focus</h3>
+            <p class="text-dark/70" data-aos="fade-up-sm" data-aos-delay="100">
+              Designed specifically for executive-level strategic requirements
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="grid md:grid-cols-3 gap-6" data-aos="fade-up-sm" data-aos-delay="200">
+              {executive_focus.board_reporting && (
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                  <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                  </div>
+                  <h4 class="font-semibold mb-2">Board Reporting</h4>
+                  <p class="text-sm text-dark/70">Executive dashboards and strategic insights for stakeholder communication</p>
+                </div>
+              )}
+              {executive_focus.strategic_alignment && (
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                  <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <h4 class="font-semibold mb-2">Strategic Alignment</h4>
+                  <p class="text-sm text-dark/70">Ensure AI initiatives align with broader business strategy and objectives</p>
+                </div>
+              )}
+              {executive_focus.risk_management && (
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                  <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <h4 class="font-semibold mb-2">Risk Management</h4>
+                  <p class="text-sm text-dark/70">Comprehensive risk assessment and mitigation for AI implementations</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Final CTA Section -->
+  <section class="section pb-0">
+    <div class="container">
+      <div
+        class="rounded-3xl bg-gradient-to-br from-primary to-secondary px-5 pt-7 md:px-12 md:pt-24"
+        data-aos="fade-up-sm"
+      >
+        <div class="row justify-center">
+          <div class="col-12 text-center">
+            <h2
+              set:html={markdownify(cta.title)}
+              class="mb-3 text-light lg:h1"
+              data-aos="fade-up-sm"
+            />
+            <p
+              set:html={markdownify(cta.content)}
+              class="mb-6 text-light"
+              data-aos="fade-up-sm"
+            />
+            {cta.button.enable && (
+              <div data-aos="zoom-in-sm">
+                <Button
+                  label={cta.button.label}
+                  link={cta.button.link}
+                  style="white"
+                  className="mb-8"
+                />
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Standard CTA -->
+  <CallToAction call_to_action={call_to_action} />
+</Base>
