@@ -1,12 +1,11 @@
 ---
-import Compare from "@/components/Pricing/Compare.astro";
-import Plan from "@/components/Pricing/Plan.astro";
 import Base from "@/layouts/Base.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
 import FaqAccordion from "@/partials/FaqAccordion.astro";
 import PageHeader from "@/partials/PageHeader.astro";
-import TestimonialSlider from "@/partials/TestimonialSlider.astro";
+import Button from "@/shortcodes/Button";
+import PricingSection from "@/components/PricingSection";
 import { getEntry, type CollectionEntry } from "astro:content";
 
 const pricingIndex = (await getEntry(
@@ -18,8 +17,9 @@ const {
   meta_title,
   description,
   hero,
-  pricing_tab,
-  pricing_card,
+  service_components = [],
+  investment_examples = { title: "", subtitle: "", examples: [] },
+  decision_guide = { title: "", subtitle: "", scenarios: [] },
   compare,
   faq,
 } = pricingIndex.data;
@@ -33,12 +33,101 @@ const call_to_action = (await getEntry(
 <Base title={title} meta_title={meta_title} description={description}>
   <PageHeader title={hero.title} content={hero.content} />
 
-  <Plan pricing_tab={pricing_tab} pricing_card={pricing_card} />
+  <!-- Service Components and Investment Examples Sections -->
+  <PricingSection
+    serviceComponents={service_components}
+    investmentExamples={investment_examples}
+    client:load
+  />
 
-  <Compare compare={compare} />
+  <!-- Decision Guide Section -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 mb-12">
+          <h2 class="h2 text-center mb-4" data-aos="fade-up-sm">
+            {decision_guide.title}
+          </h2>
+          <p class="text-center text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto" data-aos="fade-up-sm" data-aos-delay="100">
+            {decision_guide.subtitle}
+          </p>
+        </div>
+      </div>
 
-  <TestimonialSlider />
+      <div class="row g-4">
+        {decision_guide.scenarios && decision_guide.scenarios.map((scenario: any, index: number) => (
+          <div class="col-12 lg:col-4" data-aos="fade-up-sm" data-aos-delay={100 * (index + 1)}>
+            <div class="bg-white rounded-2xl p-6 shadow-lg border border-border h-full flex flex-col">
+              <h4 class="h5 mb-3 text-primary">{scenario.situation}</h4>
+              <h5 class="font-semibold mb-3 text-gray-900">Recommended: {scenario.recommendation}</h5>
+              <p class="text-gray-600 mb-4 flex-grow">{scenario.description}</p>
+              <div class="bg-gray-50 rounded-lg p-3 mt-auto">
+                <p class="text-sm text-gray-700"><strong>Next Step:</strong> {scenario.next_step}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
+  <!-- Service Comparison Section -->
+  <section class="section bg-theme-light">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 mb-12">
+          <h2 class="h2 text-center mb-4" data-aos="fade-up-sm">
+            {compare.title}
+          </h2>
+          <p class="text-center text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto" data-aos="fade-up-sm" data-aos-delay="100">
+            {compare.subtitle}
+          </p>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full bg-white rounded-2xl shadow-lg overflow-hidden">
+          <thead class="bg-primary text-white">
+            <tr>
+              <th class="text-left p-4 font-semibold">Features</th>
+              {compare.components.map((component: any) => (
+                <th class="text-center p-4 font-semibold">{component.name}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {compare.categories.map((category: any, categoryIndex: number) => (
+              <>
+                <tr class="bg-gray-100">
+                  <td colspan="4" class="p-4 font-semibold text-primary">{category.name}</td>
+                </tr>
+                {category.features.map((feature: any, featureIndex: number) => (
+                  <tr class={featureIndex % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                    <td class="p-4 text-gray-900">{feature.name}</td>
+                    {feature.values.map((value: boolean) => (
+                      <td class="text-center p-4">
+                        {value ? (
+                          <svg class="w-5 h-5 text-green-500 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                          </svg>
+                        ) : (
+                          <svg class="w-5 h-5 text-gray-300 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
   <section class="section pb-0">
     <div class="container">
       <div class="row justify-center">

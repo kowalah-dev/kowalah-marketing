@@ -22,7 +22,7 @@
 
   "params": {
     "copyright": "Copyright 2025, All Rights Reserved by Kowalah",
-    "footer_text": "Kowalah is your Digital Chief AI Officer, providing executive-level AI leadership and strategy guidance to transform your organization's AI journey from confusion to confidence.",
+    "footer_text": "Kowalah provides ChatGPT Enterprise deployment for companies. Expert setup, training, and ongoing implementation support.",
     "award": {
       "enable": false,
       "title": "Golden Partner Award",
@@ -38,6 +38,32 @@
       ]
     },
     "contact_form_action": "https://formspree.io/f/kowalah-contact"
+  },
+
+  "currencies": {
+    "default": "USD",
+    "options": [
+      {
+        "code": "USD",
+        "symbol": "$",
+        "name": "US Dollars"
+      },
+      {
+        "code": "EUR",
+        "symbol": "€",
+        "name": "Euros"
+      },
+      {
+        "code": "GBP",
+        "symbol": "£",
+        "name": "British Pounds"
+      }
+    ],
+    "rates": {
+      "USD": 1.0,
+      "EUR": 0.85,
+      "GBP": 0.73
+    }
   },
 
   "navigation_button": {

@@ -300,7 +300,91 @@ const pricingCollection = defineCollection({
     meta_title: z.string().optional(),
     description: z.string().optional(),
     hero: z.object({ title: z.string().optional(), content: z.string() }),
-    pricing_tab: z.array(z.string()),
+
+    // New service-based pricing structure with multi-currency support
+    service_components: z.array(
+      z.object({
+        title: z.string(),
+        description: z.string(),
+        pricing: z.object({
+          USD: z.object({
+            prefix: z.string(),
+            amount: z.string(),
+            suffix: z.string(),
+            detail: z.string(),
+            range: z.string(),
+          }),
+          EUR: z.object({
+            prefix: z.string(),
+            amount: z.string(),
+            suffix: z.string(),
+            detail: z.string(),
+            range: z.string(),
+          }),
+          GBP: z.object({
+            prefix: z.string(),
+            amount: z.string(),
+            suffix: z.string(),
+            detail: z.string(),
+            range: z.string(),
+          }),
+        }),
+        features: z.array(z.string()),
+        what_included: z.string(),
+        button: z.object({
+          enable: z.boolean(),
+          label: z.string(),
+          link: z.string(),
+        }),
+      }),
+    ).optional(),
+
+    investment_examples: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      examples: z.array(
+        z.object({
+          organization_size: z.string(),
+          pricing: z.object({
+            USD: z.object({
+              deployment_cost: z.string(),
+              enablement_cost: z.string(),
+              managed_annual: z.string(),
+              total_year_one: z.string(),
+            }),
+            EUR: z.object({
+              deployment_cost: z.string(),
+              enablement_cost: z.string(),
+              managed_annual: z.string(),
+              total_year_one: z.string(),
+            }),
+            GBP: z.object({
+              deployment_cost: z.string(),
+              enablement_cost: z.string(),
+              managed_annual: z.string(),
+              total_year_one: z.string(),
+            }),
+          }),
+          description: z.string(),
+        }),
+      ),
+    }).optional(),
+
+    decision_guide: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      scenarios: z.array(
+        z.object({
+          situation: z.string(),
+          recommendation: z.string(),
+          description: z.string(),
+          next_step: z.string(),
+        }),
+      ),
+    }).optional(),
+
+    // Legacy structure for backward compatibility
+    pricing_tab: z.array(z.string()).optional(),
     pricing_card: z.array(
       z.object({
         title: z.string().optional(),
@@ -316,11 +400,13 @@ const pricingCollection = defineCollection({
           link: z.string(),
         }),
       }),
-    ),
+    ).optional(),
+
     compare: z.object({
       title: z.string().optional(),
       subtitle: z.string(),
-      plans: z.array(z.object({ name: z.string() })),
+      components: z.array(z.object({ name: z.string() })).optional(),
+      plans: z.array(z.object({ name: z.string() })).optional(),
       categories: z.array(
         z.object({
           name: z.string(),

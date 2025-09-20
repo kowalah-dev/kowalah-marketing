@@ -28,6 +28,317 @@
           ],
           "additionalProperties": false
         },
+        "service_components": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "pricing": {
+                "type": "object",
+                "properties": {
+                  "USD": {
+                    "type": "object",
+                    "properties": {
+                      "prefix": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "string"
+                      },
+                      "suffix": {
+                        "type": "string"
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "range": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "prefix",
+                      "amount",
+                      "suffix",
+                      "detail",
+                      "range"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "EUR": {
+                    "type": "object",
+                    "properties": {
+                      "prefix": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "string"
+                      },
+                      "suffix": {
+                        "type": "string"
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "range": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "prefix",
+                      "amount",
+                      "suffix",
+                      "detail",
+                      "range"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "GBP": {
+                    "type": "object",
+                    "properties": {
+                      "prefix": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "string"
+                      },
+                      "suffix": {
+                        "type": "string"
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "range": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "prefix",
+                      "amount",
+                      "suffix",
+                      "detail",
+                      "range"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "USD",
+                  "EUR",
+                  "GBP"
+                ],
+                "additionalProperties": false
+              },
+              "features": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "what_included": {
+                "type": "string"
+              },
+              "button": {
+                "type": "object",
+                "properties": {
+                  "enable": {
+                    "type": "boolean"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "enable",
+                  "label",
+                  "link"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "pricing",
+              "features",
+              "what_included",
+              "button"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "investment_examples": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "examples": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "organization_size": {
+                    "type": "string"
+                  },
+                  "pricing": {
+                    "type": "object",
+                    "properties": {
+                      "USD": {
+                        "type": "object",
+                        "properties": {
+                          "deployment_cost": {
+                            "type": "string"
+                          },
+                          "enablement_cost": {
+                            "type": "string"
+                          },
+                          "managed_annual": {
+                            "type": "string"
+                          },
+                          "total_year_one": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "deployment_cost",
+                          "enablement_cost",
+                          "managed_annual",
+                          "total_year_one"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "EUR": {
+                        "type": "object",
+                        "properties": {
+                          "deployment_cost": {
+                            "type": "string"
+                          },
+                          "enablement_cost": {
+                            "type": "string"
+                          },
+                          "managed_annual": {
+                            "type": "string"
+                          },
+                          "total_year_one": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "deployment_cost",
+                          "enablement_cost",
+                          "managed_annual",
+                          "total_year_one"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "GBP": {
+                        "type": "object",
+                        "properties": {
+                          "deployment_cost": {
+                            "type": "string"
+                          },
+                          "enablement_cost": {
+                            "type": "string"
+                          },
+                          "managed_annual": {
+                            "type": "string"
+                          },
+                          "total_year_one": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "deployment_cost",
+                          "enablement_cost",
+                          "managed_annual",
+                          "total_year_one"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "USD",
+                      "EUR",
+                      "GBP"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "organization_size",
+                  "pricing",
+                  "description"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "title",
+            "subtitle",
+            "examples"
+          ],
+          "additionalProperties": false
+        },
+        "decision_guide": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "scenarios": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "situation": {
+                    "type": "string"
+                  },
+                  "recommendation": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "next_step": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "situation",
+                  "recommendation",
+                  "description",
+                  "next_step"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "title",
+            "subtitle",
+            "scenarios"
+          ],
+          "additionalProperties": false
+        },
         "pricing_tab": {
           "type": "array",
           "items": {
@@ -117,6 +428,21 @@
             "subtitle": {
               "type": "string"
             },
+            "components": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "additionalProperties": false
+              }
+            },
             "plans": {
               "type": "array",
               "items": {
@@ -173,7 +499,6 @@
           },
           "required": [
             "subtitle",
-            "plans",
             "categories"
           ],
           "additionalProperties": false
@@ -199,8 +524,6 @@
       },
       "required": [
         "hero",
-        "pricing_tab",
-        "pricing_card",
         "compare",
         "faq"
       ],

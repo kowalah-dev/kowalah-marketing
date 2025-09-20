@@ -8,6 +8,12 @@ const changelog = (await getEntry(
   "changelog",
   "-index"
 )) as CollectionEntry<"changelog">;
+
+// Redirect to 404 if page is draft
+if (changelog.data.draft) {
+  return Astro.redirect("/404");
+}
+
 const { title, meta_title, description, content } = changelog.data;
 
 const { Content } = await render(changelog);
