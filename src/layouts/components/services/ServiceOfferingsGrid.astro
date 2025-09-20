@@ -36,6 +36,26 @@ const { title, subtitle, services, id }: Props = Astro.props;
       </div>
     </div>
 
+    <!-- Services Overview Image -->
+    <div class="row justify-center mb-12">
+      <div class="lg:col-10 xl:col-8">
+        <div
+          class="relative overflow-hidden rounded-2xl"
+          data-aos="fade-up-sm"
+          data-aos-delay="200"
+        >
+          <img
+            src="/images/services/services-overview.png"
+            alt="Kowalah services overview - comprehensive ChatGPT transformation services"
+            class="w-full h-auto max-w-[1600px] mx-auto"
+            width="1600"
+            height="900"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+
     <div class="row g-6">
       {services.map((service, index) => (
         <div
