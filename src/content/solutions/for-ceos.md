@@ -10,7 +10,7 @@ solution_category: "ceos"
 hero:
   title: "Scale Revenue Without Scaling Headcount - Enable Your Workforce with ChatGPT"
   content: "Transform every employee into a more productive version of themselves. ChatGPT as a creative thinking partner accelerates your entire organization without adding headcount."
-  image: "/images/solutions/workforce-collaboration-hero.jpg"
+  image: "/images/solutions/solutions-ceo-hero.png"
   button:
     - enable: true
       label: "Get Your Workforce Acceleration Plan"
@@ -108,9 +108,18 @@ implementation:
 
 # Role-specific fields
 executive_focus:
-  board_reporting: true
-  strategic_alignment: true
-  risk_management: true
+  title: "AI Leadership Excellence"
+  subtitle: "Transform your organization into a critical-thinking workforce powered by AI partnership"
+  areas:
+    - title: "Strategic AI Leadership"
+      description: "Lead confidently in fast-moving technology environments with data-driven AI decision frameworks"
+      icon: "check"
+    - title: "Workforce Transformation"
+      description: "Transform every employee into a critical thinker working with AI as a true strategic partner"
+      icon: "task"
+    - title: "Future-Proofing Strategy"
+      description: "Build organizational resilience and capability for the AI-driven future with strategic planning"
+      icon: "upward"
 
 services_highlight:
   title: "Expert ChatGPT Services for Executive Teams"

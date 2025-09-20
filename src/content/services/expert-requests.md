@@ -12,7 +12,7 @@ hero:
     label: "Schedule Strategy Call"
     link: "/contact"
     subtext: "36-hour response guarantee"
-  product_screenshot: "/images/product/mockups/expert-requests-dashboard.png"
+  product_screenshot: "/images/services/expert-requests-hero.png"
 
 # Service integration section
 service_integration:

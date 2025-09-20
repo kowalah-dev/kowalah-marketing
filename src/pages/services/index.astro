@@ -1,6 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
-import PageHeader from "@/layouts/partials/PageHeader.astro";
+import ServicesHero from "@/layouts/components/services/ServicesHero.astro";
 import BeforeAfterPanels from "@/layouts/components/services/BeforeAfterPanels.astro";
 import ServiceOfferingsGrid from "@/layouts/components/services/ServiceOfferingsGrid.astro";
 import ProcessOutcomes from "@/layouts/components/services/ProcessOutcomes.astro";
@@ -20,8 +20,13 @@ const hero = {
   title: "Move from Shadow ChatGPT to AI-First Execution",
   subtitle:
     "Every executive arrives with a different challenge. Whether you need immediate deployment confidence, workforce training, or an always-on advisory partner, Kowalah keeps your organization aligned, secure, and moving fast.",
-  cta_primary: { label: "Talk to an AI Advisor", link: "/contact" },
-  cta_secondary: { label: "Explore Services", link: "#services-overview" },
+  cta: {
+    label: "Talk to an AI Advisor",
+    link: "/contact",
+    subtext: "Free strategic consultation to map your AI transformation"
+  },
+  image: "/images/services/services-hero.png",
+  imageAlt: "Enterprise AI transformation services overview"
 };
 
 const transformationSection = {
@@ -246,24 +251,13 @@ const finalCta = {
 ---
 
 <Base title={pageMeta.title} meta_title={pageMeta.meta_title} description={pageMeta.description}>
-  <PageHeader title={hero.title} content={hero.subtitle}>
-    <div class="mt-10 flex w-full flex-col items-center gap-4 sm:flex-row sm:justify-center">
-      <Button
-        label={hero.cta_primary.label}
-        link={hero.cta_primary.link}
-        style="primary"
-        target="_self"
-        className="w-full max-w-xs sm:w-auto"
-      />
-      <Button
-        label={hero.cta_secondary.label}
-        link={hero.cta_secondary.link}
-        style="outline"
-        target="_self"
-        className="w-full max-w-xs sm:w-auto"
-      />
-    </div>
-  </PageHeader>
+  <ServicesHero
+    title={hero.title}
+    subtitle={hero.subtitle}
+    cta={hero.cta}
+    image={hero.image}
+    imageAlt={hero.imageAlt}
+  />
 
   <BeforeAfterPanels
     title={transformationSection.title}

@@ -3,7 +3,7 @@ import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
-import PageHeader from "@/partials/PageHeader.astro";
+import ServicesHero from "@/layouts/components/services/ServicesHero.astro";
 import Button from "@/shortcodes/Button";
 import AcceleratorCarousel from "@/components/AcceleratorCarousel.astro";
 import { Icon } from "astro-icon/components";
@@ -21,52 +21,13 @@ const pageData = getMarkdownData("services/expert-requests.md");
 ---
 
 <Base title={pageData.title} meta_title={pageData.meta_title} description={pageData.description}>
-  <!-- Hero Section -->
-  <section class="section-sm pt-24 bg-gradient">
-    <div class="container">
-      <div class="row justify-center">
-        <div class="xl:col-10 lg:col-12">
-          <div class="text-center">
-            <h1 class="h1 text-dark" data-aos="fade-up-sm">
-              {pageData.hero.title}
-            </h1>
-            <p class="mt-6 text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
-              {pageData.hero.subtitle}
-            </p>
-            <div class="mt-8" data-aos="fade-up-sm" data-aos-delay="100">
-              <Button
-                label={pageData.hero.cta_primary.label}
-                link={pageData.hero.cta_primary.link}
-                className="me-4 mb-4"
-              />
-              {pageData.hero.cta_primary.subtext && (
-                <p class="mt-2 text-sm text-text-light">{pageData.hero.cta_primary.subtext}</p>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {pageData.hero.product_screenshot && (
-        <div class="row justify-center mt-16">
-          <div class="lg:col-10">
-            <div data-aos="fade-up-sm" data-aos-delay="150">
-              <ImageMod
-                src={pageData.hero.product_screenshot}
-                alt={pageData.title}
-                width={2400}
-                height={1600}
-                class="w-full rounded-3xl shadow-2xl"
-                loading="lazy"
-                decoding="async"
-                style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
-              />
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  </section>
+  <ServicesHero
+    title={pageData.hero.title}
+    subtitle={pageData.hero.subtitle}
+    cta={pageData.hero.cta_primary}
+    image={pageData.hero.product_screenshot}
+    imageAlt={pageData.title}
+  />
 
   <!-- Problem/Solution Section -->
   <section class="section">

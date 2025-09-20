@@ -5,14 +5,14 @@ import type { CollectionEntry } from "astro:content";
 import { getEntry, getCollection } from "astro:content";
 
 // Import components
-import Hero from "@/layouts/components/home/Hero.astro";
+import ServicesHero from "@/layouts/components/services/ServicesHero.astro";
 import Benefits from "@/layouts/components/home/Benefits.astro";
 import Features from "@/layouts/components/home/Features.astro";
-import CallToAction from "@/layouts/partials/CallToAction.astro";
 import TestimonialSlider from "@/layouts/partials/TestimonialSlider.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import Button from "@/layouts/shortcodes/Button.tsx";
 import ImageMod from "@/layouts/components/ImageMod.astro";
+import { Icon } from "astro-icon/components";
 
 export async function getStaticPaths() {
   const solutions = await getCollection("solutions");
@@ -45,11 +45,6 @@ const {
   cta
 } = solution.data;
 
-// Get call to action section for footer CTA
-const call_to_action = (await getEntry(
-  "sections",
-  "call-to-action"
-)) as CollectionEntry<"sections">;
 ---
 
 <Base
@@ -58,7 +53,17 @@ const call_to_action = (await getEntry(
   description={description}
 >
   <!-- Hero Section -->
-  <Hero hero={hero} />
+  <ServicesHero
+    title={hero.title}
+    subtitle={hero.content}
+    cta={{
+      label: hero.button[0]?.label || "Contact Us",
+      link: hero.button[0]?.link || "/contact",
+      subtext: "Strategic consultation to accelerate your transformation"
+    }}
+    image={hero.image}
+    imageAlt={title}
+  />
 
   <!-- Challenges/Problem Recognition Section -->
   <section class="section">
@@ -353,48 +358,22 @@ const call_to_action = (await getEntry(
       <div class="container">
         <div class="row justify-center">
           <div class="sm:col-10 lg:col-8 text-center mb-8">
-            <h3 class="text-xl font-semibold mb-4" data-aos="fade-up-sm">Executive Leadership Focus</h3>
-            <p class="text-dark/70" data-aos="fade-up-sm" data-aos-delay="100">
-              Designed specifically for executive-level strategic requirements
-            </p>
+            <h3 class="text-xl font-semibold mb-4" data-aos="fade-up-sm" set:html={markdownify(executive_focus.title)} />
+            <p class="text-dark/70" data-aos="fade-up-sm" data-aos-delay="100" set:html={markdownify(executive_focus.subtitle)} />
           </div>
         </div>
         <div class="row">
           <div class="col-12">
             <div class="grid md:grid-cols-3 gap-6" data-aos="fade-up-sm" data-aos-delay="200">
-              {executive_focus.board_reporting && (
+              {executive_focus.areas.map((area: any, index: number) => (
                 <div class="text-center p-6 bg-white rounded-xl shadow-sm">
                   <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
+                    <Icon name={area.icon} class="w-6 h-6 text-white" />
                   </div>
-                  <h4 class="font-semibold mb-2">Board Reporting</h4>
-                  <p class="text-sm text-dark/70">Executive dashboards and strategic insights for stakeholder communication</p>
+                  <h4 class="font-semibold mb-2" set:html={markdownify(area.title)} />
+                  <p class="text-sm text-dark/70" set:html={markdownify(area.description)} />
                 </div>
-              )}
-              {executive_focus.strategic_alignment && (
-                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
-                  <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-                    </svg>
-                  </div>
-                  <h4 class="font-semibold mb-2">Strategic Alignment</h4>
-                  <p class="text-sm text-dark/70">Ensure AI initiatives align with broader business strategy and objectives</p>
-                </div>
-              )}
-              {executive_focus.risk_management && (
-                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
-                  <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                  </div>
-                  <h4 class="font-semibold mb-2">Risk Management</h4>
-                  <p class="text-sm text-dark/70">Comprehensive risk assessment and mitigation for AI implementations</p>
-                </div>
-              )}
+              ))}
             </div>
           </div>
         </div>
@@ -437,6 +416,4 @@ const call_to_action = (await getEntry(
     </div>
   </section>
 
-  <!-- Standard CTA -->
-  <CallToAction call_to_action={call_to_action} />
 </Base>

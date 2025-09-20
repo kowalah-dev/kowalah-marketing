@@ -498,9 +498,15 @@ const solutionsCollection = defineCollection({
 
     // Role-specific fields (optional)
     executive_focus: z.object({
-      board_reporting: z.boolean(),
-      strategic_alignment: z.boolean(),
-      risk_management: z.boolean()
+      title: z.string(),
+      subtitle: z.string(),
+      areas: z.array(
+        z.object({
+          title: z.string(),
+          description: z.string(),
+          icon: z.string()
+        })
+      )
     }).optional(),
 
     // Services highlight section (optional)
