@@ -7,10 +7,10 @@
       "children": [
         { "name": "Services Overview", "url": "/services" },
         { "name": "ChatGPT Enterprise Deployment", "url": "/services/chatgpt-enterprise-deployment" },
-        { "name": "AI Change Enablement", "url": "/services/ai-change-enablement" },
+        { "name": "ChatGPT Change Enablement", "url": "/services/chatgpt-change-enablement" },
         { "name": "ChatGPT Training", "url": "/services/chatgpt-training" },
         { "name": "Expert Requests", "url": "/services/expert-requests" },
-        { "name": "AI Accelerators", "url": "/services/ai-accelerators" },
+        { "name": "AI Accelerators", "url": "/services/accelerators" },
         { "name": "AI Advisory Platform", "url": "/services/ai-advisory-platform" }
       ]
     },

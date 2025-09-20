@@ -17,7 +17,7 @@ const call_to_action = (await getEntry(
 
 // Import content from markdown file
 import { getMarkdownData } from "@/lib/utils/markdown";
-const pageData = getMarkdownData("product/expert-requests.md");
+const pageData = getMarkdownData("services/expert-requests.md");
 ---
 
 <Base title={pageData.title} meta_title={pageData.meta_title} description={pageData.description}>
@@ -103,8 +103,52 @@ const pageData = getMarkdownData("product/expert-requests.md");
     </div>
   </section>
 
+  <!-- Service Integration Section -->
+  {pageData.service_integration && (
+    <section class="section bg-light">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-8 text-center mb-12">
+            <h2 class="h2 mb-4" data-aos="fade-up-sm">{pageData.service_integration.title}</h2>
+            <p class="text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
+              {pageData.service_integration.subtitle}
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          {pageData.service_integration.services.map((service, index) => (
+            <div class="lg:col-6 mb-6" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+              <div class="bg-white rounded-xl p-6 h-full">
+                <div class="flex items-center gap-4 mb-4">
+                  <Icon name={service.icon} size={24} class="text-primary flex-shrink-0" />
+                  <h3 class="h6 mb-0">{service.title}</h3>
+                </div>
+                <p class="text-text-dark mb-4">{service.description}</p>
+                <div class="mb-4">
+                  <h4 class="text-sm font-semibold text-primary mb-2">Expert Request Examples:</h4>
+                  <ul class="space-y-1">
+                    {service.expert_examples.map((example) => (
+                      <li class="text-sm text-text-dark flex items-start gap-2">
+                        <div class="w-1 h-1 bg-primary rounded-full flex-shrink-0 mt-2"></div>
+                        {example}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <a href={service.link} class="text-primary text-sm font-medium hover:underline">
+                  View {service.title} →
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- Capabilities Section -->
-  <section class="section bg-light">
+  <section class="section">
     <div class="container">
       <div class="row justify-center">
         <div class="lg:col-8 text-center mb-16">
@@ -143,7 +187,7 @@ const pageData = getMarkdownData("product/expert-requests.md");
 
   <!-- How It Works Section -->
   {pageData.how_it_works && (
-    <section class="section">
+    <section class="section bg-light">
       <div class="container">
         <div class="row justify-center">
           <div class="lg:col-8 text-center mb-16">
@@ -173,7 +217,7 @@ const pageData = getMarkdownData("product/expert-requests.md");
 
   <!-- Competitive Advantage Section -->
   {pageData.competitive_advantage && (
-    <section class="section bg-light">
+    <section class="section">
       <div class="container">
         <div class="row justify-center">
           <div class="lg:col-8 text-center mb-16">
@@ -203,7 +247,7 @@ const pageData = getMarkdownData("product/expert-requests.md");
 
   <!-- Use Cases Section -->
   {pageData.use_cases && (
-    <section class="section">
+    <section class="section bg-light">
       <div class="container">
         <div class="row justify-center">
           <div class="lg:col-8 text-center mb-12">

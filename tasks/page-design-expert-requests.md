@@ -2,9 +2,9 @@
 
 ## Page Overview
 
-**Page Name:** Expert Requests  
-**URL Path:** `/product/expert-requests`  
-**Content Strategy:** Astro Collection (Static) - using existing `product` collection schema  
+**Page Name:** Expert Requests
+**URL Path:** `/services/expert-requests`
+**Content Strategy:** Astro Collection (Static) - using `services` collection schema  
 **Primary Objective:** Educate prospects and customers about "done for you" AI implementation services, drive demo bookings and upgrade conversations  
 **Target Audience:** AI strategy leads (CEOs without CIO, CIOs, AI Center of Excellence heads) who need immediate delivery capacity  
 **Position in User Journey:** Mid-funnel education for prospects evaluating full platform capabilities, or existing customers considering service upgrades

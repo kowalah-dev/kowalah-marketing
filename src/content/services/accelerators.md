@@ -1,21 +1,54 @@
 ---
-title: "AI Accelerators: Your Implementation Lego Kit"
-meta_title: "AI Accelerators | Pre-Built AI Implementation Templates | Kowalah"
-description: "Get 50+ proven AI accelerators to speed your organization's AI adoption. ChatGPT rollout plans, training materials, and implementation templates ready to use."
+title: "AI Accelerators: Your ChatGPT Implementation Toolkit"
+meta_title: "AI Accelerators | Pre-Built ChatGPT Implementation Templates | Kowalah"
+description: "Get 50+ proven ChatGPT accelerators to speed your organization's AI adoption. Ready-to-use templates, training materials, and implementation guides designed for enterprise success."
 
 hero:
-  title: "Your AI Implementation Lego Kit"
-  subtitle: "Stop staring at blank ChatGPT screens. Get 50+ pre-built AI solutions your team can copy and implement today."
+  title: "Your ChatGPT Implementation Toolkit"
+  subtitle: "Stop staring at blank ChatGPT screens. Get 50+ pre-built ChatGPT solutions your team can copy and implement today - from training templates to governance frameworks."
   cta_primary:
     label: "Start Free Trial"
     link: "https://kowalah.com/sign-up"
     subtext: "Explore accelerators • Upgrade to access full library"
   product_screenshot: "/images/product/mockups/ai-accelerators-dashboard.png"
 
+# Service integration section
+service_integration:
+  title: "Accelerators + Our ChatGPT Services"
+  subtitle: "Ready-to-use templates that seamlessly integrate with our training and change enablement programs"
+  services:
+    - title: "ChatGPT Training"
+      icon: "profile"
+      description: "Training programs enhanced with ready-to-use accelerators"
+      accelerator_examples:
+        - "ChatGPT 101 video sessions and training materials"
+        - "Executive briefing templates and presentation decks"
+        - "Department-specific onboarding playbooks"
+        - "Prompt engineering certification programs"
+      link: "/services/chatgpt-training"
+    - title: "Change Enablement"
+      icon: "rocket"
+      description: "Organizational transformation with proven frameworks"
+      accelerator_examples:
+        - "AI governance and policy templates"
+        - "Change management communication frameworks"
+        - "Employee engagement and adoption tracking tools"
+        - "Leadership alignment and strategy templates"
+      link: "/services/chatgpt-change-enablement"
+    - title: "Expert Requests"
+      icon: "cpu"
+      description: "Professional implementation using accelerator foundations"
+      accelerator_examples:
+        - "Custom GPT development templates"
+        - "Prompt engineering professional frameworks"
+        - "Integration guides and technical templates"
+        - "Success measurement and ROI tracking tools"
+      link: "/services/expert-requests"
+
 problem_solution:
-  title: "Stop Building AI Solutions From Scratch"
-  problem_statement: "Organizations spend months figuring out how to use AI effectively, often abandoning initiatives due to complexity and uncertainty. Teams stare at blank ChatGPT screens, not knowing what to build or how to start meaningful AI adoption."
-  solution_overview: "AI Accelerators provide proven templates, frameworks, and step-by-step guidance for immediate implementation. Like Lego instruction manuals, they show you exactly what you can build before you start - eliminating guesswork and accelerating results."
+  title: "Stop Building ChatGPT Solutions From Scratch"
+  problem_statement: "Organizations spend months figuring out how to use ChatGPT effectively, often abandoning initiatives due to complexity and uncertainty. Teams stare at blank ChatGPT screens, not knowing what to build or how to start meaningful AI adoption."
+  solution_overview: "ChatGPT Accelerators provide proven templates, frameworks, and step-by-step guidance for immediate implementation. Like instruction manuals, they show you exactly what you can build before you start - eliminating guesswork and accelerating results."
   trust_elements:
     - "50+ proven accelerators across 8 categories"
     - "Used by 100+ organizations for faster AI adoption"
@@ -49,27 +82,27 @@ capabilities:
         - "'Strategy Coach' - Guides strategic planning using proven frameworks"
       value_proposition: "Deploy sophisticated AI assistants instantly without spending weeks learning prompt engineering or GPT development."
   
-    - title: "Training & Onboarding Materials"
+    - title: "ChatGPT Training Materials"
       icon: "bulb"
-      description: "Complete training resources to build AI capabilities across your organization quickly and effectively."
+      description: "Complete ChatGPT training resources to build organizational capabilities quickly and effectively."
       details:
         - "ChatGPT 101 video sessions with practical demonstrations"
-        - "Executive training decks for AI leadership development"
-        - "Department-specific AI adoption playbooks and quick-start guides"
+        - "Executive training decks for ChatGPT leadership development"
+        - "Department-specific ChatGPT adoption playbooks and quick-start guides"
         - "Product update briefings for new ChatGPT features and capabilities"
         - "Change champion certification programs and support materials"
-      value_proposition: "Transform your workforce into confident AI users with structured learning materials that eliminate the guesswork."
+      value_proposition: "Transform your workforce into confident ChatGPT users with structured learning materials that eliminate the guesswork."
   
-    - title: "Governance & Policy Templates"
+    - title: "ChatGPT Governance & Policy Templates"
       icon: "help"
-      description: "Ready-to-implement documents and frameworks for responsible AI adoption and team structure."
+      description: "Ready-to-implement documents and frameworks for responsible ChatGPT adoption and organizational structure."
       details:
-        - "AI ethics and usage policy templates for immediate implementation"
-        - "AI role job descriptions and hiring frameworks for building internal teams"
-        - "Team structure guides for AI adoption and change management"
-        - "Vendor evaluation and procurement templates for AI tool selection"
+        - "ChatGPT ethics and usage policy templates for immediate implementation"
+        - "AI role job descriptions and hiring frameworks for building internal ChatGPT teams"
+        - "Team structure guides for ChatGPT adoption and change management"
+        - "Vendor evaluation and procurement templates for ChatGPT tool selection"
         - "Risk assessment and compliance frameworks for regulated industries"
-      value_proposition: "Implement comprehensive AI governance in days, not months, with battle-tested templates from successful organizations."
+      value_proposition: "Implement comprehensive ChatGPT governance in days, not months, with battle-tested templates from successful organizations."
 
 how_it_works:
   title: "From Confusion to Confidence in 3 Steps"
@@ -93,59 +126,59 @@ how_it_works:
     description: "See how AI Accelerators transform your team from 'What should we do with AI?' to 'Here's exactly what we're implementing' in minutes."
 
 competitive_advantage:
-  title: "Why Accelerators Beat Building From Scratch"
-  subtitle: "Stop reinventing the wheel. Use proven success patterns from real AI implementations."
-  key_message: "Every accelerator represents successful implementations across multiple organizations. You get the collective intelligence from every Kowalah implementation, not just theoretical frameworks."
+  title: "Why ChatGPT Accelerators Beat Building From Scratch"
+  subtitle: "Stop reinventing the wheel. Use proven success patterns from real ChatGPT implementations."
+  key_message: "Every accelerator represents successful ChatGPT implementations across multiple organizations. You get the collective intelligence from thousands of ChatGPT deployments, not just theoretical frameworks."
   advantages:
     - point: "Hours Not Months to Implementation"
       description: "Copy a prompt, deploy a GPT, or implement a policy template today. No months of planning, no trial and error, no starting from scratch."
-    - point: "Based on Successful Implementations"
-      description: "Every accelerator comes from organizations that successfully deployed AI. You get their exact templates, prompts, and processes."
-    - point: "Updated from Real User Feedback"
-      description: "When users improve an accelerator or find better approaches, we update the library. You get the latest versions automatically."
-    - point: "Created by AI Implementation Experts"
-      description: "Built by professionals who have guided dozens of enterprise AI rollouts. Not theoretical frameworks - actual working solutions."
+    - point: "Based on Successful ChatGPT Implementations"
+      description: "Every accelerator comes from organizations that successfully deployed ChatGPT Enterprise. You get their exact templates, prompts, and processes."
+    - point: "Updated from Real ChatGPT User Feedback"
+      description: "When users improve an accelerator or find better ChatGPT approaches, we update the library. You get the latest versions automatically."
+    - point: "Created by ChatGPT Implementation Experts"
+      description: "Built by professionals who have guided dozens of enterprise ChatGPT rollouts. Not theoretical frameworks - actual working ChatGPT solutions."
 
 use_cases:
-  title: "What Problems Do Accelerators Solve?"
+  title: "What ChatGPT Problems Do Accelerators Solve?"
   items:
-    - scenario: "Our employees don't know how to write effective prompts and keep getting generic responses"
-      solution: "Prompt Libraries with ready-to-use templates for one-to-ones, weekly planning, strategic thinking, and decision-making"
-      outcome: "Teams immediately start getting better AI outputs and feel confident using ChatGPT for actual work tasks"
+    - scenario: "Our employees don't know how to write effective ChatGPT prompts and keep getting generic responses"
+      solution: "ChatGPT Prompt Libraries with ready-to-use templates for one-to-ones, weekly planning, strategic thinking, and decision-making"
+      outcome: "Teams immediately start getting better ChatGPT outputs and feel confident using ChatGPT for actual work tasks"
     
-    - scenario: "We want to deploy specific GPTs across our organization but don't know which ones or how to set them up"
-      solution: "Pre-Built GPTs collection including 'Find a GPT', 'Event Organiser', 'Customer Testimonial Gatherer', and 'Strategy Coach'"
-      outcome: "Departments quickly deploy relevant AI assistants and start seeing immediate productivity gains in their specific workflows"
+    - scenario: "We want to deploy specific ChatGPT solutions across our organization but don't know which ones or how to set them up"
+      solution: "Pre-Built ChatGPT solutions including 'Find a GPT', 'Event Organiser', 'Customer Testimonial Gatherer', and 'Strategy Coach'"
+      outcome: "Departments quickly deploy relevant ChatGPT assistants and start seeing immediate productivity gains in their specific workflows"
     
-    - scenario: "We need to train our teams on AI but lack structured materials and don't know where to start"
-      solution: "Training & Onboarding Materials including ChatGPT 101 videos, executive decks, and department-specific playbooks"
-      outcome: "Consistent AI knowledge across the organization with everyone speaking the same language about AI capabilities"
+    - scenario: "We need to train our teams on ChatGPT but lack structured materials and don't know where to start"
+      solution: "ChatGPT Training & Onboarding Materials including ChatGPT 101 videos, executive decks, and department-specific playbooks"
+      outcome: "Consistent ChatGPT knowledge across the organization with everyone speaking the same language about ChatGPT capabilities"
     
-    - scenario: "Leadership is asking for AI policies and governance but we don't have the expertise to create them"
-      solution: "Governance & Policy Templates with AI ethics policies, job descriptions, team structures, and risk frameworks"
-      outcome: "Complete AI governance framework implemented in days instead of months of consulting and internal development"
+    - scenario: "Leadership is asking for ChatGPT policies and governance but we don't have the expertise to create them"
+      solution: "ChatGPT Governance & Policy Templates with ChatGPT ethics policies, job descriptions, team structures, and risk frameworks"
+      outcome: "Complete ChatGPT governance framework implemented in days instead of months of consulting and internal development"
 
 integrations:
-  title: "More Than Templates - Connected Solutions"
-  subtitle: "Accelerators integrate with your existing tools and connect to the broader Kowalah platform for complete AI leadership support."
-  current_state: "All accelerators are designed to work with popular enterprise tools and can be customized for your specific technology stack."
+  title: "Complete ChatGPT Services Ecosystem"
+  subtitle: "Accelerators work seamlessly with our ChatGPT Training, Change Enablement, and Expert Requests services for comprehensive organizational transformation."
+  current_state: "All accelerators are designed to complement our full-service ChatGPT implementation approach and can be customized for your specific organizational needs."
   available_integrations:
-    - "Microsoft 365 and Google Workspace integration templates"
-    - "Slack and Teams AI bot deployment guides"
-    - "CRM system (Salesforce, HubSpot) AI enhancement workflows"
-    - "ERP system (SAP, Oracle) automation frameworks"
-    - "Custom API integration and workflow development guides"
+    - "ChatGPT Training programs enhanced with accelerator templates"
+    - "Change Enablement services using proven accelerator frameworks"
+    - "Expert Requests building on accelerator foundations"
+    - "Microsoft 365 and Google Workspace ChatGPT integration templates"
+    - "Slack and Teams ChatGPT bot deployment guides"
 
 social_proof:
-  title: "Proven Results Across Industries"
-  subtitle: "See how organizations use AI Accelerators to transform their AI adoption from slow and uncertain to fast and successful."
+  title: "Proven ChatGPT Results Across Industries"
+  subtitle: "See how organizations use ChatGPT Accelerators combined with our services to transform their AI adoption from slow and uncertain to fast and successful."
   success_metrics:
-    - "75% average reduction in AI implementation timeline"
-    - "90% user satisfaction with accelerator quality and completeness"
-    - "85% average adoption rate for ChatGPT Enterprise rollouts"
-    - "40% average productivity improvement within 90 days"
-    - "500+ organizations successfully using accelerators"
-    - "$2M+ average annual savings from accelerator-driven implementations"
+    - "75% average reduction in ChatGPT implementation timeline"
+    - "90% user satisfaction with ChatGPT accelerator quality and completeness"
+    - "85% average adoption rate for ChatGPT Enterprise rollouts using accelerators"
+    - "40% average productivity improvement within 90 days of ChatGPT deployment"
+    - "500+ organizations successfully using ChatGPT accelerators"
+    - "$2M+ average annual savings from accelerator-driven ChatGPT implementations"
 
 # Featured showcase carousel
 featured_showcase:

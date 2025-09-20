@@ -2,7 +2,7 @@
 # Core metadata
 title: "Expert Requests: Professional AI Implementation Services"
 meta_title: "Expert Requests: Professional AI Implementation Services | Kowalah"
-description: "Get AI work done for you with Expert Requests. Professional prompt engineering, GPT development, training, and apps delivered in 7-14 days. No SOWs, no delays."
+description: "Get AI work done for you with Expert Requests. Professional ChatGPT deployment, change enablement, prompt engineering, and training delivered in 7-14 days. No SOWs, no delays."
 
 # Hero section for product value proposition
 hero:
@@ -14,6 +14,30 @@ hero:
     subtext: "36-hour response guarantee"
   product_screenshot: "/images/product/mockups/expert-requests-dashboard.png"
 
+# Service integration section
+service_integration:
+  title: "Expert Requests + Our Core Services"
+  subtitle: "Combine strategic guidance with professional implementation across all AI initiatives"
+  services:
+    - title: "ChatGPT Training"
+      icon: "profile"
+      description: "Enterprise ChatGPT deployment with comprehensive training programs"
+      expert_examples:
+        - "Custom ChatGPT training curriculum for your industry"
+        - "Department-specific prompt libraries and workflows"
+        - "Executive briefing materials and board presentations"
+        - "Train-the-trainer programs for internal champions"
+      link: "/services/chatgpt-training"
+    - title: "Change Enablement"
+      icon: "rocket"
+      description: "Organizational transformation and AI adoption acceleration"
+      expert_examples:
+        - "Change management frameworks for AI adoption"
+        - "Leadership communication strategies and scripts"
+        - "Employee engagement programs and surveys"
+        - "Resistance mitigation plans and success metrics"
+      link: "/services/chatgpt-change-enablement"
+
 # Problem/solution positioning
 problem_solution:
   title: "From Employee Requests to Professional Delivery"
@@ -21,7 +45,7 @@ problem_solution:
   solution_overview: "Expert Requests give you immediate access to professional AI developers, prompt engineers, and trainers - no SOWs, no delays, just results delivered in 7-14 days."
   trust_elements:
     - "36-hour strategy call booking"
-    - "7-14 day delivery guarantee" 
+    - "7-14 day delivery guarantee"
     - "No procurement friction"
     - "Professional-grade deliverables"
   image: "/images/product/expert-requests/team-staring-at-blank-screen.png"
@@ -30,15 +54,15 @@ problem_solution:
 capabilities:
   title: "What Expert Requests Can We Create?"
   items:
-    - title: "Professional Prompt Engineering"
+    - title: "ChatGPT Implementation & Prompts"
       icon: "bulb"
-      description: "Get expert-crafted prompts that deliver consistent, professional results for your specific use cases"
+      description: "Expert ChatGPT deployment with enterprise-grade prompts and workflows tailored to your business"
       details:
-        - "Role-specific prompt libraries"
-        - "Multi-step workflow prompts"
-        - "Quality control frameworks"
-        - "Performance optimization"
-      value_proposition: "Turn vague AI interactions into precise, repeatable business processes"
+        - "Department-specific ChatGPT prompt libraries"
+        - "Multi-step workflow automation"
+        - "Enterprise security and compliance setup"
+        - "Performance monitoring and optimization"
+      value_proposition: "Transform ChatGPT from a generic tool into your organization's AI productivity engine"
     
     - title: "Custom GPT Creation"
       icon: "cpu"
@@ -60,15 +84,15 @@ capabilities:
         - "User interface design"
       value_proposition: "Bridge the gap between AI potential and practical business implementation"
     
-    - title: "Expert-Led Training"
+    - title: "Training & Change Management"
       icon: "profile"
-      description: "Professional training sessions, workshops, and strategic presentations for your teams and leadership"
+      description: "Comprehensive ChatGPT training programs and organizational change enablement delivered by AI experts"
       details:
-        - "Department-specific workshops"
-        - "Executive AI briefings"
-        - "Board presentation support"
-        - "Change management guidance"
-      value_proposition: "Accelerate adoption with expert guidance tailored to your organization's culture and goals"
+        - "Executive leadership briefings and board materials"
+        - "Department-specific ChatGPT workshops"
+        - "Change management frameworks and rollout plans"
+        - "Employee engagement and resistance mitigation strategies"
+      value_proposition: "Achieve organization-wide ChatGPT adoption with expert-designed training and change programs"
 
 # How it works demonstration
 how_it_works:
@@ -94,46 +118,46 @@ how_it_works:
 
 # Competitive advantage section
 competitive_advantage:
-  title: "Complete AI Implementation Spectrum"
-  subtitle: "Choose the right level of support for each AI initiative"
-  key_message: "Expert Requests complete your AI toolkit - from self-service guidance to full professional implementation"
+  title: "Complete ChatGPT & AI Services Spectrum"
+  subtitle: "From strategic guidance to full implementation - comprehensive ChatGPT enablement"
+  key_message: "Expert Requests integrate seamlessly with our ChatGPT Training and Change Enablement services for complete organizational transformation"
   advantages:
-    - point: "DIY + Done With You + Done For You"
-      description: "Digital CAIO for strategy, Accelerators for frameworks, Expert Requests for implementation - complete coverage"
-    - point: "No Procurement Friction"
-      description: "Pre-contracted capacity means instant access without SOWs, approvals, or vendor onboarding delays"
-    - point: "Predictable Capacity Planning"
-      description: "Quarterly allocations let you plan AI initiatives knowing delivery capacity is secured"
-    - point: "Always-On Expertise"
-      description: "Access to prompt engineers, developers, and trainers without hiring, training, or managing additional staff"
+    - point: "Integrated Service Ecosystem"
+      description: "Combine ChatGPT Training, Change Enablement, and Expert Requests for comprehensive organizational AI transformation"
+    - point: "No Procurement Delays"
+      description: "Pre-contracted capacity means instant access to ChatGPT experts without SOWs, approvals, or vendor onboarding friction"
+    - point: "Strategic + Tactical Integration"
+      description: "Digital CAIO provides strategy, our services provide frameworks, Expert Requests deliver implementation - complete coverage"
+    - point: "Always-On ChatGPT Expertise"
+      description: "Access to specialized ChatGPT trainers, change management experts, and implementation specialists without hiring permanent staff"
 
 # Use cases/scenarios
 use_cases:
   title: "What Problems Do Expert Requests Solve?"
   items:
-    - scenario: "Department requests AI tool for customer service"
-      solution: "Expert team builds customer service GPT with brand voice and escalation protocols"
-      outcome: "Ready-to-deploy solution in 10 days vs. 3-month internal project"
+    - scenario: "Department needs ChatGPT deployment for customer service"
+      solution: "Expert team creates ChatGPT workflows with brand voice, escalation protocols, and training materials"
+      outcome: "Professional ChatGPT implementation in 10 days vs. 3-month internal project"
     
-    - scenario: "CEO needs AI strategy presentation for board meeting"
-      solution: "AI Strategy Director creates industry-specific presentation with competitive analysis"
-      outcome: "Executive-quality materials delivered in one week with expert presenter available"
+    - scenario: "CEO needs ChatGPT strategy presentation for board meeting"
+      solution: "AI Strategy Director creates industry-specific ChatGPT business case with ROI projections and implementation roadmap"
+      outcome: "Executive-quality board materials delivered in one week with expert presenter available"
     
-    - scenario: "Sales team wants AI prospecting workflow"
-      solution: "Custom prompts and mini CRM integration for lead qualification and outreach"
-      outcome: "Productivity boost within days, not quarters of development time"
+    - scenario: "Sales team wants ChatGPT prospecting workflow"
+      solution: "Custom ChatGPT prompts and CRM integration for lead qualification, outreach, and follow-up automation"
+      outcome: "ChatGPT-powered sales productivity boost within days, not quarters of development time"
     
-    - scenario: "HR needs AI-powered onboarding materials"
-      solution: "Role-specific onboarding GPTs and training workshop for HR team"
-      outcome: "Consistent, scalable onboarding process with immediate team buy-in"
+    - scenario: "HR needs ChatGPT-powered onboarding process"
+      solution: "Role-specific ChatGPT workflows for onboarding automation plus comprehensive HR team training"
+      outcome: "Consistent, scalable ChatGPT onboarding process with immediate team buy-in"
     
     - scenario: "Finance wants automated report generation"
       solution: "Custom web app connecting to existing systems with AI-powered insights"
       outcome: "Monthly reporting time reduced by 75% with professional-grade automation"
     
-    - scenario: "Multiple departments need AI literacy training"
-      solution: "Comprehensive training program with role-specific workshops and follow-up support"
-      outcome: "Organization-wide AI competency achieved in weeks, not months"
+    - scenario: "Multiple departments need ChatGPT literacy and change management"
+      solution: "Comprehensive ChatGPT training program with role-specific workshops, change management framework, and ongoing support"
+      outcome: "Organization-wide ChatGPT competency and adoption achieved in weeks, not months"
 
 # Integrations section
 integrations:
