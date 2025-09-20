@@ -503,6 +503,26 @@ const solutionsCollection = defineCollection({
       risk_management: z.boolean()
     }).optional(),
 
+    // Services highlight section (optional)
+    services_highlight: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      features: z.array(
+        z.object({
+          title: z.string(),
+          badge: z.string(),
+          content: z.string(),
+          description: z.string(),
+          image: z.string(),
+          button: z.object({
+            enable: z.boolean(),
+            label: z.string(),
+            link: z.string()
+          })
+        })
+      )
+    }).optional(),
+
     cta: z.object({
       title: z.string(),
       content: z.string(),
