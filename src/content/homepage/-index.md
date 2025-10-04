@@ -117,8 +117,8 @@ feature:
     - title: "ChatGPT Change Enablement"
       badge: "16-Week Program"
       content: "Complete organizational transformation in 16 weeks"
-      description: "Executive alignment & stakeholder management. Procure and deploy ChatGPT Business or ChatGPT Enterprise. Organization-wide ChatGPT 101/102 training. AI Ambassadors program (10% of employees). Custom GPT development."
-      image: "/images/home/features/1.png"
+      description: "From executive alignment to organization-wide deployment, we guide your entire team through ChatGPT adoption. Includes procurement, training, AI Ambassadors program, and custom GPT development—everything needed to move from shadow AI to strategic capability."
+      image: "/images/home/features/features-1-training.png"
       button:
         enable: true
         label: "Learn More"
@@ -126,8 +126,8 @@ feature:
     - title: "Expert Requests & Accelerators"
       badge: "Ongoing Support"
       content: "Monthly quota of expert deliverables"
-      description: "Accelerator library with prebuilt assets. Custom prompts, GPTs, and training workshops. Hands-on implementation support. Department-specific solutions. Keep innovation flowing without overwhelming internal teams."
-      image: "/images/home/features/2.png"
+      description: "Your teams identify opportunities, our specialists build the solutions. Get custom prompts, GPTs, and training workshops delivered monthly—plus access to our accelerator library of pre-built assets. Innovation flows without overwhelming your people."
+      image: "/images/home/features/features-2-expert-delivery.png"
       button:
         enable: true
         label: "Learn More"
@@ -135,8 +135,8 @@ feature:
     - title: "Ongoing Managed Services"
       badge: "Permanent Partnership"
       content: "Named AI Strategy Director and continuous capability expansion"
-      description: "Latest ChatGPT features and techniques. Permanent AI extension to your team. Continuous capability expansion. Future-proofing as AI technology evolves with expert guidance that grows smarter with every implementation."
-      image: "/images/home/features/3.png"
+      description: "Your dedicated AI Strategy Director ensures you're always leveraging the latest ChatGPT capabilities as they emerge. Think of us as a permanent AI extension to your team—expert guidance that grows smarter with every implementation."
+      image: "/images/home/features/features-3-managed-services.png"
       button:
         enable: true
         label: "Learn More"
@@ -146,7 +146,7 @@ offering:
   - title: "Channel Existing AI Energy Into Business Results"
     subtitle: "Embrace ChatGPT, Transform Your Organization"
     image: "/images/home/offering/offering-1.1.png"
-    image_1: "/images/home/offering/offering-1.png"
+    image_1: "/images/home/offering/offering-1-human.png"
     content: "Your employees are already using ChatGPT—often in secret. Rather than fighting this reality, we help you harness it. ChatGPT is winning the user adoption battle because it offers superior applications like custom GPTs, Projects, and Voice capabilities that employees genuinely want to use."
     points:
       - "Transform frustrated Copilot users into engaged ChatGPT power users. Our ChatGPT 101 & 102 programs achieve 100% training completion because people actually want to learn these tools."
@@ -154,7 +154,7 @@ offering:
   - title: "Turn ChatGPT Into Creative Co-Worker"
     subtitle: "Beyond Basic Tasks to Creative Partnership"
     image: "/images/home/offering/offering-2.2.png"
-    image_1: "/images/home/offering/offering-2.png"
+    image_1: "/images/home/offering/offering-2-human.png"
     content: "Most teams use ChatGPT for basic tasks like writing emails or summarizing documents. We unlock its potential as a creative business partner—a coach for difficult conversations, a workshop facilitator, a role-play partner for practice, and a teacher for skill development. The key shift: build use cases for others, not just yourself."
     points:
       - "Discover advanced capabilities most teams don't know exist: voice-enabled coaching sessions, custom GPTs tailored to department workflows, and collaborative features that transform how teams work together."
@@ -162,7 +162,7 @@ offering:
   - title: "Sustain Momentum Through Expert Delivery"
     subtitle: "Keep Innovation Flowing Without Overwhelming Teams"
     image: "/images/home/offering/offering-3.3.png"
-    image_1: "/images/home/offering/offering-3.png"
+    image_1: "/images/home/offering/offering-3-human.png"
     content: "Your team is busy with their day jobs. While they understand their business processes deeply, they don't have time to become prompt engineers or GPT developers. Our Expert Requests service bridges this gap—your experts describe what they need, and our specialists build the custom AI solutions."
     points:
       - "Deliver 15-20 custom business GPTs within your first 6 months, creating a continuous pipeline of new capabilities spreading across departments. Each solution is purpose-built for your specific workflows and challenges."
@@ -174,19 +174,19 @@ benefits:
   points:
     - title: "Your Business Workflows, AI-Enhanced"
       content: "We adapt ChatGPT to how your people actually work—not force them to change processes to fit the AI. Your sales team gets ChatGPT trained on your pitch decks, your finance team gets custom GPTs for reporting, your operations team gets AI that understands your specific workflows."
-      image: "/images/home/benefits/benefits-1.png"
+      image: "/images/home/benefits/benefits-human-card-1.png"
     - title: "Latest ChatGPT Capabilities, Immediately Available"
       content: "When OpenAI releases new features, your team knows how to use them that same week. Advanced voice for coaching conversations, canvas for collaborative editing, search for real-time research—we ensure your people leverage every capability while competitors are still reading the release notes."
-      image: "/images/home/benefits/benefits-2.png"
+      image: "/images/home/benefits/benefits-human-card-2.png"
     - title: "Skip the Trial-and-Error Learning Curve"
       content: "Your teams get battle-tested prompts and frameworks that work, not generic tutorials. When a finance analyst asks 'How do I analyze this quarterly data?', they get a proven 5-step workflow that delivers accurate results—not a blank chat box and hope for the best."
-      image: "/images/home/benefits/benefits-3.png"
+      image: "/images/home/benefits/benefits-human-card-3.png"
     - title: "Discover Hidden Capabilities That Transform Work"
       content: "Most teams use 10% of ChatGPT's power. We unlock the other 90%. Your lawyers discover voice mode for mock depositions. Your HR team finds memory features for personalized career coaching. Your managers learn advanced reasoning for complex strategic decisions. Each discovery multiplies across your organization."
-      image: "/images/home/benefits/benefits-4.png"
+      image: "/images/home/benefits/benefits-human-card-4.png"
     - title: "From Cost Savings to Revenue Growth"
       content: "While others chase 10% efficiency gains, your team builds revenue-generating AI capabilities. Sales reps who close 30% more deals because ChatGPT coaches them through objections. Product teams who ship features faster using AI pair programming. Customer service that turns support conversations into upsell opportunities."
-      image: "/images/home/benefits/benefits-5.png"
+      image: "/images/home/benefits/benefits-human-card-5.png"
 
 service_components:
   title: "Three Service Components for Complete AI Transformation"

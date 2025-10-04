@@ -53,14 +53,14 @@ const { feature } = Astro.props;
                     data-aos="fade-left-sm"
                     data-aos-delay="300"
                   >
-                    <div class="flex flex-col lg:flex-row">
+                    <div class="flex flex-col lg:flex-row h-full">
                       <ImageMod
                         src={item.image}
                         width={624}
                         height={800}
                         alt={item.title}
                         quality="max"
-                        class="object-cover max-lg:mx-auto p-5 md:p-0 w-[312px] h-[400px]"
+                        class="object-cover max-lg:mx-auto p-5 md:p-0 w-full lg:w-[312px] h-[400px] lg:h-full"
                       />
                       <div class="p-5 md:p-10">
                         <p
@@ -115,7 +115,7 @@ const { feature } = Astro.props;
       slidesPerView: "auto",
       spaceBetween: 24,
       autoplay: {
-        delay: 4000,
+        delay: 7000,
         disableOnInteraction: false,
       },
       on: {
