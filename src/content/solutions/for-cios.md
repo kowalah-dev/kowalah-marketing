@@ -10,6 +10,7 @@ hero:
   title: "Solve the Shadow ChatGPT Challenge"
   content: "Your employees are already using ChatGPT on personal devices - guide them to enterprise-grade usage instead of fighting it. Transform shadow AI chaos into strategic organizational alignment."
   image: "/images/solutions/cio-hero-enterprise-governance.png"
+  background_image: "/images/solutions/cio-solution-bg.png"
   button:
     - enable: true
       label: "Get Your AI Governance Strategy"
@@ -153,6 +154,7 @@ services_highlight:
 cta:
   title: "Get Your Strategic AI Governance Consultation"
   content: "Strategic discussion about transforming shadow ChatGPT usage into enterprise AI excellence. Explore governance frameworks, implementation approaches, and organizational alignment strategies in a 30-minute strategic conversation."
+  background_image: "/images/solutions/cio-solution-bg.png"
   button:
     enable: true
     label: "Get Your AI Governance Strategy"

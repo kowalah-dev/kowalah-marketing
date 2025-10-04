@@ -509,6 +509,7 @@ const solutionsCollection = defineCollection({
       title: z.string(),
       content: z.string(),
       image: z.string(),
+      background_image: z.string().optional(),
       button: z.array(
         z.object({
           enable: z.boolean(),
@@ -635,6 +636,7 @@ const solutionsCollection = defineCollection({
     cta: z.object({
       title: z.string(),
       content: z.string(),
+      background_image: z.string().optional(),
       button: z.object({
         enable: z.boolean(),
         label: z.string(),

@@ -11,6 +11,7 @@ hero:
   title: "Scale Revenue Without Scaling Headcount - Enable Your Workforce with ChatGPT"
   content: "Transform every employee into a more productive version of themselves. ChatGPT as a creative thinking partner accelerates your entire organization without adding headcount."
   image: "/images/solutions/solutions-ceo-hero.png"
+  background_image: "/images/solutions/ceo-solution-bg.png"
   button:
     - enable: true
       label: "Get Your Workforce Acceleration Plan"
@@ -35,9 +36,9 @@ challenges:
       category: "competitive"
 
 solution:
-  title: "Workforce Transformation Through AI Creative Partnership"
+  title: "Your People + AI = Revenue Growth"
   content: "Transform every employee's capacity for strategic thinking and decision-making by enabling them to work with ChatGPT as an intelligent creative partner and knowledge amplifier."
-  image: "/images/solutions/team-collaboration-technology.jpg"
+  image: "/images/solutions/ceo-ai-partnership.png"
   points:
     - "Access to unlimited creative thinking partnership and expertise"
     - "Enhanced decision-making through AI-powered analysis and insight"
@@ -48,22 +49,26 @@ benefits:
   title: "Business Outcomes That Scale"
   subtitle: "Measurable productivity gains and competitive advantage through workforce acceleration"
   points:
-    - title: "Revenue Growth Without Headcount"
-      content: "Increase output capacity with existing workforce through ChatGPT productivity multiplication"
-      image: "/images/solutions/revenue-growth-chart.jpg"
+    - title: "Grow Revenue Without Growing Headcount"
+      content: "Increase output capacity with existing workforce through ChatGPT productivity multiplication - revenue scales while headcount remains stable"
+      image: "/images/solutions/ceo-revenue-growth-chart.png"
       metric: "[X%] productivity increase"
     - title: "Competitive Speed Advantage"
-      content: "Move faster than competitors who are still hiring by accelerating existing team capabilities"
-      image: "/images/solutions/competitive-advantage-speed.jpg"
+      content: "Move faster than competitors who are still hiring by accelerating existing team capabilities and decision-making velocity"
+      image: "/images/solutions/ceo-competitive-speed.png"
       metric: "[X] months faster"
     - title: "Cost Structure Optimization"
-      content: "Improve margins through productivity multiplication rather than proportional hiring costs"
-      image: "/images/solutions/cost-optimization-graph.jpg"
+      content: "Improve margins through productivity multiplication rather than proportional hiring costs - scale economically"
+      image: "/images/solutions/ceo-cost-optimization.png"
       metric: "[X%] cost savings"
     - title: "Workforce Satisfaction"
-      content: "Employees become more effective and engaged with AI creative thinking partnership"
-      image: "/images/solutions/employee-satisfaction.jpg"
+      content: "Employees become more effective and engaged with AI creative thinking partnership - higher satisfaction and retention"
+      image: "/images/solutions/ceo-workforce-satisfaction.png"
       metric: "[X%] satisfaction increase"
+    - title: "Strategic Agility & Innovation"
+      content: "Accelerate strategic planning and innovation cycles through AI-powered scenario analysis and rapid iteration"
+      image: "/images/solutions/ceo-strategic-agility.png"
+      metric: "[X]x faster innovation"
 
 social_proof:
   testimonials:
@@ -156,6 +161,7 @@ services_highlight:
 cta:
   title: "Get Your Workforce Acceleration Strategy"
   content: "Strategic discussion about scaling revenue without scaling headcount through systematic ChatGPT adoption. Discover how to multiply your workforce productivity in a 30-minute strategic conversation."
+  background_image: "/images/solutions/ceo-solution-bg.png"
   button:
     enable: true
     label: "Get Your Workforce Acceleration Plan"

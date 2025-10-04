@@ -63,6 +63,7 @@ const {
     }}
     image={hero.image}
     imageAlt={title}
+    backgroundImage={hero.background_image}
   />
 
   <!-- Challenges/Problem Recognition Section -->
@@ -157,60 +158,6 @@ const {
   <!-- Benefits Section -->
   <Benefits benefits={benefits} />
 
-  <!-- Social Proof Section -->
-  {social_proof.testimonials.length > 0 && (
-    <section class="section">
-      <div class="container">
-        <div class="row justify-center">
-          <div class="sm:col-10 lg:col-8 text-center mb-12">
-            <h2 class="mb-4" data-aos="fade-up-sm">
-              {solution_type === "role" ? "Trusted by Executive Peers" : "Industry Success Stories"}
-            </h2>
-            <p class="text-lg text-dark/70" data-aos="fade-up-sm" data-aos-delay="100">
-              {solution_type === "role"
-                ? "See how other executives are bridging the AI leadership gap"
-                : "Proven results across the industry"
-              }
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up-sm" data-aos-delay="200">
-              {social_proof.testimonials.map((testimonial: any) => (
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                  <div class="flex items-center mb-4">
-                    <ImageMod
-                      src={testimonial.image}
-                      class="w-12 h-12 rounded-full mr-4"
-                      alt={testimonial.name}
-                      width={48}
-                      height={48}
-                    />
-                    <div>
-                      <h4 class="font-semibold">{testimonial.name}</h4>
-                      <p class="text-sm text-dark/70">{testimonial.title}</p>
-                      <p class="text-sm text-primary font-medium">{testimonial.company}</p>
-                      {testimonial.company_size && (
-                        <p class="text-xs text-dark/50">{testimonial.company_size} • {testimonial.industry}</p>
-                      )}
-                    </div>
-                  </div>
-                  <blockquote class="text-dark/80 italic" set:html={markdownify(testimonial.quote)} />
-                  <div class="mt-4 flex items-center justify-between">
-                    <span class="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">
-                      {testimonial.proof_type === "role_peer" ? "Executive Peer" :
-                       testimonial.proof_type === "industry_peer" ? "Industry Peer" : "Case Study"}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )}
 
   <!-- Case Studies Section (if any) -->
   {social_proof.case_studies && social_proof.case_studies.length > 0 && (
@@ -385,19 +332,33 @@ const {
   <section class="section pb-0">
     <div class="container">
       <div
-        class="rounded-3xl bg-gradient-to-br from-primary to-secondary px-5 pt-7 md:px-12 md:pt-24"
+        class={`rounded-3xl px-5 pt-7 md:px-12 md:pt-24 ${cta.background_image ? 'relative overflow-hidden min-h-[400px] flex items-center' : 'bg-gradient-to-br from-primary to-secondary'}`}
         data-aos="fade-up-sm"
       >
-        <div class="row justify-center">
+        {cta.background_image && (
+          <>
+            <div class="absolute inset-0 -z-10">
+              <ImageMod
+                src={cta.background_image}
+                alt={cta.title}
+                width={1200}
+                height={400}
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-br from-primary/60 via-primary/55 to-secondary/60"></div>
+            </div>
+          </>
+        )}
+        <div class="row justify-center w-full">
           <div class="col-12 text-center">
             <h2
               set:html={markdownify(cta.title)}
-              class="mb-3 text-light lg:h1"
+              class={`mb-3 lg:h1 ${cta.background_image ? 'text-white drop-shadow-lg' : 'text-light'}`}
               data-aos="fade-up-sm"
             />
             <p
               set:html={markdownify(cta.content)}
-              class="mb-6 text-light"
+              class={`mb-6 ${cta.background_image ? 'text-white/95 drop-shadow-md' : 'text-light'}`}
               data-aos="fade-up-sm"
             />
             {cta.button.enable && (
@@ -405,7 +366,7 @@ const {
                 <Button
                   label={cta.button.label}
                   link={cta.button.link}
-                  style="white"
+                  style={cta.background_image ? "light" : "white"}
                   className="mb-8"
                 />
               </div>
