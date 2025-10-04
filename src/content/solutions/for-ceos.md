@@ -134,7 +134,7 @@ services_highlight:
       badge: "Complete Implementation"
       content: "Full 16-week organizational transformation"
       description: "Strategy, procurement, deployment, change enablement, and ongoing optimization. Transform shadow AI chaos into enterprise excellence with proven frameworks."
-      image: "/images/services/chatgpt-deployment-hero.png"
+      image: "/images/services/chatgpt-deployment-cta-bg.png"
       button:
         enable: true
         label: "View Deployment Process"
@@ -143,7 +143,7 @@ services_highlight:
       badge: "Cultural Transformation"
       content: "Workforce adoption and capability building"
       description: "AI Ambassadors, training programs, and change management to ensure successful adoption across your entire organization. Drive cultural transformation."
-      image: "/images/services/change-enablement.png"
+      image: "/images/services/change-enablement-cta-bg.png"
       button:
         enable: true
         label: "Explore Change Management"
@@ -152,7 +152,7 @@ services_highlight:
       badge: "Leadership Focus"
       content: "Executive-level ChatGPT mastery"
       description: "Strategic ChatGPT training designed specifically for C-suite executives and senior leadership teams. Build executive AI confidence."
-      image: "/images/services/executive-training.png"
+      image: "/images/services/training-cta-bg.png"
       button:
         enable: true
         label: "View Training Programs"

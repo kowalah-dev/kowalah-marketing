@@ -49,20 +49,24 @@ benefits:
   points:
     - title: "Governance Compliance Achievement"
       content: "Implement enterprise security, data residency, and compliance controls while enabling the AI adoption your organization wants"
-      image: "/images/solutions/governance-compliance-dashboard.png"
+      image: "/images/solutions/cio-governance-compliance.png"
       metric: "100% compliance framework"
     - title: "Organizational Adoption Success"
       content: "Achieve high adoption rates by aligning with employee preferences rather than forcing alternative solutions"
-      image: "/images/solutions/adoption-metrics-dashboard.png"
+      image: "/images/solutions/cio-adoption-success.png"
       metric: "85% user adoption rate"
     - title: "Strategic Capacity Augmentation"
       content: "Focus on AI strategy and governance while Expert Requests handle implementation workload your team cannot absorb"
-      image: "/images/solutions/strategic-capacity-planning.png"
+      image: "/images/solutions/cio-capacity-augmentation.png"
       metric: "3x implementation capacity"
     - title: "Technology Leadership Positioning"
       content: "Position as strategic AI leader who enables organizational transformation rather than technology gatekeeper"
-      image: "/images/solutions/technology-leadership-success.png"
+      image: "/images/solutions/cio-leadership-positioning.png"
       metric: "Strategic leadership recognition"
+    - title: "Risk Mitigation & Security Excellence"
+      content: "Eliminate shadow AI security risks while maintaining enterprise data protection and regulatory compliance standards"
+      image: "/images/solutions/cio-risk-security.png"
+      metric: "Zero security incidents"
 
 social_proof:
   testimonials:
@@ -127,25 +131,25 @@ services_highlight:
       badge: "Complete Implementation"
       content: "Full enterprise rollout with governance integration"
       description: "End-to-end ChatGPT Enterprise deployment including SSO setup, data residency configuration, governance framework implementation, and organizational change management."
-      image: "/images/services/chatgpt-enterprise-deployment.png"
+      image: "/images/services/chatgpt-deployment-cta-bg.png"
       button:
         enable: true
         label: "View Deployment Details"
         link: "/services/chatgpt-enterprise-deployment"
-    - title: "Expert Requests - Implementation Capacity"
+    - title: "Expert Requests"
       badge: "Capacity Augmentation"
       content: "Burst implementation capacity for AI initiatives"
       description: "Expert development team provides implementation capacity for prompts, GPTs, custom applications, and integration projects that your team cannot absorb."
-      image: "/images/services/expert-requests-capacity.png"
+      image: "/images/services/expert-request-problem.png"
       button:
         enable: true
         label: "Explore Expert Requests"
         link: "/product/expert-requests"
-    - title: "AI Accelerators - Ready-to-Deploy Solutions"
+    - title: "AI Accelerators"
       badge: "Immediate Value"
       content: "Pre-built AI solutions for instant deployment"
       description: "Ready-to-go prompts, GPTs, and AI workflows designed for enterprise use cases that accelerate organizational AI adoption and capability building."
-      image: "/images/services/ai-accelerators-deployment.png"
+      image: "/images/services/accelerator-problem.png"
       button:
         enable: true
         label: "Browse AI Accelerators"

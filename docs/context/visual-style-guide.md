@@ -100,6 +100,46 @@ Focus on capturing authentic human reactions to AI discovery:
 - **Color Usage:** Sophisticated grays as foundation with strategic pink-purple gradient accents
 - **Elements:** Geometric shapes, clean lines, professional iconography
 
+## AI Image Generation Best Practices
+
+### Preventing Text Overlays in Midjourney
+
+**Critical Rules to Avoid Unwanted Text Generation:**
+
+1. **Never use quoted speech or dialogue** in prompts
+   - ❌ Bad: `Expression conveys "I'm the strategic leader"`
+   - ✅ Good: `Expression conveys strategic leadership confidence`
+
+2. **Avoid prescriptive messaging phrases**
+   - ❌ Bad: `Face shows "compliance achieved, risks mitigated"`
+   - ✅ Good: `Face shows compliance satisfaction and risk mitigation relief`
+
+3. **Use descriptive emotion words instead of quoted outcomes**
+   - ❌ Bad: `Conveys "my team can focus on strategy"`
+   - ✅ Good: `Conveys strategic focus and operational relief`
+
+4. **Explicitly request pure photography**
+   - Always include: `No text overlays, no graphic elements, pure photography`
+   - Add: `Professional portrait photography, not illustration or graphic design`
+
+5. **Remove any text-like elements from scene descriptions**
+   - ❌ Bad: `Dashboard showing "85% adoption rate" text`
+   - ✅ Good: `Dashboard displaying adoption metrics in background, blurred and out of focus`
+
+6. **Focus on visual and emotional description only**
+   - Describe what you see, not what text would say
+   - Use emotional descriptors: relief, confidence, satisfaction, pride, calm
+   - Avoid business jargon that could trigger text: KPI, metrics, dashboard labels
+
+**Template Addition for Text Prevention:**
+```
+Photography Specifications:
+- Pure photographic portrait without text overlays or graphic elements
+- Natural realistic photography, not illustration or graphic design
+- Clean professional headshot quality
+- No text, no graphics, authentic photography only
+```
+
 ## AI Image Generation Prompt Template
 
 ```
@@ -171,7 +211,13 @@ Technical Prompt Additions:
 - Fujifilm color science
 - Documentary portrait style
 
-Avoid: Corporate stock photo aesthetics, boardroom formality, executive-only focus, forced suits/blazers, staged corporate settings, sterile environments, overly polished compositions, artificial lighting, harsh shadows, pop art styles.
+Photography Specifications (Text Overlay Prevention):
+- Pure photographic portrait without text overlays or graphic elements
+- Natural realistic photography, not illustration or graphic design
+- Clean professional headshot quality
+- No text, no graphics, authentic photography only
+
+Avoid: Corporate stock photo aesthetics, boardroom formality, executive-only focus, forced suits/blazers, staged corporate settings, sterile environments, overly polished compositions, artificial lighting, harsh shadows, pop art styles, text overlays, graphic elements, quoted dialogue in descriptions.
 ```
 
 ## Image Dimensions by Use Case
