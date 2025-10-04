@@ -47,15 +47,14 @@ service_integration:
 
 problem_solution:
   title: "Stop Building ChatGPT Solutions From Scratch"
+  image: "/images/services/accelerator-problem.png"
   problem_statement: "Organizations spend months figuring out how to use ChatGPT effectively, often abandoning initiatives due to complexity and uncertainty. Teams stare at blank ChatGPT screens, not knowing what to build or how to start meaningful AI adoption."
   solution_overview: "ChatGPT Accelerators provide proven templates, frameworks, and step-by-step guidance for immediate implementation. Like instruction manuals, they show you exactly what you can build before you start - eliminating guesswork and accelerating results."
   trust_elements:
-    - "50+ proven accelerators across 8 categories"
-    - "Used by 100+ organizations for faster AI adoption"
-    - "Significant reduction in implementation time"
-    - "Implementation-ready with no customization required"
-    - "Updated monthly based on real-world feedback"
-    - "Created by AI implementation experts with enterprise experience"
+    - "Copy and deploy accelerators in minutes, not months"
+    - "No AI expertise required - everything includes step-by-step guidance"
+    - "Ready-to-use templates eliminate trial and error"
+    - "Updated monthly with latest ChatGPT capabilities and best practices"
 
 capabilities:
   title: "What's in Our Accelerator Library?"
@@ -106,7 +105,7 @@ capabilities:
 
 how_it_works:
   title: "From Confusion to Confidence in 3 Steps"
-  subtitle: "Here's how teams actually start using ChatGPT successfully (without the guesswork)."
+  subtitle: "When you can see a working example—even if it's not your exact situation—it sparks understanding. Suddenly ChatGPT transforms from a blank screen into a creative thinking partner you know how to use."
   steps:
     - step_number: 1
       title: "Browse Our Accelerator Library"
@@ -265,6 +264,16 @@ featured_showcase:
         - "Professional-grade prompt templates"
         - "Iterative prompt improvement process"
         - "Cross-platform prompt optimization"
+
+conversion:
+  title: "Ready to Stop Reinventing the Wheel?"
+  subtitle: "Start with proven ChatGPT accelerators instead of blank screens and guesswork."
+  offer_description: "Browse 50+ ready-to-use accelerators on our Free plan. See exactly what's possible before you commit."
+  background_image: "/images/services/accelerators-cta-bg.png"
+  cta:
+    label: "Start Free Trial"
+    link: "https://app.kowalah.com/sign-up"
+    subtext: "Explore accelerators free • Upgrade for full library access"
 
 ---
 

@@ -257,6 +257,7 @@ const pageData = {
     title: "Start Your AI Leadership Journey Today",
     subtitle: "See why executives choose our AI Advisory Platform over expensive hires and lengthy consultant engagements.",
     offer_description: "Start with 10 free conversations to experience executive-level AI guidance. No commitment required - see the difference strategic AI leadership makes for your organization.",
+    background_image: "/images/services/ai-advisory-cta-bg.png",
     cta: {
       label: "Start Free Trial",
       link: "https://app.kowalah.com/sign-up",
@@ -311,76 +312,44 @@ const pageData = {
     </div>
   </section>
 
-  <!-- Service Integration Section -->
-  <section class="section bg-light">
-    <div class="container">
-      <div class="row justify-center">
-        <div class="lg:col-8 text-center mb-12">
-          <h2 class="h2 mb-4" data-aos="fade-up-sm">{pageData.service_integration.title}</h2>
-          <p class="text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
-            {pageData.service_integration.subtitle}
-          </p>
-        </div>
-      </div>
-
-      <div class="row g-4">
-        {pageData.service_integration.services.map((service, index) => (
-          <div class="lg:col-4 mb-6" data-aos="fade-up-sm" data-aos-delay={index * 100}>
-            <div class="bg-white rounded-xl p-6 h-full">
-              <div class="flex items-center gap-4 mb-4">
-                <Icon name={service.icon} size={24} class="text-primary flex-shrink-0" />
-                <h3 class="h6 mb-0">{service.title}</h3>
-              </div>
-              <p class="text-text-dark mb-4">{service.description}</p>
-              <div class="mb-4">
-                <h4 class="text-sm font-semibold text-primary mb-2">Advisory Support:</h4>
-                <ul class="space-y-1">
-                  {service.advisory_support.map((support) => (
-                    <li class="text-sm text-text-dark flex items-start gap-2">
-                      <div class="w-1 h-1 bg-primary rounded-full flex-shrink-0 mt-2"></div>
-                      {support}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <a href={service.link} class="text-primary text-sm font-medium hover:underline">
-                View {service.title} →
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- Problem/Solution Section -->
   <section class="section">
     <div class="container">
-      <div class="row justify-center">
-        <div class="lg:col-8">
-          <div class="text-center">
-            <h2 class="h2 mb-6" data-aos="fade-up-sm">
-              {pageData.problem_solution.title}
-            </h2>
-            <p class="mb-8 text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
+      <div class="row items-center g-6">
+        <div class="lg:col-6 mb-6 lg:mb-0" data-aos="fade-right">
+          <div class="rounded-3xl overflow-hidden shadow-2xl shadow-primary/20">
+            <Image
+              src="/images/services/ai-advisory-problem.png"
+              alt={pageData.problem_solution.title}
+              width={800}
+              height={600}
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        <div class="lg:col-6" data-aos="fade-left">
+          <h2 class="h2 mb-6">{pageData.problem_solution.title}</h2>
+
+          <div class="mb-6 p-6 rounded-2xl bg-white/[0.05] border border-border/30">
+            <p class="text-lg text-text-dark leading-relaxed">
               {pageData.problem_solution.problem_statement}
             </p>
+          </div>
 
-            <p class="mb-8 text-lg font-medium" data-aos="fade-up-sm" data-aos-delay="100">
+          <div class="mb-8 p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20">
+            <p class="text-lg font-medium text-text-dark leading-relaxed">
               {pageData.problem_solution.solution_overview}
             </p>
-
-            <div class="row justify-center mt-12">
-              {pageData.problem_solution.trust_elements.map((element, index) => (
-                <div class="lg:col-6 mb-4" data-aos="fade-up-sm" data-aos-delay={150 + index * 50}>
-                  <div class="flex items-center justify-center text-center">
-                    <Icon name="check" size={20} class="text-primary me-3 flex-shrink-0" />
-                    <span class="text-text-dark">{element}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
+
+          <ul class="space-y-3">
+            {pageData.problem_solution.trust_elements.map((element) => (
+              <li class="flex items-start gap-3">
+                <Icon name="check" size={20} class="text-primary flex-shrink-0 mt-1" />
+                <span class="text-text-dark">{element}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
@@ -452,36 +421,8 @@ const pageData = {
     </div>
   </section>
 
-  <!-- Competitive Advantage Section -->
-  <section class="section bg-light">
-    <div class="container">
-      <div class="row justify-center">
-        <div class="lg:col-8 text-center mb-16">
-          <h2 class="h2 mb-4" data-aos="fade-up-sm">{pageData.competitive_advantage.title}</h2>
-          <p class="text-lg text-text-dark mb-6" data-aos="fade-up-sm" data-aos-delay="50">
-            {pageData.competitive_advantage.subtitle}
-          </p>
-          <p class="text-lg font-medium" data-aos="fade-up-sm" data-aos-delay="100">
-            {pageData.competitive_advantage.key_message}
-          </p>
-        </div>
-      </div>
-
-      <div class="row g-4">
-        {pageData.competitive_advantage.advantages.map((advantage, index) => (
-          <div class="lg:col-6 mb-6" data-aos="fade-up-sm" data-aos-delay={index * 100}>
-            <div class="bg-white rounded-xl p-6 h-full">
-              <h3 class="h6 mb-3 text-primary">{advantage.point}</h3>
-              <p class="text-text-dark">{advantage.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- Use Cases Section -->
-  <section class="section">
+  <section class="section bg-light">
     <div class="container">
       <div class="row justify-center">
         <div class="lg:col-8 text-center mb-12">
@@ -514,33 +455,44 @@ const pageData = {
     </div>
   </section>
 
-  <!-- Integrations Section -->
-  <section class="section bg-light">
+  <!-- Service Integration Section -->
+  <section class="section">
     <div class="container">
       <div class="row justify-center">
         <div class="lg:col-8 text-center mb-12">
-          <h2 class="h2 mb-4" data-aos="fade-up-sm">{pageData.integrations.title}</h2>
-          <p class="text-lg text-text-dark mb-6" data-aos="fade-up-sm" data-aos-delay="50">
-            {pageData.integrations.subtitle}
-          </p>
-          <p class="text-lg" data-aos="fade-up-sm" data-aos-delay="100">
-            {pageData.integrations.current_state}
+          <h2 class="h2 mb-4" data-aos="fade-up-sm">{pageData.service_integration.title}</h2>
+          <p class="text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
+            {pageData.service_integration.subtitle}
           </p>
         </div>
       </div>
 
-      <div class="row justify-center">
-        <div class="lg:col-8">
-          <div class="row g-4">
-            {pageData.integrations.available_integrations.map((integration, index) => (
-              <div class="lg:col-6 mb-4" data-aos="fade-up-sm" data-aos-delay={index * 100}>
-                <div class="bg-white rounded-xl p-4 h-full text-center">
-                  <p class="font-medium text-text-dark">{integration}</p>
-                </div>
+      <div class="row g-4">
+        {pageData.service_integration.services.map((service, index) => (
+          <div class="lg:col-4 mb-6" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+            <div class="bg-white rounded-xl p-6 h-full">
+              <div class="flex items-center gap-4 mb-4">
+                <Icon name={service.icon} size={24} class="text-primary flex-shrink-0" />
+                <h3 class="h6 mb-0">{service.title}</h3>
               </div>
-            ))}
+              <p class="text-text-dark mb-4">{service.description}</p>
+              <div class="mb-4">
+                <h4 class="text-sm font-semibold text-primary mb-2">Advisory Support:</h4>
+                <ul class="space-y-1">
+                  {service.advisory_support.map((support) => (
+                    <li class="text-sm text-text-dark flex items-start gap-2">
+                      <div class="w-1 h-1 bg-primary rounded-full flex-shrink-0 mt-2"></div>
+                      {support}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a href={service.link} class="text-primary text-sm font-medium hover:underline">
+                View {service.title} →
+              </a>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
@@ -549,18 +501,30 @@ const pageData = {
   <section class="section pb-0">
     <div class="container">
       <div
-        class="rounded-3xl bg-gradient-to-br from-primary to-secondary px-5 pt-7 md:px-12 md:pt-16 pb-16"
+        class="rounded-3xl relative overflow-hidden px-5 pt-7 md:px-12 md:pt-16 pb-16 min-h-[400px] flex items-center"
         data-aos="fade-up-sm"
       >
-        <div class="row justify-center">
+        {/* Background image with gradient overlay */}
+        <div class="absolute inset-0 -z-10">
+          <Image
+            src={pageData.conversion.background_image}
+            alt="AI Advisory Platform"
+            width={1200}
+            height={400}
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/65 to-secondary/70"></div>
+        </div>
+
+        <div class="row justify-center relative z-10 w-full">
           <div class="lg:col-8 text-center">
-            <h2 class="h2 text-white mb-6" data-aos="fade-up-sm">
+            <h2 class="h2 text-white mb-6 drop-shadow-lg" data-aos="fade-up-sm">
               {pageData.conversion.title}
             </h2>
-            <p class="text-lg text-white/90 mb-6" data-aos="fade-up-sm" data-aos-delay="50">
+            <p class="text-xl text-white/95 mb-6 drop-shadow-md" data-aos="fade-up-sm" data-aos-delay="50">
               {pageData.conversion.subtitle}
             </p>
-            <p class="text-white/90 mb-8" data-aos="fade-up-sm" data-aos-delay="100">
+            <p class="text-white/90 mb-8 drop-shadow-md" data-aos="fade-up-sm" data-aos-delay="100">
               {pageData.conversion.offer_description}
             </p>
 
@@ -573,7 +537,7 @@ const pageData = {
               />
             </div>
 
-            <p class="text-sm text-white/80">{pageData.conversion.cta.subtext}</p>
+            <p class="text-sm text-white/90 drop-shadow-sm">{pageData.conversion.cta.subtext}</p>
           </div>
         </div>
       </div>
