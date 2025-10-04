@@ -15,31 +15,24 @@ const { program_depth } = Astro.props;
         />
         <p
           set:html={markdownify(program_depth.subtitle)}
-          class="mb-4 text-lg text-slate-600 dark:text-slate-300"
+          class="mb-16 text-lg text-slate-600 dark:text-slate-300"
           data-aos="fade-up-sm"
           data-aos-delay="100"
         />
-        <p
-          class="mb-16 text-base text-primary font-medium"
-          data-aos="fade-up-sm"
-          data-aos-delay="200"
-        >
-          {program_depth.differentiator}
-        </p>
       </div>
     </div>
 
-    <div class="row g-6">
+    <div class="row g-6 gap-y-6">
       {program_depth.categories.map((category: any, categoryIndex: number) => (
         <div class="lg:col-6" data-aos="fade-up-sm" data-aos-delay={300 + (categoryIndex * 100)}>
           <!-- Interactive flip card with accessible toggle -->
-          <div class="group relative h-full min-h-[360px] md:min-h-[420px] [perspective:1200px]">
+          <div class="group relative h-full min-h-[400px] md:min-h-[480px] [perspective:1200px]">
             <!-- Mobile/keyboard toggle -->
             <input id={`pd-toggle-${categoryIndex}`} type="checkbox" class="peer sr-only" aria-hidden="true" />
 
             <div class="relative h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus-within:[transform:rotateY(180deg)] peer-checked:[transform:rotateY(180deg)] motion-reduce:transition-none motion-reduce:transform-none">
-              <!-- FRONT: Features list (no descriptions) -->
-              <div class="absolute inset-0 p-8 rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow duration-300 [backface-visibility:hidden] overflow-hidden">
+              <!-- FRONT: Program elements with descriptions -->
+              <div class="absolute inset-0 p-8 rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow duration-300 [backface-visibility:hidden] overflow-auto">
                 <!-- Category Header -->
                 <div class="mb-6">
                   <div class="flex items-center mb-4">
@@ -68,15 +61,21 @@ const { program_depth } = Astro.props;
                   </div>
                 </div>
 
-                <!-- Elements (names only) -->
+                <!-- Elements with descriptions -->
                 <div class="space-y-3">
                   {category.elements.map((element: any, elementIndex: number) => (
                     <div class="flex items-start gap-3">
                       <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                      <h4 class="font-medium text-slate-800 dark:text-slate-200 text-sm">{element.name}</h4>
+                      <div>
+                        <h4 class="font-semibold text-slate-800 dark:text-slate-200 text-sm mb-1">{element.name}</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{element.description}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
+
+                <!-- Hover hint -->
+                <p class="mt-6 text-xs text-primary/70 hidden md:block">Hover to see why it matters</p>
 
                 <!-- Mobile toggle hint -->
                 <label for={`pd-toggle-${categoryIndex}`} class="mt-6 inline-flex items-center gap-2 text-primary text-sm cursor-pointer md:hidden">
@@ -96,29 +95,24 @@ const { program_depth } = Astro.props;
                     </svg>
                   </div>
                   <div>
-                    <h3 class="text-lg font-bold text-primary">Why it matters</h3>
-                    <p class="text-xs text-slate-700 dark:text-slate-300">The impact behind these program elements</p>
+                    <h3 class="text-lg font-bold text-primary">Why {category.title} Matters</h3>
+                    <p class="text-xs text-slate-700 dark:text-slate-300">The strategic value and business impact</p>
                   </div>
                 </div>
 
-                <ul class="space-y-3">
-                  {category.elements.slice(0, 3).map((element: any, i: number) => (
-                    <li class="flex items-start gap-3" data-aos="fade-up-sm" data-aos-delay={150 + i * 80}>
-                      <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                      <p class="text-sm text-slate-800 dark:text-slate-200 leading-relaxed">{element.description}</p>
-                    </li>
-                  ))}
-                </ul>
+                <div class="prose prose-sm dark:prose-invert max-w-none [&_p]:text-sm [&_p]:text-slate-800 dark:[&_p]:text-slate-200 [&_p]:leading-relaxed [&_p]:mb-3 [&_p:last-child]:mb-0">
+                  <div set:html={markdownify(category.why_matters)} />
+                </div>
 
                 <!-- Desktop hint -->
-                <p class="mt-6 hidden md:block text-xs text-primary/80">Hover to flip back • Tab to focus</p>
+                <p class="mt-6 hidden md:block text-xs text-primary/70">Hover away to flip back</p>
 
                 <!-- Mobile close -->
                 <label for={`pd-toggle-${categoryIndex}`} class="mt-6 inline-flex items-center gap-2 text-primary text-sm cursor-pointer md:hidden">
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10.78 9.72a.75.75 0 00-1.06 0L5.47 13.97a.75.75 0 001.06 1.06L10 11.56l3.47 3.47a.75.75 0 001.06-1.06L10.78 9.72z" clip-rule="evenodd" />
                   </svg>
-                  <span>Back</span>
+                  <span>Back to details</span>
                 </label>
               </div>
             </div>
@@ -137,7 +131,7 @@ const { program_depth } = Astro.props;
         >
           <h3 class="text-2xl font-bold text-primary mb-4">Key Differentiator</h3>
           <p class="text-lg text-dark dark:text-light font-medium italic">
-            "This isn't a training course or consulting project - it's a complete organizational transformation with 20+ specialized roles, proven methodologies, and ongoing support infrastructure."
+            "We light a thousand little fires across your organization - empowering every individual, regardless of role, team, or seniority, to transform their work with AI. Not one big IT project, but personal growth for every employee."
           </p>
         </div>
       </div>

@@ -8,8 +8,8 @@ hero:
       label: "Get ChatGPT Assessment"
       link: "/contact"
     - enable: true
-      label: "See Success Stories"
-      link: "/case-studies"
+      label: "Explore Services"
+      link: "/services"
 
 transformation:
   title: "The ChatGPT Enterprise Reality"
@@ -50,11 +50,12 @@ transformation:
 
 program_depth:
   title: "20+ Program Elements That Set Us Apart"
-  subtitle: "Complete organizational transformation, not just training workshops"
+  subtitle: "Guiding every employee on their personal journey to AI enlightenment"
   differentiator: "This depth of expertise is what separates true ChatGPT specialists from general AI consultants."
   categories:
     - title: "Strategic Foundation"
       icon: "strategy"
+      why_matters: "Without proper strategic foundation, AI initiatives become disconnected projects that fail to deliver organizational value.<br><br>Our strategic foundation ensures your ChatGPT transformation aligns with business objectives, has executive buy-in, and delivers measurable ROI from day one.<br><br>This groundwork prevents the common pitfall of shadow AI chaos and ensures your investment drives competitive advantage, not just isolated productivity gains."
       elements:
         - name: "Executive Alignment Workshop"
           description: "C-suite alignment on AI vision, success metrics, and transformation roadmap"
@@ -68,6 +69,7 @@ program_depth:
           description: "KPIs and measurement frameworks for tracking transformation progress"
     - title: "People & Change"
       icon: "people"
+      why_matters: "Technology alone doesn't transform organizations—people do. The difference between successful ChatGPT adoption and failed deployments is effective change management.<br><br>Our people-centric approach builds internal champions, overcomes resistance, and creates a culture where AI capabilities spread organically across teams.<br><br>This human element turns one-off training into sustained organizational capability that multiplies value over time."
       elements:
         - name: "AI Ambassadors Program"
           description: "Train 10% of workforce as change champions and peer support network"
@@ -81,6 +83,7 @@ program_depth:
           description: "Messaging frameworks for leadership to communicate AI vision effectively"
     - title: "Technical Implementation"
       icon: "technical"
+      why_matters: "ChatGPT deployment isn't just about turning on software—it requires careful security configuration, system integration, and technical optimization.<br><br>Our technical expertise ensures your deployment meets enterprise security standards, integrates seamlessly with existing workflows, and unlocks advanced capabilities most organizations never discover.<br><br>This technical foundation prevents costly security incidents, compliance issues, and the frustration of disconnected tools that undermine adoption."
       elements:
         - name: "ChatGPT Enterprise Procurement"
           description: "Vendor negotiation, contract optimization, and deployment planning"
@@ -94,6 +97,7 @@ program_depth:
           description: "Technical guidance for connecting ChatGPT to business applications"
     - title: "Ongoing Capability Building"
       icon: "training"
+      why_matters: "Initial ChatGPT training gets teams started, but competitive advantage comes from continuous capability expansion.<br><br>Our ongoing support ensures your organization stays at the forefront of AI developments, continuously discovers new use cases, and builds increasingly sophisticated workflows.<br><br>This sustained expertise development is what transforms ChatGPT from a productivity tool into a strategic competitive advantage that compounds value quarter after quarter."
       elements:
         - name: "Expert Requests Quota"
           description: "Monthly allocation of custom prompt, GPT, and workflow development"
@@ -118,7 +122,7 @@ feature:
       button:
         enable: true
         label: "Learn More"
-        link: "/products"
+        link: "/services"
     - title: "Expert Requests & Accelerators"
       badge: "Ongoing Support"
       content: "Monthly quota of expert deliverables"
@@ -127,7 +131,7 @@ feature:
       button:
         enable: true
         label: "Learn More"
-        link: "/products"
+        link: "/services"
     - title: "Ongoing Managed Services"
       badge: "Permanent Partnership"
       content: "Named AI Strategy Director and continuous capability expansion"
@@ -136,7 +140,7 @@ feature:
       button:
         enable: true
         label: "Learn More"
-        link: "/products"
+        link: "/services"
 
 offering:
   - title: "Channel Existing AI Energy Into Business Results"

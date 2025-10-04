@@ -193,6 +193,7 @@ const homepageCollection = defineCollection({
         z.object({
           title: z.string(),
           icon: z.string().optional(),
+          why_matters: z.string().optional(),
           elements: z.array(
             z.object({
               name: z.string(),
