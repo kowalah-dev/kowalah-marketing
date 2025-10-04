@@ -20,7 +20,7 @@ Our Kowalah repositories consist of these - all within the kowalah-dev Github or
 - @docs/product-overview.md provides detailed overview of the Kowalah application, value proposition and target market
 - @docs/context/messaging-framework.md explains how we communicate aobout Kowalah
 - @docs/context/positioning-canvas.md explains how we position Kowalah against competing solutions
-- @docs/context/executive-visual-style-guide.md provides our image and visual appearance
+- @docs/context/visual-style-guide.md provides our image and visual appearance (human-centered transformation focus)
 - @docs/sanity-integration.md explains how our Astro project pulls content from our Sanity CMS
 
 ## Development Commands

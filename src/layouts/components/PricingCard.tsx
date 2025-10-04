@@ -98,6 +98,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
           link={button.link}
           style="primary"
           className="w-full justify-center"
+          target="_self"
         />
       </div>
     </div>

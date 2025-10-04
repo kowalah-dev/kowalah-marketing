@@ -147,45 +147,45 @@ offering:
     subtitle: "Embrace ChatGPT, Transform Your Organization"
     image: "/images/home/offering/offering-1.1.png"
     image_1: "/images/home/offering/offering-1.png"
-    content: "Embrace shadow ChatGPT usage - recognize ChatGPT is winning the user battle. Recognize that this is an application battle (not models) and ChatGPT has better applications (GPTs/Projects/Voice)."
+    content: "Your employees are already using ChatGPT—often in secret. Rather than fighting this reality, we help you harness it. ChatGPT is winning the user adoption battle because it offers superior applications like custom GPTs, Projects, and Voice capabilities that employees genuinely want to use."
     points:
-      - "Transform frustrated Copilot users into engaged ChatGPT power users with 100% training completion through ChatGPT 101 & 102."
-      - "Proper governance while giving employees tools they want. Complete elimination of shadow AI usage through strategic alignment."
+      - "Transform frustrated Copilot users into engaged ChatGPT power users. Our ChatGPT 101 & 102 programs achieve 100% training completion because people actually want to learn these tools."
+      - "Implement proper governance while giving employees the AI tools they prefer. Turn shadow AI usage into strategic organizational capability with full visibility and control."
   - title: "Turn ChatGPT Into Creative Co-Worker"
     subtitle: "Beyond Basic Tasks to Creative Partnership"
     image: "/images/home/offering/offering-2.2.png"
     image_1: "/images/home/offering/offering-2.png"
-    content: "Move beyond basic tasks to creative business partner. Turn ChatGPT into a coach, workshop facilitator, role-play partner, teacher. Build ChatGPT use cases for other people not yourself - other teams, direct reports, customers."
+    content: "Most teams use ChatGPT for basic tasks like writing emails or summarizing documents. We unlock its potential as a creative business partner—a coach for difficult conversations, a workshop facilitator, a role-play partner for practice, and a teacher for skill development. The key shift: build use cases for others, not just yourself."
     points:
-      - "Voice capabilities for role-playing and coaching. Custom GPTs for department workflows. Advanced features most teams don't know exist."
-      - "'I didn't know it could do that' capability discovery moments that spark organization-wide innovation and competitive differentiation."
+      - "Discover advanced capabilities most teams don't know exist: voice-enabled coaching sessions, custom GPTs tailored to department workflows, and collaborative features that transform how teams work together."
+      - "Create those powerful 'I didn't know it could do that' moments that spark organization-wide innovation. When one person discovers a breakthrough use case, it spreads and multiplies across your entire organization."
   - title: "Sustain Momentum Through Expert Delivery"
     subtitle: "Keep Innovation Flowing Without Overwhelming Teams"
     image: "/images/home/offering/offering-3.3.png"
     image_1: "/images/home/offering/offering-3.png"
-    content: "Expert Requests deliver custom solutions on demand. Recognize that mapping out processes and building GPTs/Prompts takes time. Recognize people are busy with the day job and need support."
+    content: "Your team is busy with their day jobs. While they understand their business processes deeply, they don't have time to become prompt engineers or GPT developers. Our Expert Requests service bridges this gap—your experts describe what they need, and our specialists build the custom AI solutions."
     points:
-      - "15-20 custom business GPTs within 6 months. Continuous pipeline of new use cases spreading across departments."
-      - "Focus on your job while experts build ChatGPT tools and workflows. Always-on access to AI specialists who handle the technical building."
+      - "Deliver 15-20 custom business GPTs within your first 6 months, creating a continuous pipeline of new capabilities spreading across departments. Each solution is purpose-built for your specific workflows and challenges."
+      - "Your team stays focused on their core work while AI specialists handle the technical building. It's like having an always-on development team dedicated to turning your business expertise into powerful AI tools."
 
 benefits:
   title: "Why Choose Kowalah Over Alternatives"
   subtitle: "Competitive Advantages That Matter"
   points:
-    - title: "Business Focus, Not Just Change"
-      content: "We take the business to AI not vice versa. Business focus, Change focus, ChatGPT expertise, ongoing partnership vs. basic AI consultants."
+    - title: "Your Business Workflows, AI-Enhanced"
+      content: "We adapt ChatGPT to how your people actually work—not force them to change processes to fit the AI. Your sales team gets ChatGPT trained on your pitch decks, your finance team gets custom GPTs for reporting, your operations team gets AI that understands your specific workflows."
       image: "/images/home/benefits/benefits-1.png"
-    - title: "At the Front Line of AI Development"
-      content: "Business context, advanced capabilities, change management, at the front line of AI development vs. internal IT teams."
+    - title: "Latest ChatGPT Capabilities, Immediately Available"
+      content: "When OpenAI releases new features, your team knows how to use them that same week. Advanced voice for coaching conversations, canvas for collaborative editing, search for real-time research—we ensure your people leverage every capability while competitors are still reading the release notes."
       image: "/images/home/benefits/benefits-2.png"
-    - title: "Proven Frameworks & Expert Validation"
-      content: "Proven frameworks, expert validation, faster results vs. DIY approach. 'Leagues ahead' ChatGPT knowledge."
+    - title: "Skip the Trial-and-Error Learning Curve"
+      content: "Your teams get battle-tested prompts and frameworks that work, not generic tutorials. When a finance analyst asks 'How do I analyze this quarterly data?', they get a proven 5-step workflow that delivers accurate results—not a blank chat box and hope for the best."
       image: "/images/home/benefits/benefits-3.png"
-    - title: "Capability Revelation Others Miss"
-      content: "Capability revelation others miss. Implementation confidence for IT/Legal teams. 'I didn't know it could do that' moments."
+    - title: "Discover Hidden Capabilities That Transform Work"
+      content: "Most teams use 10% of ChatGPT's power. We unlock the other 90%. Your lawyers discover voice mode for mock depositions. Your HR team finds memory features for personalized career coaching. Your managers learn advanced reasoning for complex strategic decisions. Each discovery multiplies across your organization."
       image: "/images/home/benefits/benefits-4.png"
-    - title: "Competitive Advantage Outcomes"
-      content: "Competitive advantage outcomes not just productivity gains. Move from cost-saving mindset to revenue growth and competitive differentiation."
+    - title: "From Cost Savings to Revenue Growth"
+      content: "While others chase 10% efficiency gains, your team builds revenue-generating AI capabilities. Sales reps who close 30% more deals because ChatGPT coaches them through objections. Product teams who ship features faster using AI pair programming. Customer service that turns support conversations into upsell opportunities."
       image: "/images/home/benefits/benefits-5.png"
 
 service_components:
@@ -273,6 +273,7 @@ service_components:
       features:
         - 24/7 AI Advisory Platform access
         - Quarterly Expert Requests for custom development
+        - "Accelerator Library: Ready-to-Use Prompts & GPTs"
         - Strategic roadmap updates and emerging capability reviews
         - Board-ready reporting and success metrics
         - Integration with enterprise systems
