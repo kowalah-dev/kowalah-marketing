@@ -1,7 +1,7 @@
 ---
 enable: true
 title: "Ready to Accelerate Your Organization's AI Journey?"
-image: "/images/home/banner.png"
+image: "/images/home/cta-banner-human.png"
 description: "Stop the chaos of employees secretly using ChatGPT while your official AI tools sit unused. Get everyone aligned on ChatGPT with proper training, governance, and ongoing support."
 button:
   enable: true
