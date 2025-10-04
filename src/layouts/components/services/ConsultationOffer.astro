@@ -1,5 +1,6 @@
 ---
 import Button from "@/shortcodes/Button";
+import ImageMod from "@/components/ImageMod.astro";
 
 interface CTA {
   label: string;
@@ -19,22 +20,36 @@ interface Props {
   description: string;
   primaryCta: CTA;
   offer: Offer;
+  backgroundImage?: string;
 }
 
-const { title, subtitle, description, primaryCta, offer }: Props = Astro.props;
+const { title, subtitle, description, primaryCta, offer, backgroundImage }: Props = Astro.props;
 ---
 
-<section class="section">
-  <div class="container">
+<section class={`section ${backgroundImage ? 'relative overflow-hidden' : ''}`}>
+  {backgroundImage && (
+    <div class="absolute inset-0 -z-10">
+      <ImageMod
+        src={backgroundImage}
+        alt={title}
+        width={1920}
+        height={800}
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/60 via-primary/55 to-secondary/60"></div>
+    </div>
+  )}
+
+  <div class={`container ${backgroundImage ? 'relative z-10' : ''}`}>
     <div class="row justify-center text-center">
       <div class="col-12 lg:col-8" data-aos="fade-up-sm">
-        <h2 class="h2 mb-4">{title}</h2>
-        <p class="text-lg text-text-dark/80 mb-6">{subtitle}</p>
-        <p class="text-base text-text-dark/80 mb-6">{description}</p>
+        <h2 class={`h2 mb-4 ${backgroundImage ? 'text-white drop-shadow-lg' : ''}`}>{title}</h2>
+        <p class={`text-lg mb-6 ${backgroundImage ? 'text-white/95 drop-shadow-md' : 'text-text-dark/80'}`}>{subtitle}</p>
+        <p class={`text-base mb-6 ${backgroundImage ? 'text-white/90 drop-shadow-md' : 'text-text-dark/80'}`}>{description}</p>
         <Button
           label={primaryCta.label}
           link={primaryCta.link}
-          style="primary"
+          style={backgroundImage ? "light" : "primary"}
           target="_self"
           className="w-full max-w-xs mx-auto"
         />
@@ -43,22 +58,22 @@ const { title, subtitle, description, primaryCta, offer }: Props = Astro.props;
 
     <div class="row justify-center mt-12">
       <div class="col-12 lg:col-8" data-aos="fade-up-sm" data-aos-delay="100">
-        <div class="rounded-3xl border border-secondary/30 bg-secondary/10 p-8 text-left">
+        <div class={`rounded-3xl border p-8 text-left ${backgroundImage ? 'border-white/30 bg-white/10 backdrop-blur-sm' : 'border-secondary/30 bg-secondary/10'}`}>
           <div class="flex flex-col gap-4 md:flex-row md:justify-between md:items-start">
             <div>
-              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-secondary/70 mb-2">
+              <p class={`text-xs font-semibold uppercase tracking-[0.35em] mb-2 ${backgroundImage ? 'text-white/70' : 'text-secondary/70'}`}>
                 Complimentary Assessment
               </p>
-              <h3 class="text-2xl font-semibold text-text-dark mb-3">{offer.title}</h3>
-              <p class="text-sm text-text-dark/80 mb-4">{offer.description}</p>
+              <h3 class={`text-2xl font-semibold mb-3 ${backgroundImage ? 'text-white' : 'text-text-dark'}`}>{offer.title}</h3>
+              <p class={`text-sm mb-4 ${backgroundImage ? 'text-white/90' : 'text-text-dark/80'}`}>{offer.description}</p>
               {offer.duration && (
-                <p class="text-sm font-medium text-secondary">Duration: {offer.duration}</p>
+                <p class={`text-sm font-medium ${backgroundImage ? 'text-white' : 'text-secondary'}`}>Duration: {offer.duration}</p>
               )}
             </div>
             <Button
               label={offer.cta.label}
               link={offer.cta.link}
-              style="outline"
+              style={backgroundImage ? "light" : "outline"}
               target="_self"
               className="w-full max-w-xs"
             />

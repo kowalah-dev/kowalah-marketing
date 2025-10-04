@@ -21,25 +21,38 @@ const pageData = getMarkdownData("services/accelerators.md");
 
 <Base title={pageData.title} meta_title={pageData.meta_title} description={pageData.description}>
   <!-- Hero Section -->
-  <section class="section-sm pt-24 bg-gradient">
-    <div class="container">
+  <section class="section-sm pt-24 relative overflow-hidden z-0">
+    {/* Background image with gradient overlay */}
+    <div class="absolute inset-0 -z-10">
+      <ImageMod
+        src="/images/services/accelerators-cta-bg.png"
+        alt="ChatGPT Accelerators"
+        width={1920}
+        height={800}
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/60 via-primary/55 to-secondary/60"></div>
+    </div>
+
+    <div class="container relative z-10">
       <div class="row justify-center">
         <div class="xl:col-10 lg:col-12">
           <div class="text-center">
-            <h1 class="h1 text-dark" data-aos="fade-up-sm">
+            <h1 class="h1 text-white drop-shadow-lg" data-aos="fade-up-sm">
               {pageData.hero.title}
             </h1>
-            <p class="mt-6 text-lg text-text-dark" data-aos="fade-up-sm" data-aos-delay="50">
+            <p class="mt-6 text-xl text-white/95 drop-shadow-md" data-aos="fade-up-sm" data-aos-delay="50">
               {pageData.hero.subtitle}
             </p>
             <div class="mt-8" data-aos="fade-up-sm" data-aos-delay="100">
               <Button
                 label={pageData.hero.cta_primary.label}
                 link={pageData.hero.cta_primary.link}
+                style="light"
                 className="me-4 mb-4"
               />
               {pageData.hero.cta_primary.subtext && (
-                <p class="mt-2 text-sm text-text-light">{pageData.hero.cta_primary.subtext}</p>
+                <p class="mt-2 text-sm text-white/90 drop-shadow-sm">{pageData.hero.cta_primary.subtext}</p>
               )}
             </div>
           </div>
@@ -287,7 +300,7 @@ const pageData = getMarkdownData("services/accelerators.md");
             height={400}
             class="w-full h-full object-cover"
           />
-          <div class="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/65 to-secondary/70"></div>
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/60 via-primary/55 to-secondary/60"></div>
         </div>
 
         <div class="row justify-center relative z-10 w-full">

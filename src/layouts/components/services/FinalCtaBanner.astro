@@ -1,5 +1,6 @@
 ---
 import Button from "@/shortcodes/Button";
+import ImageMod from "@/components/ImageMod.astro";
 
 interface CtaLink {
   label: string;
@@ -12,34 +13,38 @@ interface Props {
   subtitle?: string;
   primary: CtaLink;
   secondary?: CtaLink;
+  backgroundImage?: string;
 }
 
-const { title, subtitle, primary, secondary }: Props = Astro.props;
+const { title, subtitle, primary, secondary, backgroundImage }: Props = Astro.props;
 ---
 
 <section class="section pt-0">
   <div class="container">
-    <div class="rounded-3xl bg-gradient-to-r from-secondary/20 via-secondary/10 to-primary/10 p-10 text-center" data-aos="fade-up-sm">
-      <h2 class="mb-4 h2">{title}</h2>
-      {subtitle && <p class="mb-8 text-lg text-text-dark opacity-80">{subtitle}</p>}
-      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <Button
-          label={primary.label}
-          link={primary.link}
-          style={(primary.style ?? "primary") as
-            | "primary"
-            | "secondary"
-            | "light"
-            | "outline"
-            | "ghost"
-            | "transparent"}
-          className="min-w-[220px]"
-        />
-        {secondary && (
+    <div class={`rounded-3xl p-10 text-center ${backgroundImage ? 'relative overflow-hidden min-h-[400px] flex items-center justify-center' : 'bg-gradient-to-r from-secondary/20 via-secondary/10 to-primary/10'}`} data-aos="fade-up-sm">
+      {backgroundImage && (
+        <>
+          <div class="absolute inset-0 -z-10">
+            <ImageMod
+              src={backgroundImage}
+              alt={title}
+              width={1200}
+              height={400}
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/60 via-primary/55 to-secondary/60"></div>
+          </div>
+        </>
+      )}
+
+      <div class={backgroundImage ? 'relative z-10' : ''}>
+        <h2 class={`mb-4 h2 ${backgroundImage ? 'text-white drop-shadow-lg' : ''}`}>{title}</h2>
+        {subtitle && <p class={`mb-8 text-lg ${backgroundImage ? 'text-white/95 drop-shadow-md' : 'text-text-dark opacity-80'}`}>{subtitle}</p>}
+        <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button
-            label={secondary.label}
-            link={secondary.link}
-            style={(secondary.style ?? "outline") as
+            label={primary.label}
+            link={primary.link}
+            style={(backgroundImage ? "light" : primary.style ?? "primary") as
               | "primary"
               | "secondary"
               | "light"
@@ -48,7 +53,21 @@ const { title, subtitle, primary, secondary }: Props = Astro.props;
               | "transparent"}
             className="min-w-[220px]"
           />
-        )}
+          {secondary && (
+            <Button
+              label={secondary.label}
+              link={secondary.link}
+              style={(backgroundImage ? "outline" : secondary.style ?? "outline") as
+                | "primary"
+                | "secondary"
+                | "light"
+                | "outline"
+                | "ghost"
+                | "transparent"}
+              className="min-w-[220px]"
+            />
+          )}
+        </div>
       </div>
     </div>
   </div>
