@@ -29,9 +29,9 @@ const { title, subtitle, phases }: Props = Astro.props;
       </div>
     </div>
 
-    <div class="row g-6 mt-12">
+    <div class="row g-6 mt-12 justify-center">
       {phases.map((phase, index) => (
-        <div class="col-12 lg:col-4" data-aos="fade-up-sm" data-aos-delay={150 + index * 80}>
+        <div class="col-12 lg:col-6 mb-6 lg:mb-8" data-aos="fade-up-sm" data-aos-delay={150 + index * 80}>
           <div class="h-full rounded-3xl bg-gradient-to-br from-primary/25 via-secondary/15 to-transparent p-[1px]">
             <div class="h-full rounded-[calc(1.5rem-1px)] bg-white/[0.04] p-8">
               <div class="mb-4 flex items-center justify-between">
