@@ -1,34 +1,31 @@
 ---
 title: "Company"
-meta_title: "About Kowalah - Your Digital Chief AI Officer"
-description: "Learn about Kowalah, the world's first Digital Chief AI Officer platform helping mid-sized enterprises accelerate AI adoption with executive-level expertise available 24/7."
+meta_title: "About Kowalah - ChatGPT Rollout & Training Specialists"
+description: "Learn about Kowalah, the leading ChatGPT change enablement partner helping enterprises transform from AI chaos to organization-wide ChatGPT excellence through expert training and implementation."
 hero:
-  title: "Your Digital Chief AI Officer"
-  content: "We're pioneering a new category of executive AI leadership, providing organizations with <br> immediate access to strategic AI expertise without the cost and complexity of hiring a human CAIO."
+  title: "ChatGPT Rollout & Training Specialists"
+  content: "We transform failed AI initiatives into successful business transformation. <br> From shadow ChatGPT usage to organization-wide adoption with measurable business impact."
 
 about:
-  title: "Transforming AI Leadership for Mid-Sized Enterprises"
-  content: "Organizations know they need AI leadership but face a critical gap. Finding and hiring a qualified Chief AI Officer takes 6-12 months, costs £300,000-£500,000+ annually, and comes with no guarantee of success. Kowalah solves this with the world's first Digital Chief AI Officer platform - providing immediate access to executive-level AI expertise with collective intelligence from thousands of implementations."
+  title: "From AI Chaos to ChatGPT Excellence"
+  content: "Companies reach out to us after board meetings and peer conversations when they realize they need a ChatGPT plan—fast. Their IT teams may be building custom models or rolling out Copilot/Gemini, but executives know they're secretly using their personal ChatGPT accounts to get real work done. We bridge this gap with hands-on, people-first change enablement that shows every employee—from finance to HR to sales—how to transform their work with ChatGPT."
   image: "/images/company/stats.png"
   stats:
-    - title: "Response Time"
-      value: 24
-      suffix: "/7"
-    - title: "AI Implementations"
-      value: 1000
-      suffix: "+"
-    - title: "Enterprise Clients"
-      value: 50
-      suffix: "+"
-  trusted:
-    title: "Trusted by forward-thinking organizations who choose strategic AI leadership <br> over expensive executive searches and lengthy implementation delays."
-    partners:
-      - "/images/company/1.gray.svg"
-      - "/images/company/2.gray.svg"
-      - "/images/company/3.gray.svg"
-      - "/images/company/4.gray.svg"
-      - "/images/company/5.gray.svg"
-      - "/images/company/6.gray.svg"
+    - title: "Expert Request Response"
+      value: 36
+      suffix: "hrs"
+    - title: "Program Duration"
+      value: 16
+      suffix: "wks"
+    - title: "Delivery Timeframe"
+      value: 7
+      suffix: "-14d"
+
+story:
+  title: "Our Story: Why We Focus on People, Not Technology"
+  subtitle: "Founded by Charlie Cowan"
+  content: "After 20 years in enterprise SaaS sales and consulting, Charlie went independent three years ago. What he discovered was startling: the gap between what AI could do and what companies were actually doing with it was massive—and growing daily. <br><br>From leading global Google Workspace rollouts, Charlie learned a fundamental truth: if you just give people Google Drive, they'll still email attachments. You have to show them collaboration. ChatGPT is the same scenario. <br><br>Kowalah uses the electricity analogy: it doesn't matter how electricity gets to your wall—wind turbines, transformers, AC/DC—that's all on the other side. What matters is what you plug in: your computer, your fridge, your tools. That's our focus with AI. <br><br>Kowalah's unfair advantage? We think about the person in HR, the person in finance, the person in sales—what's on their screen and how they work—not about building custom models or fine-tuning. Companies don't need an AI strategy document. They need every employee to figure out a new way to work."
+  image: "/images/company/founder.png"
 
 slider:
   - "/images/company/image-1.png"
@@ -49,74 +46,43 @@ slider:
   - "/images/company/image-2.png"
 
 why:
-  title: "Why Choose Digital AI Leadership"
-  subtitle: "The Kowalah Advantage"
+  title: "Why Partner with Kowalah"
+  subtitle: "The ChatGPT Change Enablement Difference"
   image: "/images/company/why.png"
-  badge: "Strategic Benefits"
-  reason: "Beyond traditional consulting <br> and executive search"
-  content: "Kowalah delivers executive-level AI leadership that combines the strategic thinking of a seasoned CAIO <br> with the collective intelligence from thousands of successful AI implementations."
+  badge: "Our Approach"
+  reason: "Hands-on, people-first <br> ChatGPT transformation"
+  content: "We sit next to your people and take every employee on the journey. This isn't self-serve videos or virtual workshops—it's in-person, hands-on enablement that transforms how your organization works."
   points:
-    - title: "Immediate Availability"
+    - title: "People Over Technology"
+      icon: "profile"
+      content: "We focus on what's on your employees' screens and how they work—not building custom models or technical infrastructure."
+    - title: "ChatGPT Expertise"
+      icon: "bulb"
+      content: "Deep knowledge of advanced capabilities most companies don't know exist: voice, projects, custom GPTs, and business applications."
+    - title: "Rapid Expert Delivery"
       icon: "rocket"
-      content: "Get expert AI leadership from day one, not after 6-12 months of executive search and onboarding."
-    - title: "Collective Intelligence"
-      icon: "bullseye"
-      content: "Benefit from insights across thousands of AI implementations, vendor evaluations, and best practices."
+      content: "Expert Requests answered within 36 hours, delivered in 7-14 days. Custom GPTs for HR, finance, marketing, and every department."
+    - title: "Global Partnership"
+      icon: "compass"
+      content: "Clients across UK and US. Our mission: become the leading partner to deploy ChatGPT to enterprises globally."
 
-job:
-  title: "Join Our Mission"
-  subtitle: "Career Opportunities"
-  jobs:
-    - title: "AI Strategy Director"
-      description: "Lead development of AI leadership frameworks and strategic guidance systems for enterprise clients."
-      details:
-        [
-          { info: "London, UK / Remote", icon: "location_pin" },
-          { info: "Full Time", icon: "case" },
-          { info: "80k-120k", icon: "euro" },
-        ]
-    - title: "Senior AI Engineer"
-      description: "Build and enhance our Digital CAIO platform with cutting-edge AI and LLM technologies."
-      details:
-        [
-          { info: "London, UK / Remote", icon: "location_pin" },
-          { info: "Full Time", icon: "case" },
-          { info: "70k-100k", icon: "euro" },
-        ]
-    - title: "Enterprise Customer Success"
-      description: "Guide C-suite executives through their AI transformation journey and ensure implementation success."
-      details:
-        [
-          { info: "London, UK / Remote", icon: "location_pin" },
-          { info: "Full Time", icon: "case" },
-          { info: "60k-90k", icon: "euro" },
-        ]
-    - title: "AI Implementation Consultant"
-      description: "Deliver Expert Requests and hands-on AI implementation support for enterprise clients."
-      details:
-        [
-          { info: "London, UK / Remote", icon: "location_pin" },
-          { info: "Contract", icon: "case" },
-          { info: "500-800/day", icon: "euro" },
-        ]
-    - title: "Product Manager - Enterprise AI"
-      description: "Drive product strategy for enterprise AI leadership features and integrations."
-      details:
-        [
-          { info: "London, UK / Remote", icon: "location_pin" },
-          { info: "Full Time", icon: "case" },
-          { info: "75k-110k", icon: "euro" },
-        ]
-    - title: "AI Research Analyst"
-      description: "Research AI trends, vendor landscape, and best practices to enhance our Digital CAIO intelligence."
-      details:
-        [
-          { info: "London, UK / Remote", icon: "location_pin" },
-          { info: "Full Time", icon: "case" },
-          { info: "45k-65k", icon: "euro" },
-        ]
+mission:
+  title: "Our Mission & Vision"
+  subtitle: "Where We're Headed"
+  badge: "Purpose-Driven"
+  content: "Our goal is to become the leading partner to deploy ChatGPT to enterprise companies globally—the largest boutique of ChatGPT change enablement. We're focused on horizontal, general AI, primarily ChatGPT, but if someone takes ChatGPT's crown, we'll work with them too."
+  points:
+    - title: "Every Employee, AI-Enabled"
+      icon: "profile"
+      content: "Help every company and every employee figure out what it means to partner with AI. Humans + AI is an unbeatable combination."
+    - title: "Market Domination"
+      icon: "bullseye"
+      content: "Help companies that partner with Kowalah dominate their markets and beat their competition through superior AI adoption."
+    - title: "AI-First Future"
+      icon: "upward"
+      content: "Take every employee on the journey to understand what it means to be successful in an AI future—from intern to CEO."
 
 faq:
-  title: "About Digital AI Leadership"
+  title: "About ChatGPT Change Enablement"
   subtitle: "Common Questions About Kowalah"
 ---

@@ -8,18 +8,21 @@ interface InvestmentExample {
       enablement_cost: string;
       managed_annual: string;
       total_year_one: string;
+      per_employee: string;
     };
     EUR: {
       deployment_cost: string;
       enablement_cost: string;
       managed_annual: string;
       total_year_one: string;
+      per_employee: string;
     };
     GBP: {
       deployment_cost: string;
       enablement_cost: string;
       managed_annual: string;
       total_year_one: string;
+      per_employee: string;
     };
   };
   description: string;
@@ -56,6 +59,9 @@ const InvestmentExamples: React.FC<InvestmentExamplesProps> = ({
           {investmentExamples.examples && investmentExamples.examples.map((example: InvestmentExample, index: number) => {
             const currentPricing = example.pricing[selectedCurrency as keyof typeof example.pricing];
 
+            // Debug log
+            console.log('Example:', example.organization_size, 'Currency:', selectedCurrency, 'Pricing:', currentPricing);
+
             return (
               <div key={index} className="col-12 lg:col-4" data-aos="fade-up-sm" data-aos-delay={100 * (index + 1)}>
                 <div className="bg-white rounded-2xl p-8 shadow-lg border border-border h-full">
@@ -82,6 +88,12 @@ const InvestmentExamples: React.FC<InvestmentExamplesProps> = ({
                       <span className="font-medium text-gray-900">Total Year One Investment:</span>
                       <span className="font-bold text-lg text-primary">{currentPricing.total_year_one}</span>
                     </div>
+                    {currentPricing.per_employee && (
+                      <div className="flex justify-between items-center mt-2 pt-2 border-t border-gray-100">
+                        <span className="text-sm text-gray-600">Per employee:</span>
+                        <span className="font-semibold text-gray-900">{currentPricing.per_employee}</span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

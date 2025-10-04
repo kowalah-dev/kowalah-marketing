@@ -3,8 +3,9 @@ title: "Pricing"
 meta_title: "ChatGPT Enterprise Services Pricing - Kowalah"
 description: "Transform your organization with ChatGPT deployment, change enablement, and managed services. Fixed-fee implementation, per-employee transformation, and ongoing strategic support."
 hero:
-  title: "Investment That Transforms Your Organization"
-  content: "Three service components that take you from ChatGPT chaos to AI-first execution. <br> Choose the combination that matches your transformation goals."
+  title: "Investment That Powers ChatGPT Adoption"
+  content: "Three service components that take you from ChatGPT chaos to AI-first execution. Choose the combination that matches your adoption goals."
+  background_image: "/images/pricing/pricing-hero-bg.png"
 
 service_components:
   - title: "ChatGPT Enterprise Deployment"
@@ -110,45 +111,51 @@ service_components:
       link: "/contact?service=managed"
 
 investment_examples:
-  title: "Complete Transformation Investment Examples"
-  subtitle: "See what a full ChatGPT transformation investment looks like for different organization sizes"
+  title: "What Does ChatGPT Adoption Cost?"
+  subtitle: "See what a full ChatGPT adoption investment looks like for different organization sizes"
   examples:
-    - organization_size: "500 Employees"
+    - organization_size: "1,000 Employees"
       pricing:
         USD:
           deployment_cost: "$32,000"
-          enablement_cost: "$80,000"
+          enablement_cost: "$160,000"
           managed_annual: "$192,000"
-          total_year_one: "$304,000"
+          total_year_one: "$384,000"
+          per_employee: "$384"
         EUR:
           deployment_cost: "€27,200"
-          enablement_cost: "€68,000"
+          enablement_cost: "€136,000"
           managed_annual: "€163,200"
-          total_year_one: "€258,400"
+          total_year_one: "€326,400"
+          per_employee: "€326"
         GBP:
           deployment_cost: "£23,360"
-          enablement_cost: "£58,400"
+          enablement_cost: "£117,000"
           managed_annual: "£140,160"
-          total_year_one: "£221,920"
-      description: "Small to mid-size organization getting started with ChatGPT Enterprise"
+          total_year_one: "£280,520"
+          per_employee: "£281"
+      description: "Mid-size organization getting started with ChatGPT Enterprise"
 
-    - organization_size: "1,500 Employees"
+    - organization_size: "2,500 Employees"
       pricing:
         USD:
           deployment_cost: "$65,000"
-          enablement_cost: "$240,000"
+          enablement_cost: "$400,000"
           managed_annual: "$300,000"
-          total_year_one: "$605,000"
+          total_year_one: "$765,000"
+          per_employee: "$306"
         EUR:
           deployment_cost: "€55,250"
-          enablement_cost: "€204,000"
+          enablement_cost: "€340,000"
           managed_annual: "€255,000"
-          total_year_one: "€514,250"
+          total_year_one: "€650,250"
+          per_employee: "€260"
         GBP:
           deployment_cost: "£47,450"
-          enablement_cost: "£175,200"
+          enablement_cost: "£292,500"
           managed_annual: "£219,000"
-          total_year_one: "£441,650"
+          total_year_one: "£558,950"
+          per_employee: "£224"
       description: "Mid-size enterprise with complex departments and use cases"
 
     - organization_size: "5,000 Employees"
@@ -158,26 +165,35 @@ investment_examples:
           enablement_cost: "$800,000"
           managed_annual: "$500,000"
           total_year_one: "$1,395,000"
+          per_employee: "$279"
         EUR:
           deployment_cost: "€80,750"
           enablement_cost: "€680,000"
           managed_annual: "€425,000"
           total_year_one: "€1,185,750"
+          per_employee: "€237"
         GBP:
           deployment_cost: "£69,350"
           enablement_cost: "£584,000"
           managed_annual: "£365,000"
           total_year_one: "£1,018,350"
+          per_employee: "£204"
       description: "Large enterprise with multi-regional and advanced integration needs"
+
+roi_reality_check:
+  title: "⚠️ ROI Reality Check"
+  content: "**Our commitment:** Every employee who completes this program will add more value to your business in their first month than your investment."
+  details: "Better decisions. Higher quality work. Stronger deals. Faster problem-solving."
+  closing: "If trained employees aren't creating more business value than the investment in month one, we've missed the mark."
 
 decision_guide:
   title: "Which Services Do You Need?"
   subtitle: "Start with the service component that matches your current ChatGPT situation"
   scenarios:
-    - situation: "No ChatGPT Enterprise yet"
-      recommendation: "Start with Deployment"
-      description: "Get ChatGPT Enterprise deployed securely with initial change enablement"
-      next_step: "Add Change Enablement for full workforce transformation"
+    - situation: "Employees using personal ChatGPT"
+      recommendation: "ChatGPT Enterprise Deployment + Change Enablement"
+      description: "Guide shadow ChatGPT users to enterprise-grade usage with proper governance and training"
+      next_step: "Add Managed Services for ongoing AI leadership and expert delivery"
 
     - situation: "Have ChatGPT but low adoption"
       recommendation: "Focus on Change Enablement"
@@ -186,7 +202,7 @@ decision_guide:
 
     - situation: "Want ongoing strategic support"
       recommendation: "Add Managed Services"
-      description: "Get permanent Digital CAIO for continuous AI leadership and expert delivery"
+      description: "Get continuous AI leadership, expert delivery, and strategic guidance"
       next_step: "Scale expert delivery and advanced integrations as needed"
 
 compare:

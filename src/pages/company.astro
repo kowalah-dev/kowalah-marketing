@@ -1,7 +1,8 @@
 ---
 import About from "@/components/company/About.astro";
 import ImageSlider from "@/components/company/ImageSlider.astro";
-import Job from "@/components/company/Job.astro";
+import Mission from "@/components/company/Mission.astro";
+import Story from "@/components/company/Story.astro";
 import Why from "@/components/company/Why.astro";
 import Base from "@/layouts/Base.astro";
 import { markdownify } from "@/lib/utils/textConverter";
@@ -14,7 +15,7 @@ const company = (await getEntry(
   "company",
   "-index"
 )) as CollectionEntry<"company">;
-const { title, description, meta_title, hero, about, slider, why, job, faq } =
+const { title, description, meta_title, hero, about, story, slider, why, mission, faq } =
   company.data;
 
 const call_to_action = (await getEntry(
@@ -27,9 +28,10 @@ const call_to_action = (await getEntry(
   <PageHeader title={hero.title} content={hero.content} />
 
   <About {about} />
+  {story && <Story {story} />}
   <ImageSlider {slider} />
   <Why {why} />
-  <Job {job} />
+  {mission && <Mission {mission} />}
 
   <section class="section pb-0">
     <div class="container">

@@ -67,13 +67,23 @@ const companyCollection = defineCollection({
       content: z.string(),
       image: z.string(),
       stats: z.array(
-        z.object({ title: z.string().optional(), value: z.number() }),
+        z.object({
+          title: z.string().optional(),
+          value: z.number(),
+          suffix: z.string().optional()
+        }),
       ),
       trusted: z.object({
         title: z.string().optional(),
         partners: z.array(z.string()),
-      }),
+      }).optional(),
     }),
+    story: z.object({
+      title: z.string().optional(),
+      subtitle: z.string(),
+      content: z.string(),
+      image: z.string(),
+    }).optional(),
     slider: z.array(z.string()),
     why: z.object({
       title: z.string().optional(),
@@ -90,6 +100,19 @@ const companyCollection = defineCollection({
         }),
       ),
     }),
+    mission: z.object({
+      title: z.string().optional(),
+      subtitle: z.string(),
+      badge: z.string(),
+      content: z.string(),
+      points: z.array(
+        z.object({
+          title: z.string().optional(),
+          icon: z.string(),
+          content: z.string(),
+        }),
+      ),
+    }).optional(),
     job: z.object({
       title: z.string().optional(),
       subtitle: z.string(),
@@ -100,7 +123,7 @@ const companyCollection = defineCollection({
           details: z.array(z.object({ info: z.string(), icon: z.string() })),
         }),
       ),
-    }),
+    }).optional(),
     faq: z.object({ title: z.string().optional(), subtitle: z.string() }),
   }),
 });
@@ -316,7 +339,11 @@ const pricingCollection = defineCollection({
     title: z.string().optional(),
     meta_title: z.string().optional(),
     description: z.string().optional(),
-    hero: z.object({ title: z.string().optional(), content: z.string() }),
+    hero: z.object({
+      title: z.string().optional(),
+      content: z.string(),
+      background_image: z.string().optional()
+    }),
 
     // New service-based pricing structure with multi-currency support
     service_components: z.array(
@@ -368,23 +395,33 @@ const pricingCollection = defineCollection({
               enablement_cost: z.string(),
               managed_annual: z.string(),
               total_year_one: z.string(),
+              per_employee: z.string(),
             }),
             EUR: z.object({
               deployment_cost: z.string(),
               enablement_cost: z.string(),
               managed_annual: z.string(),
               total_year_one: z.string(),
+              per_employee: z.string(),
             }),
             GBP: z.object({
               deployment_cost: z.string(),
               enablement_cost: z.string(),
               managed_annual: z.string(),
               total_year_one: z.string(),
+              per_employee: z.string(),
             }),
           }),
           description: z.string(),
         }),
       ),
+    }).optional(),
+
+    roi_reality_check: z.object({
+      title: z.string(),
+      content: z.string(),
+      details: z.string(),
+      closing: z.string(),
     }).optional(),
 
     decision_guide: z.object({

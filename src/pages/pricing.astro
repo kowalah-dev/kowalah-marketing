@@ -3,7 +3,7 @@ import Base from "@/layouts/Base.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
 import FaqAccordion from "@/partials/FaqAccordion.astro";
-import PageHeader from "@/partials/PageHeader.astro";
+import ServicesHero from "@/layouts/components/services/ServicesHero.astro";
 import Button from "@/shortcodes/Button";
 import PricingSection from "@/components/PricingSection";
 import { getEntry, type CollectionEntry } from "astro:content";
@@ -19,6 +19,7 @@ const {
   hero,
   service_components = [],
   investment_examples = { title: "", subtitle: "", examples: [] },
+  roi_reality_check,
   decision_guide = { title: "", subtitle: "", scenarios: [] },
   compare,
   faq,
@@ -31,7 +32,16 @@ const call_to_action = (await getEntry(
 ---
 
 <Base title={title} meta_title={meta_title} description={description}>
-  <PageHeader title={hero.title} content={hero.content} />
+  <ServicesHero
+    title={hero.title}
+    subtitle={hero.content}
+    cta={{
+      label: "Discuss Your Investment",
+      link: "/contact",
+      subtext: "Strategic consultation to plan your ChatGPT adoption"
+    }}
+    backgroundImage={hero.background_image}
+  />
 
   <!-- Service Components and Investment Examples Sections -->
   <PricingSection
@@ -39,6 +49,24 @@ const call_to_action = (await getEntry(
     investmentExamples={investment_examples}
     client:load
   />
+
+  <!-- ROI Reality Check Section -->
+  {roi_reality_check && (
+    <section class="section pt-0">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="col-12 lg:col-10">
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 rounded-xl p-8 md:p-12" data-aos="fade-up-sm">
+              <h2 class="h3 mb-6" set:html={markdownify(roi_reality_check.title)} />
+              <p class="text-lg mb-4" set:html={markdownify(roi_reality_check.content)} />
+              <p class="text-lg font-medium mb-4" set:html={markdownify(roi_reality_check.details)} />
+              <p class="text-gray-700 italic" set:html={markdownify(roi_reality_check.closing)} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Decision Guide Section -->
   <section class="section">

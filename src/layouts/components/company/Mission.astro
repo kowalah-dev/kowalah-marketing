@@ -1,0 +1,66 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import { Icon } from "astro-icon/components";
+
+const { mission } = Astro.props;
+---
+
+<section class="section bg-tertiary">
+  <div class="container">
+    <div class="mb-14" data-aos="fade-up-sm" data-aos-delay="200">
+      <p
+        set:html={markdownify(mission.subtitle)}
+        class="mb-4 text-center text-sm"
+      />
+      <h2 set:html={markdownify(mission.title)} class="h2 lg:h1 text-center" />
+    </div>
+
+    <div class="max-w-5xl mx-auto">
+      <div class="flex max-xl:justify-center items-center mb-6">
+        <div
+          class="bg-secondary rounded-full w-3 aspect-square mr-4"
+          data-aos="fade-left-sm"
+        >
+        </div>
+        <p set:html={markdownify(mission.badge)} data-aos="fade-left-sm" />
+      </div>
+
+      <p
+        set:html={markdownify(mission.content)}
+        class="text-lg text-text-dark mb-14 max-xl:text-center"
+        data-aos="fade-up-sm"
+      />
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {
+          mission.points.map(
+            (
+              p: { icon: string; title: string; content: string },
+              index: number
+            ) => (
+              <div class="text-center">
+                <div
+                  class="w-fit mb-6 bg-transparent/[0.02] border border-border/10 p-3 rounded-lg mx-auto"
+                  data-aos="fade-up-sm"
+                  data-aos-delay={index * 100}
+                >
+                  <Icon name={p.icon} class="text-4xl" />
+                </div>
+                <h3
+                  set:html={p.title}
+                  class="text-xl font-semibold text-text-dark mb-3"
+                  data-aos="fade-up-sm"
+                />
+                <p
+                  set:html={p.content}
+                  class="text-text-dark"
+                  data-aos="fade-up-sm"
+                />
+              </div>
+            )
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>
