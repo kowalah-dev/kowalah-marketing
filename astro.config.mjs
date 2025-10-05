@@ -29,14 +29,8 @@ export default defineConfig({
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   image: { service: sharp() },
   vite: { plugins: [tailwindcss()] },
-  output: "server", // Enable SSR for Clerk authentication
-  adapter: vercel({
-    isr: {
-      // Cache all pages for 1 hour, revalidate in background
-      expiration: 60 * 60, // 1 hour in seconds
-    },
-    edgeMiddleware: true, // Run middleware at the edge for faster auth checks
-  }),
+  output: "static", // Static site generation - all pages pre-rendered
+  adapter: vercel(), // Vercel adapter for deployment (static hosting)
   integrations: [
     react(),
     clerk({
