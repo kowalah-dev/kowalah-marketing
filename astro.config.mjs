@@ -29,8 +29,14 @@ export default defineConfig({
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   image: { service: sharp() },
   vite: { plugins: [tailwindcss()] },
-  output: "server", // Enable SSR for Clerk authentication (Astro 5: hybrid merged into server mode)
-  adapter: vercel(),
+  output: "server", // Enable SSR for Clerk authentication
+  adapter: vercel({
+    isr: {
+      // Cache all pages for 1 hour, revalidate in background
+      expiration: 60 * 60, // 1 hour in seconds
+    },
+    edgeMiddleware: true, // Run middleware at the edge for faster auth checks
+  }),
   integrations: [
     react(),
     clerk({
