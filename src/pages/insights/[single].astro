@@ -49,13 +49,36 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { post, usingSanity = false } = Astro.props;
+const { single } = Astro.params;
+let { post, usingSanity = false } = Astro.props;
+
+// Fallback for SSR mode - try to fetch from Sanity or content collection
+if (!post) {
+  try {
+    const sanityPost = await client.fetch(queries.post(single));
+    if (sanityPost) {
+      post = sanityPost;
+      usingSanity = true;
+    }
+  } catch (error) {
+    // Fallback to content collection
+    const contentPost = await getEntry("insights", single as string);
+    if (contentPost) {
+      post = contentPost;
+      usingSanity = false;
+    }
+  }
+}
+
+if (!post) {
+  return Astro.redirect("/404");
+}
 
 let title, meta_title, description, image, fullPost;
 
 if (usingSanity) {
   // Fetch complete post data from Sanity
-  fullPost = await client.fetch(queries.post(Astro.params.single));
+  fullPost = await client.fetch(queries.post(single as string));
   title = fullPost?.title;
   meta_title = fullPost?.seo?.title || title;
   description = fullPost?.seo?.description || fullPost?.excerpt;

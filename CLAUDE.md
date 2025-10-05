@@ -15,8 +15,18 @@ Our Kowalah repositories consist of these - all within the kowalah-dev Github or
 
 ## Important Documentation
 
+### Framework & Architecture
 - Astro MCP Server - use this to get implementation and configuration guidance on the Astro web framework
 - Syncmaster Astro Theme docs - from Themefisher (original template foundation) https://docs.themefisher.com/syncmaster-astro
+- @docs/ssr-dynamic-pages-pattern.md - **REQUIRED pattern for all dynamic pages** (SSR compatibility)
+- @docs/SSR-MIGRATION-SUMMARY.md - SSR migration overview and changes
+
+### Authentication & Deployment
+- @docs/CLERK-SETUP-SUMMARY.md - Complete Clerk authentication setup and configuration
+- @docs/DEPLOYMENT.md - Production deployment guide with environment variables
+- @.env.production.example - Production environment variable template
+
+### Content & Branding
 - @docs/product-overview.md provides detailed overview of the Kowalah application, value proposition and target market
 - @docs/context/messaging-framework.md explains how we communicate aobout Kowalah
 - @docs/context/positioning-canvas.md explains how we position Kowalah against competing solutions
@@ -26,11 +36,13 @@ Our Kowalah repositories consist of these - all within the kowalah-dev Github or
 ## Development Commands
 
 ### Core Commands
-- `npm run dev` - Start development server with hot reload
-- `npm run build` - Build for production (static site generation)
+- `npm run dev` - Start development server with hot reload (SSR mode)
+- `npm run build` - Build for production (server-side rendering with Node.js)
 - `npm run preview` - Preview production build locally
 - `npm run check` - Run Astro's built-in type and error checking
 - `npm run format` - Format code using Prettier
+
+**Note:** Site uses SSR mode (not static generation) for Clerk authentication. Requires Node.js hosting (Vercel, Netlify, etc.).
 
 ### Package Manager
 - Uses `yarn@1.22.22` as the specified package manager
@@ -40,6 +52,8 @@ Our Kowalah repositories consist of these - all within the kowalah-dev Github or
 
 ### Core Technologies
 - **Framework:** Astro 5.5.4 with React integration
+- **Rendering Mode:** Server-side rendering (SSR) with Node.js adapter for Clerk authentication
+- **Authentication:** Clerk satellite domain configuration for cross-domain session sharing with main app
 - **Styling:** TailwindCSS 4.0.15 with custom plugins and utilities
 - **Icons:** Heroicons (@heroicons/react) - 300+ professional icons with automatic color inheritance
 - **Content Management:** Astro's Content Collections API with Zod validation
@@ -160,6 +174,80 @@ const iconMap = {
 
 ## Performance & Production
 - **Image optimization:** Sharp for image processing and optimization
-- **Static generation:** Full static site generation for optimal performance
-- **CDN ready:** Optimized for deployment on Vercel and other static hosts
+- **Server-side rendering:** SSR mode for Clerk authentication and dynamic content
+- **Deployment:** Optimized for Vercel with Node.js adapter
 - **Bundle optimization:** Vite-powered build system for efficient bundling
+- **Authentication Setup:** See @docs/CLERK-SETUP-SUMMARY.md and @docs/DEPLOYMENT.md for Clerk configuration
+
+## Authentication & SSR Implementation
+
+### Clerk Satellite Domain Setup
+This site operates as a **Clerk satellite domain**, sharing authentication sessions with the main application (app.kowalah.com):
+
+- **Authentication Provider:** Clerk (same instance as main app)
+- **Session Sharing:** Cross-domain cookie-based authentication
+- **User Experience:** Users sign in once on main app, recognized across all domains
+- **Configuration:** Environment-driven setup via middleware (see @src/middleware.ts)
+
+### SSR-Compatible Dynamic Pages Pattern
+
+**IMPORTANT:** All dynamic pages (using `[param]` syntax) must support SSR mode. Use this pattern:
+
+```astro
+---
+import { getEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const items = await getCollection("collection-name");
+
+  return items.map((item) => ({
+    params: { slug: item.id },
+    props: { item },
+  }));
+}
+
+// SSR-compatible data fetching
+const { slug } = Astro.params;
+const { item } = Astro.props;
+
+// Fallback for SSR mode - fetch item if not in props
+const itemEntry = item || await getEntry("collection-name", slug as string);
+
+if (!itemEntry) {
+  return Astro.redirect("/404");
+}
+
+const { title, description, /* other fields */ } = itemEntry.data;
+---
+```
+
+**Why this pattern is required:**
+- In SSR mode, `getStaticPaths()` is ignored (pages rendered on-demand)
+- Props from `getStaticPaths()` are undefined in SSR requests
+- Fallback to `getEntry()` ensures data is fetched when props are missing
+- Provides 404 redirect when content doesn't exist
+
+**Examples of SSR-compatible pages:**
+- @src/pages/solutions/[slug].astro
+- @src/pages/[regular].astro
+- @src/pages/insights/[single].astro
+- @src/pages/resources/recommended-books/[single].astro
+
+### Environment Variables for Authentication
+
+Development and production use different environment variables (see @.env.local for dev, @DEPLOYMENT.md for prod):
+
+```bash
+# Clerk Keys
+PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_... # or pk_live_... for production
+CLERK_SECRET_KEY=sk_test_...            # or sk_live_... for production
+
+# Satellite Configuration (read by middleware)
+CLERK_PRIMARY_DOMAIN=app.kowalah.com    # Where users authenticate
+CLERK_SIGN_IN_URL=https://app.kowalah.com/sign-in
+```
+
+**Configuration Files:**
+- @src/middleware.ts - Clerk satellite domain configuration
+- @src/layouts/partials/Header.astro - Conditional auth UI (SignedIn/SignedOut)
+- @astro.config.mjs - SSR mode, Node adapter, experimental session support

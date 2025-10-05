@@ -1,6 +1,8 @@
 import mdx from "@astrojs/mdx";
+import node from "@astrojs/node";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
+import clerk from "@clerk/astro";
 import sanity from "@sanity/astro";
 import tailwindcss from "@tailwindcss/vite";
 import AutoImport from "astro-auto-import";
@@ -27,8 +29,19 @@ export default defineConfig({
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   image: { service: sharp() },
   vite: { plugins: [tailwindcss()] },
+  output: "server", // Enable SSR for Clerk authentication
+  adapter: node({
+    mode: "standalone",
+  }),
+  experimental: {
+    session: true, // Required for Clerk authentication
+  },
   integrations: [
     react(),
+    clerk({
+      // Clerk configuration - uses environment variables
+      // PUBLIC_CLERK_PUBLISHABLE_KEY and CLERK_SECRET_KEY
+    }),
     sanity({
       projectId: "ig58e610",
       dataset: "production",

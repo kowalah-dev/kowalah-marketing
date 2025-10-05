@@ -1,4 +1,5 @@
 ---
+import { SignedIn, SignedOut } from "@clerk/astro/components";
 import Logo from "@/components/Logo.astro";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
@@ -20,6 +21,12 @@ const { navigation_button, sign_in_link, settings } = config;
 const { pathname } = Astro.url;
 
 const { customHeader } = Astro.props;
+
+// Dashboard link for authenticated users - uses same domain as sign-in
+const primaryDomain = import.meta.env.CLERK_PRIMARY_DOMAIN;
+const dashboardLink = primaryDomain
+  ? `https://${primaryDomain}/dashboard`
+  : "https://app.kowalah.com/dashboard"; // fallback
 ---
 
 <header
@@ -126,31 +133,51 @@ const { customHeader } = Astro.props;
     </ul>
 
     <div class="order-1 ml-auto flex items-center gap-4 md:order-2">
-      <!-- Sign In link -->
-      {
-        sign_in_link.enable && (
-          <a
-            href={sign_in_link.link}
-            class={`text-sm font-medium transition-colors hover:text-primary ${
-              customHeader ? "text-light/80 hover:text-light" : "text-text-dark hover:text-primary"
-            }`}
-          >
-            {sign_in_link.label}
-          </a>
-        )
-      }
-      
-      <!-- Navigation button -->
-      {
-        navigation_button.enable && (
-          <Button
-            className={`hidden lg:inline-block ${customHeader && "!bg-tertiary !text-text-dark"}`}
-            style="secondary"
-            link={navigation_button.link}
-            label={navigation_button.label}
-          />
-        )
-      }
+      <!-- Show when user is NOT signed in -->
+      <SignedOut>
+        <!-- Sign In link -->
+        {
+          sign_in_link.enable && (
+            <a
+              href={sign_in_link.link}
+              class={`text-sm font-medium transition-colors hover:text-primary ${
+                customHeader ? "text-light/80 hover:text-light" : "text-text-dark hover:text-primary"
+              }`}
+            >
+              {sign_in_link.label}
+            </a>
+          )
+        }
+
+        <!-- Start Trial button -->
+        {
+          navigation_button.enable && (
+            <Button
+              className={`hidden lg:inline-block ${customHeader && "!bg-tertiary !text-text-dark"}`}
+              style="secondary"
+              link={navigation_button.link}
+              label={navigation_button.label}
+            />
+          )
+        }
+      </SignedOut>
+
+      <!-- Show when user IS signed in -->
+      <SignedIn>
+        <a
+          href={dashboardLink}
+          class={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all ${
+            customHeader
+              ? "bg-tertiary text-text-dark hover:bg-tertiary/90"
+              : "bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg hover:scale-105"
+          }`}
+        >
+          Go to Dashboard
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
+      </SignedIn>
     </div>
   </nav>
 </header>

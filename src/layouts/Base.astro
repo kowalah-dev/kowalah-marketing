@@ -1,5 +1,4 @@
 ---
-import TwSizeIndicator from "@/components/TwSizeIndicator.astro";
 import config from "@/config/config.json";
 import theme from "@/config/theme.json";
 import { plainify } from "@/lib/utils/textConverter";
@@ -179,7 +178,6 @@ const {
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
-    <TwSizeIndicator />
     <Header {customHeader} />
     <main id="main-content">
       <slot />

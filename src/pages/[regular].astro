@@ -21,9 +21,18 @@ export async function getStaticPaths() {
   return paths;
 }
 
+const { regular } = Astro.params;
 const { page } = Astro.props;
-const { title, meta_title, description, update } = page.data;
-const { Content } = await render(page);
+
+// Fallback for SSR mode - fetch page if not in props
+const pageEntry = page || await getEntry("pages", regular as string);
+
+if (!pageEntry) {
+  return Astro.redirect("/404");
+}
+
+const { title, meta_title, description, update } = pageEntry.data;
+const { Content } = await render(pageEntry);
 
 const call_to_action = (await getEntry(
   "sections",

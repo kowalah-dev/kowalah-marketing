@@ -26,7 +26,15 @@ export async function getStaticPaths() {
   return paths;
 }
 
+const { slug } = Astro.params;
 const { solution } = Astro.props;
+
+// Fallback for SSR mode - fetch solution if not in props
+const solutionEntry = solution || await getEntry("solutions", slug as string);
+
+if (!solutionEntry) {
+  return Astro.redirect("/404");
+}
 const {
   title,
   meta_title,
@@ -43,7 +51,7 @@ const {
   executive_focus,
   services_highlight,
   cta
-} = solution.data;
+} = solutionEntry.data;
 
 ---
 
