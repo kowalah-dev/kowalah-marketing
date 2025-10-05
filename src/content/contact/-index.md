@@ -1,19 +1,19 @@
 ---
-title: "Ready to Transform Your AI Journey?"
-meta_title: "Contact Kowalah - Your Digital Chief AI Officer"
-description: "Connect with our team to discover how Kowalah can provide your organization with executive-level AI leadership, strategic guidance, and expert support for successful AI transformation."
+title: "Contact Kowalah - ChatGPT Rollout Specialists"
+meta_title: "Contact Kowalah - ChatGPT Enterprise Deployment & Training"
+description: "Get in touch to discuss ChatGPT Enterprise deployment, change enablement training, or ongoing managed services. We help organizations deploy ChatGPT at scale with expert implementation support."
 draft: false
 info:
-  title: "Let's Start Your AI Transformation"
-  content: "Whether you're a CEO looking for AI strategy guidance, an IT leader tasked with implementation, or an organization ready to scale AI across your teams - we're here to help you move from confusion to confidence."
+  title: "Ready to Deploy ChatGPT Enterprise?"
+  content: "Whether you need ChatGPT Enterprise deployment, change enablement training, or ongoing managed services - we help organizations turn ChatGPT from personal tool into company-wide capability."
   contacts:
     - title: "Business Inquiries"
       icon: "mail"
-      details_1: "Schedule a strategy consultation"
+      details_1: "Discuss your ChatGPT rollout"
       details_2: "hello@kowalah.com"
     - title: "Customer Support"
       icon: "help"
-      details_1: "Get help with your Digital CAIO"
+      details_1: "ChatGPT implementation support"
       details_2: "support@kowalah.com"
     - title: "Partnership Opportunities"
       icon: "case"

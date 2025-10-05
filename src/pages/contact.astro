@@ -2,7 +2,6 @@
 import config from "@/config/config.json";
 import Base from "@/layouts/Base.astro";
 import { markdownify } from "@/lib/utils/textConverter";
-import CallToAction from "@/partials/CallToAction.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
@@ -14,29 +13,41 @@ const contact = (await getEntry(
 )) as CollectionEntry<"contact">;
 const { contact_form_action }: { contact_form_action: string } = config.params;
 const { title, description, meta_title, info } = contact.data;
-const call_to_action = (await getEntry(
-  "sections",
-  "call-to-action"
-)) as CollectionEntry<"sections">;
 ---
 
 <Base title={title} meta_title={meta_title} description={description}>
-  <PageHeader title={title} content={description} />
-  <section class="-mt-16 relative overflow-hidden">
+  <PageHeader
+    title={title}
+    content={description}
+    backgroundImage="/images/contact/contact-hero.png"
+  />
+  <section class="pt-16 md:pt-24 relative overflow-hidden">
     <div class="container">
       <div class="row justify-center">
         <div class="col-12 sm:col-10 xl:col-6 lg:col-8 mb-20">
-          <form action={contact_form_action} method="POST">
+          <!-- Success Message -->
+          <div id="form-success" class="hidden mb-8 p-6 bg-green-50 border border-green-200 rounded-lg text-center">
+            <h3 class="text-xl font-semibold text-green-800 mb-2">Thank you for contacting us!</h3>
+            <p class="text-green-700">We'll get back to you within 24 hours.</p>
+          </div>
+
+          <!-- Error Message -->
+          <div id="form-error" class="hidden mb-8 p-6 bg-red-50 border border-red-200 rounded-lg text-center">
+            <h3 class="text-xl font-semibold text-red-800 mb-2">Oops! Something went wrong.</h3>
+            <p class="text-red-700">Please try again or email us directly at <a href="mailto:hello@kowalah.com" class="underline">hello@kowalah.com</a></p>
+          </div>
+
+          <form id="contact-form">
             <div class="mb-4 flex justify-between flex-col md:flex-row gap-4">
               <div
                 class="md:w-1/2 w-full"
                 data-aos="fade-up-sm"
                 data-aos-delay="20"
               >
-                <label for="full_name" class="form-label"> Full Name </label>
+                <label for="firstname" class="form-label"> First Name </label>
                 <input
-                  id="full_name"
-                  name="full_name"
+                  id="firstname"
+                  name="firstname"
                   class="form-input"
                   placeholder="John"
                   type="text"
@@ -48,10 +59,10 @@ const call_to_action = (await getEntry(
                 data-aos="fade-up-sm"
                 data-aos-delay="40"
               >
-                <label for="last_name" class="form-label"> Last Name </label>
+                <label for="lastname" class="form-label"> Last Name </label>
                 <input
-                  id="last_name"
-                  name="last_name"
+                  id="lastname"
+                  name="lastname"
                   class="form-input"
                   placeholder="Smith"
                   type="text"
@@ -72,24 +83,35 @@ const call_to_action = (await getEntry(
                 required
               />
             </div>
+
+            <div class="mb-4" data-aos="fade-up-sm" data-aos-delay="70">
+              <label for="phone" class="form-label"> Phone Number (Optional) </label>
+              <input
+                id="phone"
+                name="phone"
+                class="form-input"
+                placeholder="+1 555 123 4567"
+                type="tel"
+              />
+            </div>
+
             <div
               class="mb-4 custom-select"
               data-aos="fade-up-sm"
               data-aos-delay="80"
             >
-              <label for="service" class="form-label"> How can we help? </label>
-              <select id="service" name="service" class="form-input">
+              <label for="how_can_we_help_" class="form-label"> How can we help? </label>
+              <select id="how_can_we_help_" name="how_can_we_help_" class="form-input">
                 <option disabled selected class="placeholder-option">
                   Select your inquiry type
                 </option>
-                <option value="ai_strategy">AI Strategy & Leadership</option>
-                <option value="implementation">AI Implementation Support</option>
-                <option value="chatgpt_rollout">ChatGPT Enterprise Rollout</option>
-                <option value="team_training">Team Training & Upskilling</option>
-                <option value="enterprise_demo">Enterprise Demo Request</option>
-                <option value="partnership">Partnership Inquiry</option>
-                <option value="technical_support">Technical Support</option>
-                <option value="other">Other</option>
+                <option value="ChatGPT Enterprise Deployment">ChatGPT Enterprise Deployment</option>
+                <option value="ChatGPT Change Enablement">ChatGPT Change Enablement</option>
+                <option value="ChatGPT Training">ChatGPT Training</option>
+                <option value="Ongoing Managed Services">Ongoing Managed Services</option>
+                <option value="Speaking Opportunities">Speaking Opportunities</option>
+                <option value="AI Strategy and Advisory">AI Strategy and Advisory</option>
+                <option value="Something else...">Something else...</option>
               </select>
             </div>
             <div class="mb-4" data-aos="fade-up-sm" data-aos-delay="100">
@@ -103,6 +125,7 @@ const call_to_action = (await getEntry(
             </div>
             <button
               type="submit"
+              id="submit-button"
               class="btn btn-primary w-full"
               data-aos="fade-up-sm"
               data-aos-delay="120"
@@ -158,14 +181,22 @@ const call_to_action = (await getEntry(
       </div>
     </div>
   </section>
-
-  <CallToAction call_to_action={call_to_action} />
 </Base>
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    const select = document.getElementById("service") as HTMLSelectElement;
+    const select = document.getElementById("how_can_we_help_") as HTMLSelectElement;
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const submitButton = document.getElementById("submit-button") as HTMLButtonElement;
+    const successMessage = document.getElementById("form-success") as HTMLElement;
+    const errorMessage = document.getElementById("form-error") as HTMLElement;
 
+    // HubSpot configuration
+    const PORTAL_ID = "139642758";
+    const FORM_GUID = "c10f1502-7643-4064-97cc-09cd96943c88";
+    const HUBSPOT_API_URL = `https://api.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/${FORM_GUID}`;
+
+    // Update select dropdown styling
     function updateSelectStyle() {
       if (!select) return;
       const isDisabled = select?.selectedOptions[0].disabled;
@@ -177,7 +208,79 @@ const call_to_action = (await getEntry(
     }
 
     if (select) updateSelectStyle();
-
     select?.addEventListener("change", updateSelectStyle);
+
+    // Handle form submission
+    form?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Disable button and show loading state
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+      }
+
+      // Hide any previous messages
+      successMessage?.classList.add("hidden");
+      errorMessage?.classList.add("hidden");
+
+      // Get form data
+      const formData = new FormData(form);
+
+      // Build HubSpot fields array
+      const fields = [];
+      for (const [key, value] of formData.entries()) {
+        if (value) {  // Only include non-empty fields
+          fields.push({
+            objectTypeId: "0-1",  // Contact object
+            name: key,
+            value: value.toString()
+          });
+        }
+      }
+
+      // Prepare HubSpot submission payload
+      const payload = {
+        fields: fields,
+        context: {
+          pageUri: window.location.href,
+          pageName: document.title
+        }
+      };
+
+      try {
+        const response = await fetch(HUBSPOT_API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (response.ok) {
+          // Success!
+          successMessage?.classList.remove("hidden");
+          form.reset();
+          // Scroll to success message
+          successMessage?.scrollIntoView({ behavior: "smooth", block: "center" });
+        } else {
+          // Error
+          console.error("HubSpot submission failed:", await response.text());
+          errorMessage?.classList.remove("hidden");
+          errorMessage?.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      } catch (error) {
+        // Network error
+        console.error("Form submission error:", error);
+        errorMessage?.classList.remove("hidden");
+        errorMessage?.scrollIntoView({ behavior: "smooth", block: "center" });
+      } finally {
+        // Re-enable button
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = "Send Message";
+        }
+      }
+    });
   });
 </script>

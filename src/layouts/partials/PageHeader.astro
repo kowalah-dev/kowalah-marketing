@@ -2,38 +2,38 @@
 import ImageMod from "@/components/ImageMod.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 
-const { title, content } = Astro.props;
+const { title, content, backgroundImage } = Astro.props;
 ---
 
 <div class="pt-12 xl:pt-20 pb-24 xl:pb-40 relative overflow-hidden">
-  <div class="container">
+  {backgroundImage && (
+    <>
+      <!-- Background Image -->
+      <div class="absolute inset-0 w-full h-full">
+        <ImageMod
+          src={backgroundImage}
+          alt=""
+          class="w-full h-full object-cover"
+          width={1920}
+          height={800}
+        />
+      </div>
+      <!-- Gradient Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/60"></div>
+    </>
+  )}
+
+  <div class="container relative z-10">
     <h1
       set:html={markdownify(title)}
-      class="mb-6 text-[2.5rem] lg:text-[4rem] text-center"
+      class={`mb-6 text-[2.5rem] lg:text-[4rem] text-center ${backgroundImage ? 'text-white' : ''}`}
       data-aos="fade-up-sm"
     />
     <p
       set:html={markdownify(content)}
-      class="max-lg:[&>br]:hidden leading-relaxed text-center text-xl"
+      class={`max-lg:[&>br]:hidden leading-relaxed text-center text-xl ${backgroundImage ? 'text-white/90' : ''}`}
       data-aos="fade-up-sm"
     />
     <slot />
   </div>
-
-  <!-- bg grid images -->
-  <ImageMod
-    src="/images/left-grid.svg"
-    alt="left grid bg image"
-    width={438}
-    height={302}
-    class="absolute w-[28%] left-[-12%] top-[12%] opacity-20 -z-10"
-  />
-  <ImageMod
-    src="/images/right-grid.svg"
-    alt="right grid bg image"
-    width={420}
-    height={330}
-    class="absolute w-[30%] right-[-3%] top-[5%] opacity-20 -z-10"
-  />
-  <!-- bg grid images -->
 </div>
