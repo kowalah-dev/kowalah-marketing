@@ -16,7 +16,7 @@ const { story } = Astro.props;
     </div>
 
     <div class="flex flex-col xl:flex-row gap-10 justify-between">
-      <div class="w-full xl:w-[43%]" data-aos="fade-up-sm">
+      <div class="w-full xl:w-[43%] flex flex-col gap-6" data-aos="fade-up-sm">
         <ImageMod
           src={story.image}
           alt="Charlie Cowan - Founder"
@@ -24,6 +24,11 @@ const { story } = Astro.props;
           height={559}
           class="mx-auto w-full rounded-3xl object-cover"
         />
+        {story.quote && (
+          <blockquote class="border-l-4 border-primary pl-6 py-4 italic text-lg text-text-dark bg-gradient-to-r from-primary/5 to-transparent rounded-r-lg">
+            <p set:html={markdownify(story.quote)} />
+          </blockquote>
+        )}
       </div>
 
       <div class="w-full xl:w-[53%]">

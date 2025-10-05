@@ -4,28 +4,29 @@ meta_title: "About Kowalah - ChatGPT Rollout & Training Specialists"
 description: "Learn about Kowalah, the leading ChatGPT change enablement partner helping enterprises transform from AI chaos to organization-wide ChatGPT excellence through expert training and implementation."
 hero:
   title: "ChatGPT Rollout & Training Specialists"
-  content: "We transform failed AI initiatives into successful business transformation. <br> From shadow ChatGPT usage to organization-wide adoption with measurable business impact."
+  content: "We turn chaos into results. <br> From employees hiding their ChatGPT use to every team working faster, better, and smarter with ChatGPT."
 
 about:
   title: "From AI Chaos to ChatGPT Excellence"
-  content: "Companies reach out to us after board meetings and peer conversations when they realize they need a ChatGPT plan—fast. Their IT teams may be building custom models or rolling out Copilot/Gemini, but executives know they're secretly using their personal ChatGPT accounts to get real work done. We bridge this gap with hands-on, people-first change enablement that shows every employee—from finance to HR to sales—how to transform their work with ChatGPT."
+  content: "Companies reach out to us after board meetings and peer conversations when they realize they need a ChatGPT plan, fast. Their IT teams may be building custom models or rolling out Copilot/Gemini, but executives know their people, and they themselves, are secretly using personal ChatGPT accounts to get real work done. <br><br>We bridge this gap. We sit next to your people, in finance, HR, sales, marketing, and show them exactly how to use ChatGPT for their specific work. Not theory. Not videos. Hands-on enablement that turns every employee into a ChatGPT power user. <br><br>That's what sets us apart: we focus on the person at the desk, what's on their screen, and how they actually work. While others chase the latest AI model, we teach your people how to use the AI that's already winning: ChatGPT."
   image: "/images/company/stats.png"
   stats:
+    - title: "Typical Implementation Duration"
+      value: 16
+      suffix: "wks"
     - title: "Expert Request Response"
       value: 36
       suffix: "hrs"
-    - title: "Program Duration"
-      value: 16
-      suffix: "wks"
-    - title: "Delivery Timeframe"
+    - title: "Expert Request Delivery"
       value: 7
       suffix: "-14d"
 
 story:
   title: "Our Story: Why We Focus on People, Not Technology"
   subtitle: "Founded by Charlie Cowan"
-  content: "After 20 years in enterprise SaaS sales and consulting, Charlie went independent three years ago. What he discovered was startling: the gap between what AI could do and what companies were actually doing with it was massive—and growing daily. <br><br>From leading global Google Workspace rollouts, Charlie learned a fundamental truth: if you just give people Google Drive, they'll still email attachments. You have to show them collaboration. ChatGPT is the same scenario. <br><br>Kowalah uses the electricity analogy: it doesn't matter how electricity gets to your wall—wind turbines, transformers, AC/DC—that's all on the other side. What matters is what you plug in: your computer, your fridge, your tools. That's our focus with AI. <br><br>Kowalah's unfair advantage? We think about the person in HR, the person in finance, the person in sales—what's on their screen and how they work—not about building custom models or fine-tuning. Companies don't need an AI strategy document. They need every employee to figure out a new way to work."
+  content: "After 25 years in enterprise SaaS sales and consulting, Charlie went independent three years ago. What he discovered was startling: the gap between what AI could do and what companies were actually doing with it was massive, and growing daily. <br><br>From leading global Google Workspace rollouts into companies with up to 100,000 employees, Charlie learned a fundamental truth: if you just give people Google Drive, they'll still email attachments. You have to show them collaboration. <br><br>Kowalah's unfair advantage? We think about the person in HR, the person in finance, the person in sales, what's on their screen and how they work, not about building custom models or fine-tuning. Companies don't need an AI strategy document. They need every employee to figure out a new way to work. <br><br>Kowalah uses the electricity analogy: it doesn't matter how electricity gets to your wall, wind turbines, transformers, AC/DC, that's all on the other side. What matters is what you plug in: your computer, your fridge, your tools. That's our focus with AI: opening every person's eyes to the tools they've got available and showing them how to use those tools in their everyday work."
   image: "/images/company/founder.png"
+  quote: "If you don't show people how to use ChatGPT, they'll carry on using it the same way they use Google: asking questions and expecting answers. That only scratches the surface of what ChatGPT is capable of."
 
 slider:
   - "/images/company/image-1.png"

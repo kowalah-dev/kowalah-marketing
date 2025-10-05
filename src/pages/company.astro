@@ -18,6 +18,12 @@ const company = (await getEntry(
 const { title, description, meta_title, hero, about, story, slider, why, mission, faq } =
   company.data;
 
+// Manually add quote to story since schema doesn't pick it up
+const storyWithQuote = {
+  ...story,
+  quote: "\"If you don't show people how to use ChatGPT, they'll carry on using it the same way they use Google: asking questions and expecting answers. That only scratches the surface of what ChatGPT is capable of.\""
+};
+
 const call_to_action = (await getEntry(
   "sections",
   "call-to-action"
@@ -28,7 +34,7 @@ const call_to_action = (await getEntry(
   <PageHeader title={hero.title} content={hero.content} />
 
   <About {about} />
-  {story && <Story {story} />}
+  {story && <Story story={storyWithQuote} />}
   <ImageSlider {slider} />
   <Why {why} />
   {mission && <Mission {mission} />}
