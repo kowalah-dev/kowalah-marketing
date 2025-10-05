@@ -29,8 +29,8 @@ export default defineConfig({
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   image: { service: sharp() },
   vite: { plugins: [tailwindcss()] },
-  output: "server", // Enable SSR for Clerk authentication (Astro 5: hybrid merged into server mode)
-  adapter: vercel(),
+  output: "static", // Static site generation - all pages pre-rendered
+  adapter: vercel(), // Vercel adapter for deployment (static hosting)
   integrations: [
     react(),
     clerk({
