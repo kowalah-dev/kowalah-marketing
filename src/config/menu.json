@@ -11,7 +11,8 @@
         { "name": "ChatGPT Training", "url": "/services/chatgpt-training" },
         { "name": "Expert Requests", "url": "/services/expert-requests" },
         { "name": "AI Accelerators", "url": "/services/accelerators" },
-        { "name": "AI Advisory Platform", "url": "/services/ai-advisory-platform" }
+        { "name": "AI Advisory Platform", "url": "/services/ai-advisory-platform" },
+        { "name": "Services FAQ", "url": "/services/faq" }
       ]
     },
     {
@@ -86,10 +87,6 @@
         {
           "name": "Contact",
           "url": "/contact"
-        },
-        {
-          "name": "Careers",
-          "url": "/career"
         },
         {
           "name": "Terms & Conditions",

@@ -1,0 +1,239 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+
+// Page metadata
+const title = "Services FAQ - ChatGPT Implementation Questions";
+const meta_title = "Frequently Asked Questions | ChatGPT Services | Kowalah";
+const description = "Common questions about our ChatGPT Enterprise deployment, change enablement, training, expert requests, and accelerator services. Get answers to help you choose the right approach.";
+const content = "Common questions about our ChatGPT implementation services—from enterprise deployment to ongoing training and expert support.";
+
+// FAQ sections data
+const sections = [
+  {
+    category: "General Questions",
+    faqs: [
+      {
+        question: "How long does a typical ChatGPT Enterprise deployment take?",
+        answer: "Our complete ChatGPT Enterprise deployment program runs 12-16 weeks and covers strategy, procurement, technical setup, change enablement, and workforce training. However, we offer modular engagements—you can start with just change enablement (8-12 weeks) or training (4-8 weeks) if you've already deployed ChatGPT Enterprise technically."
+      },
+      {
+        question: "Do you work with companies already using Microsoft Copilot or Google Gemini?",
+        answer: "Absolutely. While we specialize in ChatGPT because employees naturally gravitate to it (it's already on their phones and dominates AI app downloads), we understand many enterprises deploy Copilot or Gemini as official tools. We can help you optimize those platforms while also addressing the reality that employees continue using ChatGPT for its superior capabilities like custom GPTs, Projects, and Advanced Voice."
+      },
+      {
+        question: "What's the difference between your services and AI consulting firms?",
+        answer: "Traditional consultancies deliver reports and recommendations, then leave. We're an AI-enabled services business—combining expert human delivery with platform technology for ongoing partnership. You get immediate access to AI Accelerators (ready-to-use templates and GPTs), Expert Request delivery (custom prompts, GPTs, training), and strategic guidance. We don't just tell you what to do; we provide the templates, build the solutions, and stay with you as your permanent AI extension team."
+      },
+      {
+        question: "Can we start small and expand later?",
+        answer: "Yes! Many clients start with our ChatGPT Training programs to build internal capability, then add AI Accelerators to give their teams ready-to-use templates and GPTs. As they identify custom needs, they expand to Expert Requests for bespoke development, and eventually add Change Enablement for organization-wide transformation. Our modular approach lets you invest based on your current priorities and scale as your AI maturity grows."
+      }
+    ]
+  },
+  {
+    category: "ChatGPT Enterprise Deployment",
+    faqs: [
+      {
+        question: "What's included in the complete Enterprise Deployment program?",
+        answer: "Our flagship deployment includes four integrated modules: (1) Strategy, Procurement & Governance—aligning leadership and securing ChatGPT Enterprise licensing; (2) Technical Deployment & Integration—configuring your tenant, SSO, and system connectors; (3) Change Enablement & Workforce Adoption—building your AI Ambassador network and communications strategy; (4) Structured Training & Ongoing Optimization—delivering ChatGPT 101/102/201 curricula, AI Accelerators library access, and Expert Requests support."
+      },
+      {
+        question: "Do you help with ChatGPT Enterprise procurement and vendor negotiations?",
+        answer: "Yes. We guide you through ChatGPT Enterprise vs ChatGPT Business decision-making, help evaluate vendor proposals, assist with contract negotiations, and ensure you get the right licensing for your organization size and use case. We've helped dozens of organizations navigate OpenAI's enterprise sales process."
+      },
+      {
+        question: "What happens after the initial deployment is complete?",
+        answer: "Post-deployment, most clients continue with a combination of our services: AI Accelerators provide your teams with ready-to-use templates and GPTs for immediate productivity, Expert Requests deliver custom GPT development and prompt engineering for specific needs, ongoing training sessions onboard new hires and cover feature updates, and quarterly optimization reviews measure adoption and identify new opportunities. Think of us as your permanent ChatGPT extension team."
+      },
+      {
+        question: "How do you measure deployment success?",
+        answer: "We track multiple success metrics: daily active users and engagement rates, ChatGPT prompts per user per week, custom GPT creation and usage, time-to-value for key use cases, employee sentiment surveys, and department-specific productivity improvements. You'll get executive dashboards showing adoption trends and ROI metrics for board reporting."
+      }
+    ]
+  },
+  {
+    category: "Change Enablement",
+    faqs: [
+      {
+        question: "What's the difference between Change Enablement and Training?",
+        answer: "Training teaches individuals how to use ChatGPT. Change Enablement transforms organizational culture and behavior. Change Enablement includes executive alignment, organization-wide communications, AI Ambassador programs, stakeholder management, recognition systems, and continuous optimization—everything needed to shift from 'employees have access' to 'employees actively use ChatGPT daily.' Training is one component within the broader change initiative."
+      },
+      {
+        question: "How many AI Ambassadors should we have?",
+        answer: "We recommend 5-10% of your workforce as AI Ambassadors—champions who receive advanced training and become peer-to-peer influence agents. For a 1,000-employee organization, that's 50-100 ambassadors distributed across all departments. These champions get extra training on prompting, GPT creation, and use case development, plus access to our full AI Accelerators library to share proven templates and GPTs with their colleagues. They then support peers and spread best practices organization-wide."
+      },
+      {
+        question: "What does the communication strategy include?",
+        answer: "We develop your complete ChatGPT communications framework: executive messaging for all-hands meetings, department-specific rollout announcements, success story templates, resistance mitigation messaging, regular newsletter content, Slack/Teams channel strategies, and leadership talking points. Everything is tailored to your brand voice and organizational culture."
+      },
+      {
+        question: "How do you handle employee resistance to AI adoption?",
+        answer: "Resistance typically comes from fear of job loss, feeling overwhelmed, or not seeing personal benefit. We address this through transparent communication about AI as an augmentation tool (not replacement), showcasing quick-win use cases that make work easier with ready-to-use AI Accelerators, celebrating early adopters publicly, and ensuring leadership models ChatGPT usage visibly. Giving employees proven templates and GPTs removes the 'blank screen intimidation' and demonstrates immediate value. Our change management framework specifically addresses the human psychology of AI adoption."
+      }
+    ]
+  },
+  {
+    category: "ChatGPT Training",
+    faqs: [
+      {
+        question: "What's the difference between ChatGPT 101, 102, and 201?",
+        answer: "ChatGPT 101 covers foundations—GPT-5 models, basic prompting, tools (web search, canvas), and responsible usage. We introduce AI Accelerators so participants immediately have ready-to-use prompts and templates. ChatGPT 102 teaches advanced research, using ChatGPT as a thinking partner, creating Projects and GPTs, and connector integrations. ChatGPT 201 is role-specific deep training (3-4 hours) covering data analytics, custom actions, and building immediately applicable use cases for specific job functions like marketing, finance, or sales."
+      },
+      {
+        question: "Do you offer virtual training or only in-person?",
+        answer: "We offer both. Virtual training works well for ChatGPT 101/102 foundations and can scale to hundreds of employees simultaneously. In-person training is ideal for ChatGPT 201 role-specific workshops, executive sessions, and Train the Trainer programs where hands-on practice and real-time coaching deliver better outcomes. Most clients use a hybrid approach—virtual for foundations, in-person for advanced applications."
+      },
+      {
+        question: "Can you create custom training for our specific industry?",
+        answer: "Absolutely. While ChatGPT 101/102 cover universal foundations with AI Accelerators for immediate application, ChatGPT 201 and our executive programs are completely customized to your industry, use cases, and workflows. We combine industry-specific training with tailored Accelerators (prompts, GPTs, templates) so your teams have both knowledge and ready-to-use tools. We've delivered specialized training for manufacturing (supply chain optimization, quality control), healthcare (clinical documentation, patient communication), professional services (client deliverables, research), and more."
+      },
+      {
+        question: "How do you train executives who 'don't have time' for training?",
+        answer: "Our 'ChatGPT for Leaders' executive program is designed specifically for time-constrained leaders. It's a focused 90-minute session covering strategic scenario planning, AI-assisted hiring, executive coaching applications, and building GPTs for team development. We schedule around executive calendars, often running sessions during breakfast or lunch, and immediately demonstrate time-saving applications relevant to their specific roles."
+      },
+      {
+        question: "What's included in the Train the Trainer program?",
+        answer: "Train the Trainer develops your internal AI Ambassadors into expert trainers who can deliver ChatGPT education independently. It includes advanced prompt engineering, training delivery skills, change management techniques, troubleshooting and peer support capabilities, internal certification program development, and building sustainable learning culture. This creates long-term internal capability beyond our engagement."
+      }
+    ]
+  },
+  {
+    category: "Expert Requests",
+    faqs: [
+      {
+        question: "How do Expert Requests work?",
+        answer: "Expert Requests provide pre-contracted access to our AI specialists for prompt engineering, GPT development, integrations, and training delivery. You submit a request through the platform, book a strategy call with your AI Strategy Director within 36 hours to refine requirements, and receive professional delivery in 7-14 days. No SOWs, no procurement delays—just immediate access to expert implementation capacity."
+      },
+      {
+        question: "What's the typical turnaround time for Expert Requests?",
+        answer: "Simple requests (individual prompts, basic GPT creation) typically deliver in 3-5 days. Complex requests (custom actions, multi-step workflows, training sessions) take 7-14 days. We guarantee 36-hour response for strategy call booking and provide delivery timelines upfront. If urgent, we can prioritize critical requests with premium support."
+      },
+      {
+        question: "Can Expert Requests build custom integrations with our systems?",
+        answer: "Yes. We build custom actions that connect GPTs to your business systems via APIs, create custom connectors for enterprise tools, develop multi-step workflow automations with simple user interfaces, implement OpenAI API solutions for specialized use cases, and integrate ChatGPT into existing business processes. If your system has an API, we can usually connect ChatGPT to it."
+      },
+      {
+        question: "How many Expert Requests do I get?",
+        answer: "Expert Request quotas vary by plan: Kowalah Essential includes 12 Expert Requests per quarter, Executive includes 24 per quarter, and Enterprise includes 36+ per quarter with custom scaling. Unused requests don't typically roll over, encouraging regular engagement and continuous improvement. Think of them as your ongoing AI development capacity."
+      },
+      {
+        question: "What if we run out of Expert Requests?",
+        answer: "If you exhaust your quarterly allocation, you have three options: upgrade to a higher tier with more requests, purchase additional one-off requests, or wait for the next quarter's allocation. Most clients find the right plan within 2-3 months as usage patterns become clear. Our strategy calls help you prioritize requests to maximize value within your allocation."
+      }
+    ]
+  },
+  {
+    category: "AI Accelerators",
+    faqs: [
+      {
+        question: "What exactly are AI Accelerators?",
+        answer: "AI Accelerators are ready-to-use templates, frameworks, and implementation guides that eliminate the 'blank screen problem' with ChatGPT. Instead of figuring out what to build from scratch, you get 50+ proven solutions—prompt libraries, pre-built GPTs, training materials, governance templates—that you can copy and deploy immediately. Think of them as instruction manuals showing you exactly what's possible before you start."
+      },
+      {
+        question: "Do I need technical expertise to use Accelerators?",
+        answer: "No. Every accelerator includes step-by-step guidance designed for business users, not developers. Prompt libraries are copy-and-paste ready, pre-built GPTs deploy with simple setup instructions, training materials are presentation-ready, and governance templates are fill-in-the-blank. If you can use ChatGPT, you can implement our accelerators."
+      },
+      {
+        question: "Are Accelerators included in all plans?",
+        answer: "AI Accelerators are available on Kowalah Digital, Essential, Executive, and Enterprise plans. Free plan users can preview the library and see what's available, but need to upgrade for full access and downloads. Think of them as the 'implementation Lego kit' that shows you what to build with your ChatGPT deployment."
+      },
+      {
+        question: "How often are new Accelerators added?",
+        answer: "We add new accelerators monthly based on successful implementations across our client base, emerging ChatGPT features and capabilities, user feedback and improvement suggestions, and industry-specific best practices. When users discover better approaches, we update existing accelerators and add new ones. You always get the latest versions automatically."
+      },
+      {
+        question: "Can Expert Requests customize Accelerators for our organization?",
+        answer: "Absolutely! This is one of the most powerful combinations. Accelerators provide the foundation and best-practice starting point, then Expert Requests customize them for your specific workflows, brand voice, data sources, and organizational needs. For example, start with our 'Sales Objection Handling GPT' accelerator, then use an Expert Request to load it with your product knowledge and customize it for your sales process."
+      }
+    ]
+  },
+  {
+    category: "Pricing & Investment",
+    faqs: [
+      {
+        question: "How much does ChatGPT Enterprise Deployment cost?",
+        answer: "ChatGPT Enterprise Deployment ranges from $32,000 to $95,000 depending on organization size and complexity (pricing available in USD, GBP, EUR). This one-off investment covers strategy, procurement, governance, technical setup, and initial training. Most organizations also invest in our Change Enablement Program ($160 per employee) to transform workforce adoption—for example, a 1,000-employee organization typically invests $192,000 total ($32,000 deployment + $160,000 enablement). We provide fixed-price proposals after a free 60-minute consultation so you know costs upfront."
+      },
+      {
+        question: "How does payment work for your services?",
+        answer: "ChatGPT Enterprise Deployment and Change Enablement are billed as fixed-fee implementations with flexible payment terms based on your procurement preferences. Once deployment is complete, many organizations transition to our Managed AI Services with quarterly billing for ongoing strategic support, Expert Requests, and AI Accelerators access. We'll work with your finance team to structure payment terms that align with your budgeting and approval processes."
+      },
+      {
+        question: "What's the ROI of ChatGPT implementation?",
+        answer: "ROI comes from two sources: productivity gains AND work quality improvements. ChatGPT-enabled employees deliver higher-quality outputs—better strategic thinking, more thorough analysis, clearer communication, and stronger creative solutions. They work 30-40% faster on knowledge tasks while simultaneously elevating quality. Additional ROI drivers include faster decision-making (real-time data analysis), reduced consulting spend (internal capability replaces external experts), improved employee satisfaction and retention, and competitive advantage from superior execution. Most clients see ROI within 6-12 months. We help you build the business case with industry-specific benchmarks."
+      },
+      {
+        question: "Do you offer discounts for nonprofits or educational institutions?",
+        answer: "Yes. We provide special pricing for nonprofits, educational institutions, and social impact organizations. Our mission is to democratize AI access, and we believe these sectors deserve support in building AI capabilities. Contact us to discuss nonprofit pricing—typically 20-30% off standard rates depending on organization size and mission alignment."
+      }
+    ]
+  }
+];
+---
+
+<Base title={title} meta_title={meta_title} description={description}>
+  <PageHeader
+    title={title}
+    content={content}
+    backgroundImage="/images/services/services-faq-bg.png"
+  />
+
+  <section class="pt-16 md:pt-24 pb-24 md:pb-32">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 lg:col-10 xl:col-9">
+          {sections.map((section, sectionIndex) => (
+            <div class="mb-16 last:mb-0">
+              {/* Section Title */}
+              <h2
+                class="text-3xl md:text-4xl font-bold mb-8 pb-4 border-b border-border/20"
+                data-aos="fade-up-sm"
+              >
+                {section.category}
+              </h2>
+
+              {/* FAQs in this section */}
+              <div class="space-y-6">
+                {section.faqs.map((faq, faqIndex) => (
+                  <div
+                    class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-200"
+                    data-aos="fade-up-sm"
+                    data-aos-delay={faqIndex * 50}
+                  >
+                    <h3
+                      class="text-xl font-semibold text-text-dark mb-3"
+                      set:html={markdownify(faq.question)}
+                    />
+                    <div
+                      class="text-text prose prose-lg max-w-none"
+                      set:html={markdownify(faq.answer)}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {/* Contact CTA at bottom */}
+          <div
+            class="mt-16 p-8 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl text-center"
+            data-aos="fade-up-sm"
+          >
+            <h3 class="text-2xl font-bold mb-4">Have a question not covered here?</h3>
+            <p class="text-lg mb-6 max-w-2xl mx-auto">
+              Our team is here to help you understand which ChatGPT services are right for your organization.
+            </p>
+            <a
+              href="/contact"
+              class="btn btn-primary inline-block"
+            >
+              Schedule a Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
