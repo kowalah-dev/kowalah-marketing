@@ -9,14 +9,16 @@ import { clerkMiddleware } from "@clerk/astro/server";
 const primaryDomain = import.meta.env.CLERK_PRIMARY_DOMAIN;
 const signInUrl = import.meta.env.CLERK_SIGN_IN_URL;
 
-if (!primaryDomain || !signInUrl) {
-  throw new Error(
-    "Missing required Clerk satellite configuration. Please set CLERK_PRIMARY_DOMAIN and CLERK_SIGN_IN_URL environment variables."
-  );
-}
+// For satellite domain configuration
+const clerkConfig = primaryDomain && signInUrl
+  ? {
+      isSatellite: true,
+      domain: primaryDomain,
+      signInUrl: signInUrl,
+    }
+  : {
+      // Default configuration when satellite variables not set
+      // This allows the site to function without Clerk auth
+    };
 
-export const onRequest = clerkMiddleware({
-  isSatellite: true,
-  domain: primaryDomain,
-  signInUrl: signInUrl,
-});
+export const onRequest = clerkMiddleware(clerkConfig);

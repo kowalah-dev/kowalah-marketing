@@ -1,7 +1,7 @@
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import vercel from "@astrojs/vercel";
+import node from "@astrojs/node";
 import clerk from "@clerk/astro";
 import sanity from "@sanity/astro";
 import tailwindcss from "@tailwindcss/vite";
@@ -30,7 +30,9 @@ export default defineConfig({
   image: { service: sharp() },
   vite: { plugins: [tailwindcss()] },
   output: "server", // Enable SSR for Clerk authentication
-  adapter: vercel(),
+  adapter: node({
+    mode: "standalone",
+  }),
   integrations: [
     react(),
     clerk({
