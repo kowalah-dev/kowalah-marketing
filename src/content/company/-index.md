@@ -71,7 +71,7 @@ mission:
   title: "Our Mission & Vision"
   subtitle: "Where We're Headed"
   badge: "Purpose-Driven"
-  content: "Our goal is to become the leading partner to deploy ChatGPT to enterprise companies globally—the largest boutique of ChatGPT change enablement. We're focused on horizontal, general AI, primarily ChatGPT, but if someone takes ChatGPT's crown, we'll work with them too."
+  content: "We're defining what it means to be an AI-enabled services business—combining expert human delivery with platform technology. Our mission is to become the world's leading partner for enterprise ChatGPT deployment and change enablement. We're committed to ChatGPT as the best general-purpose AI for business transformation, and we'll continue working with the technology that delivers the greatest results for our clients."
   points:
     - title: "Every Employee, AI-Enabled"
       icon: "profile"
