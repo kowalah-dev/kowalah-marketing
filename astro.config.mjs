@@ -29,7 +29,7 @@ export default defineConfig({
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   image: { service: sharp() },
   vite: { plugins: [tailwindcss()] },
-  output: "hybrid", // Enable SSR where needed while keeping static generation
+  output: "server", // Enable SSR for Clerk authentication (Astro 5: hybrid merged into server mode)
   adapter: node({
     mode: "standalone",
   }),
