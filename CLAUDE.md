@@ -41,6 +41,7 @@ Our Kowalah repositories consist of these - all within the kowalah-dev Github or
 ### Core Technologies
 - **Framework:** Astro 5.5.4 with React integration
 - **Styling:** TailwindCSS 4.0.15 with custom plugins and utilities
+- **Icons:** Heroicons (@heroicons/react) - 300+ professional icons with automatic color inheritance
 - **Content Management:** Astro's Content Collections API with Zod validation
 - **Package Manager:** Yarn 1.22.22 (specified in packageManager field)
 - **TypeScript:** Full TypeScript support with strict configuration
@@ -102,8 +103,28 @@ TypeScript path mapping configured for:
 ### React Integration
 - **React 19.0.0** with React DOM
 - **Interactive components:** Sliders (Swiper), counters, theme toggles
-- **Icons:** React Icons library for consistent iconography
 - **Video:** React Lite YouTube Embed for performance
+
+### Icon System
+- **Primary:** Heroicons (@heroicons/react) - 300+ professional SVG icons
+- **Browse:** [heroicons.com](https://heroicons.com) for available icons
+- **Integration:** React components with automatic `currentColor` support
+- **Usage Pattern:** Import icons and map to semantic names in content
+- **Legacy:** Custom SVG icons in `/src/icons/` for brand-specific needs only
+
+**Example Implementation:**
+```astro
+---
+import { LightBulbIcon, RocketLaunchIcon } from '@heroicons/react/24/solid';
+
+const iconMap = {
+  'bulb': LightBulbIcon,
+  'rocket': RocketLaunchIcon
+};
+---
+
+<Icon Component={iconMap[data.icon]} className="w-8 h-8 text-white" />
+```
 
 ### Content Features
 - **Markdown processing:** Remark plugins for table of contents and collapsible sections

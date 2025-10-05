@@ -98,10 +98,12 @@ To automatically generate detailed Canva mockup specifications based on Astro co
 - **Format:** PNG with transparency or high-quality designs optimized for web
 
 ### Icons and Graphics
-**Directory:** `/public/images/icons/`, `/public/images/product/features/`
-- **Existing Icons:** Check `src/icons/` directory for available icons first
-- **No Custom Icons:** Use existing project icons rather than generating new ones
-- **Brand Consistency:** Follow Kowalah color palette and style guidelines
+**Primary Icon System:** Heroicons (@heroicons/react) - 300+ professional icons
+- **Browse Icons:** Visit [heroicons.com](https://heroicons.com) to select appropriate icons
+- **No Custom Icon Generation:** Use Heroicons library for all standard iconography needs
+- **Legacy Icons:** Custom SVG icons in `src/icons/` directory only for brand-specific or unavailable icons
+- **Integration:** Icons rendered via React components with automatic color inheritance
+- **Brand Consistency:** Heroicons maintain professional design language aligned with Tailwind/Kowalah style
 
 ### Image Path Formatting
 **CRITICAL:** Ensure correct path format in content files
@@ -243,10 +245,10 @@ When processing image prompt generation requests, the AI must:
 
 ### 1. Content File Analysis Phase
 - **Parse YAML Frontmatter:** Extract all image field values from content file
-- **Identify Image Categories:** 
+- **Identify Image Categories:**
   - `product_screenshot`, `screenshots[]` → Playwright automation
   - Business/executive scenes → AI image generation
-  - Icons → Heroicons library or custom generation
+  - Icons → Heroicons library (no custom generation needed)
 - **Map to Directories:** Determine correct `/public/images/` subdirectory based on image purpose
 - **Extract Context:** Get alt text, dimensions, and purpose from content file
 

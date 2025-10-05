@@ -50,6 +50,9 @@
                   },
                   "value": {
                     "type": "number"
+                  },
+                  "suffix": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -80,8 +83,30 @@
           "required": [
             "content",
             "image",
-            "stats",
-            "trusted"
+            "stats"
+          ],
+          "additionalProperties": false
+        },
+        "story": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "subtitle",
+            "content",
+            "image"
           ],
           "additionalProperties": false
         },
@@ -140,6 +165,52 @@
             "image",
             "badge",
             "reason",
+            "content",
+            "points"
+          ],
+          "additionalProperties": false
+        },
+        "mission": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "badge": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            },
+            "points": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "icon",
+                  "content"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "subtitle",
+            "badge",
             "content",
             "points"
           ],
@@ -222,7 +293,6 @@
         "about",
         "slider",
         "why",
-        "job",
         "faq"
       ],
       "additionalProperties": false

@@ -193,8 +193,9 @@ Before creating the file, verify:
 - [ ] File path follows collection directory structure
 - [ ] Filename uses kebab-case convention
 - [ ] YAML syntax is correct with proper indentation
-- [ ] **Icon validation:** Run `ls src/icons/ | sed 's/\.svg$//'` and verify ALL icon references exist
-- [ ] **No Heroicons:** Confirm no Heroicon names (e.g., ChartBarIcon, UserIcon) are used
+- [ ] **Icon naming:** Use semantic icon names (e.g., `chart`, `users`, `rocket`) that will map to Heroicons
+- [ ] **Icon browsing:** Reference [heroicons.com](https://heroicons.com) to verify icon availability
+- [ ] **Custom icons:** Only use custom SVG icons for brand-specific needs not available in Heroicons
 - [ ] **Image path format:** ALL image paths start with forward slash (`/images/...`, NOT `images/...`)
 - [ ] **No YAML comments:** All comments removed from frontmatter to prevent parsing errors
 
@@ -418,48 +419,62 @@ Use these four standardized dimensions for all new images to ensure consistency 
 
 ## Icon System Integration
 
-### Available Icon Validation
+### Heroicons Library (Recommended)
 
-**CRITICAL:** Always check available icons before using in content:
+**PRIMARY ICON SYSTEM:** The project uses **Heroicons** (@heroicons/react) for scalable, professional iconography.
 
-**Step 1: Check Available Icons**
-```bash
-ls src/icons/
+**Why Heroicons:**
+- ✅ 300+ professionally designed icons ready to use
+- ✅ Automatic `currentColor` support (no CSS fighting)
+- ✅ Consistent design language by Tailwind creators
+- ✅ Simple integration via React components
+- ✅ No manual SVG file management required
+
+**Browse available icons:** [heroicons.com](https://heroicons.com)
+
+**Icon Naming in Content:**
+When creating content, use semantic icon names that will be mapped to Heroicons in components:
+```yaml
+capabilities:
+  - title: "AI Strategy & Vision"
+    icon: "chart"  # Maps to ChartBarIcon
+    description: "Develop comprehensive AI strategies."
+  - title: "Team Collaboration"
+    icon: "users"  # Maps to UserGroupIcon
+    description: "Foster AI adoption across teams."
 ```
 
-**CRITICAL: Always verify available icons before use:**
+**Common Icon Mappings:**
+- **Strategy/Analytics:** `chart`, `target`, `compass`, `lightbulb`
+- **Leadership/People:** `users`, `user`, `academic-cap`, `briefcase`
+- **Technology/Systems:** `cpu`, `server`, `cloud`, `cog`
+- **Innovation/Growth:** `lightbulb`, `rocket`, `sparkles`, `arrow-trending-up`
+- **Performance/Success:** `check-circle`, `star`, `trophy`, `chart-bar`
+- **Business/Financial:** `currency-dollar`, `building-office`, `scale`
+- **Communication:** `chat-bubble`, `envelope`, `phone`, `megaphone`
+- **Time/Process:** `clock`, `calendar`, `arrow-path`, `list-bullet`
+- **Security/Protection:** `shield-check`, `lock-closed`, `key`
+
+### Legacy Custom Icon Library (Backup)
+
+**FALLBACK ONLY:** Custom SVG icons in `src/icons/` directory for brand-specific or unavailable icons.
+
+**Check Available Custom Icons:**
 ```bash
 ls src/icons/ | sed 's/\.svg$//' | sort
 ```
 
-**Currently Available Icons (verify before use):**
+**Currently Available Custom Icons:**
 - `auto`, `bulb`, `bullseye`, `case`, `check`, `cloud`, `compass`
 - `cpu`, `cross`, `dirt`, `doller`, `euro`, `graph`, `help`
-- `history`, `location_pin`, `location`, `mail`, `minus`, `monitor`  
+- `history`, `location_pin`, `location`, `mail`, `minus`, `monitor`
 - `phone`, `profile`, `right`, `rocket`, `speed`, `task`
 - `tick`, `time`, `up`, `upward`
 
-**⚠️ WARNING:** Icon list may change. Always run the command above to get current icons.
-
-**Step 2: Map Capabilities to Available Icons**
-For AI leadership capabilities, use ONLY verified available icons:
-- **Strategy/Analytics:** `graph`, `bullseye`, `compass` ✅
-- **Leadership/People:** `profile`, `help`, `task` ✅  
-- **Technology/Systems:** `cpu`, `monitor`, `cloud` ✅
-- **Innovation/Growth:** `bulb`, `rocket`, `up`, `upward` ✅
-- **Performance/Success:** `tick`, `check`, `speed` ✅
-- **Business/Financial:** `doller`, `euro`, `case` ✅
-- **Communication:** `mail`, `phone` ✅
-- **Time/Process:** `time`, `history`, `auto` ✅
-- **Location/Direction:** `location`, `location_pin`, `right` ✅
-
-**Step 3: Content Icon Usage**
-```yaml
-capabilities:
-  - title: "AI Strategy & Vision"
-    icon: "graph"  # ✅ Available icon
-    # NOT: icon: "ChartBarIcon"  # ❌ Non-existent
-```
+**When to Use Custom Icons:**
+- Brand-specific iconography not available in Heroicons
+- Legacy content that hasn't been migrated yet
+- Custom illustrations or unique visual elements
 
 ### YAML Frontmatter Best Practices
 
@@ -517,9 +532,9 @@ When processing content creation requests, the AI must follow this workflow:
    - **For Collections:** Read specific collection schema from `src/content.config.ts`
    - Map design sections to appropriate content structure (flexible for static, schema-bound for collections)
    - **If Collection:** Identify required vs optional fields, nested structures, and array requirements
-   - **MANDATORY: Verify available icons:** Run `ls src/icons/` and strip `.svg` extensions to get valid icon names
-   - **Map icon requirements:** Assign ONLY verified icon names from the actual directory listing
-   - **Icon validation:** Cross-reference every icon used in content against the verified list
+   - **Icon selection:** Use semantic icon names from Heroicons library (browse heroicons.com)
+   - **Icon mapping:** Choose appropriate icons based on content meaning (e.g., `chart` for analytics, `users` for people, `rocket` for innovation)
+   - **Custom icons:** Only reference custom SVG icons when Heroicons doesn't have suitable alternatives
 
 3. **Content Generation with Brand Alignment**
    - Reference `/docs/context/messaging-framework.md` for tone and positioning
@@ -537,7 +552,7 @@ When processing content creation requests, the AI must follow this workflow:
 
 5. **Generate Complete Content File**
    - **Create clean YAML frontmatter:** No comments, proper indentation, valid syntax
-   - **Use validated icons only:** Reference existing icons from `src/icons/` directory  
+   - **Use semantic icon names:** Choose from Heroicons library based on content meaning
    - Include all content sections from design requirements
    - **Use organized image directory paths with leading slashes** (/images/product/mockups/, /images/product/screenshots/, etc.)
    - Provide visual asset specifications with correct directory structure
@@ -587,8 +602,8 @@ When processing content creation requests, the AI must follow this workflow:
 - **Missing Required Fields:** Not including all required schema fields
 - **YAML Syntax Errors:** Incorrect indentation or formatting
 - **YAML Comments:** Comments in frontmatter (use `#`) break Astro parsing - NEVER include
-- **Invalid Icons:** Using non-existent icon names instead of checking `src/icons/` directory first
-- **Heroicon References:** Using Heroicon names (e.g., "ChartBarIcon") instead of local icon names
+- **Invalid Icons:** Using unavailable icon names - always browse heroicons.com first
+- **Component-style Icon Names:** Using React component names (e.g., "ChartBarIcon") instead of semantic names (e.g., "chart")
 - **Brand Inconsistency:** Content that doesn't align with Kowalah positioning
 - **Data Fabrication:** Inventing statistics, testimonials, or company information
 - **Poor Mobile Experience:** Content that doesn't work well on mobile devices

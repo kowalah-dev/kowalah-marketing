@@ -21,6 +21,9 @@
             },
             "content": {
               "type": "string"
+            },
+            "background_image": {
+              "type": "string"
             }
           },
           "required": [
@@ -209,13 +212,17 @@
                           },
                           "total_year_one": {
                             "type": "string"
+                          },
+                          "per_employee": {
+                            "type": "string"
                           }
                         },
                         "required": [
                           "deployment_cost",
                           "enablement_cost",
                           "managed_annual",
-                          "total_year_one"
+                          "total_year_one",
+                          "per_employee"
                         ],
                         "additionalProperties": false
                       },
@@ -233,13 +240,17 @@
                           },
                           "total_year_one": {
                             "type": "string"
+                          },
+                          "per_employee": {
+                            "type": "string"
                           }
                         },
                         "required": [
                           "deployment_cost",
                           "enablement_cost",
                           "managed_annual",
-                          "total_year_one"
+                          "total_year_one",
+                          "per_employee"
                         ],
                         "additionalProperties": false
                       },
@@ -257,13 +268,17 @@
                           },
                           "total_year_one": {
                             "type": "string"
+                          },
+                          "per_employee": {
+                            "type": "string"
                           }
                         },
                         "required": [
                           "deployment_cost",
                           "enablement_cost",
                           "managed_annual",
-                          "total_year_one"
+                          "total_year_one",
+                          "per_employee"
                         ],
                         "additionalProperties": false
                       }
@@ -292,6 +307,30 @@
             "title",
             "subtitle",
             "examples"
+          ],
+          "additionalProperties": false
+        },
+        "roi_reality_check": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            },
+            "details": {
+              "type": "string"
+            },
+            "closing": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "title",
+            "content",
+            "details",
+            "closing"
           ],
           "additionalProperties": false
         },
