@@ -1,22 +1,10 @@
 import { clerkMiddleware } from "@clerk/astro/server";
 
-// Satellite domain configuration - environment-aware
-// This marketing site reads auth from the primary domain (Next.js app)
-// Environment variables:
-// - CLERK_PRIMARY_DOMAIN: The domain where users authenticate (e.g., app.kowalah.com)
-// - CLERK_SIGN_IN_URL: Full URL to sign-in page
+// Clerk authentication middleware
+// In production: app.kowalah.com and www.kowalah.com share authentication automatically
+// as subdomains of kowalah.com (no satellite configuration needed)
+//
+// In development: Uses immense-kingfish-84.clerk.accounts.dev
+// Requires only: PUBLIC_CLERK_PUBLISHABLE_KEY and CLERK_SECRET_KEY
 
-const primaryDomain = import.meta.env.CLERK_PRIMARY_DOMAIN;
-const signInUrl = import.meta.env.CLERK_SIGN_IN_URL;
-
-if (!primaryDomain || !signInUrl) {
-  throw new Error(
-    "Missing required Clerk satellite configuration. Please set CLERK_PRIMARY_DOMAIN and CLERK_SIGN_IN_URL environment variables."
-  );
-}
-
-export const onRequest = clerkMiddleware({
-  isSatellite: true,
-  domain: primaryDomain,
-  signInUrl: signInUrl,
-});
+export const onRequest = clerkMiddleware();
