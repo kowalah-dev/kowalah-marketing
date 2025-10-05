@@ -22,11 +22,10 @@ const { pathname } = Astro.url;
 
 const { customHeader } = Astro.props;
 
-// Dashboard link for authenticated users - uses same domain as sign-in
-const primaryDomain = import.meta.env.CLERK_PRIMARY_DOMAIN;
-const dashboardLink = primaryDomain
-  ? `https://${primaryDomain}/dashboard`
-  : "https://app.kowalah.com/dashboard"; // fallback
+// Dashboard link for authenticated users
+// In production: https://app.kowalah.com/new
+// In development: Uses same Clerk instance, will redirect to app for auth
+const dashboardLink = "https://app.kowalah.com/new";
 ---
 
 <header
