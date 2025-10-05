@@ -84,6 +84,30 @@ mission:
       content: "Take every employee on the journey to understand what it means to be successful in an AI future—from intern to CEO."
 
 faq:
-  title: "About ChatGPT Change Enablement"
-  subtitle: "Common Questions About Kowalah"
+  title: "Partnering with Kowalah"
+  subtitle: "Common Questions About Our Company"
+  faqs:
+    - question: "Why did you focus exclusively on ChatGPT rollouts?"
+      answer: "When employees think AI, they think ChatGPT—it's already on their phones and dominates mobile AI app downloads. While enterprises deploy Copilot or Gemini as official tools, employees continue using personal ChatGPT accounts because of superior capabilities like custom GPTs, Projects, and Voice. We focus on ChatGPT because that's where user adoption naturally goes, and fighting that reality wastes time and money. We help you embrace what employees already want to use."
+
+    - question: "What makes Kowalah different from AI consultancies?"
+      answer: "Traditional consultancies deliver reports and recommendations, then leave. We're an AI-enabled services business—combining expert human delivery with platform technology for ongoing partnership. You get immediate Expert Request delivery (custom prompts, GPTs, training) alongside strategic guidance. We don't just tell you what to do; we build the solutions and stay with you as your permanent AI extension team."
+
+    - question: "Is Kowalah a product business or a services business?"
+      answer: "We're both—a services-plus-platform business. While our implementation programs deliver hands-on training and change enablement, the Kowalah platform becomes your ongoing connection to continuous value. After your initial deployment, the platform gives you access to our services, our AI accelerators, Expert Requests for custom GPTs and prompts, and the collective intelligence from every Kowalah customer implementation. You're not buying software or consulting hours—you're gaining a permanent AI capability partner."
+
+    - question: "How long has Kowalah been in business?"
+      answer: "Kowalah was founded in 2023 to solve a problem our founder Charlie experienced firsthand: leading AI transformation at companies with up to 100,000 employees and seeing the massive gap between executive AI ambition and practical employee adoption. We've channeled 25+ years of enterprise technology experience into defining what AI-enabled services means—platform technology plus expert human delivery, specifically for ChatGPT rollouts."
+
+    - question: "Do you work with companies outside the UK and US?"
+      answer: "Yes. While our primary markets are UK and US, we serve clients globally. Our platform delivery model and Expert Request system work seamlessly across time zones. Our mission is to become the world's leading partner for enterprise ChatGPT deployment, and we're building global capabilities to support that vision."
+
+    - question: "What's your approach to AI governance and security?"
+      answer: "We help you implement proper ChatGPT Enterprise governance while giving employees the tools they prefer. This includes working with IT, InfoSec, and Legal teams to demonstrate OpenAI's enterprise credentials, establish usage policies, eliminate shadow AI, and create visibility into organizational AI adoption. We turn uncontrolled personal ChatGPT usage into strategic capability with full governance."
+
+    - question: "How is Kowalah's ChatGPT expertise different from general AI knowledge?"
+      answer: "We specialize in advanced ChatGPT capabilities most companies don't know exist: voice-enabled coaching sessions, custom GPTs for department workflows, Projects for complex work, and Canvas for collaboration. Our team stays current with every ChatGPT release and ensures your people leverage new features immediately—not months later after reading release notes. Deep ChatGPT expertise beats shallow multi-tool knowledge."
+
+    - question: "What if ChatGPT isn't the leading AI tool in the future?"
+      answer: "We're committed to ChatGPT as the best general-purpose AI for business transformation today, and we'll continue working with the technology that delivers the greatest results for our clients. Our focus is client outcomes, not technology loyalty. That said, ChatGPT's lead in consumer adoption, enterprise features, and rapid innovation makes it the clear choice for organizational AI transformation today."
 ---

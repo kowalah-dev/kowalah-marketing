@@ -4,12 +4,12 @@ import { PortableText } from 'astro-portabletext';
 
 interface Props {
   faqs?: Array<{
-    _id: string;
+    _id?: string;
     question: string;
-    answer: Array<any>; // Portable Text blocks
-    category: string;
-    priority: number;
-    featured: boolean;
+    answer: Array<any> | string; // Portable Text blocks OR markdown string
+    category?: string;
+    priority?: number;
+    featured?: boolean;
     tags?: Array<string>;
   }>;
 }
@@ -41,7 +41,10 @@ const { faqs = [] } = Astro.props;
           </svg>
         </button>
         <div class="accordion-content">
-          <PortableText value={f.answer} />
+          {typeof f.answer === 'string'
+            ? <p set:html={markdownify(f.answer)} />
+            : <PortableText value={f.answer} />
+          }
         </div>
       </div>
     ))

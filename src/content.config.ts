@@ -124,7 +124,16 @@ const companyCollection = defineCollection({
         }),
       ),
     }).optional(),
-    faq: z.object({ title: z.string().optional(), subtitle: z.string() }),
+    faq: z.object({
+      title: z.string().optional(),
+      subtitle: z.string(),
+      faqs: z.array(
+        z.object({
+          question: z.string(),
+          answer: z.string()
+        })
+      )
+    }),
   }),
 });
 

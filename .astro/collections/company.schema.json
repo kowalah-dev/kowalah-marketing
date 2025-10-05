@@ -277,10 +277,30 @@
             },
             "subtitle": {
               "type": "string"
+            },
+            "faqs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "question": {
+                    "type": "string"
+                  },
+                  "answer": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "question",
+                  "answer"
+                ],
+                "additionalProperties": false
+              }
             }
           },
           "required": [
-            "subtitle"
+            "subtitle",
+            "faqs"
           ],
           "additionalProperties": false
         },
