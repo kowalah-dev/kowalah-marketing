@@ -33,9 +33,6 @@ export default defineConfig({
   adapter: node({
     mode: "standalone",
   }),
-  experimental: {
-    session: true, // Required for Clerk authentication
-  },
   integrations: [
     react(),
     clerk({
