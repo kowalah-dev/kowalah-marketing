@@ -29,7 +29,7 @@ export default defineConfig({
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   image: { service: sharp() },
   vite: { plugins: [tailwindcss()] },
-  output: "server", // Enable SSR for Clerk authentication
+  output: "hybrid", // Enable SSR where needed while keeping static generation
   adapter: node({
     mode: "standalone",
   }),
