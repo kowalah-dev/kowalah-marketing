@@ -138,5 +138,5 @@
 
 ---
 
-**Last Updated:** December 2024
+**Last Updated:** 5th October 2025
 **Maintained By:** Kowalah Development Team
