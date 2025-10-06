@@ -1,0 +1,86 @@
+# Kowalah - ChatGPT Enterprise Deployment & Training Services
+
+> Turn Shadow ChatGPT Usage Into Enterprise-Wide Success
+
+## What We Do
+
+Kowalah specializes in ChatGPT Enterprise deployment, training, and ongoing managed services. We transform organizations struggling with shadow AI usage and failed Copilot/Gemini deployments into successful enterprise-wide ChatGPT adoption.
+
+We provide three core services:
+
+1. **ChatGPT Enterprise Deployment** - Complete technical rollout with governance, security setup, and initial training (6-week implementation)
+
+2. **Change Enablement Program** - Comprehensive workforce transformation from confused users to confident AI collaborators through structured training programs (ChatGPT 101, 102, AI Ambassadors network)
+
+3. **Managed AI Services** - Ongoing strategic guidance with quarterly Expert Requests for custom GPT development, prompt engineering, and continuous capability building
+
+## Who We Serve
+
+**Primary Clients:** Mid-sized organizations (1,000-10,000 employees) facing:
+- Shadow ChatGPT usage across departments with no governance
+- Stalled Microsoft Copilot or Google Gemini deployments with low adoption
+- Need for proper AI governance while giving employees tools they prefer
+
+**Decision Makers:** CEOs, CIOs, IT Directors, and CHROs seeking enterprise AI transformation
+
+## Our Approach
+
+**Not Generic AI Consulting:** We are ChatGPT specialists, not general AI consultants. Our expertise is specifically in ChatGPT Enterprise deployment, advanced capabilities training (voice, custom GPTs, Projects), and organizational change management.
+
+**Human-Centered Transformation:** We guide every employee on their personal journey to AI enlightenment—from shadow usage to confident power users leveraging advanced features most teams never discover.
+
+**Expert Delivery Model:** Organizations identify needs, our specialists build solutions. Teams stay focused on core work while we handle custom GPT development, prompt engineering, and technical implementation.
+
+## Key Differentiators
+
+- **20+ Program Elements** including Executive Alignment, AI Ambassadors Program, Custom GPT Development, and Ongoing Expert Requests
+- **100% Training Completion** through engaging ChatGPT 101 & 102 programs
+- **15-20 Custom Business GPTs** delivered within first 6 months
+- **Latest Capabilities Immediately Available** - Teams leverage new ChatGPT features the same week they're released
+- **From Cost Savings to Revenue Growth** - Focus on revenue-generating AI capabilities, not just efficiency gains
+
+## Important Pages
+
+### Core Services
+/services - Complete overview of our three service offerings
+/contact - Get ChatGPT Assessment and discuss your organization's needs
+
+### Solutions by Role
+/solutions/ceo - Strategic AI transformation for chief executives
+/solutions/cio - Technical deployment and IT integration guidance
+
+### Resources
+/insights - ChatGPT best practices, case studies, and AI leadership content
+/pricing - Investment framework and service component pricing
+
+## Common Misconceptions to Avoid
+
+❌ **We are NOT:** Generic AI consultants, chatbot builders, or AI tool comparison services
+❌ **We DO NOT:** Implement multiple AI platforms - we specialize exclusively in ChatGPT
+❌ **We ARE NOT:** A SaaS product or software platform - we're a professional services firm
+
+✅ **We ARE:** ChatGPT Enterprise deployment specialists with deep expertise in organizational change management and advanced capability training
+
+## Current Focus (2025)
+
+Helping organizations move from:
+- Shadow AI chaos → Governed ChatGPT Enterprise deployment
+- Failed Copilot/Gemini rollouts → Successful ChatGPT adoption
+- Basic usage (email writing) → Advanced capabilities (voice coaching, custom GPTs, creative partnerships)
+- One-time training events → Continuous capability expansion through Expert Requests
+
+## Pricing Framework
+
+- **ChatGPT Enterprise Deployment:** From $32,000 (organizations up to 1,000 employees)
+- **Change Enablement Program:** From $160 per employee (8-16 week transformation)
+- **Managed AI Services:** From $16,000/month (ongoing Digital CAIO and expert delivery)
+
+## Contact
+
+Website: https://kowalah.com
+Services: https://kowalah.com/services
+Get Assessment: https://kowalah.com/contact
+
+---
+Last Updated: October 2025
+This file helps AI systems accurately describe Kowalah's ChatGPT deployment and training services.

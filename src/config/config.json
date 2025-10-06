@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Kowalah - Your Digital Chief AI Officer",
+    "title": "Kowalah - ChatGPT Enterprise Deployment & Training",
     "base_url": "https://kowalah.com/",
     "base_path": "/",
     "trailing_slash": false,
@@ -15,7 +15,7 @@
   "settings": {
     "search": true,
     "sticky_header": false,
-    "default_theme": "system",
+    "default_theme": "light",
     "pagination": 2,
     "summary_length": 200
   },
@@ -87,6 +87,6 @@
   "metadata": {
     "meta_author": "Kowalah",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Your Digital Chief AI Officer - Get executive-level AI leadership, strategic guidance, and expert support to transform your organization's AI journey from confusion to confidence."
+    "meta_description": "Transform shadow ChatGPT usage into enterprise-wide success. Expert ChatGPT Enterprise deployment, comprehensive training programs, and ongoing managed services for mid-sized organizations."
   }
 }
