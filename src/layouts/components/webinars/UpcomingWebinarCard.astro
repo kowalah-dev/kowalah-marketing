@@ -123,8 +123,8 @@ const { webinar } = Astro.props;
       {
         webinar.structure.map((segment) => (
           <div class="flex items-start gap-3">
-            <span class="inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondary text-sm font-semibold text-white">
-              {segment.duration.split("-")[0].trim()}
+            <span class="inline-flex h-8 w-[85px] flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondary text-sm font-semibold text-white whitespace-nowrap">
+              {segment.duration}
             </span>
             <div class="flex-1">
               <p class="font-semibold">{segment.segment}</p>
