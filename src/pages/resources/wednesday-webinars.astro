@@ -1,7 +1,7 @@
 ---
 import Base from "@/layouts/Base.astro";
 import { markdownify } from "@/lib/utils/textConverter";
-import GridBg from "@/layouts/components/GridBg.astro";
+import ServicesHero from "@/layouts/components/services/ServicesHero.astro";
 import UpcomingWebinarCard from "@/layouts/components/webinars/UpcomingWebinarCard.astro";
 import PastWebinarCard from "@/layouts/components/webinars/PastWebinarCard.astro";
 import Accordion from "@/shortcodes/Accordion";
@@ -16,15 +16,16 @@ const pageData = {
 
   hero: {
     title: "Wednesday Webinars",
-    subtitle: "Tactical ChatGPT Training for Business Leaders",
-    content: "Every Wednesday at 3PM GMT, discover advanced ChatGPT capabilities for your sales, marketing, and operations teams. Turn ChatGPT into a creative co-worker, not just an email assistant.",
-    background_image: "/images/webinars/hero-background.jpg",
+    subtitle: "Every Wednesday at 3PM GMT, discover advanced ChatGPT capabilities for business teams across your organization. Interactive training sessions with live demonstrations.",
+    content: "Join business leaders learning practical ChatGPT applications through live Q&A and real-time demonstrations.",
+    background_image: "/images/webinars/wednesday_webinar_hero.png",
     badge: "Free Live Series"
   },
 
   upcoming_webinar: {
     title: "Shared Projects in ChatGPT: From Shadow AI to Shared Intelligence",
     date: "2025-11-05",
+    displayDate: "5th November 2025",
     time: "3PM - 4PM GMT",
     webinar_id: "984 7523 9119",
     registration_link: "https://zoom.us/webinar/register/WN_gh7RuiPHSaqe5a777xJxRA",
@@ -163,57 +164,16 @@ const iconMap = {
   description={pageData.description}
 >
   <!-- Hero Section -->
-  <section class="section pb-0 relative overflow-hidden">
-    <GridBg />
-    <div class="container relative z-10">
-      <div class="row justify-center">
-        <div class="lg:col-10 text-center">
-          <!-- Badge -->
-          {pageData.hero.badge && (
-            <div class="mb-6" data-aos="fade-up-sm">
-              <span class="inline-block bg-gradient-to-r from-primary to-secondary text-white px-4 py-2 rounded-full text-sm font-semibold">
-                {pageData.hero.badge}
-              </span>
-            </div>
-          )}
-
-          <!-- Title -->
-          <h1
-            set:html={markdownify(pageData.hero.title)}
-            class="mb-4"
-            data-aos="fade-up-sm"
-            data-aos-delay="100"
-          />
-
-          <!-- Subtitle -->
-          <p
-            class="text-xl md:text-2xl font-semibold text-primary mb-4"
-            data-aos="fade-up-sm"
-            data-aos-delay="200"
-          >
-            {pageData.hero.subtitle}
-          </p>
-
-          <!-- Content -->
-          <p
-            set:html={markdownify(pageData.hero.content)}
-            class="text-lg mb-8"
-            data-aos="fade-up-sm"
-            data-aos-delay="300"
-          />
-
-          <!-- Primary CTA -->
-          <div data-aos="fade-up-sm" data-aos-delay="400">
-            <Button
-              label="Register for Next Webinar"
-              link={pageData.upcoming_webinar.registration_link}
-              style="secondary"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <ServicesHero
+    title={pageData.hero.title}
+    subtitle={pageData.hero.subtitle}
+    cta={{
+      label: "Register for Next Webinar",
+      link: pageData.upcoming_webinar.registration_link,
+      subtext: "Free live sessions every Wednesday at 3PM GMT"
+    }}
+    backgroundImage={pageData.hero.background_image}
+  />
 
   <!-- Upcoming Webinar Spotlight -->
   <section class="section">
@@ -226,18 +186,32 @@ const iconMap = {
     </div>
   </section>
 
-  <!-- Why Attend (Benefits) -->
-  <section class="section bg-gray-50">
-    <div class="container">
+  <!-- Why Attend (Benefits) with Video Background -->
+  <section class="section relative overflow-hidden">
+    <!-- Video Background -->
+    <div class="absolute inset-0 -z-10">
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        class="w-full h-full object-cover"
+      >
+        <source src="/images/webinars/wednesday_webinar_video.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-b from-dark/70 via-dark/60 to-dark/70"></div>
+    </div>
+
+    <div class="container relative z-10">
       <div class="row justify-center">
         <div class="lg:col-8 text-center mb-12">
           <h2
             set:html={markdownify(pageData.why_attend.title)}
-            class="mb-4"
+            class="mb-4 text-white drop-shadow-lg"
             data-aos="fade-up-sm"
           />
           <p
-            class="text-lg text-dark/70"
+            class="text-lg text-white/90 drop-shadow-md"
             data-aos="fade-up-sm"
             data-aos-delay="100"
           >
@@ -251,7 +225,7 @@ const iconMap = {
             {pageData.why_attend.benefits.map((benefit, index) => {
               const IconComponent = iconMap[benefit.icon as keyof typeof iconMap];
               return (
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/20 hover:shadow-xl hover:bg-white transition-all">
                   <div class="mb-4">
                     <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
                       <IconComponent className="w-6 h-6 text-white" />
@@ -330,36 +304,62 @@ const iconMap = {
     </section>
   )}
 
-  <!-- Host Section -->
-  <section class="section">
-    <div class="container">
-      <div class="row items-center">
-        <div class="lg:col-4 mb-8 lg:mb-0" data-aos="fade-up-sm">
-          <div class="relative mx-auto max-w-sm">
-            <ImageMod
-              src={pageData.host.image}
-              alt={pageData.host.name}
-              class="rounded-xl shadow-lg"
-              width={400}
-              height={400}
-            />
+  <!-- Host Section with Glassmorphism -->
+  <section class="section relative overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 -z-10">
+      <ImageMod
+        src="/images/webinars/webinar_image_1.png"
+        alt="Wednesday Webinars - Engaged Learning"
+        width={1920}
+        height={600}
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-dark/70 via-dark/50 to-dark/30"></div>
+    </div>
+
+    <div class="container relative z-10">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <!-- Glassmorphism Card -->
+          <div
+            class="backdrop-blur-xl bg-white/10 rounded-3xl p-8 md:p-12 border border-white/20 shadow-2xl"
+            style="backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"
+            data-aos="fade-up-sm"
+          >
+            <div class="flex flex-col md:flex-row gap-8 items-start">
+              <!-- Left: Content -->
+              <div class="flex-1">
+                <h2 class="mb-3 text-white drop-shadow-lg">Your Host</h2>
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-md">{pageData.host.name}</h3>
+                <p class="text-lg text-white/90 mb-6 drop-shadow-sm">{pageData.host.title}</p>
+                <p class="text-lg text-white/95 mb-8 drop-shadow-sm">{pageData.host.bio}</p>
+                <ul class="space-y-4">
+                  {pageData.host.credentials.map((credential) => (
+                    <li class="flex items-start gap-3">
+                      <svg class="w-6 h-6 text-white flex-shrink-0 mt-0.5 drop-shadow-md" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                      </svg>
+                      <span class="text-white/95 drop-shadow-sm">{credential}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Right: Profile Image -->
+              <div class="flex-shrink-0 md:w-64">
+                <div class="relative">
+                  <ImageMod
+                    src={pageData.host.image}
+                    alt={pageData.host.name}
+                    class="rounded-2xl shadow-2xl border-4 border-white/30"
+                    width={300}
+                    height={300}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="lg:col-8" data-aos="fade-up-sm" data-aos-delay="100">
-          <h2 class="mb-2">Your Host</h2>
-          <h3 class="text-2xl font-bold text-primary mb-1">{pageData.host.name}</h3>
-          <p class="text-lg text-dark/70 mb-6">{pageData.host.title}</p>
-          <p class="text-lg mb-6">{pageData.host.bio}</p>
-          <ul class="space-y-3">
-            {pageData.host.credentials.map((credential) => (
-              <li class="flex items-start gap-3">
-                <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-dark/80">{credential}</span>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </div>
