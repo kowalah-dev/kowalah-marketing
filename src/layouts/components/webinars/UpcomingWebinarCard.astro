@@ -1,0 +1,173 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import Button from "@/shortcodes/Button";
+import CountdownTimer from "./CountdownTimer";
+
+interface Props {
+  webinar: {
+    title: string;
+    date: string;
+    time: string;
+    webinar_id?: string;
+    registration_link: string;
+    is_recurring?: boolean;
+    description: string;
+    topics: string[];
+    structure: Array<{
+      segment: string;
+      duration: string;
+      description: string;
+    }>;
+  };
+}
+
+const { webinar } = Astro.props;
+---
+
+<div
+  class="upcoming-webinar-spotlight relative overflow-hidden rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5 p-8 shadow-lg"
+  data-aos="fade-up-sm"
+>
+  <!-- Recurring Badge -->
+  {
+    webinar.is_recurring && (
+      <div class="mb-4 inline-block">
+        <span class="rounded-full bg-gradient-to-r from-primary to-secondary px-4 py-1.5 text-sm font-semibold text-white">
+          Weekly Series • Every Wednesday
+        </span>
+      </div>
+    )
+  }
+
+  <!-- Webinar Title -->
+  <h2
+    set:html={markdownify(webinar.title)}
+    class="mb-4 text-3xl font-bold md:text-4xl"
+  />
+
+  <!-- Date, Time & Countdown -->
+  <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+    <div class="flex items-center gap-2">
+      <svg
+        class="h-5 w-5 text-primary"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+        ></path>
+      </svg>
+      <span class="font-semibold">{webinar.date}</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <svg
+        class="h-5 w-5 text-primary"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <span class="font-semibold">{webinar.time}</span>
+    </div>
+  </div>
+
+  <!-- Countdown Timer -->
+  <div class="mb-6">
+    <CountdownTimer targetDate={webinar.date} client:load />
+  </div>
+
+  <!-- Description -->
+  <p
+    set:html={markdownify(webinar.description)}
+    class="mb-6 text-lg text-dark/80"
+  />
+
+  <!-- Topics -->
+  <div class="mb-6">
+    <h3 class="mb-3 font-semibold">What You'll Learn:</h3>
+    <ul class="space-y-2">
+      {
+        webinar.topics.map((topic) => (
+          <li class="flex items-start gap-3">
+            <svg
+              class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span set:html={markdownify(topic)} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <!-- Session Structure -->
+  <div class="mb-8 rounded-xl bg-white/50 p-6">
+    <h3 class="mb-4 font-semibold">Session Format (60 minutes):</h3>
+    <div class="space-y-3">
+      {
+        webinar.structure.map((segment) => (
+          <div class="flex items-start gap-3">
+            <span class="inline-flex h-8 w-[85px] flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondary text-sm font-semibold text-white whitespace-nowrap">
+              {segment.duration}
+            </span>
+            <div class="flex-1">
+              <p class="font-semibold">{segment.segment}</p>
+              <p class="text-sm text-dark/70">{segment.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Webinar ID (if provided) -->
+  {
+    webinar.webinar_id && (
+      <p class="mb-6 text-sm text-dark/60">
+        Webinar ID: <span class="font-mono">{webinar.webinar_id}</span>
+      </p>
+    )
+  }
+
+  <!-- Registration CTA -->
+  <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+    <Button
+      label="Register for Free"
+      link={webinar.registration_link}
+      style="secondary"
+      className="w-full sm:w-auto"
+    />
+    <p class="text-sm text-dark/70">
+      <svg
+        class="mr-1 inline h-4 w-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+        ></path>
+      </svg>
+       Join other business leaders discovering advanced ChatGPT capabilities
+    </p>
+  </div>
+</div>
