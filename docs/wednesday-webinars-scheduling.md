@@ -62,7 +62,7 @@ const webinarsCollection = defineCollection({
       z.object({
         id: z.string(),                    // Unique identifier
         title: z.string(),                 // Webinar title
-        date: z.string(),                  // ISO format: "2025-11-05"
+        date: z.string(),                  // ISO 8601 datetime: "2025-11-05T15:00:00Z"
         displayDate: z.string(),           // Human-readable: "5th November 2025"
         time: z.string(),                  // "3PM - 4PM GMT"
         status: z.enum(["upcoming", "completed"]),
@@ -123,9 +123,14 @@ const pastWebinars = allWebinars
 
 ### Important: Date Format
 
-- **Storage**: Use ISO date format in JSON: `"2025-11-05"`
+- **Storage**: Use ISO 8601 datetime format in JSON: `"2025-11-05T15:00:00Z"`
+  - This includes the time (3PM GMT = 15:00 UTC)
+  - The `T` separates date from time
+  - The `Z` indicates UTC/GMT timezone
+  - **Critical**: Without the time, JavaScript defaults to midnight UTC, causing countdown timer errors
 - **Display**: Use human-readable format in `displayDate`: `"5th November 2025"`
-- **Comparison**: JavaScript `new Date()` constructor handles ISO format correctly
+- **Time Display**: Use human-readable format in `time`: `"3PM - 4PM GMT"`
+- **Comparison**: JavaScript `new Date()` constructor parses ISO 8601 correctly for accurate countdown
 
 ## Adding a New Webinar
 
@@ -135,7 +140,7 @@ Add a new webinar object to the `webinars` array in `schedule.json`:
 {
   "id": "unique-id-description-month-year",
   "title": "Webinar Title: Compelling Subtitle",
-  "date": "2025-12-10",
+  "date": "2025-12-10T15:00:00Z",
   "displayDate": "10th December 2025",
   "time": "3PM - 4PM GMT",
   "status": "upcoming",
@@ -236,7 +241,8 @@ For older webinars using the legacy format:
 
 **Check the date format:**
 ```json
-"date": "2025-11-05"  ✅ Correct
+"date": "2025-11-05T15:00:00Z"  ✅ Correct (includes time for 3PM GMT)
+"date": "2025-11-05"  ❌ Wrong (missing time, defaults to midnight)
 "date": "5th November 2025"  ❌ Wrong (use displayDate for this)
 ```
 
