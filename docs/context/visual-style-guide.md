@@ -140,85 +140,66 @@ Photography Specifications:
 - No text, no graphics, authentic photography only
 ```
 
-## AI Image Generation Prompt Template
+## Midjourney Prompt Format
+
+### Concise Prompt Template
 
 ```
-Create a [SIZE/ASPECT RATIO] authentic human-centered photograph featuring [SPECIFIC SCENE DESCRIPTION].
-
-Camera & Technical Style:
-- Shot on Fujifilm X-T4 with 35mm f/1.4 lens
-- Fujifilm color science: warm, natural skin tones, slight film grain
-- Natural window lighting with golden hour warmth
-- Shallow depth of field f/1.4-2.8 for subject focus
-- Warm color grading, authentic and approachable feel
-- Documentary photography aesthetic
-
-Visual Style:
-- Authentic, human-first photography (not corporate stock photo)
-- Real workplace environments with natural warmth
-- Color palette: Warm naturals, soft whites, with strategic pink (#fa26a0) and purple (#ae10e3) accent elements
-- Genuine, unposed moments of discovery and transformation
-- Natural, flattering lighting with depth
-
-Subjects:
-- Individual employees across all organizational levels (25-65+ age range)
-- Authentic workplace attire - business casual, uniforms, safety gear, what people actually wear
-- Genuine expressions: discovery, curiosity, empowerment, realization, joy, confidence
-- Diverse representation across roles, industries, gender, age, ethnicity
-- Close-up portraits showing human emotion and authentic moments (60% of shots)
-
-Expressions & Moments to Capture:
-- "Aha moment" realizations and breakthrough discoveries
-- Genuine smiles and expressions of delight
-- Focused curiosity and engaged learning
-- Confidence and personal empowerment
-- Natural collaboration and peer learning
-- Joy in mastering new capabilities
-
-Environment & Industry Contexts:
-- Office: Individual desks, collaborative spaces, coffee areas, quiet zones
-- Manufacturing: Factory floors, quality stations, tablets in industrial settings
-- Field Work: Sales calls in cars, client meetings, service calls, delivery coordination
-- Healthcare: Administrative areas, scheduling desks, patient coordination
-- Real, lived-in settings where actual work happens (not pristine showrooms)
-
-Mood & Composition:
-- [EMPOWERED/CURIOUS/ENLIGHTENED/DISCOVERING/TRANSFORMING/BREAKTHROUGH]
-- Close-up focus on human faces and authentic expressions
-- Shallow depth of field emphasizing the individual subject
-- Warm, approachable, genuine human energy
-- Environmental context supporting the individual's story
-
-Technology Elements:
-- Natural, unforced technology integration
-- People using AI tools authentically (laptops, phones, tablets, voice)
-- Comfortable, confident technology use in real contexts
-- Focus on the human transformation, technology as enabler
-- Industry-appropriate devices and tools
-
-Lighting & Color:
-- Natural window light, golden hour quality
-- Warm skin tones, flattering and authentic
-- Soft shadows, gentle contrast
-- Fujifilm color palette: warm, natural, slightly desaturated
-
-Specific Scene: [DETAILED DESCRIPTION OF INDIVIDUAL TRANSFORMATION MOMENT]
-
-Technical Prompt Additions:
-- Shot on Fujifilm X-T4, 35mm f/1.4
-- Natural light, golden hour
-- f/1.4 bokeh, slight film grain
-- Fujifilm color science
-- Documentary portrait style
-
-Photography Specifications (Text Overlay Prevention):
-- Pure photographic portrait without text overlays or graphic elements
-- Natural realistic photography, not illustration or graphic design
-- Clean professional headshot quality
-- No text, no graphics, authentic photography only
-
-Avoid: Corporate stock photo aesthetics, boardroom formality, executive-only focus, forced suits/blazers, staged corporate settings, sterile environments, overly polished compositions, artificial lighting, harsh shadows, pop art styles, text overlays, graphic elements, quoted dialogue in descriptions.
+[Subject/scene description], [composition details], shot on Fujifilm X-T4 35mm f/1.4, shallow depth of field bokeh, [lighting], natural skin tones, slight film grain, [attire/context], [expressions/mood], [brand color integration if applicable], [dimensions], [compositional notes], documentary style, authentic moment, no text, pure photography
 ```
+
+### Essential Elements to Include
+
+1. **Subject & Scene** - Who and where (be specific but concise)
+2. **Composition** - Positioning, framing, space for overlays
+3. **Camera Specs** - "shot on Fujifilm X-T4 35mm f/1.4, shallow depth of field bokeh"
+4. **Lighting** - "warm golden hour window lighting" or "soft natural light"
+5. **Film Quality** - "natural skin tones, slight film grain"
+6. **Context Details** - Attire, setting, technology present
+7. **Mood/Expression** - Engaged, curious, empowered, collaborative
+8. **Brand Colors** - Subtle integration (laptop glow, accent elements) using pink (#fa26a0) and purple (#ae10e3)
+9. **Dimensions** - Specify aspect ratio or pixel dimensions
+10. **Text Prevention** - Always end with "no text, pure photography"
+
+### Example Prompts by Use Case
+
+**Hero Section (Wide Banner):**
+```
+Business professionals in modern training room, soft focus background, shot on Fujifilm X-T4 35mm f/1.4, shallow depth of field bokeh, subjects positioned on left side of frame, warm golden hour window lighting, natural skin tones, slight film grain, professional business casual attire, engaged learning expressions, laptop screens with subtle pink purple glow, collaborative workspace, 1920x600px wide composition, atmospheric depth, center area soft bokeh for overlay, documentary style, authentic moment, no text, pure photography
+```
+
+**Feature Card (Square):**
+```
+HR specialist at desk using AI tools, close-up environmental portrait, shot on Fujifilm X-T4 35mm f/1.4, shallow depth of field, soft natural window lighting from left, natural skin tones, slight film grain, smart casual attire, expression of discovery and empowerment, laptop screen with subtle purple glow, modern office background softly blurred, 800x800px square composition, warm approachable aesthetic, documentary style, no text, pure photography
+```
+
+**Testimonial Portrait (Close-up):**
+```
+Manufacturing operations manager in factory setting, close-up portrait, shot on Fujifilm X-T4 35mm f/1.4, shallow depth of field bokeh, warm natural lighting, natural skin tones, slight film grain, safety vest and work attire, confident satisfied expression, industrial background softly blurred, tablet with pink accent glow in hand, 400x400px square, authentic workplace moment, documentary style, no text, pure photography
+```
+
+**Landing Page Hero (Full Width):**
+```
+Diverse team collaborating in modern office, medium shot with subjects on right third, shot on Fujifilm X-T4 35mm f/1.4, shallow depth of field, warm golden hour window lighting, natural skin tones, slight film grain, business casual attire, engaged collaborative expressions, laptops with subtle pink purple screen glow, left side soft bokeh for text overlay, 1920x800px wide composition, atmospheric depth, documentary style, authentic moment, no text, pure photography
+```
+
+**Benefits Section (Landscape):**
+```
+Sales professional in car using mobile AI assistant, environmental portrait, shot on Fujifilm X-T4 35mm f/1.4, shallow depth of field, natural daylight through windshield, natural skin tones, slight film grain, professional attire, focused confident expression, phone screen with purple glow, urban background blurred, 800x450px landscape, authentic field work moment, documentary style, no text, pure photography
+```
+
+**Mobile/Vertical (Portrait):**
+```
+Finance analyst at standing desk, vertical composition, shot on Fujifilm X-T4 35mm f/1.4, shallow depth of field bokeh, warm window lighting from side, natural skin tones, slight film grain, smart casual attire, moment of realization expression, laptop screen with pink accent glow, modern office softly blurred, 400x600px portrait orientation, authentic workplace discovery, documentary style, no text, pure photography
+```
+
+### Key Reminders
+
+- **No quoted dialogue** - Never include "quotes" in prompts (triggers text generation)
+- **Descriptive emotions only** - Use words like "engaged, curious, empowered, collaborative"
+- **Brand color subtlety** - Integrate pink/purple as screen glows or accent elements, not dominant
+- **Composition for overlays** - Specify subject positioning and bokeh areas for text placement
+- **Always end with** - "no text, pure photography"
 
 ## Image Dimensions by Use Case
 
