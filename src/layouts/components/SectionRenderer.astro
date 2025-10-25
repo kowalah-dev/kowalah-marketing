@@ -101,13 +101,26 @@ const getAspectRatioClass = (ratio) => {
                 {row.cells.map((cell, cellIndex) => {
                   const isHeader = rowIndex === 0;
                   const Tag = isHeader ? 'th' : 'td';
+
+                  // Split cell content by pipe delimiter (|) or line breaks, and filter out empty lines
+                  const lines = cell.split(/\||\\n/).filter(line => line.trim());
+                  const hasMultipleLines = lines.length > 1;
+
                   return (
                     <Tag class={`
                       border border-gray-200 dark:border-gray-700 px-4 py-2
                       ${isHeader && styling.headerStyle?.includes('bold') ? 'font-semibold' : ''}
                       text-left
                     `}>
-                      {cell}
+                      {hasMultipleLines ? (
+                        <ul class="list-disc pl-5 space-y-1">
+                          {lines.map(line => (
+                            <li>{line.trim()}</li>
+                          ))}
+                        </ul>
+                      ) : (
+                        cell
+                      )}
                     </Tag>
                   );
                 })}
