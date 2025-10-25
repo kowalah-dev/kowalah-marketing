@@ -162,7 +162,7 @@
   @apply prose-code:px-1 prose-code:text-text-dark;
   @apply prose-strong:font-bold;
   @apply prose-a:text-text prose-a:underline prose-a:hover:text-text-dark;
-  @apply prose-li:text-border prose-li:my-0 marker:text-border;
+  @apply prose-li:text-base prose-li:text-border prose-li:my-0 marker:text-border;
   li p {
     @apply my-0;
   }
