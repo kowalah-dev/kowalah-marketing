@@ -1,0 +1,184 @@
+{
+  "webinars": [
+    {
+      "id": "shared-projects-nov-2025",
+      "title": "Shared Projects in ChatGPT: From Shadow AI to Shared Intelligence",
+      "date": "2025-11-05T15:00:00Z",
+      "displayDate": "5th November 2025",
+      "time": "3PM - 4PM GMT",
+      "status": "upcoming",
+      "registration_link": "https://zoom.us/webinar/register/WN_gh7RuiPHSaqe5a777xJxRA",
+      "recording_link": null,
+      "webinar_id": "984 7523 9119",
+      "is_recurring": true,
+      "description": "Discover how Shared Projects turns ChatGPT into a team collaboration tool. Learn practical applications for sales handoffs, marketing campaigns, and cross-functional projects that drive business results.",
+      "topics": [
+        "What most teams miss about ChatGPT's collaboration features",
+        "How Shared Projects transforms team workflows and knowledge sharing",
+        "Business applications: sales enablement, campaign planning, project documentation",
+        "Getting teams to actually use advanced ChatGPT features"
+      ],
+      "structure": [
+        {
+          "segment": "Opening Topic",
+          "duration": "15 mins",
+          "description": "Shared Projects: From Shadow AI to Shared Intelligence"
+        },
+        {
+          "segment": "AI in the News",
+          "duration": "15 mins",
+          "description": "This Week in AI: The Business Edition"
+        },
+        {
+          "segment": "Live Q&A",
+          "duration": "30 mins",
+          "description": "Open discussion and audience questions"
+        }
+      ]
+    },
+    {
+      "id": "custom-gpts-nov-2025",
+      "title": "Custom GPTs for Business: Building Team-Specific AI Assistants",
+      "date": "2025-11-12T15:00:00Z",
+      "displayDate": "12th November 2025",
+      "time": "3PM - 4PM GMT",
+      "status": "upcoming",
+      "registration_link": "https://zoom.us/webinar/register/WN_gh7RuiPHSaqe5a777xJxRA",
+      "recording_link": null,
+      "webinar_id": "984 7523 9119",
+      "is_recurring": true,
+      "description": "Learn how to create custom GPTs that solve specific business problems. From sales proposal writers to customer service coaches, discover how to build AI tools your teams will actually use.",
+      "topics": [
+        "Understanding Custom GPTs vs standard ChatGPT prompts",
+        "Building a sales proposal GPT that learns your company's voice",
+        "Creating customer service training assistants with real scenarios",
+        "Sharing custom GPTs across your organization effectively"
+      ],
+      "structure": [
+        {
+          "segment": "Opening Topic",
+          "duration": "15 mins",
+          "description": "Custom GPTs for Business: Building Team-Specific AI Assistants"
+        },
+        {
+          "segment": "AI in the News",
+          "duration": "15 mins",
+          "description": "This Week in AI: The Business Edition"
+        },
+        {
+          "segment": "Live Q&A",
+          "duration": "30 mins",
+          "description": "Open discussion and audience questions"
+        }
+      ]
+    },
+    {
+      "id": "voice-mode-nov-2025",
+      "title": "ChatGPT Voice Mode: The Feature Your Teams Don't Know Exists",
+      "date": "2025-11-19T15:00:00Z",
+      "displayDate": "19th November 2025",
+      "time": "3PM - 4PM GMT",
+      "status": "upcoming",
+      "registration_link": "https://zoom.us/webinar/register/WN_gh7RuiPHSaqe5a777xJxRA",
+      "recording_link": null,
+      "webinar_id": "984 7523 9119",
+      "is_recurring": true,
+      "description": "Discover how Voice Mode transforms ChatGPT from a typing tool into a thinking partner. See practical applications for sales call prep, presentation rehearsal, and hands-free AI assistance in the field.",
+      "topics": [
+        "Why Voice Mode is ChatGPT's most underused capability",
+        "Sales teams: role-playing objection handling and pitch practice",
+        "Field service: getting AI guidance while your hands are busy",
+        "Voice + Projects: building persistent AI coaching relationships"
+      ],
+      "structure": [
+        {
+          "segment": "Opening Topic",
+          "duration": "15 mins",
+          "description": "ChatGPT Voice Mode: The Feature Your Teams Don't Know Exists"
+        },
+        {
+          "segment": "AI in the News",
+          "duration": "15 mins",
+          "description": "This Week in AI: The Business Edition"
+        },
+        {
+          "segment": "Live Q&A",
+          "duration": "30 mins",
+          "description": "Open discussion and audience questions"
+        }
+      ]
+    },
+    {
+      "id": "prompt-engineering-nov-2025",
+      "title": "Prompt Engineering for Business Results (Not Academic Theory)",
+      "date": "2025-11-26T15:00:00Z",
+      "displayDate": "26th November 2025",
+      "time": "3PM - 4PM GMT",
+      "status": "upcoming",
+      "registration_link": "https://zoom.us/webinar/register/WN_gh7RuiPHSaqe5a777xJxRA",
+      "recording_link": null,
+      "webinar_id": "984 7523 9119",
+      "is_recurring": true,
+      "description": "Skip the 'act as an expert' fluff. Learn the prompting patterns that actually improve business output: better proposals, clearer emails, faster analysis, and more strategic thinking.",
+      "topics": [
+        "The 3 prompting patterns that drive 80% of business value",
+        "Chain-of-thought for better strategic recommendations",
+        "Context injection: teaching ChatGPT your company's knowledge",
+        "Iteration workflows: from first draft to final deliverable"
+      ],
+      "structure": [
+        {
+          "segment": "Opening Topic",
+          "duration": "15 mins",
+          "description": "Prompt Engineering for Business Results"
+        },
+        {
+          "segment": "AI in the News",
+          "duration": "15 mins",
+          "description": "This Week in AI: The Business Edition"
+        },
+        {
+          "segment": "Live Q&A",
+          "duration": "30 mins",
+          "description": "Open discussion and audience questions"
+        }
+      ]
+    },
+    {
+      "id": "ai-adoption-barriers-dec-2025",
+      "title": "Breaking Through the 'I Tried ChatGPT Once' Barrier",
+      "date": "2025-12-03T15:00:00Z",
+      "displayDate": "3rd December 2025",
+      "time": "3PM - 4PM GMT",
+      "status": "upcoming",
+      "registration_link": "https://zoom.us/webinar/register/WN_gh7RuiPHSaqe5a777xJxRA",
+      "recording_link": null,
+      "webinar_id": "984 7523 9119",
+      "is_recurring": true,
+      "description": "Most employees tried ChatGPT once, got mediocre results, and gave up. Learn how to reignite adoption with quick wins, social proof strategies, and the right use cases for skeptical team members.",
+      "topics": [
+        "Why 'everyone should use ChatGPT' mandates fail spectacularly",
+        "Finding the 30-second wins that create believers (not skeptics)",
+        "Peer-to-peer learning: how one enthusiast can transform a department",
+        "Measuring what matters: moving beyond 'are people using it?' metrics"
+      ],
+      "structure": [
+        {
+          "segment": "Opening Topic",
+          "duration": "15 mins",
+          "description": "Breaking Through the 'I Tried ChatGPT Once' Barrier"
+        },
+        {
+          "segment": "AI in the News",
+          "duration": "15 mins",
+          "description": "This Week in AI: The Business Edition"
+        },
+        {
+          "segment": "Live Q&A",
+          "duration": "30 mins",
+          "description": "Open discussion and audience questions"
+        }
+      ]
+    }
+  ]
+}

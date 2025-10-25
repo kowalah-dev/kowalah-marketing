@@ -1,13 +1,40 @@
 ---
+export const prerender = false; // Enable SSR for dynamic date-based filtering
+
 import Base from "@/layouts/Base.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import ServicesHero from "@/layouts/components/services/ServicesHero.astro";
 import UpcomingWebinarCard from "@/layouts/components/webinars/UpcomingWebinarCard.astro";
+import UpcomingWebinarPreview from "@/layouts/components/webinars/UpcomingWebinarPreview.astro";
 import PastWebinarCard from "@/layouts/components/webinars/PastWebinarCard.astro";
 import Accordion from "@/shortcodes/Accordion";
 import Button from "@/shortcodes/Button";
 import ImageMod from "@/layouts/components/ImageMod.astro";
 import { BriefcaseIcon, LightBulbIcon, ClipboardDocumentCheckIcon, ChatBubbleLeftRightIcon } from "@heroicons/react/24/outline";
+import { getEntry } from "astro:content";
+
+// Fetch webinars schedule
+const schedule = await getEntry("webinars", "schedule");
+const allWebinars = schedule?.data.webinars || [];
+
+// Current date for filtering
+const now = new Date();
+
+// Filter and sort upcoming webinars
+const upcomingWebinars = allWebinars
+  .filter(w => new Date(w.date) >= now && w.status === "upcoming")
+  .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+// Get spotlight webinar (next one)
+const spotlightWebinar = upcomingWebinars[0];
+
+// Get preview webinars (next 3 after spotlight)
+const previewWebinars = upcomingWebinars.slice(1, 4);
+
+// Get past webinars (completed, sorted newest first)
+const pastWebinars = allWebinars
+  .filter(w => new Date(w.date) < now || w.status === "completed")
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 const pageData = {
   title: "Wednesday Webinars",
@@ -20,40 +47,6 @@ const pageData = {
     content: "Join business leaders learning practical ChatGPT applications through live Q&A and real-time demonstrations.",
     background_image: "/images/webinars/wednesday_webinar_hero.png",
     badge: "Free Live Series"
-  },
-
-  upcoming_webinar: {
-    title: "Shared Projects in ChatGPT: From Shadow AI to Shared Intelligence",
-    date: "2025-11-05T15:00:00Z",
-    displayDate: "5th November 2025",
-    time: "3PM - 4PM GMT",
-    webinar_id: "984 7523 9119",
-    registration_link: "https://zoom.us/webinar/register/WN_gh7RuiPHSaqe5a777xJxRA",
-    is_recurring: true,
-    description: "Discover how Shared Projects turns ChatGPT into a team collaboration tool. Learn practical applications for sales handoffs, marketing campaigns, and cross-functional projects that drive business results.",
-    topics: [
-      "What most teams miss about ChatGPT's collaboration features",
-      "How Shared Projects transforms team workflows and knowledge sharing",
-      "Business applications: sales enablement, campaign planning, project documentation",
-      "Getting teams to actually use advanced ChatGPT features"
-    ],
-    structure: [
-      {
-        segment: "Opening Topic",
-        duration: "15 mins",
-        description: "Shared Projects: From Shadow AI to Shared Intelligence"
-      },
-      {
-        segment: "AI in the News",
-        duration: "15 mins",
-        description: "This Week in AI: The Business Edition"
-      },
-      {
-        segment: "Live Q&A",
-        duration: "30 mins",
-        description: "Open discussion and audience questions"
-      }
-    ]
   },
 
   why_attend: {
@@ -92,8 +85,7 @@ const pageData = {
 
   past_webinars: {
     title: "Past Sessions Archive",
-    subtitle: "Catch up on previous webinars on-demand",
-    webinars: []
+    subtitle: "Catch up on previous webinars on-demand"
   },
 
   host: {
@@ -169,22 +161,69 @@ const iconMap = {
     subtitle={pageData.hero.subtitle}
     cta={{
       label: "Register for Next Webinar",
-      link: pageData.upcoming_webinar.registration_link,
-      subtext: "Free live sessions every Wednesday at 3PM GMT"
+      link: spotlightWebinar?.registration_link || "/contact",
+      subtext: spotlightWebinar ? "Free live sessions every Wednesday at 3PM GMT" : "Subscribe for updates on upcoming webinars"
     }}
     backgroundImage={pageData.hero.background_image}
   />
 
   <!-- Upcoming Webinar Spotlight -->
-  <section class="section">
-    <div class="container">
-      <div class="row justify-center">
-        <div class="lg:col-10">
-          <UpcomingWebinarCard webinar={pageData.upcoming_webinar} />
+  {spotlightWebinar ? (
+    <section class="section">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-10">
+            <UpcomingWebinarCard webinar={spotlightWebinar} />
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  ) : (
+    <section class="section">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-8 text-center">
+            <div class="rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 p-12 border-2 border-primary/20">
+              <h2 class="mb-4">Next Webinar Coming Soon</h2>
+              <p class="text-lg text-dark/70 mb-6">
+                We're planning our next Wednesday Webinar session. Check back soon or subscribe to our newsletter to be notified.
+              </p>
+              <Button
+                label="Subscribe for Updates"
+                link="/contact"
+                style="secondary"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Coming Up Next (Future Webinars) -->
+  {previewWebinars && previewWebinars.length > 0 && (
+    <section class="section bg-gray-50">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-10 text-center mb-12">
+            <h2 class="mb-4" data-aos="fade-up-sm">Coming Up Next</h2>
+            <p class="text-lg text-dark/70" data-aos="fade-up-sm" data-aos-delay="100">
+              Register now for upcoming Wednesday Webinars
+            </p>
+          </div>
+        </div>
+        <div class="row justify-center">
+          <div class="col-12">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up-sm" data-aos-delay="200">
+              {previewWebinars.map((webinar) => (
+                <UpcomingWebinarPreview webinar={webinar} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Why Attend (Benefits) with Video Background -->
   <section class="section relative overflow-hidden">
@@ -272,7 +311,7 @@ const iconMap = {
   </section>
 
   <!-- Past Webinars Archive -->
-  {pageData.past_webinars.webinars && pageData.past_webinars.webinars.length > 0 && (
+  {pastWebinars && pastWebinars.length > 0 && (
     <section class="section bg-gray-50">
       <div class="container">
         <div class="row justify-center">
@@ -294,7 +333,7 @@ const iconMap = {
         <div class="row">
           <div class="col-12">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up-sm" data-aos-delay="200">
-              {pageData.past_webinars.webinars.map((webinar) => (
+              {pastWebinars.map((webinar) => (
                 <PastWebinarCard webinar={webinar} />
               ))}
             </div>

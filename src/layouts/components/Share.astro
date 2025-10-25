@@ -4,6 +4,8 @@ import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { IoLogoFacebook } from "react-icons/io5";
 
 const { base_url }: { base_url: string } = config.site;
+// Remove trailing slash to prevent double slashes in URLs
+const cleanBaseUrl = base_url.replace(/\/$/, '');
 const {
   title,
   description,
@@ -17,7 +19,7 @@ const {
   <li class="inline-block">
     <a
       aria-label="twitter share button"
-      href={`https://twitter.com/intent/tweet/?text=${title}&amp;url=${base_url}/${slug}`}
+      href={`https://twitter.com/intent/tweet/?text=${title}&amp;url=${cleanBaseUrl}/${slug}`}
       target="_blank"
       rel="noreferrer noopener"
     >
@@ -27,7 +29,7 @@ const {
   <li class="inline-block">
     <a
       aria-label="facebook share button"
-      href={`https://facebook.com/sharer/sharer.php?u=${base_url}/${slug}`}
+      href={`https://facebook.com/sharer/sharer.php?u=${cleanBaseUrl}/${slug}`}
       target="_blank"
       rel="noreferrer noopener"
     >
@@ -37,7 +39,7 @@ const {
   <li class="inline-block">
     <a
       aria-label="linkedin share button"
-      href={`https://www.linkedin.com/shareArticle?mini=true&url=${base_url}/${slug}&title=${title}&summary=${description}&source=${base_url}`}
+      href={`https://www.linkedin.com/shareArticle?mini=true&url=${cleanBaseUrl}/${slug}&title=${title}&summary=${description}&source=${cleanBaseUrl}`}
       target="_blank"
       rel="noreferrer noopener"
     >

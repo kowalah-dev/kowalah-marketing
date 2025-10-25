@@ -692,6 +692,35 @@ const solutionsCollection = defineCollection({
   })
 });
 
+const webinarsCollection = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "src/content/webinars" }),
+  schema: z.object({
+    webinars: z.array(
+      z.object({
+        id: z.string(),
+        title: z.string(),
+        date: z.string(), // ISO format: "2025-11-05"
+        displayDate: z.string(), // Human-readable: "5th November 2025"
+        time: z.string(),
+        status: z.enum(["upcoming", "completed"]),
+        registration_link: z.string(),
+        recording_link: z.string().nullable(),
+        webinar_id: z.string().optional(),
+        is_recurring: z.boolean().optional(),
+        description: z.string(),
+        topics: z.array(z.string()),
+        structure: z.array(
+          z.object({
+            segment: z.string(),
+            duration: z.string(),
+            description: z.string(),
+          }),
+        ),
+      }),
+    ),
+  }),
+});
+
 // Export collections
 export const collections = {
   career: careerCollection,
@@ -708,4 +737,5 @@ export const collections = {
   reviews: reviewsCollection,
   sections: sectionsCollection,
   solutions: solutionsCollection,
+  webinars: webinarsCollection,
 };

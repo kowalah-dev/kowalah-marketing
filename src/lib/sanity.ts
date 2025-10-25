@@ -13,7 +13,7 @@ if (!import.meta.env.PUBLIC_SANITY_DATASET) {
 export const client = createClient({
   projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID,
   dataset: import.meta.env.PUBLIC_SANITY_DATASET,
-  useCdn: true, // Set to false if statically generating pages, using ISR or tag-based revalidation
+  useCdn: false, // Disabled for SSR pages to ensure fresh content from Sanity
   apiVersion: "2024-05-08", // use a UTC date string
   token: import.meta.env.SANITY_API_TOKEN, // Only needed if you want to update content with the client
 });
