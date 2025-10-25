@@ -1,5 +1,4 @@
 ---
-import { CalendarIcon, ClockIcon, CheckCircleIcon, UsersIcon } from "@heroicons/react/24/outline";
 import { markdownify } from "@/lib/utils/textConverter";
 import Button from "@/shortcodes/Button";
 import CountdownTimer from "./CountdownTimer";
@@ -50,11 +49,34 @@ const { webinar } = Astro.props;
   <!-- Date, Time & Countdown -->
   <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
     <div class="flex items-center gap-2">
-      <CalendarIcon class="h-5 w-5 text-primary" aria-hidden="true" />
+      <svg
+        class="h-5 w-5 text-primary"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+        ></path>
+      </svg>
       <span class="font-semibold">{webinar.displayDate || webinar.date}</span>
     </div>
     <div class="flex items-center gap-2">
-      <ClockIcon class="h-5 w-5 text-primary" aria-hidden="true" />
+      <svg
+        class="h-5 w-5 text-primary"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
       <span class="font-semibold">{webinar.time}</span>
     </div>
   </div>
@@ -77,7 +99,17 @@ const { webinar } = Astro.props;
       {
         webinar.topics.map((topic) => (
           <li class="flex items-start gap-3">
-            <CheckCircleIcon class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" aria-hidden="true" />
+            <svg
+              class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
             <span set:html={markdownify(topic)} />
           </li>
         ))
@@ -123,7 +155,19 @@ const { webinar } = Astro.props;
       className="w-full sm:w-auto"
     />
     <p class="text-sm text-dark/70">
-      <UsersIcon class="mr-1 inline h-4 w-4" aria-hidden="true" />
+      <svg
+        class="mr-1 inline h-4 w-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+        ></path>
+      </svg>
        Join other business leaders discovering advanced ChatGPT capabilities
     </p>
   </div>
