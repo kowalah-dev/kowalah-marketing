@@ -1,7 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
 import PageHeader from "@/partials/PageHeader.astro";
-import GridBg from "@/layouts/components/GridBg.astro";
 
 const title = "AI Leadership Newsletter";
 const description = "Weekly insights, exclusive content, and practical AI guidance for business leaders navigating digital transformation.";
@@ -258,13 +257,13 @@ const meta_title = "AI Leadership Newsletter - Weekly Insights for CEOs and Lead
           successMessage?.scrollIntoView({ behavior: "smooth", block: "center" });
         } else {
           // Error
-          console.error("HubSpot submission failed:", await response.text());
+          console.error(`HubSpot submission failed: status ${response.status}`);
           errorMessage?.classList.remove("hidden");
           errorMessage?.scrollIntoView({ behavior: "smooth", block: "center" });
         }
       } catch (error) {
         // Network error
-        console.error("Form submission error:", error);
+        console.error("Form submission error:", error instanceof Error ? error.message : "Unknown error");
         errorMessage?.classList.remove("hidden");
         errorMessage?.scrollIntoView({ behavior: "smooth", block: "center" });
       } finally {
