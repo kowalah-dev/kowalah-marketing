@@ -22,7 +22,7 @@ h1,
 
 h2,
 .h2 {
-  @apply text-h2-sm md:text-h2 tracking-[-1.5px] md:tracking-[-2px] xl:tracking-[-3.5px];
+  @apply text-h2-sm md:text-h2 tracking-[-0.5px];
 }
 
 h3,
