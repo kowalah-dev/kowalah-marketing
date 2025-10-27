@@ -30,6 +30,7 @@
       "hasChildren": true,
       "children": [
         { "name": "Blog & Insights", "url": "/insights" },
+        { "name": "Newsletter", "url": "/resources/newsletter" },
         { "name": "Videos", "url": "/resources/videos" },
         { "name": "Wednesday Webinars", "url": "/resources/wednesday-webinars" },
         { "name": "Recommended Books", "url": "/resources/recommended-books" },
@@ -63,6 +64,10 @@
         {
           "name": "Insights",
           "url": "/insights"
+        },
+        {
+          "name": "Newsletter",
+          "url": "/resources/newsletter"
         },
         {
           "name": "Videos",
