@@ -1,0 +1,508 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getEntry, getCollection, render } from "astro:content";
+import { markdownify } from "@/lib/utils/textConverter";
+import Button from "@/layouts/shortcodes/Button.tsx";
+import GridBg from "@/layouts/components/GridBg.astro";
+import {
+  DocumentDuplicateIcon,
+  ArrowDownTrayIcon,
+  ChevronDownIcon,
+  DocumentTextIcon,
+  DocumentIcon,
+  ChatBubbleLeftRightIcon,
+  CheckCircleIcon,
+  ArrowRightIcon,
+  UserGroupIcon,
+  BriefcaseIcon,
+  ShieldCheckIcon,
+  MegaphoneIcon,
+  FolderIcon,
+  TableCellsIcon,
+  RocketLaunchIcon
+} from '@heroicons/react/24/outline';
+
+export async function getStaticPaths() {
+  const templates = await getCollection("templates");
+
+  return templates.map((template) => ({
+    params: { slug: template.id },
+    props: { template }
+  }));
+}
+
+const { slug } = Astro.params;
+const { template } = Astro.props;
+
+// SSR fallback - fetch template if not in props
+const templateEntry = template || await getEntry("templates", slug as string);
+
+if (!templateEntry) {
+  return Astro.redirect("/404");
+}
+
+const { Content } = await render(templateEntry);
+
+const {
+  title,
+  meta_title,
+  description,
+  template_type,
+  category,
+  hero,
+  overview,
+  how_to_use,
+  faq,
+  related_templates,
+  cta
+} = templateEntry.data;
+
+// Map template types to appropriate icons
+const templateTypeIcons = {
+  "policy": DocumentTextIcon,          // Document policies
+  "evaluation": TableCellsIcon,        // Comparison/evaluation matrices
+  "deployment": RocketLaunchIcon,      // Implementation guides
+  "job-description": BriefcaseIcon,    // Role descriptions
+  "program-template": FolderIcon       // Program frameworks
+};
+
+// Get the icon component for this template type
+const TemplateIcon = templateTypeIcons[template_type] || DocumentTextIcon;
+
+// Get related templates for cross-linking
+let relatedTemplatesData = [];
+if (related_templates && related_templates.length > 0) {
+  const fetchedTemplates = await Promise.all(
+    related_templates.map(async (slug) => {
+      try {
+        const entry = await getEntry("templates", slug);
+        return entry;
+      } catch (error) {
+        console.warn(`Template "${slug}" not found`);
+        return null;
+      }
+    })
+  );
+  // Filter out any null or undefined entries
+  relatedTemplatesData = fetchedTemplates.filter(t => t !== null && t !== undefined);
+}
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+>
+  <!-- Hero Section -->
+  <section class="section relative overflow-hidden pt-20 pb-0">
+    <GridBg />
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <!-- Breadcrumb Navigation -->
+          <nav class="mb-8" data-aos="fade-up-sm">
+            <ol class="flex items-center space-x-2 text-sm text-gray-500">
+              <li><a href="/" class="hover:text-primary">Home</a></li>
+              <li><span class="mx-2">/</span></li>
+              <li><a href="/resources/templates" class="hover:text-primary">Templates</a></li>
+              <li><span class="mx-2">/</span></li>
+              <li class="text-text-dark">{title}</li>
+            </ol>
+          </nav>
+
+          <!-- Hero Content -->
+          <div class="text-center mb-12" data-aos="fade-up-sm" data-aos-delay="100">
+            {hero.badge && (
+              <span class="inline-block px-4 py-1.5 mb-4 text-sm font-semibold rounded-full bg-gradient-to-r from-primary to-secondary text-white">
+                {hero.badge}
+              </span>
+            )}
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              {hero.title}
+            </h1>
+            <p class="text-xl text-dark/70 max-w-3xl mx-auto">
+              {hero.subtitle}
+            </p>
+          </div>
+
+          <!-- Overview Section -->
+          <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 mb-12" data-aos="fade-up-sm" data-aos-delay="300">
+            <div class="flex items-start justify-between mb-6">
+              <h2 class="text-2xl font-bold">What's Inside This Template</h2>
+              <!-- Template Type Icon -->
+              <div class="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <TemplateIcon className="w-9 h-9 text-primary" />
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h3 class="font-semibold text-primary mb-2">Who It's For</h3>
+                <p class="text-dark/70">{overview.who_its_for}</p>
+              </div>
+              <div>
+                <h3 class="font-semibold text-primary mb-2">When to Use</h3>
+                <p class="text-dark/70">{overview.when_to_use}</p>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h3 class="font-semibold text-primary mb-2">Key Benefit</h3>
+              <p class="text-dark/70">{overview.key_benefit}</p>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-primary mb-3">Sections Included</h3>
+              <ul class="space-y-2">
+                {overview.sections_included.map((section: string) => (
+                  <li class="flex items-start gap-3">
+                    <CheckCircleIcon className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-dark/70">{section}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <!-- Template Content Header with Copy Dropdown -->
+          <div class="bg-gradient-to-r from-primary to-secondary rounded-t-2xl p-6 -mb-px relative z-20" data-aos="fade-up-sm" data-aos-delay="400">
+            <div class="flex items-center justify-between gap-4">
+              <div>
+                <h2 class="text-2xl font-bold text-white">Complete Template Content</h2>
+              </div>
+
+              <!-- Copy Page Dropdown -->
+              <div class="relative flex-shrink-0">
+                <button
+                  id="copy-page-dropdown-btn-header"
+                  class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition-all text-white"
+                >
+                  <DocumentDuplicateIcon className="w-5 h-5" />
+                  <span class="font-medium">Copy page</span>
+                  <ChevronDownIcon className="w-4 h-4" />
+                </button>
+                <div
+                  id="copy-page-dropdown-header"
+                  class="hidden absolute right-0 mt-2 w-72 bg-white rounded-lg shadow-lg border border-gray-200 z-50 py-1"
+                >
+                  <button
+                    id="copy-markdown-btn-header"
+                    class="w-full px-4 py-3 text-left hover:bg-gray-50 flex items-center gap-3"
+                  >
+                    <DocumentDuplicateIcon className="w-5 h-5 text-gray-600" />
+                    <div class="flex-1">
+                      <div class="font-medium text-gray-900">Copy page</div>
+                      <div class="text-xs text-gray-500">Copy page as Markdown for LLMs</div>
+                    </div>
+                  </button>
+                  <button
+                    id="download-markdown-btn-header"
+                    class="w-full px-4 py-3 text-left hover:bg-gray-50 flex items-center gap-3"
+                  >
+                    <ArrowDownTrayIcon className="w-5 h-5 text-gray-600" />
+                    <div class="flex-1">
+                      <div class="font-medium text-gray-900">Download as Markdown</div>
+                      <div class="text-xs text-gray-500">Download as .md file</div>
+                    </div>
+                  </button>
+                  <button
+                    id="download-word-btn-header"
+                    class="w-full px-4 py-3 text-left hover:bg-gray-50 flex items-center gap-3"
+                  >
+                    <DocumentIcon className="w-5 h-5 text-gray-600" />
+                    <div class="flex-1">
+                      <div class="font-medium text-gray-900">Download as Word Document</div>
+                      <div class="text-xs text-gray-500">Download as .docx file</div>
+                    </div>
+                  </button>
+                  <button
+                    id="open-chatgpt-btn-header"
+                    class="w-full px-4 py-3 text-left hover:bg-gray-50 flex items-center gap-3"
+                  >
+                    <ChatBubbleLeftRightIcon className="w-5 h-5 text-gray-600" />
+                    <div class="flex-1">
+                      <div class="font-medium text-gray-900">Open in ChatGPT</div>
+                      <div class="text-xs text-gray-500">Ask questions about this page</div>
+                    </div>
+                    <ArrowRightIcon className="w-4 h-4 text-gray-400" />
+                  </button>
+                  <button
+                    id="open-claude-btn-header"
+                    class="w-full px-4 py-3 text-left hover:bg-gray-50 flex items-center gap-3"
+                  >
+                    <ChatBubbleLeftRightIcon className="w-5 h-5 text-gray-600" />
+                    <div class="flex-1">
+                      <div class="font-medium text-gray-900">Open in Claude</div>
+                      <div class="text-xs text-gray-500">Ask questions about this page</div>
+                    </div>
+                    <ArrowRightIcon className="w-4 h-4 text-gray-400" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Template Content -->
+          <div class="bg-white rounded-b-2xl p-8 shadow-sm border border-gray-100 mb-12" data-aos="fade-up-sm" data-aos-delay="450">
+            <div id="template-content" class="prose prose-lg max-w-none">
+              <Content />
+            </div>
+          </div>
+
+          <!-- How to Use Section -->
+          <div class="mb-12" data-aos="fade-up-sm" data-aos-delay="500">
+            <h2 class="text-2xl font-bold mb-6">
+              {how_to_use.title || "How to Use This Template"}
+            </h2>
+            <div class="space-y-6">
+              {how_to_use.steps.map((step: any, index: number) => (
+                <div class="flex gap-4">
+                  <div class="flex-shrink-0">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold">
+                      {index + 1}
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-lg font-semibold mb-2">{step.title}</h3>
+                    <p class="text-dark/70">{step.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+
+          <!-- FAQ Section -->
+          {faq && faq.questions && faq.questions.length > 0 && (
+            <div class="mb-12" id="faq" data-aos="fade-up-sm" data-aos-delay="600">
+              <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold mb-3">
+                  {faq.title || "Frequently Asked Questions"}
+                </h2>
+                {faq.subtitle && (
+                  <p class="text-lg text-dark/70">
+                    {faq.subtitle}
+                  </p>
+                )}
+              </div>
+              <div class="space-y-6">
+                {faq.questions.map((item: any) => (
+                  <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <h3 class="text-lg font-semibold mb-3 text-text-dark">
+                      {item.question}
+                    </h3>
+                    <div class="prose prose-lg max-w-none text-dark/70" set:html={markdownify(item.answer)} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- Related Templates -->
+          {relatedTemplatesData && relatedTemplatesData.length > 0 && (
+            <div class="mb-12" data-aos="fade-up-sm" data-aos-delay="700">
+              <h2 class="text-2xl font-bold mb-6">Related Templates</h2>
+              <div class="grid md:grid-cols-2 gap-6">
+                {relatedTemplatesData.map((related: any) => (
+                  <a
+                    href={`/resources/templates/${related.id}`}
+                    class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-primary/20 transition-all group"
+                  >
+                    {related.data.hero.badge && (
+                      <span class="inline-block px-3 py-1 mb-3 text-xs font-semibold rounded-full bg-primary/10 text-primary">
+                        {related.data.hero.badge}
+                      </span>
+                    )}
+                    <h3 class="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
+                      {related.data.title}
+                    </h3>
+                    <p class="text-dark/70 text-sm mb-4">
+                      {related.data.description}
+                    </p>
+                    <div class="flex items-center text-primary text-sm font-medium">
+                      View Template
+                      <ArrowRightIcon className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- CTA Section -->
+          <div class="bg-gradient-to-br from-primary to-secondary rounded-2xl p-8 text-center text-white" data-aos="fade-up-sm" data-aos-delay="800">
+            <h2 class="text-2xl font-bold mb-3">{cta.title}</h2>
+            <p class="text-white/90 mb-6 max-w-2xl mx-auto">
+              {cta.content}
+            </p>
+            <Button
+              label={cta.button_label}
+              link={cta.button_link}
+              style="white"
+            />
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<!-- FAQPage Schema Markup -->
+{faq && faq.questions && faq.questions.length > 0 && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faq.questions.map((q: any) => ({
+      "@type": "Question",
+      "name": q.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": q.answer
+      }
+    }))
+  })} />
+)}
+
+<!-- Toast Notification -->
+<div
+  id="copy-toast"
+  class="hidden fixed bottom-8 right-8 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-2 z-50"
+>
+  <CheckCircleIcon className="w-5 h-5" />
+  <span id="toast-message">Copied to clipboard!</span>
+</div>
+
+<!-- Copy Page Functionality -->
+<script>
+  // Get template content
+  function getTemplateContent() {
+    const contentEl = document.getElementById('template-content');
+    if (!contentEl) return '';
+    return contentEl.innerText || contentEl.textContent || '';
+  }
+
+  // Show toast notification
+  function showToast(message: string) {
+    const toast = document.getElementById('copy-toast');
+    const toastMessage = document.getElementById('toast-message');
+    if (toast && toastMessage) {
+      toastMessage.textContent = message;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3000);
+    }
+  }
+
+  // Copy to clipboard function
+  async function copyToClipboard(text: string, successMessage: string) {
+    try {
+      await navigator.clipboard.writeText(text);
+      showToast(successMessage);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+      showToast('Failed to copy. Please try again.');
+    }
+  }
+
+  // Header dropdown toggle
+  const dropdownBtnHeader = document.getElementById('copy-page-dropdown-btn-header');
+  const dropdownHeader = document.getElementById('copy-page-dropdown-header');
+
+  if (dropdownBtnHeader && dropdownHeader) {
+    dropdownBtnHeader.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownHeader.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!dropdownBtnHeader.contains(e.target as Node) && !dropdownHeader.contains(e.target as Node)) {
+        dropdownHeader.classList.add('hidden');
+      }
+    });
+  }
+
+  // Copy markdown button (header)
+  const copyMarkdownBtnHeader = document.getElementById('copy-markdown-btn-header');
+  if (copyMarkdownBtnHeader) {
+    copyMarkdownBtnHeader.addEventListener('click', () => {
+      const content = getTemplateContent();
+      copyToClipboard(content, 'Copied to clipboard!');
+      dropdownHeader?.classList.add('hidden');
+    });
+  }
+
+  // Download as Markdown button (header)
+  const downloadMarkdownBtnHeader = document.getElementById('download-markdown-btn-header');
+  if (downloadMarkdownBtnHeader) {
+    downloadMarkdownBtnHeader.addEventListener('click', () => {
+      const content = getTemplateContent();
+      const blob = new Blob([content], { type: 'text/markdown' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${document.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.md`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Markdown file downloaded!');
+      dropdownHeader?.classList.add('hidden');
+    });
+  }
+
+  // Download as Word button (header)
+  const downloadWordBtnHeader = document.getElementById('download-word-btn-header');
+  if (downloadWordBtnHeader) {
+    downloadWordBtnHeader.addEventListener('click', () => {
+      const content = getTemplateContent();
+      // Create a simple HTML document that Word can open
+      const htmlContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <title>${document.title}</title>
+        </head>
+        <body style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px;">
+          <pre style="white-space: pre-wrap; font-family: Arial, sans-serif;">${content}</pre>
+        </body>
+        </html>
+      `;
+      const blob = new Blob([htmlContent], { type: 'application/msword' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${document.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.doc`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Word document downloaded!');
+      dropdownHeader?.classList.add('hidden');
+    });
+  }
+
+  // Open in ChatGPT button (header)
+  const openChatGPTBtnHeader = document.getElementById('open-chatgpt-btn-header');
+  if (openChatGPTBtnHeader) {
+    openChatGPTBtnHeader.addEventListener('click', () => {
+      const pageURL = window.location.href;
+      const prompt = `Read from ${pageURL} so I can ask questions about it.`;
+      const chatURL = `https://chatgpt.com/?hints=search&q=${encodeURIComponent(prompt)}`;
+      window.open(chatURL, '_blank');
+      dropdownHeader?.classList.add('hidden');
+    });
+  }
+
+  // Open in Claude button (header)
+  const openClaudeBtnHeader = document.getElementById('open-claude-btn-header');
+  if (openClaudeBtnHeader) {
+    openClaudeBtnHeader.addEventListener('click', () => {
+      const pageURL = window.location.href;
+      const prompt = `Read from ${pageURL} so I can ask questions about it.`;
+      const claudeURL = `https://claude.ai/new?q=${encodeURIComponent(prompt)}`;
+      window.open(claudeURL, '_blank');
+      dropdownHeader?.classList.add('hidden');
+    });
+  }
+</script>
+

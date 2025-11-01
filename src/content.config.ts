@@ -692,6 +692,72 @@ const solutionsCollection = defineCollection({
   })
 });
 
+const templatesCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/templates" }),
+  schema: z.object({
+    title: z.string(),
+    meta_title: z.string().optional(),
+    description: z.string(),
+
+    template_type: z.enum([
+      "policy",
+      "evaluation",
+      "deployment",
+      "job-description",
+      "program-template"
+    ]),
+    category: z.string(),
+
+    hero: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      image: z.string(),
+      badge: z.string().optional()
+    }),
+
+    overview: z.object({
+      who_its_for: z.string(),
+      when_to_use: z.string(),
+      key_benefit: z.string(),
+      sections_included: z.array(z.string())
+    }),
+
+    how_to_use: z.object({
+      title: z.string().optional(),
+      steps: z.array(
+        z.object({
+          title: z.string(),
+          description: z.string(),
+          icon: z.string().optional()
+        })
+      )
+    }),
+
+    faq: z.object({
+      title: z.string().optional(),
+      subtitle: z.string().optional(),
+      questions: z.array(
+        z.object({
+          question: z.string(),
+          answer: z.string()
+        })
+      )
+    }),
+
+    related_templates: z.array(z.string()).optional(),
+
+    cta: z.object({
+      title: z.string(),
+      content: z.string(),
+      button_label: z.string(),
+      button_link: z.string()
+    }),
+
+    draft: z.boolean().optional(),
+    featured: z.boolean().optional()
+  })
+});
+
 const webinarsCollection = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "src/content/webinars" }),
   schema: z.object({
@@ -737,5 +803,6 @@ export const collections = {
   reviews: reviewsCollection,
   sections: sectionsCollection,
   solutions: solutionsCollection,
+  templates: templatesCollection,
   webinars: webinarsCollection,
 };
