@@ -39,10 +39,19 @@ const description = "Practical templates and guides to accelerate your ChatGPT E
 >
   <!-- Hero Section -->
   <section class="section relative overflow-hidden pb-0">
-    <GridBg />
+    <!-- Background Image -->
+    <div class="absolute inset-0 -z-10">
+      <img
+        src="/images/resources/templates/templates_hero.png"
+        alt="Templates and resources"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent"></div>
+    </div>
+
     <div class="container">
-      <div class="row justify-center">
-        <div class="lg:col-10 text-center">
+      <div class="row">
+        <div class="lg:col-7">
           <span
             class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold rounded-full bg-gradient-to-r from-primary to-secondary text-white"
             data-aos="fade-up-sm"
@@ -57,45 +66,26 @@ const description = "Practical templates and guides to accelerate your ChatGPT E
             ChatGPT Enterprise Templates & Guides
           </h1>
           <p
-            class="text-xl text-dark/70 mb-8 max-w-3xl mx-auto"
+            class="text-xl text-black mb-8 max-w-2xl"
             data-aos="fade-up-sm"
             data-aos-delay="200"
           >
-            Practical resources to accelerate your AI evaluation and implementation—created by experts who've guided hundreds of enterprise rollouts.
+            Practical resources to accelerate your AI evaluation and implementation, based on our experience with companies like yours.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Introduction Section -->
-  <section class="section pt-8">
-    <div class="container">
-      <div class="row justify-center">
-        <div class="lg:col-8">
-          <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 mb-12" data-aos="fade-up-sm">
-            <h2 class="text-2xl font-bold mb-4">Why We Created These Templates</h2>
-            <p class="text-dark/70 mb-4">
-              Mid-sized enterprises (1,000-10,000 employees) evaluating ChatGPT Enterprise face a common challenge: <strong>how do you build AI governance, evaluate platforms, and deploy successfully without hiring expensive consultants or waiting months for internal expertise?</strong>
-            </p>
-            <p class="text-dark/70">
-              These templates provide battle-tested frameworks from hundreds of successful ChatGPT Enterprise implementations. Download, customize for your industry and organization, and accelerate your AI journey from months to weeks.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Templates Grid -->
-  <section class="section pt-0">
+  <section class="section">
     <div class="container">
       <div class="row">
         <div class="col-12">
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sortedTemplates.map((template, index) => (
               <div
-                class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:border-primary/20 transition-all group"
+                class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:border-primary/20 transition-all group flex flex-col h-full"
                 data-aos="fade-up-sm"
                 data-aos-delay={index * 50}
               >
@@ -114,7 +104,7 @@ const description = "Practical templates and guides to accelerate your ChatGPT E
                 </div>
 
                 <!-- Template Content -->
-                <div class="p-6 pt-2">
+                <div class="p-6 pt-2 flex flex-col flex-1">
                   <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
                     {template.data.title}
                   </h3>
@@ -132,15 +122,17 @@ const description = "Practical templates and guides to accelerate your ChatGPT E
                   </div>
 
                   <!-- Category -->
-                  <div class="flex items-center gap-2 mb-6">
-                    <FolderIcon className="w-4 h-4 text-dark/40" />
-                    <span class="text-sm text-dark/60">{template.data.category}</span>
+                  <div class="mb-6">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/5 text-primary text-sm font-medium">
+                      <FolderIcon className="w-4 h-4" />
+                      {template.data.category}
+                    </span>
                   </div>
 
                   <!-- CTA Button -->
                   <a
                     href={`/resources/templates/${template.id}`}
-                    class="btn btn-outline w-full flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all"
+                    class="btn w-full flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white border-0 hover:from-primary hover:to-secondary transition-all shadow-sm hover:shadow-md mt-auto"
                   >
                     View Template
                     <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
