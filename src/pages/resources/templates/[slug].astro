@@ -260,16 +260,6 @@ if (related_templates && related_templates.length > 0) {
                       <div class="text-xs text-gray-500">Download as .md file</div>
                     </div>
                   </button>
-                  <button
-                    id="download-word-btn-header"
-                    class="w-full px-4 py-3 text-left hover:bg-gray-50 flex items-center gap-3"
-                  >
-                    <DocumentIcon className="w-5 h-5 text-gray-600" />
-                    <div class="flex-1">
-                      <div class="font-medium text-gray-900">Download as Word Document</div>
-                      <div class="text-xs text-gray-500">Download as .docx file</div>
-                    </div>
-                  </button>
                   {external_resources?.google_doc && (
                     <a
                       href={external_resources.google_doc.url}
@@ -531,103 +521,79 @@ if (related_templates && related_templates.length > 0) {
     }
   }
 
-  // Header dropdown toggle
-  const dropdownBtnHeader = document.getElementById('copy-page-dropdown-btn-header');
-  const dropdownHeader = document.getElementById('copy-page-dropdown-header');
+  // Initialize dropdown functionality
+  function initializeCopyDropdown() {
+    // Header dropdown toggle
+    const dropdownBtnHeader = document.getElementById('copy-page-dropdown-btn-header');
+    const dropdownHeader = document.getElementById('copy-page-dropdown-header');
 
-  if (dropdownBtnHeader && dropdownHeader) {
-    dropdownBtnHeader.addEventListener('click', (e) => {
-      e.stopPropagation();
-      dropdownHeader.classList.toggle('hidden');
-    });
+    if (dropdownBtnHeader && dropdownHeader) {
+      dropdownBtnHeader.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdownHeader.classList.toggle('hidden');
+      });
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!dropdownBtnHeader.contains(e.target as Node) && !dropdownHeader.contains(e.target as Node)) {
-        dropdownHeader.classList.add('hidden');
-      }
-    });
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!dropdownBtnHeader.contains(e.target as Node) && !dropdownHeader.contains(e.target as Node)) {
+          dropdownHeader.classList.add('hidden');
+        }
+      });
+    }
+
+    // Copy markdown button (header)
+    const copyMarkdownBtnHeader = document.getElementById('copy-markdown-btn-header');
+    if (copyMarkdownBtnHeader) {
+      copyMarkdownBtnHeader.addEventListener('click', () => {
+        const content = getTemplateContent();
+        copyToClipboard(content, 'Copied to clipboard!');
+        dropdownHeader?.classList.add('hidden');
+      });
+    }
+
+    // Download as Markdown button (header)
+    const downloadMarkdownBtnHeader = document.getElementById('download-markdown-btn-header');
+    if (downloadMarkdownBtnHeader) {
+      downloadMarkdownBtnHeader.addEventListener('click', () => {
+        const content = getTemplateContent();
+        const blob = new Blob([content], { type: 'text/markdown' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${document.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.md`;
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast('Markdown file downloaded!');
+        dropdownHeader?.classList.add('hidden');
+      });
+    }
+
+    // Open in ChatGPT button (header)
+    const openChatGPTBtnHeader = document.getElementById('open-chatgpt-btn-header');
+    if (openChatGPTBtnHeader) {
+      openChatGPTBtnHeader.addEventListener('click', () => {
+        const pageURL = window.location.href;
+        const prompt = `Read from ${pageURL} so I can ask questions about it.`;
+        const chatURL = `https://chatgpt.com/?hints=search&q=${encodeURIComponent(prompt)}`;
+        window.open(chatURL, '_blank');
+        dropdownHeader?.classList.add('hidden');
+      });
+    }
+
+    // Open in Claude button (header)
+    const openClaudeBtnHeader = document.getElementById('open-claude-btn-header');
+    if (openClaudeBtnHeader) {
+      openClaudeBtnHeader.addEventListener('click', () => {
+        const pageURL = window.location.href;
+        const prompt = `Read from ${pageURL} so I can ask questions about it.`;
+        const claudeURL = `https://claude.ai/new?q=${encodeURIComponent(prompt)}`;
+        window.open(claudeURL, '_blank');
+        dropdownHeader?.classList.add('hidden');
+      });
+    }
   }
 
-  // Copy markdown button (header)
-  const copyMarkdownBtnHeader = document.getElementById('copy-markdown-btn-header');
-  if (copyMarkdownBtnHeader) {
-    copyMarkdownBtnHeader.addEventListener('click', () => {
-      const content = getTemplateContent();
-      copyToClipboard(content, 'Copied to clipboard!');
-      dropdownHeader?.classList.add('hidden');
-    });
-  }
-
-  // Download as Markdown button (header)
-  const downloadMarkdownBtnHeader = document.getElementById('download-markdown-btn-header');
-  if (downloadMarkdownBtnHeader) {
-    downloadMarkdownBtnHeader.addEventListener('click', () => {
-      const content = getTemplateContent();
-      const blob = new Blob([content], { type: 'text/markdown' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${document.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.md`;
-      a.click();
-      URL.revokeObjectURL(url);
-      showToast('Markdown file downloaded!');
-      dropdownHeader?.classList.add('hidden');
-    });
-  }
-
-  // Download as Word button (header)
-  const downloadWordBtnHeader = document.getElementById('download-word-btn-header');
-  if (downloadWordBtnHeader) {
-    downloadWordBtnHeader.addEventListener('click', () => {
-      const content = getTemplateContent();
-      // Create a simple HTML document that Word can open
-      const htmlContent = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="utf-8">
-          <title>${document.title}</title>
-        </head>
-        <body style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px;">
-          <pre style="white-space: pre-wrap; font-family: Arial, sans-serif;">${content}</pre>
-        </body>
-        </html>
-      `;
-      const blob = new Blob([htmlContent], { type: 'application/msword' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${document.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.doc`;
-      a.click();
-      URL.revokeObjectURL(url);
-      showToast('Word document downloaded!');
-      dropdownHeader?.classList.add('hidden');
-    });
-  }
-
-  // Open in ChatGPT button (header)
-  const openChatGPTBtnHeader = document.getElementById('open-chatgpt-btn-header');
-  if (openChatGPTBtnHeader) {
-    openChatGPTBtnHeader.addEventListener('click', () => {
-      const pageURL = window.location.href;
-      const prompt = `Read from ${pageURL} so I can ask questions about it.`;
-      const chatURL = `https://chatgpt.com/?hints=search&q=${encodeURIComponent(prompt)}`;
-      window.open(chatURL, '_blank');
-      dropdownHeader?.classList.add('hidden');
-    });
-  }
-
-  // Open in Claude button (header)
-  const openClaudeBtnHeader = document.getElementById('open-claude-btn-header');
-  if (openClaudeBtnHeader) {
-    openClaudeBtnHeader.addEventListener('click', () => {
-      const pageURL = window.location.href;
-      const prompt = `Read from ${pageURL} so I can ask questions about it.`;
-      const claudeURL = `https://claude.ai/new?q=${encodeURIComponent(prompt)}`;
-      window.open(claudeURL, '_blank');
-      dropdownHeader?.classList.add('hidden');
-    });
-  }
+  // Run on initial page load and after view transitions
+  document.addEventListener('astro:page-load', initializeCopyDropdown);
 </script>
 
