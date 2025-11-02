@@ -14,6 +14,10 @@
   @apply text-light bg-secondary transition duration-300 hover:opacity-80;
 }
 
+.btn-outline-primary {
+  @apply text-primary border-2 border-primary bg-transparent transition duration-300 hover:bg-primary hover:text-light;
+}
+
 .btn-transparent {
   @apply text-light border-2 border-light/20 bg-light/20 transition duration-300 hover:text-text-dark hover:bg-tertiary;
 }
