@@ -79,12 +79,7 @@ export const queries = {
     publishedAt,
     "image": featuredImage.asset,
     "author": author->{name, image, bio},
-    "categories": categories[]->{ title, slug, _id },
-    seo {
-      title,
-      description,
-      keywords
-    }
+    "categories": categories[]->{ title, slug, _id }
   }`,
   
   // Simplified page content (instead of complex block structure)

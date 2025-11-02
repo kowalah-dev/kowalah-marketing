@@ -1,0 +1,42 @@
+---
+import { urlFor } from "@/lib/sanity";
+
+interface Props {
+  node: {
+    asset: {
+      _ref: string;
+    };
+    alt?: string;
+    caption?: string;
+    _type: string;
+    _key: string;
+  };
+  index: number;
+  isInline: boolean;
+}
+
+const { node } = Astro.props;
+const { asset, alt, caption } = node;
+
+if (!asset?._ref) {
+  console.warn("ImageBlock: No asset reference provided", node);
+  return null;
+}
+
+// Generate optimized image URL using Sanity's image CDN
+const imageUrl = urlFor(asset).width(1200).quality(85).url();
+---
+
+<figure class="my-8">
+  <img
+    src={imageUrl}
+    alt={alt || ""}
+    class="w-full rounded-lg"
+    loading="lazy"
+  />
+  {caption && (
+    <figcaption class="text-center text-sm text-gray-600 dark:text-gray-400 mt-2 italic">
+      {caption}
+    </figcaption>
+  )}
+</figure>

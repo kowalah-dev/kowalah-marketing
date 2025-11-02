@@ -1,0 +1,42 @@
+---
+interface Props {
+  node: {
+    text: string;
+    url: string;
+    style?: 'primary' | 'secondary' | 'outline';
+    openInNewTab?: boolean;
+    _type: string;
+    _key: string;
+  };
+  index: number;
+  isInline: boolean;
+}
+
+const { node } = Astro.props;
+const { text, url, style = 'primary', openInNewTab = false } = node;
+
+if (!text || !url) {
+  console.warn("ButtonEmbed: Missing text or url", node);
+  return null;
+}
+
+// Style mappings
+const styleClasses = {
+  primary: 'btn btn-primary',
+  secondary: 'btn btn-secondary',
+  outline: 'btn btn-outline-primary'
+};
+
+const buttonClass = styleClasses[style] || styleClasses.primary;
+---
+
+<div class="my-8 text-center">
+  <a
+    href={url}
+    class={buttonClass}
+    target={openInNewTab ? '_blank' : undefined}
+    rel={openInNewTab ? 'noopener noreferrer' : undefined}
+  >
+    {text}
+  </a>
+</div>

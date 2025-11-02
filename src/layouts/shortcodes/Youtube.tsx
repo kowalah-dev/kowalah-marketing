@@ -11,11 +11,17 @@ const Youtube = ({
   title: string;
   [key: string]: any;
 }) => {
+  // Try to load highest quality thumbnail
+  // maxresdefault (1920x1080) -> sddefault (640x480) -> hqdefault (480x360)
+  const poster = `maxresdefault`;
+
   return (
     <LiteYouTubeEmbed
-      wrapperClass="yt-lite rounded-lg"
+      wrapperClass="yt-lite rounded-lg w-full"
+      playerClass="lty-playbtn"
       id={id}
       title={title}
+      poster={poster}
       {...rest}
     />
   );
