@@ -6,8 +6,8 @@ template_type: "job-description"
 category: "Talent & Hiring"
 hero:
   title: "Chief AI Officer Job Description Template"
-  subtitle: "Hire a Chief AI Officer who lights a thousand fires across your organization, not just talks strategy in the boardroom"
-  image: "/images/templates/caio-job-description-hero.jpg"
+  subtitle: "Hire a Chief AI Officer who lights a thousand fires across your organization, and doesn't just talk strategy in the boardroom"
+  image: "/images/resources/templates/chief-ai-officer-job-description-hero.png"
   badge: "New"
 overview:
   who_its_for: "Chief Human Resources Officers, Chief Executive Officers, and talent acquisition leaders building AI leadership capabilities"

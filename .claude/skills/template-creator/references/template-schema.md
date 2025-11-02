@@ -64,6 +64,13 @@ Each template is a Markdown file with YAML frontmatter and markdown content.
 
   related_templates: string[] (optional),  // Array of template slugs
 
+  external_resources: {            // Optional links to external comprehensive resources
+    google_doc: {
+      url: string,                 // URL to Google Doc
+      label: string                // Button label (default: "Open in Google Docs")
+    } (optional)
+  } (optional),
+
   cta: {                           // Call-to-action section at bottom
     title: string,
     content: string,

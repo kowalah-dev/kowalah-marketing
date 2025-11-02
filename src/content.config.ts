@@ -746,6 +746,14 @@ const templatesCollection = defineCollection({
 
     related_templates: z.array(z.string()).optional(),
 
+    external_resources: z.object({
+      google_doc: z.object({
+        url: z.string().url(),
+        label: z.string().default("Open in Google Docs")
+      }).optional(),
+      // Future: Could add notion_doc, figma_file, etc.
+    }).optional(),
+
     cta: z.object({
       title: z.string(),
       content: z.string(),

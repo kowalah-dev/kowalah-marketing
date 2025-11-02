@@ -105,8 +105,13 @@ const description = "Practical templates and guides to accelerate your ChatGPT E
 
                 <!-- Template Content -->
                 <div class="p-6 pt-2 flex flex-col flex-1">
-                  <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                    {template.data.title}
+                  <h3 class="text-xl font-bold mb-3">
+                    <a
+                      href={`/resources/templates/${template.id}`}
+                      class="group-hover:text-primary transition-colors"
+                    >
+                      {template.data.title}
+                    </a>
                   </h3>
                   <p class="text-dark/70 mb-4 line-clamp-3">
                     {template.data.description}

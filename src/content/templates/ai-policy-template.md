@@ -7,7 +7,7 @@ category: "Governance & Risk"
 hero:
   title: "AI Usage Policy Template"
   subtitle: "A comprehensive, AI-positive policy template to guide responsible AI adoption in your organization"
-  image: "/images/templates/ai-policy-hero.jpg"
+  image: "/images/resources/templates/ai-policy-hero.png"
   badge: "Most Popular"
 overview:
   who_its_for: "CIOs, CHROs, Legal teams, and compliance officers establishing AI governance frameworks"
@@ -60,6 +60,10 @@ faq:
 related_templates:
   - deployment-checklist
   - ai-ambassador-program
+external_resources:
+  google_doc:
+    url: "https://docs.google.com/document/d/16DFtjGrH1hnmgplG3BzyDgZfoO-GDmFly_DiN8TW9zo/edit?usp=sharing"
+    label: "Open in Google Docs"
 cta:
   title: "Need Help Implementing Your AI Policy?"
   content: "Our AI governance specialists help enterprises establish comprehensive AI policies, train teams, and manage organizational change for successful ChatGPT Enterprise rollouts."

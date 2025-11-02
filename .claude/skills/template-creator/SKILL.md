@@ -78,7 +78,7 @@ Fill in the YAML frontmatter with specific values:
 #### Hero Section
 - `hero.title`: Template title (can match main title or be variant)
 - `hero.subtitle`: Compelling value proposition
-- `hero.image`: Path to hero image (format: `/images/templates/[slug]-hero.jpg`)
+- `hero.image`: Path to hero image (format: `/images/resources/templates/[slug]-hero.png`)
 - `hero.badge`: Optional badge (Most Popular, New, Updated, Essential)
 
 #### Overview Section
@@ -103,6 +103,28 @@ Create 5-10 questions optimized for Answer Engine Optimization:
 - Provide implementation context
 - Address "how is this different from X" questions
 - Include timing/frequency questions
+
+#### External Resources (Optional)
+Use this field when linking to comprehensive external resources:
+- `external_resources.google_doc.url`: Link to Google Doc with full content
+- `external_resources.google_doc.label`: Button text (default: "Open in Google Docs")
+
+**When to use external_resources:**
+- Multi-tab Google Docs or Sheets that are easier to maintain externally
+- Comprehensive guides that receive frequent updates
+- Resources where collaborative editing is beneficial (easier in Google Docs)
+- Templates where the "source of truth" should remain in an external system
+
+**When NOT to use:**
+- Simple templates that can be fully reproduced in Markdown
+- Static content that doesn't need frequent updates
+- Templates where you want full version control in the repo
+
+**Template approach with external resources:**
+- The template page acts as an overview/landing page
+- Describe what's included in the external resource
+- Provide context through FAQs and implementation notes
+- Link to the comprehensive external resource for full details
 
 #### CTA Section
 - `cta.title`: Call-to-action heading
@@ -154,7 +176,95 @@ Save the template to the correct location:
 
 The filename (without `.md`) becomes the URL slug: `/resources/templates/[filename]`
 
-### Step 7: Verify the Template
+### Step 7: Generate Hero Image Midjourney Prompt
+
+After saving the template, generate a Midjourney prompt for the hero image:
+
+**Image Requirements:**
+- **Dimensions**: 800×450px (16:9 landscape) for hero sections
+- **Format**: Professional, conceptual business/technology scene
+- **Brand Integration**: Kowalah colors (#fa26a0, #ae10e3) as subtle accents
+- **Style**: Clean, modern, executive-appropriate
+
+**Glassmorphism Optimization** (IMPORTANT):
+The template detail pages use a glassmorphism card overlay on the left side of the hero image. Optimize images for this design:
+
+✅ **Ideal Composition:**
+- **Subject positioning**: Place people/focal points on the **right third** of the frame
+- **Left side atmospheric**: Keep left two-thirds as soft, blurred environment for card overlay
+- **Environmental emphasis**: Prioritize setting and atmosphere over close-up subjects
+- **Wide environmental shots**: Office scenes, boardrooms, strategic settings with depth
+- **Soft bokeh backgrounds**: Create visual texture without competing focal points
+
+❌ **Avoid:**
+- Close-up portraits with faces centered
+- Important details in the center or left third (will be covered by card)
+- Images where the main subject is the primary focal point
+- Busy or detailed left-side content that distracts from card readability
+
+**Purpose**: Hero images provide color, atmosphere, and brand consistency - the glassmorphism card is the visual hero, not the background image.
+
+**Visual Theme by Template Type:**
+
+- **`policy`** - Executive governance scenes: boardroom discussions, compliance frameworks, leadership strategy sessions
+- **`evaluation`** - Analysis and decision-making: comparison matrices, strategic evaluation, vendor assessment contexts
+- **`deployment`** - Implementation and transformation: rollout planning, team enablement, change management scenes
+- **`job-description`** - Leadership and talent: executive interview contexts, strategic hiring, organizational capability building
+- **`program-template`** - Framework and structure: program planning, organizational design, strategic frameworks
+
+**Prompt Generation Template:**
+
+```
+[Subject/scene description based on template type], [composition details], shot on Fujifilm X-T4 35mm f/1.4, shallow depth of field bokeh, [lighting], natural skin tones, slight film grain, [attire/context], [expressions/mood], [subtle brand color integration], 800×450px landscape, [compositional notes], documentary style, authentic moment, no text, pure photography
+```
+
+**Reference Files:**
+- Read `/docs/context/visual-style-guide.md` for complete Midjourney prompt guidelines
+- Use "Preventing Text Overlays in Midjourney" section to avoid unwanted text generation
+- Follow "Template Addition for Text Prevention" format
+
+**Example Midjourney Prompts:**
+
+**AI Policy Template** (policy type):
+```
+Executive leadership team in modern boardroom reviewing AI governance framework, medium shot with subjects on right third, shot on Fujifilm X-T4 35mm f/1.4, shallow depth of field, warm natural window lighting, natural skin tones, slight film grain, professional business attire, confident collaborative expressions, digital screens with subtle purple glow showing policy frameworks, left side soft bokeh for text overlay, 800×450px landscape composition, atmospheric depth, documentary style, authentic strategy session, no text, pure photography
+```
+
+**Chief AI Officer Job Description** (job-description type):
+```
+Modern executive office environment with senior leader visible on right edge of frame, wide environmental shot, shot on Fujifilm X-T4 35mm f/1.4, shallow depth of field, warm natural window lighting from left, natural skin tones, slight film grain, executive in sharp business attire partially visible on right third, confident posture, left two-thirds showcases atmospheric office interior with organizational charts and strategic planning boards softly blurred, subtle pink and purple accent lighting (#fa26a0, #ae10e3) on office walls and technology, 800×450px landscape composition, depth and bokeh throughout left side, professional strategic workspace aesthetic, documentary style, environmental atmosphere emphasized over subject, no text, pure photography
+```
+
+**ChatGPT Evaluation Guide** (evaluation type):
+```
+Business team analyzing AI platform comparison, wide shot with subjects on left, shot on Fujifilm X-T4 35mm f/1.4, shallow depth of field bokeh, natural office lighting, natural skin tones, slight film grain, professional casual attire, focused analytical expressions, laptops and tablets showing evaluation matrices with purple screen glow, right side soft focus for overlay space, 800×450px landscape composition, strategic decision context, documentary style, no text, pure photography
+```
+
+**Output Format:**
+
+After generating the prompt, present it to the user:
+
+```
+## Hero Image Midjourney Prompt Generated
+
+**Image Path**: `/images/resources/templates/[template-slug]-hero.png`
+**Dimensions**: 800×450px (16:9 landscape)
+**Template Type**: [type] → [visual theme]
+
+**Midjourney Prompt**:
+```
+[Complete generated prompt]
+```
+
+**Next Steps**:
+1. Copy the prompt above into Midjourney
+2. Generate the image and select the best variation
+3. Download and optimize the image
+4. Save to `/public/images/resources/templates/[template-slug]-hero.png`
+5. Verify the image path in the template frontmatter matches
+```
+
+### Step 8: Verify the Template
 
 After creating the template, verify:
 
@@ -164,8 +274,9 @@ After creating the template, verify:
 4. **Content Structure**: Proper markdown hierarchy and formatting
 5. **File Location**: Saved in `src/content/templates/`
 6. **File Naming**: Uses kebab-case naming
+7. **Hero Image Prompt**: Midjourney prompt generated and ready for image creation
 
-### Step 8: Test the Template
+### Step 9: Test the Template
 
 Navigate to the template in the development server to verify:
 
@@ -174,7 +285,8 @@ http://localhost:4321/resources/templates/[template-slug]
 ```
 
 Check:
-- Hero section displays correctly
+- Hero section displays with glassmorphism background image effect
+- Hero image loads from `/images/templates/[template-slug]-hero.png`
 - Overview section shows correct icon (based on template_type)
 - "Sections Included" list displays with green checkmarks
 - Copy page dropdown works with all export options
@@ -214,6 +326,33 @@ Templates should be optimized for LLMs to parse and cite:
 - `description`: 150-160 characters with primary keywords
 - `hero.title`: Clear, keyword-rich title
 - `overview` fields: Include target audience and use case keywords
+
+### Automatic JSON-LD Structured Data
+
+**Every template automatically generates three types of structured data for maximum LLM discoverability:**
+
+1. **TechArticle Schema**
+   - Categorizes the template as technical content
+   - Includes author, publisher, category, and audience information
+   - Generated from: `title`, `description`, `category`, `overview.who_its_for`
+
+2. **HowTo Schema**
+   - Provides step-by-step implementation guidance
+   - Maps all "How to Use" steps with position and descriptions
+   - Includes external tools (Google Docs link if available)
+   - Generated from: `how_to_use.steps`, `external_resources.google_doc`
+
+3. **FAQPage Schema**
+   - Provides Q&A pairs for answer engines
+   - Generated from: `faq.questions` array
+
+**What this means:**
+- LLMs can understand template type, audience, and use cases
+- Answer engines can cite specific steps or FAQs
+- Google and other search engines get rich structured context
+- Templates appear in AI-powered search results with enhanced snippets
+
+**No additional work required** - just ensure your frontmatter follows the schema and the structured data generates automatically from the template detail page.
 
 ## Common Template Categories
 

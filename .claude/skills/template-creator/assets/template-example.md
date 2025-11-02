@@ -52,6 +52,10 @@ faq:
 related_templates:  # Optional
   - "[slug-of-related-template-1]"
   - "[slug-of-related-template-2]"
+external_resources:  # Optional - for linking to comprehensive external resources
+  google_doc:
+    url: "https://docs.google.com/document/d/YOUR_DOC_ID/edit"
+    label: "Open Full Guide in Google Docs"
 cta:
   title: "[Call to Action Title]"
   content: "[Description of how Kowalah can help beyond the template]"
