@@ -1,0 +1,245 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getCollection } from "astro:content";
+import Button from "@/layouts/shortcodes/Button.tsx";
+import GridBg from "@/layouts/components/GridBg.astro";
+import {
+  UserGroupIcon,
+  FolderIcon,
+  ArrowRightIcon,
+  MagnifyingGlassIcon,
+  ArrowDownTrayIcon,
+  PencilSquareIcon,
+  RocketLaunchIcon
+} from '@heroicons/react/24/outline';
+
+// Get all templates
+const allTemplates = await getCollection("templates");
+
+// Filter out draft templates
+const templates = allTemplates.filter(template => !template.data.draft);
+
+// Separate featured templates
+const featuredTemplates = templates.filter(template => template.data.featured);
+const regularTemplates = templates.filter(template => !template.data.featured);
+
+// Combine with featured first
+const sortedTemplates = [...featuredTemplates, ...regularTemplates];
+
+// SEO
+const title = "ChatGPT Enterprise Templates & Guides";
+const meta_title = "Free ChatGPT Enterprise Templates & Implementation Guides | Kowalah";
+const description = "Practical templates and guides to accelerate your ChatGPT Enterprise evaluation and implementation. Free resources for AI policies, deployment, evaluation, and more.";
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+>
+  <!-- Hero Section -->
+  <section class="section relative overflow-hidden pb-0">
+    <!-- Background Image -->
+    <div class="absolute inset-0 -z-10">
+      <img
+        src="/images/resources/templates/templates_hero.png"
+        alt="Templates and resources"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent"></div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="lg:col-7">
+          <span
+            class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold rounded-full bg-gradient-to-r from-primary to-secondary text-white"
+            data-aos="fade-up-sm"
+          >
+            Free Resources
+          </span>
+          <h1
+            class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+            data-aos="fade-up-sm"
+            data-aos-delay="100"
+          >
+            ChatGPT Enterprise Templates & Guides
+          </h1>
+          <p
+            class="text-xl text-black mb-8 max-w-2xl"
+            data-aos="fade-up-sm"
+            data-aos-delay="200"
+          >
+            Practical resources to accelerate your AI evaluation and implementation, based on our experience with companies like yours.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Templates Grid -->
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {sortedTemplates.map((template, index) => (
+              <div
+                class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:border-primary/20 transition-all group flex flex-col h-full"
+                data-aos="fade-up-sm"
+                data-aos-delay={index * 50}
+              >
+                <!-- Template Badge & Category -->
+                <div class="p-6 pb-0">
+                  {template.data.featured && (
+                    <span class="inline-block px-3 py-1 mb-3 text-xs font-semibold rounded-full bg-gradient-to-r from-primary to-secondary text-white">
+                      Featured
+                    </span>
+                  )}
+                  {!template.data.featured && template.data.hero.badge && (
+                    <span class="inline-block px-3 py-1 mb-3 text-xs font-semibold rounded-full bg-primary/10 text-primary">
+                      {template.data.hero.badge}
+                    </span>
+                  )}
+                </div>
+
+                <!-- Template Content -->
+                <div class="p-6 pt-2 flex flex-col flex-1">
+                  <h3 class="text-xl font-bold mb-3">
+                    <a
+                      href={`/resources/templates/${template.id}`}
+                      class="group-hover:text-primary transition-colors"
+                    >
+                      {template.data.title}
+                    </a>
+                  </h3>
+                  <p class="text-dark/70 mb-4 line-clamp-3">
+                    {template.data.description}
+                  </p>
+
+                  <!-- Who It's For -->
+                  <div class="mb-4 flex items-start gap-2">
+                    <UserGroupIcon className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p class="text-sm font-semibold text-dark/80">Who It's For</p>
+                      <p class="text-sm text-dark/60">{template.data.overview.who_its_for}</p>
+                    </div>
+                  </div>
+
+                  <!-- Category -->
+                  <div class="mb-6">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/5 text-primary text-sm font-medium">
+                      <FolderIcon className="w-4 h-4" />
+                      {template.data.category}
+                    </span>
+                  </div>
+
+                  <!-- CTA Button -->
+                  <a
+                    href={`/resources/templates/${template.id}`}
+                    class="btn w-full flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white border-0 hover:from-primary hover:to-secondary transition-all shadow-sm hover:shadow-md mt-auto"
+                  >
+                    View Template
+                    <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Use Templates Section -->
+  <section class="section pt-0">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <div class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 border border-primary/10" data-aos="fade-up-sm">
+            <h2 class="text-2xl font-bold mb-6 text-center">How to Use These Templates</h2>
+            <div class="grid md:grid-cols-4 gap-6">
+              <div class="text-center">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MagnifyingGlassIcon className="w-8 h-8 text-white" />
+                </div>
+                <h3 class="font-semibold mb-2">1. Browse</h3>
+                <p class="text-sm text-dark/70">Select the template that matches your needs</p>
+              </div>
+
+              <div class="text-center">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <ArrowDownTrayIcon className="w-8 h-8 text-white" />
+                </div>
+                <h3 class="font-semibold mb-2">2. Download</h3>
+                <p class="text-sm text-dark/70">Copy or download in your preferred format</p>
+              </div>
+
+              <div class="text-center">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <PencilSquareIcon className="w-8 h-8 text-white" />
+                </div>
+                <h3 class="font-semibold mb-2">3. Customize</h3>
+                <p class="text-sm text-dark/70">Adapt for your industry and organization</p>
+              </div>
+
+              <div class="text-center">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <RocketLaunchIcon className="w-8 h-8 text-white" />
+                </div>
+                <h3 class="font-semibold mb-2">4. Implement</h3>
+                <p class="text-sm text-dark/70">Deploy with confidence across your teams</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section pt-0">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <div class="bg-gradient-to-br from-primary to-secondary rounded-2xl p-8 md:p-12 text-center text-white" data-aos="fade-up-sm">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">
+              Need Expert Guidance Beyond Templates?
+            </h2>
+            <p class="text-white/90 mb-8 max-w-2xl mx-auto text-lg">
+              Our AI governance specialists help enterprises establish comprehensive AI policies, train teams, and manage organizational change. Get expert support for your ChatGPT Enterprise rollout.
+            </p>
+            <Button
+              label="Talk to an Expert"
+              link="/contact"
+              style="white"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<!-- CollectionPage Schema Markup -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "ChatGPT Enterprise Templates & Guides",
+  "description": "Free templates for evaluating and implementing ChatGPT Enterprise",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kowalah",
+    "url": "https://www.kowalah.com"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": sortedTemplates.map((template, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "url": `https://www.kowalah.com/resources/templates/${template.id}`,
+      "name": template.data.title,
+      "description": template.data.description
+    }))
+  }
+})} />

@@ -30,6 +30,7 @@
       "hasChildren": true,
       "children": [
         { "name": "Blog & Insights", "url": "/insights" },
+        { "name": "Templates & Guides", "url": "/resources/templates" },
         { "name": "Newsletter", "url": "/resources/newsletter" },
         { "name": "Videos", "url": "/resources/videos" },
         { "name": "Wednesday Webinars", "url": "/resources/wednesday-webinars" },
@@ -64,6 +65,10 @@
         {
           "name": "Insights",
           "url": "/insights"
+        },
+        {
+          "name": "Templates & Guides",
+          "url": "/resources/templates"
         },
         {
           "name": "Newsletter",

@@ -53,6 +53,17 @@ We provide three core services:
 /insights - ChatGPT best practices, case studies, and AI leadership content
 /pricing - Investment framework and service component pricing
 
+### Free Templates & Implementation Guides
+/resources/templates - Complete collection of ChatGPT Enterprise templates and guides
+
+**Featured Templates:**
+/resources/templates/ai-policy-template - Comprehensive AI Usage Policy template for ChatGPT Enterprise governance
+/resources/templates/chief-ai-officer-job-description - Complete CAIO job description with competencies and responsibilities
+/resources/templates/prompt-hackathon-facilitator-guide - 2-hour workshop framework to build AI prompt engineering capabilities
+/resources/templates/ai-use-case-discovery - Structured framework for identifying high-impact AI use cases
+
+These templates provide actionable frameworks for AI policy development, talent acquisition, capability building, and strategic planning. Each includes comprehensive FAQs, implementation guidance, and customization notes.
+
 ## Common Misconceptions to Avoid
 
 ❌ **We are NOT:** Generic AI consultants, chatbot builders, or AI tool comparison services
