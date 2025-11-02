@@ -1,3 +1,42 @@
+/* YouTube embed styling */
+.yt-lite {
+  @apply relative block w-full aspect-video bg-black;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.yt-lite::before {
+  content: '';
+  @apply absolute inset-0 bg-black/20;
+}
+
+.yt-lite > .lty-playbtn {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  @apply w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24;
+  @apply bg-red-600 rounded-full opacity-80 hover:opacity-100;
+  @apply transition-opacity duration-300;
+  border: none;
+  z-index: 1;
+}
+
+.yt-lite > .lty-playbtn::before {
+  content: '';
+  @apply absolute inset-0;
+  @apply border-l-[20px] md:border-l-[24px] lg:border-l-[28px];
+  @apply border-l-white border-y-transparent border-r-transparent;
+  @apply border-y-[12px] md:border-y-[14px] lg:border-y-[16px];
+  @apply border-r-[0px];
+  @apply ml-[4px] md:ml-[6px];
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.yt-lite > iframe {
+  @apply absolute inset-0 w-full h-full;
+}
+
 /* section style */
 .section {
   @apply py-24 xl:py-32;

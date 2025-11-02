@@ -82,8 +82,8 @@ if (usingSanity) {
   // Fetch complete post data from Sanity
   fullPost = await client.fetch(queries.post(single as string));
   title = fullPost?.title;
-  meta_title = fullPost?.seo?.title || title;
-  description = fullPost?.seo?.description || fullPost?.excerpt;
+  meta_title = title;
+  description = fullPost?.excerpt;
   image = fullPost?.image;
 } else {
   // Use content collection data

@@ -1,0 +1,41 @@
+---
+import Youtube from "@/shortcodes/Youtube";
+
+interface Props {
+  node: {
+    youtubeId: string;
+    caption?: string;
+    startTime?: number;
+    _type: string;
+    _key: string;
+  };
+  index: number;
+  isInline: boolean;
+}
+
+// PortableText passes the block data wrapped in a 'node' property
+const { node } = Astro.props;
+const { youtubeId, caption, startTime } = node;
+
+// Defensive check - exit early if no youtubeId
+if (!youtubeId) {
+  console.warn("YoutubeEmbed: No youtubeId provided", node);
+  return null;
+}
+---
+
+<div class="my-8">
+  <div class="aspect-video rounded-lg overflow-hidden">
+    <Youtube
+      id={youtubeId}
+      title={caption || "YouTube Video"}
+      params={startTime ? `start=${startTime}` : undefined}
+      client:load
+    />
+  </div>
+  {caption && (
+    <p class="text-center text-sm text-gray-600 dark:text-gray-400 mt-2 italic">
+      {caption}
+    </p>
+  )}
+</div>
