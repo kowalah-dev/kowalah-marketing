@@ -1,39 +1,53 @@
 ---
 import { markdownify } from "@/lib/utils/textConverter";
+import dateFormat from "@/lib/utils/dateFormat";
 
 interface Props {
   webinar: {
     title: string;
+    slug: { current: string };
     date: string;
-    displayDate?: string;
-    recording_link: string | null;
-    youtube_id?: string; // Backward compatibility
+    youtubeUrl?: string | null;
     duration?: string;
     topics: string[];
-    description?: string;
+    shortDescription?: string;
   };
 }
 
 const { webinar } = Astro.props;
 
-// Support both recording_link and legacy youtube_id
-const recordingUrl = webinar.recording_link ||
-  (webinar.youtube_id ? `https://www.youtube.com/watch?v=${webinar.youtube_id}` : null);
+// Null check - don't render if webinar is null or missing required fields
+if (!webinar || !webinar.slug?.current || !webinar.date) {
+  return null;
+}
 
-// Extract YouTube thumbnail if it's a YouTube URL
+// Get YouTube URL and extract thumbnail
+const recordingUrl = webinar.youtubeUrl;
 let thumbnailUrl = "/images/webinars/webinar_placeholder.png"; // Default placeholder
+
 if (recordingUrl) {
-  const youtubeMatch = recordingUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s]+)/);
-  if (youtubeMatch) {
-    thumbnailUrl = `https://img.youtube.com/vi/${youtubeMatch[1]}/maxresdefault.jpg`;
+  // Handle different YouTube URL formats
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=)([^&]+)/,           // youtube.com/watch?v=VIDEO_ID
+    /(?:youtu\.be\/)([^?]+)/,                        // youtu.be/VIDEO_ID
+    /(?:youtube\.com\/embed\/)([^?]+)/,              // youtube.com/embed/VIDEO_ID
+    /(?:youtube\.com\/v\/)([^?]+)/,                  // youtube.com/v/VIDEO_ID
+  ];
+
+  for (const pattern of patterns) {
+    const match = recordingUrl.match(pattern);
+    if (match && match[1]) {
+      thumbnailUrl = `https://img.youtube.com/vi/${match[1]}/maxresdefault.jpg`;
+      break;
+    }
   }
 }
 
-const formattedDate = webinar.displayDate || new Date(webinar.date).toLocaleDateString("en-GB", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-});
+// Format date
+const formattedDate = dateFormat(webinar.date, "dd MMMM yyyy");
+
+// Detail page link
+const detailLink = `/resources/wednesday-webinars/${webinar.slug.current}`;
 ---
 
 <div
@@ -115,16 +129,18 @@ const formattedDate = webinar.displayDate || new Date(webinar.date).toLocaleDate
       </p>
     </div>
 
-    <!-- Title -->
-    <h3
-      set:html={markdownify(webinar.title)}
-      class="mb-3 text-lg font-semibold text-dark transition-colors group-hover:text-primary line-clamp-2"
-    />
+    <!-- Title with Detail Page Link -->
+    <a href={detailLink} class="block mb-3">
+      <h3
+        set:html={markdownify(webinar.title)}
+        class="text-lg font-semibold text-dark transition-colors group-hover:text-primary line-clamp-2"
+      />
+    </a>
 
-    <!-- Description (if available, first 2 topics) -->
-    {webinar.description && (
+    <!-- Description -->
+    {webinar.shortDescription && (
       <p class="mb-4 text-sm text-dark/70 line-clamp-2">
-        {webinar.description}
+        {webinar.shortDescription}
       </p>
     )}
 
@@ -147,13 +163,39 @@ const formattedDate = webinar.displayDate || new Date(webinar.date).toLocaleDate
       )
     }
 
-    <!-- Watch Button -->
-    {recordingUrl ? (
+    <!-- Action Links -->
+    <div class="flex items-center gap-4">
+      {recordingUrl ? (
+        <a
+          href={recordingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+        >
+          <svg
+            class="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+           Watch
+        </a>
+      ) : null}
       <a
-        href={recordingUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+        href={detailLink}
+        class="inline-flex items-center gap-2 text-sm font-semibold text-dark/60 transition-colors hover:text-primary"
       >
         <svg
           class="h-4 w-4"
@@ -165,20 +207,10 @@ const formattedDate = webinar.displayDate || new Date(webinar.date).toLocaleDate
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-          ></path>
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
-         Watch Recording
+         Details
       </a>
-    ) : (
-      <p class="text-sm text-dark/50 italic">
-        Recording will be available soon
-      </p>
-    )}
+    </div>
   </div>
 </div>

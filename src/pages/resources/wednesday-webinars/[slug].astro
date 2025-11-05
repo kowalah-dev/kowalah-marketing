@@ -1,0 +1,275 @@
+---
+export const prerender = false; // Enable SSR for real-time Sanity content
+
+import Base from "@/layouts/Base.astro";
+import { client, queries } from "@/lib/sanity";
+import WebinarDetailHero from "@/layouts/components/webinars/WebinarDetailHero.astro";
+import YouTubeEmbed from "@/layouts/components/webinars/YouTubeEmbed.astro";
+import WebinarAgenda from "@/layouts/components/webinars/WebinarAgenda.astro";
+import BlogCard from "@/components/BlogCard.astro";
+import { PortableText } from "astro-portabletext";
+import { markdownify } from "@/lib/utils/textConverter";
+import Button from "@/shortcodes/Button";
+import CountdownTimer from "@/layouts/components/webinars/CountdownTimer";
+
+export async function getStaticPaths() {
+  let webinars = [];
+
+  try {
+    webinars = await client.fetch(queries.webinars);
+  } catch (error) {
+    console.error("Error fetching webinars for static paths:", error);
+    return [];
+  }
+
+  return webinars.map((webinar) => ({
+    params: { slug: webinar.slug.current },
+    props: { webinar }
+  }));
+}
+
+const { slug } = Astro.params;
+const { webinar: webinarPreview } = Astro.props;
+
+// Fetch complete webinar data (works in both static and SSR modes)
+let webinar = null;
+let errorMessage = null;
+
+try {
+  webinar = await client.fetch(queries.webinar(slug as string));
+} catch (error) {
+  console.error("Error fetching webinar from Sanity:", error);
+  errorMessage = "Failed to load webinar details";
+}
+
+if (!webinar) {
+  return new Response("Webinar not found", { status: 404 });
+}
+
+const {
+  title,
+  date,
+  status,
+  duration,
+  shortDescription,
+  description,
+  topics,
+  sessionStructure,
+  registrationLink,
+  youtubeUrl,
+  relatedBlogPosts
+} = webinar;
+
+// SEO
+const metaTitle = `${title} | Wednesday Webinars | Kowalah`;
+const metaDescription = shortDescription || `Join us for this Wednesday Webinar on ${title}`;
+---
+
+<Base
+  title={title}
+  meta_title={metaTitle}
+  description={metaDescription}
+>
+  <!-- Hero Section -->
+  <WebinarDetailHero
+    title={title}
+    date={date}
+    status={status}
+    topics={topics}
+    duration={duration}
+  />
+
+  <!-- Main Content -->
+  <section class="section pt-0">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+
+          {errorMessage ? (
+            <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-8">
+              <p class="font-medium">{errorMessage}</p>
+            </div>
+          ) : (
+            <>
+              {/* Upcoming Webinar: Show countdown and registration */}
+              {status === "upcoming" && (
+                <div class="mb-12" data-aos="fade-up-sm">
+                  {/* Countdown Timer */}
+                  <div class="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-8 mb-8 border border-primary/20">
+                    <h2 class="text-2xl font-bold text-center mb-6">Webinar Starts In:</h2>
+                    <CountdownTimer
+                      targetDate={new Date(date).toISOString()}
+                      client:load
+                    />
+                  </div>
+
+                  {/* Short Description */}
+                  <div class="prose prose-lg max-w-none mb-8">
+                    <p class="text-xl text-gray-700">{shortDescription}</p>
+                  </div>
+
+                  {/* Registration CTA */}
+                  {registrationLink && (
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 text-center">
+                      <h3 class="text-2xl font-bold mb-4">Reserve Your Spot</h3>
+                      <p class="text-gray-600 mb-6">
+                        Don't miss out on this live session. Register now to receive your Zoom link.
+                      </p>
+                      <Button
+                        label="Register Now"
+                        link={registrationLink}
+                        style="primary"
+                        size="lg"
+                        client:load
+                      />
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Completed Webinar: Show YouTube recording */}
+              {status === "completed" && youtubeUrl && (
+                <div class="mb-12" data-aos="fade-up-sm">
+                  <h2 class="text-3xl font-bold mb-6">Watch the Recording</h2>
+                  <YouTubeEmbed
+                    url={youtubeUrl}
+                    title={title}
+                  />
+                </div>
+              )}
+
+              {/* Full Description */}
+              {description && (
+                <div class="mb-12" data-aos="fade-up-sm" data-aos-delay="100">
+                  <h2 class="text-3xl font-bold mb-6">About This Webinar</h2>
+                  <div class="prose prose-lg max-w-none">
+                    <PortableText value={description} />
+                  </div>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Session Structure - Only show for upcoming webinars */}
+  {status === "upcoming" && sessionStructure && sessionStructure.length > 0 && (
+    <WebinarAgenda
+      agenda={sessionStructure}
+      title="What We'll Cover"
+    />
+  )}
+
+  {/* Related Blog Posts */}
+  {relatedBlogPosts && relatedBlogPosts.filter(post => post && post.title).length > 0 && (
+    <section class="section pt-0">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="lg:col-10">
+            <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up-sm">
+              Related Insights
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {relatedBlogPosts.filter(post => post && post.title).slice(0, 3).map((post, index) => (
+                <div data-aos="fade-up-sm" data-aos-delay={index * 100}>
+                  <BlogCard data={post} usingSanity={true} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {/* Host Profile Section */}
+  <section class="section bg-gradient-to-br from-primary/5 to-secondary/5">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-100">
+            <h2 class="text-2xl font-bold mb-6 text-center" data-aos="fade-up-sm">
+              About Your Host
+            </h2>
+            <div class="flex flex-col md:flex-row gap-6 items-center" data-aos="fade-up-sm" data-aos-delay="100">
+              <div class="flex-shrink-0">
+                <div class="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-secondary p-1">
+                  <img
+                    src="/images/company/founder.png"
+                    alt="Charlie Cowan"
+                    class="w-full h-full rounded-full object-cover"
+                    onerror="this.src='/images/placeholders/avatar.svg'"
+                  />
+                </div>
+              </div>
+              <div class="flex-1 text-center md:text-left">
+                <h3 class="text-xl font-bold mb-2">Charlie Cowan</h3>
+                <p class="text-primary font-medium mb-3">Founder & CEO, Kowalah</p>
+                <p class="text-gray-600">
+                  Charlie hosts our Wednesday Webinars, sharing practical AI strategies and insights
+                  to help organizations accelerate their AI adoption journey. With deep expertise in
+                  AI leadership and implementation, Charlie provides actionable guidance for executives
+                  and teams navigating AI transformation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Final CTA */}
+  <section class="section pb-0">
+    <div class="container">
+      <div
+        class="rounded-3xl px-5 pt-7 md:px-12 md:pt-24 bg-gradient-to-br from-primary to-secondary relative overflow-hidden"
+        data-aos="fade-up-sm"
+      >
+        <div class="row justify-center">
+          <div class="col-12 text-center">
+            {status === "upcoming" && registrationLink ? (
+              <>
+                <h2 class="mb-3 lg:h1 text-light" data-aos="fade-up-sm">
+                  Ready to Join Us?
+                </h2>
+                <p class="mb-6 text-light" data-aos="fade-up-sm">
+                  Reserve your spot for this Wednesday Webinar
+                </p>
+                <div data-aos="zoom-in-sm">
+                  <Button
+                    label="Register for Free"
+                    link={registrationLink}
+                    style="white"
+                    className="mb-8"
+                    client:load
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                <h2 class="mb-3 lg:h1 text-light" data-aos="fade-up-sm">
+                  Explore More Webinars
+                </h2>
+                <p class="mb-6 text-light" data-aos="fade-up-sm">
+                  Join us every Wednesday for practical AI insights
+                </p>
+                <div data-aos="zoom-in-sm">
+                  <Button
+                    label="View All Webinars"
+                    link="/resources/wednesday-webinars"
+                    style="white"
+                    className="mb-8"
+                    client:load
+                  />
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

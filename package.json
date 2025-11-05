@@ -5,12 +5,14 @@
   "author": "Themefisher",
   "license": "UNLICENSED",
   "packageManager": "yarn@1.22.22",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "format": "prettier -w ./src"
+    "format": "prettier -w ./src",
+    "migrate:webinars": "node scripts/migrate-webinars.js"
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
@@ -32,6 +34,7 @@
     "astro-icon": "^1.1.5",
     "astro-portabletext": "^0.11.2",
     "date-fns": "^4.1.0",
+    "dotenv": "^16.6.1",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
     "marked": "^15.0.7",

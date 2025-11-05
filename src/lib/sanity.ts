@@ -188,5 +188,67 @@ export const queries = {
       description,
       keywords
     }
+  }`,
+
+  // Wednesday Webinars - all webinars ordered by date (newest first)
+  webinars: `*[_type == "webinar"] | order(date desc) {
+    ${commonFields}
+    title,
+    slug,
+    date,
+    status,
+    shortDescription,
+    topics,
+    registrationLink,
+    youtubeUrl,
+    duration
+  }`,
+
+  // Upcoming webinars only (for spotlight and preview sections)
+  upcomingWebinars: `*[_type == "webinar" && status == "upcoming"] | order(date asc) {
+    ${commonFields}
+    title,
+    slug,
+    date,
+    shortDescription,
+    topics,
+    registrationLink,
+    duration
+  }`,
+
+  // Past webinars only (for archive section)
+  pastWebinars: `*[_type == "webinar" && status == "completed"] | order(date desc) {
+    ${commonFields}
+    title,
+    slug,
+    date,
+    shortDescription,
+    topics,
+    youtubeUrl,
+    duration
+  }`,
+
+  // Single webinar detail with full content and related posts
+  webinar: (slug: string) => `*[_type == "webinar" && slug.current == "${slug}"][0] {
+    ${commonFields}
+    title,
+    slug,
+    date,
+    duration,
+    status,
+    shortDescription,
+    description,
+    topics,
+    sessionStructure,
+    registrationLink,
+    youtubeUrl,
+    "relatedBlogPosts": relatedBlogPosts[]->{
+      title,
+      slug,
+      excerpt,
+      publishedAt,
+      "image": featuredImage.asset,
+      "categories": categories[]->{ title, slug, _id }
+    }
   }`
 };
