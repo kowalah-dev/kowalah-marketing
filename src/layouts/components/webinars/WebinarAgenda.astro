@@ -1,0 +1,68 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+
+interface AgendaItem {
+  segment: string;
+  duration: string;
+  description: string;
+}
+
+interface Props {
+  agenda: AgendaItem[];
+  title?: string;
+}
+
+const { agenda, title = "Session Structure" } = Astro.props;
+---
+
+{agenda && agenda.length > 0 && (
+  <section class="section bg-gray-50">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up-sm">
+            {title}
+          </h2>
+
+          <div class="space-y-4" data-aos="fade-up-sm" data-aos-delay="100">
+            {agenda.map((item, index) => (
+              <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="flex items-start gap-4">
+                  <!-- Number indicator -->
+                  <div class="flex-shrink-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold">
+                      {index + 1}
+                    </div>
+                  </div>
+
+                  <!-- Content -->
+                  <div class="flex-1">
+                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2 gap-2">
+                      <h3 class="text-xl font-semibold text-text-dark" set:html={markdownify(item.segment)} />
+                      <span class="inline-flex items-center px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full whitespace-nowrap">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {item.duration}
+                      </span>
+                    </div>
+                    <p class="text-gray-600" set:html={markdownify(item.description)} />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Total Duration (optional) -->
+          {agenda.length > 1 && (
+            <div class="mt-6 text-center text-gray-600">
+              <p class="text-sm">
+                <strong>Total Duration:</strong> Approximately {agenda.length * 10}-{agenda.length * 15} minutes
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+)}

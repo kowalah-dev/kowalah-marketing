@@ -11,30 +11,24 @@ import Accordion from "@/shortcodes/Accordion";
 import Button from "@/shortcodes/Button";
 import ImageMod from "@/layouts/components/ImageMod.astro";
 import { BriefcaseIcon, LightBulbIcon, ClipboardDocumentCheckIcon, ChatBubbleLeftRightIcon } from "@heroicons/react/24/outline";
-import { getEntry } from "astro:content";
+import { client, queries } from "@/lib/sanity";
 
-// Fetch webinars schedule
-const schedule = await getEntry("webinars", "schedule");
-const allWebinars = schedule?.data.webinars || [];
+// Fetch webinars from Sanity CMS
+let upcomingWebinars = [];
+let pastWebinars = [];
 
-// Current date for filtering
-const now = new Date();
-
-// Filter and sort upcoming webinars
-const upcomingWebinars = allWebinars
-  .filter(w => new Date(w.date) >= now && w.status === "upcoming")
-  .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+try {
+  upcomingWebinars = await client.fetch(queries.upcomingWebinars);
+  pastWebinars = await client.fetch(queries.pastWebinars);
+} catch (error) {
+  console.error("Error fetching webinars from Sanity:", error);
+}
 
 // Get spotlight webinar (next one)
 const spotlightWebinar = upcomingWebinars[0];
 
 // Get preview webinars (next 3 after spotlight)
 const previewWebinars = upcomingWebinars.slice(1, 4);
-
-// Get past webinars (completed, sorted newest first)
-const pastWebinars = allWebinars
-  .filter(w => new Date(w.date) < now || w.status === "completed")
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 const pageData = {
   title: "Wednesday Webinars",

@@ -2,51 +2,60 @@
 import { markdownify } from "@/lib/utils/textConverter";
 import Button from "@/shortcodes/Button";
 import CountdownTimer from "./CountdownTimer";
+import dateFormat from "@/lib/utils/dateFormat";
 
 interface Props {
   webinar: {
     title: string;
+    slug: { current: string };
     date: string;
-    displayDate?: string;
-    time: string;
-    webinar_id?: string;
-    registration_link: string;
-    is_recurring?: boolean;
-    description: string;
+    duration?: string;
+    shortDescription?: string;
     topics: string[];
-    structure: Array<{
-      segment: string;
-      duration: string;
-      description: string;
-    }>;
+    registrationLink?: string;
   };
 }
 
 const { webinar } = Astro.props;
+
+// Null check - don't render if webinar is null or missing required fields
+if (!webinar || !webinar.slug?.current || !webinar.date) {
+  return null;
+}
+
+// Format date for display
+const displayDate = dateFormat(webinar.date, "dd MMMM yyyy");
+const displayTime = new Date(webinar.date).toLocaleTimeString('en-US', {
+  hour: 'numeric',
+  minute: '2-digit',
+  hour12: true,
+  timeZoneName: 'short'
+});
+
+// Detail page link
+const detailLink = `/resources/wednesday-webinars/${webinar.slug.current}`;
 ---
 
 <div
   class="upcoming-webinar-spotlight relative overflow-hidden rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5 p-8 shadow-lg"
   data-aos="fade-up-sm"
 >
-  <!-- Recurring Badge -->
-  {
-    webinar.is_recurring && (
-      <div class="mb-4 inline-block">
-        <span class="rounded-full bg-gradient-to-r from-primary to-secondary px-4 py-1.5 text-sm font-semibold text-white">
-          Weekly Series • Every Wednesday
-        </span>
-      </div>
-    )
-  }
+  <!-- Weekly Series Badge -->
+  <div class="mb-4 inline-block">
+    <span class="rounded-full bg-gradient-to-r from-primary to-secondary px-4 py-1.5 text-sm font-semibold text-white">
+      Weekly Series • Every Wednesday
+    </span>
+  </div>
 
-  <!-- Webinar Title -->
-  <h2
-    set:html={markdownify(webinar.title)}
-    class="mb-4 text-3xl font-bold md:text-4xl"
-  />
+  <!-- Webinar Title with Link -->
+  <a href={detailLink} class="group">
+    <h2
+      set:html={markdownify(webinar.title)}
+      class="mb-4 text-3xl font-bold md:text-4xl group-hover:text-primary transition-colors"
+    />
+  </a>
 
-  <!-- Date, Time & Countdown -->
+  <!-- Date, Time & Duration -->
   <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
     <div class="flex items-center gap-2">
       <svg
@@ -62,7 +71,7 @@ const { webinar } = Astro.props;
           d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
         ></path>
       </svg>
-      <span class="font-semibold">{webinar.displayDate || webinar.date}</span>
+      <span class="font-semibold">{displayDate}</span>
     </div>
     <div class="flex items-center gap-2">
       <svg
@@ -77,8 +86,25 @@ const { webinar } = Astro.props;
           stroke-width="2"
           d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
       </svg>
-      <span class="font-semibold">{webinar.time}</span>
+      <span class="font-semibold">{displayTime}</span>
     </div>
+    {webinar.duration && (
+      <div class="flex items-center gap-2">
+        <svg
+          class="h-5 w-5 text-primary"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+        <span class="font-semibold">{webinar.duration}</span>
+      </div>
+    )}
   </div>
 
   <!-- Countdown Timer -->
@@ -87,88 +113,70 @@ const { webinar } = Astro.props;
   </div>
 
   <!-- Description -->
-  <p
-    set:html={markdownify(webinar.description)}
-    class="mb-6 text-lg text-dark/80"
-  />
+  {webinar.shortDescription && (
+    <p class="mb-6 text-lg text-dark/80">
+      {webinar.shortDescription}
+    </p>
+  )}
 
   <!-- Topics -->
-  <div class="mb-6">
-    <h3 class="mb-3 font-semibold">What You'll Learn:</h3>
-    <ul class="space-y-2">
-      {
-        webinar.topics.map((topic) => (
-          <li class="flex items-start gap-3">
-            <svg
-              class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <span set:html={markdownify(topic)} />
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-
-  <!-- Session Structure -->
-  <div class="mb-8 rounded-xl bg-white/50 p-6">
-    <h3 class="mb-4 font-semibold">Session Format (60 minutes):</h3>
-    <div class="space-y-3">
-      {
-        webinar.structure.map((segment) => (
-          <div class="flex items-start gap-3">
-            <span class="inline-flex h-8 w-[85px] flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondary text-sm font-semibold text-white whitespace-nowrap">
-              {segment.duration}
-            </span>
-            <div class="flex-1">
-              <p class="font-semibold">{segment.segment}</p>
-              <p class="text-sm text-dark/70">{segment.description}</p>
-            </div>
-          </div>
-        ))
-      }
+  {webinar.topics && webinar.topics.length > 0 && (
+    <div class="mb-8">
+      <h3 class="mb-3 font-semibold">What You'll Learn:</h3>
+      <ul class="space-y-2">
+        {
+          webinar.topics.map((topic) => (
+            <li class="flex items-start gap-3">
+              <svg
+                class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>{topic}</span>
+            </li>
+          ))
+        }
+      </ul>
     </div>
-  </div>
+  )}
 
-  <!-- Webinar ID (if provided) -->
-  {
-    webinar.webinar_id && (
-      <p class="mb-6 text-sm text-dark/60">
-        Webinar ID: <span class="font-mono">{webinar.webinar_id}</span>
-      </p>
-    )
-  }
-
-  <!-- Registration CTA -->
+  <!-- CTAs -->
   <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+    {webinar.registrationLink && (
+      <Button
+        label="Register for Free"
+        link={webinar.registrationLink}
+        style="secondary"
+        className="w-full sm:w-auto"
+      />
+    )}
     <Button
-      label="Register for Free"
-      link={webinar.registration_link}
-      style="secondary"
+      label="View Details"
+      link={detailLink}
+      style="outline"
       className="w-full sm:w-auto"
     />
-    <p class="text-sm text-dark/70">
-      <svg
-        class="mr-1 inline h-4 w-4"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-        ></path>
-      </svg>
-       Join other business leaders discovering advanced ChatGPT capabilities
-    </p>
   </div>
+  <p class="mt-4 text-sm text-dark/70">
+    <svg
+      class="mr-1 inline h-4 w-4"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+      ></path>
+    </svg>
+     Join other business leaders discovering advanced ChatGPT capabilities
+  </p>
 </div>

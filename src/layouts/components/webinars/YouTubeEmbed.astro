@@ -1,0 +1,76 @@
+---
+interface Props {
+  url: string;
+  title?: string;
+  className?: string;
+}
+
+const { url, title = "Webinar Recording", className = "" } = Astro.props;
+
+// Extract YouTube video ID from various URL formats
+function getYouTubeVideoId(url: string): string | null {
+  if (!url) return null;
+
+  // Handle different YouTube URL formats
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=)([^&]+)/,           // youtube.com/watch?v=VIDEO_ID
+    /(?:youtu\.be\/)([^?]+)/,                        // youtu.be/VIDEO_ID
+    /(?:youtube\.com\/embed\/)([^?]+)/,              // youtube.com/embed/VIDEO_ID
+    /(?:youtube\.com\/v\/)([^?]+)/,                  // youtube.com/v/VIDEO_ID
+  ];
+
+  for (const pattern of patterns) {
+    const match = url.match(pattern);
+    if (match && match[1]) {
+      return match[1];
+    }
+  }
+
+  return null;
+}
+
+const videoId = getYouTubeVideoId(url);
+
+if (!videoId) {
+  console.error(`Invalid YouTube URL: ${url}`);
+}
+---
+
+{videoId ? (
+  <div class={`youtube-embed ${className}`}>
+    <div class="aspect-video w-full rounded-xl overflow-hidden shadow-lg">
+      <iframe
+        src={`https://www.youtube.com/embed/${videoId}`}
+        title={title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        class="w-full h-full"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+) : (
+  <div class={`youtube-embed-error bg-red-50 border border-red-200 rounded-xl p-6 ${className}`}>
+    <p class="text-red-700">
+      <strong>Error:</strong> Invalid YouTube URL. Please check the URL format.
+    </p>
+    <p class="text-sm text-red-600 mt-2">
+      URL provided: <code class="bg-red-100 px-2 py-1 rounded">{url}</code>
+    </p>
+  </div>
+)}
+
+<style>
+  .youtube-embed {
+    @apply relative;
+  }
+
+  .youtube-embed iframe {
+    @apply border-0;
+  }
+
+  /* Ensure iframe takes full container size */
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+</style>
