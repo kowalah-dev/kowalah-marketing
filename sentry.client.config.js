@@ -15,7 +15,13 @@ Sentry.init({
   tracesSampleRate: import.meta.env.PROD ? 0.1 : 1.0,
 
   // Set `tracePropagationTargets` to control for which URLs distributed tracing should be enabled
-  tracePropagationTargets: ["localhost", /^https:\/\/.*\.kowalah\.com/],
+  // Exclude clerk.kowalah.com to prevent CORS issues with Clerk authentication
+  tracePropagationTargets: [
+    "localhost",
+    /^https:\/\/www\.kowalah\.com/,
+    /^https:\/\/api\.kowalah\.com/,
+    /^https:\/\/app\.kowalah\.com/,
+  ],
 
   // Capture Replay for 10% of all sessions,
   // plus 100% of sessions with an error
