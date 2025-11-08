@@ -27,6 +27,7 @@
     "@sanity/astro": "^3.2.10",
     "@sanity/client": "^7.11.0",
     "@sanity/image-url": "^1.2.0",
+    "@sentry/astro": "^10.23.0",
     "aos": "^2.3.4",
     "astro": "^5.14.1",
     "astro-auto-import": "^0.4.4",

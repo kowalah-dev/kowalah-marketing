@@ -13,6 +13,8 @@ import remarkToc from "remark-toc";
 import sharp from "sharp";
 import config from "./src/config/config.json";
 
+import sentry from "@sentry/astro";
+
 let highlighter;
 async function getHighlighter() {
   if (!highlighter) {
@@ -56,6 +58,11 @@ export default defineConfig({
     }),
     mdx(),
     icon(),
+    sentry({
+      project: "kowalah-marketing",
+      org: "kowalah",
+      authToken: process.env.SENTRY_AUTH_TOKEN,
+    }),
   ],
   markdown: {
     remarkPlugins: [
