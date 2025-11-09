@@ -128,6 +128,14 @@ const dashboardLink = "https://app.kowalah.com/new";
                 style="outline"
                 link={sign_in_link.link}
                 label={sign_in_link.label}
+                onClick={() => {
+                  if (typeof window.plausible !== 'undefined') {
+                    window.plausible('Sign In Clicked', {
+                      props: { source: 'header-mobile' }
+                    });
+                  }
+                }}
+                client:load
               />
             </li>
           )
@@ -142,6 +150,14 @@ const dashboardLink = "https://app.kowalah.com/new";
                 style="secondary"
                 link={navigation_button.link}
                 label={navigation_button.label}
+                onClick={() => {
+                  if (typeof window.plausible !== 'undefined') {
+                    window.plausible('Trial Sign-Up Clicked', {
+                      props: { source: 'header-mobile' }
+                    });
+                  }
+                }}
+                client:load
               />
             </li>
           )
@@ -153,6 +169,7 @@ const dashboardLink = "https://app.kowalah.com/new";
         <li class="mt-4 inline-block lg:hidden">
           <a
             href={dashboardLink}
+            onclick="if(typeof window.plausible !== 'undefined') { window.plausible('Dashboard Accessed', { props: { source: 'header-mobile' } }); }"
             class={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all ${
               customHeader
                 ? "bg-tertiary text-text-dark hover:bg-tertiary/90"
@@ -176,6 +193,7 @@ const dashboardLink = "https://app.kowalah.com/new";
           sign_in_link.enable && (
             <a
               href={sign_in_link.link}
+              onclick="if(typeof window.plausible !== 'undefined') { window.plausible('Sign In Clicked', { props: { source: 'header-desktop' } }); }"
               class={`hidden lg:inline-block text-sm font-medium transition-colors hover:text-primary ${
                 customHeader ? "text-light/80 hover:text-light" : "text-text-dark hover:text-primary"
               }`}
@@ -193,6 +211,14 @@ const dashboardLink = "https://app.kowalah.com/new";
               style="secondary"
               link={navigation_button.link}
               label={navigation_button.label}
+              onClick={() => {
+                if (typeof window.plausible !== 'undefined') {
+                  window.plausible('Trial Sign-Up Clicked', {
+                    props: { source: 'header-desktop' }
+                  });
+                }
+              }}
+              client:load
             />
           )
         }
@@ -202,6 +228,7 @@ const dashboardLink = "https://app.kowalah.com/new";
       <SignedIn isStatic={true}>
         <a
           href={dashboardLink}
+          onclick="if(typeof window.plausible !== 'undefined') { window.plausible('Dashboard Accessed', { props: { source: 'header-desktop' } }); }"
           class={`hidden lg:inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all ${
             customHeader
               ? "bg-tertiary text-text-dark hover:bg-tertiary/90"

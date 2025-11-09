@@ -263,6 +263,16 @@ const { title, description, meta_title, info } = contact.data;
           form.reset();
           // Scroll to success message
           successMessage?.scrollIntoView({ behavior: "smooth", block: "center" });
+
+          // Track contact form submission in Plausible
+          if (typeof window.plausible !== 'undefined') {
+            const inquiryType = formData.get('how_can_we_help_') as string;
+            window.plausible('Contact Form Submitted', {
+              props: {
+                inquiry_type: inquiryType || 'Not specified'
+              }
+            });
+          }
         } else {
           // Error
           console.error("HubSpot submission failed:", await response.text());

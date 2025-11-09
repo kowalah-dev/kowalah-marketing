@@ -10,6 +10,7 @@ const Button = ({
   className = "",
   icon,
   target,
+  onClick,
 }: {
   label: string;
   link: string;
@@ -25,6 +26,7 @@ const Button = ({
   className?: string;
   icon?: any;
   target?: "_self" | "_blank";
+  onClick?: () => void;
 }) => {
   // Determine base button style
   const getButtonStyle = () => {
@@ -66,6 +68,7 @@ const Button = ({
       href={link}
       target={resolvedTarget}
       rel={relAttr}
+      onClick={onClick}
       className={`${type ? type : "btn"} ${getButtonStyle()} ${
         icon && "flex justify-center items-center gap-3 "
       } ${className}`}
