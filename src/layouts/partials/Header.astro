@@ -123,20 +123,13 @@ const dashboardLink = "https://app.kowalah.com/new";
         {
           sign_in_link.enable && (
             <li class="mt-6 inline-block lg:hidden w-full">
-              <Button
-                className="btn-sm w-full"
-                style="outline"
-                link={sign_in_link.link}
-                label={sign_in_link.label}
-                onClick={() => {
-                  if (typeof window.plausible !== 'undefined') {
-                    window.plausible('Sign In Clicked', {
-                      props: { source: 'header-mobile' }
-                    });
-                  }
-                }}
-                client:load
-              />
+              <a
+                href={sign_in_link.link}
+                onclick="if(typeof window.plausible !== 'undefined') { window.plausible('Sign In Clicked', { props: { source: 'header-mobile' } }); }"
+                class="btn btn-sm btn-secondary w-full"
+              >
+                {sign_in_link.label}
+              </a>
             </li>
           )
         }
@@ -145,20 +138,15 @@ const dashboardLink = "https://app.kowalah.com/new";
         {
           navigation_button.enable && (
             <li class="mt-3 inline-block lg:hidden w-full">
-              <Button
-                className="btn-sm w-full"
-                style="secondary"
-                link={navigation_button.link}
-                label={navigation_button.label}
-                onClick={() => {
-                  if (typeof window.plausible !== 'undefined') {
-                    window.plausible('Trial Sign-Up Clicked', {
-                      props: { source: 'header-mobile' }
-                    });
-                  }
-                }}
-                client:load
-              />
+              <a
+                href={navigation_button.link}
+                onclick="if(typeof window.plausible !== 'undefined') { window.plausible('Trial Sign-Up Clicked', { props: { source: 'header-mobile' } }); }"
+                class="btn btn-sm btn-secondary w-full"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+              >
+                {navigation_button.label}
+              </a>
             </li>
           )
         }
@@ -206,20 +194,15 @@ const dashboardLink = "https://app.kowalah.com/new";
         <!-- Start Trial button -->
         {
           navigation_button.enable && (
-            <Button
-              className={`hidden lg:inline-block ${customHeader && "!bg-tertiary !text-text-dark"}`}
-              style="secondary"
-              link={navigation_button.link}
-              label={navigation_button.label}
-              onClick={() => {
-                if (typeof window.plausible !== 'undefined') {
-                  window.plausible('Trial Sign-Up Clicked', {
-                    props: { source: 'header-desktop' }
-                  });
-                }
-              }}
-              client:load
-            />
+            <a
+              href={navigation_button.link}
+              onclick="if(typeof window.plausible !== 'undefined') { window.plausible('Trial Sign-Up Clicked', { props: { source: 'header-desktop' } }); }"
+              class={`btn btn-secondary hidden lg:inline-block ${customHeader && "!bg-tertiary !text-text-dark"}`}
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              {navigation_button.label}
+            </a>
           )
         }
       </SignedOut>
