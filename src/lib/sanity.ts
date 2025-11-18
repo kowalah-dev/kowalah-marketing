@@ -47,7 +47,7 @@ export const queries = {
   }`,
   
   // Single blog post
-  post: (slug: string) => `*[_type == "post" && slug.current == "${slug}"][0] {
+  post: (slug: string) => `*[_type == "post" && slug.current == "${slug}" && !(_id in path("drafts.**"))][0] {
     ${commonFields}
     title,
     slug,
@@ -81,42 +81,9 @@ export const queries = {
     "author": author->{name, image, bio},
     "categories": categories[]->{ title, slug, _id }
   }`,
-  
-  // Simplified page content (instead of complex block structure)
-  pageContent: (slug: string) => `*[_type == "page" && slug.current == "${slug}"][0] {
-    ${commonFields}
-    title,
-    slug,
-    seo {
-      title,
-      description,
-      image
-    },
-    content
-  }`,
-  
-  // Homepage content 
-  homepage: `*[_type == "homepage"][0] {
-    ${commonFields}
-    hero {
-      title,
-      subtitle,
-      cta {
-        text,
-        url
-      },
-      "image": backgroundImage.asset
-    },
-    sections[] {
-      _type,
-      title,
-      content,
-      "image": image.asset
-    }
-  }`,
 
   // FAQ queries for Kowalah marketing site
-  faqs: `*[_type == "faqItem"] | order(priority asc, _createdAt desc) {
+  faqs: `*[_type == "faqItem" && !(_id in path("drafts.**"))] | order(priority asc, _createdAt desc) {
     ${commonFields}
     question,
     answer,
@@ -127,7 +94,7 @@ export const queries = {
   }`,
 
   // Featured FAQs only
-  featuredFaqs: `*[_type == "faqItem" && featured == true] | order(priority asc) {
+  featuredFaqs: `*[_type == "faqItem" && featured == true && !(_id in path("drafts.**"))] | order(priority asc) {
     ${commonFields}
     question,
     answer,
@@ -138,7 +105,7 @@ export const queries = {
   }`,
 
   // FAQs by category
-  faqsByCategory: (category: string) => `*[_type == "faqItem" && category == "${category}"] | order(priority asc) {
+  faqsByCategory: (category: string) => `*[_type == "faqItem" && category == "${category}" && !(_id in path("drafts.**"))] | order(priority asc) {
     ${commonFields}
     question,
     answer,
@@ -149,7 +116,7 @@ export const queries = {
   }`,
 
   // Recommended books queries
-  books: `*[_type == "recommendedBook"] | order(order asc) {
+  books: `*[_type == "recommendedBook" && !(_id in path("drafts.**"))] | order(order asc) {
     ${commonFields}
     title,
     slug,
@@ -161,7 +128,7 @@ export const queries = {
   }`,
 
   // Single book
-  book: (slug: string) => `*[_type == "recommendedBook" && slug.current == "${slug}"][0] {
+  book: (slug: string) => `*[_type == "recommendedBook" && slug.current == "${slug}" && !(_id in path("drafts.**"))][0] {
     ${commonFields}
     title,
     slug,
@@ -175,7 +142,7 @@ export const queries = {
   }`,
 
   // Legal pages (terms, privacy policy, etc.)
-  legalPage: (slug: string) => `*[_type == "legalPage" && slug.current == "${slug}"][0] {
+  legalPage: (slug: string) => `*[_type == "legalPage" && slug.current == "${slug}" && !(_id in path("drafts.**"))][0] {
     ${commonFields}
     title,
     slug,
@@ -191,7 +158,7 @@ export const queries = {
   }`,
 
   // Wednesday Webinars - all webinars ordered by date (newest first)
-  webinars: `*[_type == "webinar"] | order(date desc) {
+  webinars: `*[_type == "webinar" && !(_id in path("drafts.**"))] | order(date desc) {
     ${commonFields}
     title,
     slug,
@@ -205,7 +172,7 @@ export const queries = {
   }`,
 
   // Upcoming webinars only (for spotlight and preview sections)
-  upcomingWebinars: `*[_type == "webinar" && status == "upcoming"] | order(date asc) {
+  upcomingWebinars: `*[_type == "webinar" && status == "upcoming" && !(_id in path("drafts.**"))] | order(date asc) {
     ${commonFields}
     title,
     slug,
@@ -217,7 +184,7 @@ export const queries = {
   }`,
 
   // Past webinars only (for archive section)
-  pastWebinars: `*[_type == "webinar" && status == "completed"] | order(date desc) {
+  pastWebinars: `*[_type == "webinar" && status == "completed" && !(_id in path("drafts.**"))] | order(date desc) {
     ${commonFields}
     title,
     slug,
@@ -229,7 +196,7 @@ export const queries = {
   }`,
 
   // Single webinar detail with full content and related posts
-  webinar: (slug: string) => `*[_type == "webinar" && slug.current == "${slug}"][0] {
+  webinar: (slug: string) => `*[_type == "webinar" && slug.current == "${slug}" && !(_id in path("drafts.**"))][0] {
     ${commonFields}
     title,
     slug,
