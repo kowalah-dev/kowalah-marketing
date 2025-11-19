@@ -26,7 +26,7 @@ const getAspectRatioClass = (ratio) => {
 {sections && sections.map((section, index) => {
   if (section._type === 'textSection') {
     return (
-      <div class="prose prose-lg max-w-none dark:prose-invert mb-8" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+      <div class="prose prose-lg max-w-none mb-8" data-aos="fade-up-sm" data-aos-delay={index * 100}>
         <PortableText value={section.content} />
       </div>
     );
