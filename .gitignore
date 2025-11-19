@@ -14,9 +14,13 @@ node_modules
 dist/
 build/
 .output/
+.vercel/
 
 # Astro
 .astro/
+
+# Playwright
+.playwright-mcp/
 
 # IDE files
 .vscode/
