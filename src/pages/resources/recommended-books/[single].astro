@@ -164,7 +164,7 @@ const image = book.coverImage ? urlFor(book.coverImage).width(1200).height(630).
               </div>
 
               <!-- Book Content -->
-              <div class="prose prose-lg max-w-none dark:prose-invert" data-aos="fade-up-sm" data-aos-delay="200">
+              <div class="prose prose-lg max-w-none " data-aos="fade-up-sm" data-aos-delay="200">
                 {book.content ? (
                   <PortableText value={book.content} />
                 ) : (
