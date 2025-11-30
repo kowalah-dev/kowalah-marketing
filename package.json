@@ -39,6 +39,7 @@
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
     "marked": "^15.0.7",
+    "medium-zoom": "^1.1.0",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-countup": "^6.5.3",
