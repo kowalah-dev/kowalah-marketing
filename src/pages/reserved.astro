@@ -5,6 +5,7 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import Button from "@/shortcodes/Button";
 import Accordion from "@/shortcodes/Accordion";
+import { PresentationChartLineIcon, MegaphoneIcon, CircleStackIcon, UserGroupIcon, ComputerDesktopIcon, KeyIcon, ShieldCheckIcon, FolderIcon, BuildingOffice2Icon, ClockIcon, HeartIcon, UsersIcon } from "@heroicons/react/24/outline";
 
 const pageData = {
   title: "Kowalah Reserved",
@@ -29,22 +30,22 @@ const pageData = {
       {
         direction: "Your team below",
         issue: "Leadership means projecting confidence, even when you're uncertain. Your senior team needs to see resolve, not your deepest doubts.",
-        icon: "profile"
+        IconComponent: UsersIcon
       },
       {
         direction: "Your board above",
         issue: "Strategic concerns need framing before they're shared upward. You can't think out loud with the people who are evaluating your judgment.",
-        icon: "case"
+        IconComponent: BuildingOffice2Icon
       },
       {
         direction: "Your coach sideways",
         issue: "They need 30 minutes of context every time. They don't live in your world. By the time they understand, the moment has passed.",
-        icon: "bulb"
+        IconComponent: ClockIcon
       },
       {
         direction: "Your family and friends",
         issue: "They love you, but they don't have the business context to help you think it through. You don't want to burden them anyway.",
-        icon: "help"
+        IconComponent: HeartIcon
       }
     ],
     timing: "And strategic concerns don't wait for office hours. They hit at 2am when you're staring at the ceiling.",
@@ -86,7 +87,7 @@ const pageData = {
       {
         title: "Connectors",
         subtitle: "Your business systems, connected",
-        description: "Connectors give your AI Co-CEO access to your business data. HubSpot for CRM and pipeline context. Xero for financial reality. Linear for project tracking. Even Zapier for connecting to 7,000+ additional apps. Real-time access to the information that matters.",
+        description: "Connectors give your AI Co-CEO access to your business data. Salesforce for CRM and pipeline context. NetSuite for financial reality. Workday for people data. Even Zapier for connecting to 7,000+ additional apps. Real-time access to the information that matters.",
         image: "/images/reserved/reserved-connectors.png",
         imageAlt: "Kowalah Reserved connectors panel showing HubSpot, Xero, Linear, and Zapier integrations"
       },
@@ -98,23 +99,23 @@ const pageData = {
         imageAlt: "Kowalah Reserved agents panel showing competitive intel, freshness scanner, and inconsistency checker agents"
       }
     ],
-    note: "This is not a SaaS product. It's a concierge strategic enablement service delivered through a desktop application, backed by expert coaches who customize and maintain it for you."
+    note: "Your files, your machine. Kowalah Reserved works with documents in your local directories—they're never uploaded to a cloud platform or stored externally. Expert coaches customize the setup specifically for how you work."
   },
 
   comparison: {
     title: "Why not just use Claude or ChatGPT?",
-    subtitle: "The fundamental difference: Kowalah can take action. ChatGPT cannot.",
+    subtitle: "The fundamental difference: Kowalah Reserved can take action.",
     description: "Kowalah Reserved uses Anthropic's Agent SDK—the same technology powering Claude Code. It can navigate your strategic workspace, read your documents, create new files, update existing plans, and organize your thinking. It's not just answering questions; it's working alongside you.",
     items: [
-      { capability: "File system access", kowalah: "Reads, creates, and updates your documents", generic: "Copy-paste only" },
-      { capability: "Persistent workspace", kowalah: "Navigates your strategic files like a colleague", generic: "No file access" },
-      { capability: "Pre-built skills", kowalah: "20+ executive-focused workflows", generic: "Start from scratch" },
-      { capability: "Strategic frameworks", kowalah: "Playing to Win, OKRs, Traction embedded", generic: "You teach it each time" },
-      { capability: "Business tool connections", kowalah: "HubSpot, Xero, email, calendar, documents", generic: "Copy-paste everything" },
-      { capability: "Context retention", kowalah: "Knows your business permanently", generic: "Forgets every session" },
-      { capability: "Personalization", kowalah: "Three-month mirroring engagement", generic: "Generic out of the box" },
-      { capability: "Ongoing support", kowalah: "Dedicated strategist maintaining your setup", generic: "You're on your own" },
-      { capability: "Privacy", kowalah: "Everything stays on your machine", generic: "Data goes to the cloud" }
+      { capability: "File system access", kowalah: "Reads, creates, and updates your documents", generic: "Upload files manually" },
+      { capability: "Workspace navigation", kowalah: "Moves across directories, discovers files dynamically", generic: "One project or GPT at a time" },
+      { capability: "Skills & agents", kowalah: "Multiple skills working together, orchestrated automatically", generic: "Choose one GPT per conversation" },
+      { capability: "Strategic frameworks", kowalah: "Core frameworks integrated into your workflows", generic: "Available, but you configure each time" },
+      { capability: "Business tool connections", kowalah: "Deep integration with Salesforce, NetSuite, Workday, calendar", generic: "Basic integrations available" },
+      { capability: "Context & memory", kowalah: "Learns your way of thinking, your terminology", generic: "General memory, not tailored to you" },
+      { capability: "Personalization", kowalah: "Your own skills, agents, and memories—built through mirroring", generic: "Configure it yourself" },
+      { capability: "Ongoing support", kowalah: "Dedicated strategist maintaining your setup", generic: "Self-service" },
+      { capability: "Privacy", kowalah: "Documents stay in your local directories", generic: "Files uploaded to cloud storage" }
     ]
   },
 
@@ -122,28 +123,29 @@ const pageData = {
     title: "What you can do with your AI Co-CEO",
     items: [
       {
-        title: "Strategic Planning & Coaching",
-        icon: "graph",
-        description: "Apply world-class strategic frameworks with an AI that guides you through the process.",
-        examples: ["Playing to Win cascade strategy", "OKR planning and tracking", "Product ideation evaluation", "Go-to-market strategy with Traction Bullseye"]
+        title: "Strategic Planning & Execution",
+        IconComponent: PresentationChartLineIcon,
+        description: "Drive strategic clarity across the organization with frameworks that scale.",
+        examples: ["Annual planning and OKR cascades", "M&A opportunity evaluation", "Market expansion strategy", "Competitive positioning analysis"]
       },
       {
-        title: "Content & Communications",
-        icon: "task",
-        description: "Produce executive-quality content quickly, in your voice.",
-        examples: ["Board-ready investor updates", "Thought leadership articles", "LinkedIn and social presence", "Internal communications with Smart Brevity"]
+        title: "Executive Communications",
+        IconComponent: MegaphoneIcon,
+        description: "Prepare high-stakes communications that align and inspire.",
+        examples: ["Board meeting preparation and materials", "All-hands presentation drafts", "Investor update narratives", "Crisis communication frameworks"]
       },
       {
-        title: "Business Operations",
-        icon: "cpu",
-        description: "Connect to your business systems and take action.",
-        examples: ["CRM integration (HubSpot)", "Financial data (Xero)", "Document management (Word, Excel, PowerPoint)", "Email and calendar review"]
+        title: "Enterprise Intelligence",
+        IconComponent: CircleStackIcon,
+        description: "Connect to your business systems for real-time strategic insight.*",
+        examples: ["CRM analytics (Salesforce, HubSpot)", "Financial forecasting (NetSuite, SAP)", "Performance dashboards (Tableau, Power BI)", "HR insights (Workday, BambooHR)"],
+        footnote: "* Integrations use the Model Context Protocol (MCP). Availability depends on official or community MCP servers for each platform."
       },
       {
-        title: "Strategic Review & Planning",
-        icon: "time",
-        description: "Maintain strategic clarity with structured review processes.",
-        examples: ["Weekly pulse checks", "Monthly strategic assessments", "Braindump sessions", "Living strategy document updates"]
+        title: "Leadership & Talent",
+        IconComponent: UserGroupIcon,
+        description: "Make better decisions about your most important asset—your people.",
+        examples: ["Executive hiring evaluation", "Leadership team development", "Succession planning frameworks", "Organizational design reviews"]
       }
     ]
   },
@@ -153,24 +155,28 @@ const pageData = {
     description: "Most tools deliver the same value on day one as day one hundred. Kowalah Reserved is different.",
     items: [
       {
-        title: "Your strategic history",
-        description: "Past decisions, their rationale, and their outcomes inform today's advice."
+        title: "Think out loud",
+        description: "Talk through ideas via voice or chat. Your stream of consciousness becomes structured memory the system draws on later."
       },
       {
-        title: "Your mental models",
-        description: "How you frame problems, the frameworks you reach for, your thinking patterns."
+        title: "Share your decisions",
+        description: "Past decisions, their rationale, and outcomes inform today's advice."
       },
       {
-        title: "Your communication patterns",
-        description: "The way you prefer to receive and share information, your style."
+        title: "Show how you think",
+        description: "The frameworks you reach for, how you frame problems, your thinking patterns."
       },
       {
-        title: "Your organizational context",
+        title: "Work in your style",
+        description: "How you prefer to receive and share information becomes the default."
+      },
+      {
+        title: "Map your landscape",
         description: "Key relationships, team dynamics, recurring challenges, political realities."
       },
       {
-        title: "Your domain expertise",
-        description: "Industry knowledge, competitive insights, market understanding accumulated over time."
+        title: "Build on your knowledge",
+        description: "Industry insights, competitive intelligence, market understanding accumulated over time."
       }
     ],
     outcome: "After six months, you're not explaining context anymore. After a year, it's like talking to someone who's been in the room for every strategic conversation you've had."
@@ -208,7 +214,7 @@ const pageData = {
         description: "We integrate with the systems that run your business.",
         items: [
           "CRM (HubSpot, Salesforce) for customer and pipeline context",
-          "Accounting (Xero, QuickBooks) for financial reality",
+          "Financials (NetSuite, SAP) for financial reality",
           "Documents (Drive, SharePoint) for existing strategic materials",
           "Communications (Email, Slack, Calendar) for information flow"
         ]
@@ -231,20 +237,20 @@ const pageData = {
     subtitle: "Each skill embeds proven frameworks and methodologies.",
     categories: [
       {
-        title: "Strategy",
-        items: ["CEO Strategy Toolkit (Playing to Win)", "OKR Planner", "Product Ideation Framework"]
+        title: "Strategy & Planning",
+        items: ["CEO Strategy Toolkit (Playing to Win)", "M&A Opportunity Evaluator", "Market Expansion Planner", "OKR Cascade Framework"]
       },
       {
-        title: "Marketing",
-        items: ["Traction Bullseye", "Obviously Awesome Positioning", "Content Writer", "Webinar Development"]
+        title: "Board & Investors",
+        items: ["Board Presentation Builder", "Investor Update Composer", "Quarterly Business Review", "Fundraising Narrative"]
       },
       {
-        title: "Operations",
-        items: ["Investor Updates", "Role Definition", "Legal Contract Review", "Smart Brevity Communications"]
+        title: "Leadership & Talent",
+        items: ["Executive Hiring Evaluator", "Succession Planning Framework", "Organizational Design Review", "Leadership Team Offsites"]
       },
       {
-        title: "Coaching",
-        items: ["Mentor (Socratic coaching)", "Content Capturer (extract insights from articles/podcasts)"]
+        title: "Communications",
+        items: ["All-Hands Presentation Planner", "Crisis Communication Framework", "Smart Brevity Executive Messaging", "Stakeholder Update Builder"]
       }
     ]
   },
@@ -256,22 +262,22 @@ const pageData = {
       {
         title: "Local-first architecture",
         description: "All workspace files stay on your machine. No file uploads to Kowalah servers. Your documents never leave your computer.",
-        icon: "monitor"
+        IconComponent: ComputerDesktopIcon
       },
       {
         title: "Your own API key",
         description: "Direct relationship with Anthropic. Messages encrypted in transit. Anthropic doesn't train on your data.",
-        icon: "check"
+        IconComponent: KeyIcon
       },
       {
         title: "Secure connectors",
-        description: "OAuth-based authentication for business tools. Credentials stored in your system keychain. You control which tools are connected.",
-        icon: "check"
+        description: "MCP-based authentication for business tools. Credentials stored in your system keychain. You control which tools are connected.",
+        IconComponent: ShieldCheckIcon
       },
       {
-        title: "Works offline",
-        description: "Document-based tasks work without internet. Your strategic workspace is always accessible.",
-        icon: "cloud"
+        title: "Your documents, your machine",
+        description: "Edit and organize your strategic files anytime—no internet required. Your workspace is always accessible.",
+        IconComponent: FolderIcon
       }
     ]
   },
@@ -290,12 +296,40 @@ const pageData = {
     title: "Questions",
     items: [
       {
+        question: "What is the mirroring process?",
+        answer: "Mirroring is how we configure Kowalah Reserved to think like you. Over three months, we learn your language, your mental models, your decision-making frameworks, and how you approach problems. We connect your systems, build custom skills for your workflows, and train the AI on your terminology. The result is a strategic partner that feels like talking to yourself—one that already knows your context, your preferences, and your way of working."
+      },
+      {
         question: "How is this different from ChatGPT or Claude.ai?",
         answer: "Those are blank canvases. Kowalah Reserved is a mirror of your business and your thinking. It knows your context permanently, uses your frameworks, connects to your tools, and gets maintained by expert coaches. You're not teaching an AI from scratch every conversation—you're picking up where you left off with a strategic partner that already understands."
       },
       {
+        question: "Is this for me or my team?",
+        answer: "Kowalah Reserved is single-player by design. It's your private space to think, plan, and work through decisions before they're ready to share. While it can access shared documents and business systems your team uses, the conversations and strategic thinking happen between you and your AI Co-CEO alone. No team members see your chats or half-formed ideas."
+      },
+      {
+        question: "How can I structure my workspace?",
+        answer: "However your business makes sense to you. Organize by department, region, business unit, time period, strategic initiative—or any combination. The workspace mirrors how you actually see your organization. Some executives structure around their direct reports, others around key projects or planning cycles. During mirroring, we help you design a structure that matches your mental model of the business."
+      },
+      {
         question: "Is my data safe?",
-        answer: "Yes. All workspace files remain on your local machine. The application communicates with Claude's API for AI responses, but your documents never leave your computer. Business tool connectors use secure OAuth authentication with credentials stored in your system keychain."
+        answer: "Yes. All workspace files remain on your local machine. The application communicates with Claude's API for AI responses, but your documents never leave your computer. Business tool connectors use secure MCP-based authentication with credentials stored in your system keychain."
+      },
+      {
+        question: "Who are my Kowalah Crew?",
+        answer: "Think of it like chartering a yacht or private jet—the vessel alone isn't much use without the crew. Your Kowalah Crew includes senior strategic advisors who speak your language and understand executive priorities, supported by a technical team that works with your IT department to safely configure connections and build custom skills. They handle the setup discreetly, maintain your workspace over time, and ensure you're getting the most from the platform."
+      },
+      {
+        question: "How does pricing work?",
+        answer: "Kowalah Reserved isn't a fixed license or a simple subscription—it's a customized package built around how you'll use it. Pricing depends on several factors: the depth of the mirroring process, the number of enterprise connectors you need, how many strategic check-ins with your Kowalah Crew are included, and the complexity of custom skills we build for your workflows. After our initial conversation, we'll scope a package tailored to your specific situation and provide transparent pricing before you commit."
+      },
+      {
+        question: "What is a skill?",
+        answer: "A skill is a documented way of doing something—the process, supporting documents, integrations, and templates bundled together. It allows your Kowalah Reserved workspace to carry out work the same way you, your EA, or your chief of staff would: creating documents, updating systems, making arrangements. Skills can be as simple as 'draft my weekly update' or as complex as 'prepare board materials from this quarter's data.'"
+      },
+      {
+        question: "Can I use voice instead of typing?",
+        answer: "Absolutely—and we strongly recommend it. We suggest using Wispr Flow, a voice-to-text tool that lets you speak naturally into any application. Many CEOs find that talking through problems is faster and more natural than typing. Wispr Flow works system-wide, so you can dictate directly into your Kowalah Reserved workspace, emails, documents, or anywhere else. It dramatically accelerates how quickly you can work with your AI Co-CEO."
       },
       {
         question: "Do I need to be technical?",
@@ -390,8 +424,8 @@ const pageData = {
           <div class="md:col-6" data-aos="fade-up-sm" data-aos-delay={index * 50}>
             <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 h-full">
               <div class="flex items-start gap-4">
-                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-slate-200 flex items-center justify-center">
-                  <Icon name={constraint.icon} class="w-6 h-6 text-slate-600" />
+                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                  <constraint.IconComponent className="w-6 h-6 text-white" />
                 </div>
                 <div>
                   <h3 class="text-lg font-semibold text-slate-900 mb-2">{constraint.direction}</h3>
@@ -444,7 +478,7 @@ const pageData = {
           </ul>
         </div>
         <div class="lg:col-6" data-aos="fade-left" data-aos-delay="100">
-          <div class="relative">
+          <div class="relative group">
             <div class="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-2xl opacity-60"></div>
             <img
               src={pageData.conversation.image}
@@ -454,6 +488,13 @@ const pageData = {
               height="450"
               data-zoomable
             />
+            {/* Click to expand indicator */}
+            <div class="absolute bottom-4 right-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/70 text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+              </svg>
+              Click to expand
+            </div>
           </div>
         </div>
       </div>
@@ -494,7 +535,7 @@ const pageData = {
           </div>
           {/* Image Column - alternates right/left */}
           <div class={`lg:col-6 ${index % 2 === 1 ? 'lg:order-1' : ''}`} data-aos={index % 2 === 0 ? "fade-left" : "fade-right"} data-aos-delay="100">
-            <div class="relative">
+            <div class="relative group">
               <div class="absolute -inset-4 bg-gradient-to-r from-primary/15 to-secondary/15 rounded-3xl blur-2xl opacity-50"></div>
               <img
                 src={pillar.image}
@@ -504,6 +545,13 @@ const pageData = {
                 height="450"
                 data-zoomable
               />
+              {/* Click to expand indicator */}
+              <div class="absolute bottom-4 right-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/70 text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                </svg>
+                Click to expand
+              </div>
             </div>
           </div>
         </div>
@@ -575,27 +623,30 @@ const pageData = {
         </div>
       </div>
 
-      <div class="row g-6">
+      <div class="row g-6 gap-y-8">
         {pageData.capabilities.items.map((capability, index) => (
           <div class="md:col-6" data-aos="fade-up-sm" data-aos-delay={index * 50}>
             <div class="h-full p-8 rounded-2xl bg-slate-800 border border-slate-700">
-              <div class="flex items-start gap-4 mb-4">
+              <div class="flex items-start gap-4">
                 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0">
-                  <Icon name={capability.icon} class="w-6 h-6 text-white" />
+                  <capability.IconComponent className="w-6 h-6 text-white" />
                 </div>
-                <div>
+                <div class="flex-1">
                   <h3 class="text-xl font-semibold text-white mb-2">{capability.title}</h3>
-                  <p class="text-slate-400">{capability.description}</p>
+                  <p class="text-slate-400 mb-4">{capability.description}</p>
+                  <ul class="space-y-2">
+                    {capability.examples.map((example) => (
+                      <li class="text-slate-300 text-sm flex items-baseline gap-2">
+                        <span class="text-primary">•</span>
+                        {example}
+                      </li>
+                    ))}
+                  </ul>
+                  {capability.footnote && (
+                    <p class="text-slate-500 text-xs mt-4 italic">{capability.footnote}</p>
+                  )}
                 </div>
               </div>
-              <ul class="space-y-2 ml-16">
-                {capability.examples.map((example) => (
-                  <li class="text-slate-300 text-sm flex items-start gap-2">
-                    <span class="text-primary mt-1">•</span>
-                    {example}
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         ))}
@@ -704,14 +755,24 @@ const pageData = {
   </section>
 
   <!-- Skills Library Section -->
-  <section class="section bg-slate-50">
-    <div class="container">
+  <section class="section relative overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 -z-10">
+      <img
+        src="/images/reserved/reserved-skills-use.png"
+        alt=""
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-slate-900/70"></div>
+    </div>
+
+    <div class="container relative">
       <div class="row justify-center mb-12">
         <div class="lg:col-8 text-center">
-          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-aos="fade-up-sm">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4" data-aos="fade-up-sm">
             {pageData.skills.title}
           </h2>
-          <p class="text-lg text-slate-600" data-aos="fade-up-sm" data-aos-delay="50">
+          <p class="text-lg text-slate-300" data-aos="fade-up-sm" data-aos-delay="50">
             {pageData.skills.subtitle}
           </p>
         </div>
@@ -720,12 +781,12 @@ const pageData = {
       <div class="row g-6 justify-center">
         {pageData.skills.categories.map((category, index) => (
           <div class="md:col-6 lg:col-3" data-aos="fade-up-sm" data-aos-delay={index * 50}>
-            <div class="h-full p-6 rounded-xl bg-white border border-slate-200">
+            <div class="h-full p-6 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl">
               <h3 class="text-lg font-semibold text-primary mb-4">{category.title}</h3>
               <ul class="space-y-2">
                 {category.items.map((item) => (
-                  <li class="text-sm text-slate-600 flex items-start gap-2">
-                    <span class="text-slate-400">•</span>
+                  <li class="text-sm text-slate-200 flex items-start gap-2">
+                    <span class="text-primary">•</span>
                     {item}
                   </li>
                 ))}
@@ -755,8 +816,8 @@ const pageData = {
         {pageData.privacy.items.map((item, index) => (
           <div class="md:col-6 lg:col-3" data-aos="fade-up-sm" data-aos-delay={index * 50}>
             <div class="text-center p-6">
-              <div class="w-14 h-14 rounded-xl bg-slate-100 flex items-center justify-center mx-auto mb-4">
-                <Icon name={item.icon} class="w-7 h-7 text-slate-700" />
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mx-auto mb-4">
+                <item.IconComponent className="w-7 h-7 text-white" />
               </div>
               <h3 class="text-lg font-semibold text-slate-900 mb-2">{item.title}</h3>
               <p class="text-sm text-slate-600">{item.description}</p>
@@ -1014,23 +1075,37 @@ const pageData = {
 <script>
   import mediumZoom from 'medium-zoom';
 
-  // Initialize medium-zoom on all images with data-zoomable attribute
-  document.addEventListener('DOMContentLoaded', () => {
-    mediumZoom('[data-zoomable]', {
+  let zoom: ReturnType<typeof mediumZoom> | null = null;
+
+  function initZoom() {
+    // Detach existing zoom instance to prevent duplicates
+    if (zoom) {
+      zoom.detach();
+    }
+
+    // Initialize medium-zoom on all images with data-zoomable attribute
+    zoom = mediumZoom('[data-zoomable]', {
       margin: 40,
       background: 'rgba(15, 23, 42, 0.95)', // slate-900 with opacity
       scrollOffset: 0,
     });
-  });
+
+    // Add click handler to overlay to ensure it closes properly
+    zoom.on('open', () => {
+      const overlay = document.querySelector('.medium-zoom-overlay');
+      if (overlay) {
+        overlay.addEventListener('click', () => {
+          zoom?.close();
+        }, { once: true });
+      }
+    });
+  }
+
+  // Initialize on DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', initZoom);
 
   // Re-initialize on Astro page transitions
-  document.addEventListener('astro:page-load', () => {
-    mediumZoom('[data-zoomable]', {
-      margin: 40,
-      background: 'rgba(15, 23, 42, 0.95)',
-      scrollOffset: 0,
-    });
-  });
+  document.addEventListener('astro:page-load', initZoom);
 </script>
 
 <style>

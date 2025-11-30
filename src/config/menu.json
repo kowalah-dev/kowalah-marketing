@@ -21,7 +21,8 @@
       "hasChildren": true,
       "children": [
         { "name": "For CEOs", "url": "/solutions/for-ceos" },
-        { "name": "For CIOs", "url": "/solutions/for-cios" }
+        { "name": "For CIOs", "url": "/solutions/for-cios" },
+        { "name": "Kowalah Reserved", "url": "/reserved" }
       ]
     },
     {
