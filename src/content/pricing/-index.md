@@ -1,183 +1,183 @@
 ---
 title: "Pricing"
-meta_title: "ChatGPT Enterprise Services Pricing - Kowalah"
-description: "Transform your organization with ChatGPT deployment, change enablement, and managed services. Fixed-fee implementation, per-employee transformation, and ongoing strategic support."
+meta_title: "Enterprise AI Services Pricing - Kowalah"
+description: "Transform your organization with AI Impact Sprints, Change Enablement, and Managed AI Services. Prove value first, then scale with confidence. Platform expertise: ChatGPT, Claude, Gemini."
 hero:
-  title: "Investment That Powers ChatGPT Adoption"
-  content: "Three service components that take you from ChatGPT chaos to AI-first execution. Choose the combination that matches your adoption goals."
+  title: "Investment That Delivers AI Impact"
+  content: "Three service components that take you from proving value to organisation-wide transformation. Start with a Sprint, scale with enablement, keep delivering with managed services."
   background_image: "/images/pricing/pricing-hero-bg.png"
 
 service_components:
-  - title: "ChatGPT Enterprise Deployment"
-    description: "Complete technical rollout with governance and initial training"
+  - title: "AI Impact Sprint"
+    description: "Build real wins with key people in 2-3 weeks—prove AI value before scaling"
     pricing:
       USD:
-        prefix: "from $"
-        amount: "32,000"
+        prefix: "$"
+        amount: "8,000-50,000"
         suffix: ""
-        detail: "Starting from $32,000 for organizations up to 1,000 employees"
-        range: "$32,000 - $95,000 depending on organization size and complexity"
+        detail: "Depending on scope (1-5 use cases)"
+        range: "$8,000 for focused single use case to $50,000 for comprehensive multi-stakeholder engagement"
       EUR:
-        prefix: "from €"
-        amount: "27,200"
+        prefix: "€"
+        amount: "6,800-42,500"
         suffix: ""
-        detail: "Starting from €27,200 for organizations up to 1,000 employees"
-        range: "€27,200 - €80,750 depending on organization size and complexity"
+        detail: "Depending on scope (1-5 use cases)"
+        range: "€6,800 for focused single use case to €42,500 for comprehensive multi-stakeholder engagement"
       GBP:
-        prefix: "from £"
-        amount: "23,360"
+        prefix: "£"
+        amount: "6,000-40,000"
         suffix: ""
-        detail: "Starting from £23,360 for organizations up to 1,000 employees"
-        range: "£23,360 - £69,350 depending on organization size and complexity"
+        detail: "Depending on scope (1-5 use cases)"
+        range: "£6,000 for focused single use case to £40,000 for comprehensive multi-stakeholder engagement"
     features:
-      - Rapid discovery and security assessment
-      - ChatGPT Enterprise procurement guidance
-      - Governance framework and policy development
-      - Technical deployment and integration setup
-      - Initial workforce training and activation
-      - 6-week implementation timeline
-    what_included: "Everything needed to deploy ChatGPT Enterprise with confidence and security"
+      - Embed with 2-3 key stakeholders
+      - Identify highest-value AI opportunities
+      - Build working solutions (prompts, GPTs, workflows)
+      - Deliver proof points and internal champions
+      - 2-3 week intensive engagement
+      - Platform expertise (ChatGPT, Claude, Gemini)
+    what_included: "Everything needed to prove AI value with real business impact"
     button:
       enable: true
-      label: "Discuss Deployment"
-      link: "/contact?service=deployment"
+      label: "Book Sprint Discovery"
+      link: "/contact?service=sprint"
 
-  - title: "Change Enablement Program"
-    description: "Transform your workforce from confused users to confident AI collaborators"
+  - title: "Change Enablement"
+    description: "Scale AI transformation across your organisation—powered by Sprint proof points"
     pricing:
       USD:
         prefix: "from $"
         amount: "160"
         suffix: "per employee"
-        detail: "Comprehensive 8-16 week transformation program"
+        detail: "Complete change programme powered by Sprint proof points"
         range: "$80,000 (500 employees) to $800,000+ (5,000 employees)"
       EUR:
         prefix: "from €"
         amount: "136"
         suffix: "per employee"
-        detail: "Comprehensive 8-16 week transformation program"
+        detail: "Complete change programme powered by Sprint proof points"
         range: "€68,000 (500 employees) to €680,000+ (5,000 employees)"
       GBP:
         prefix: "from £"
         amount: "117"
         suffix: "per employee"
-        detail: "Comprehensive 8-16 week transformation program"
+        detail: "Complete change programme powered by Sprint proof points"
         range: "£58,500 (500 employees) to £585,000+ (5,000 employees)"
     features:
-      - Executive alignment and communication strategy
+      - Training powered by internal examples from your Sprint
       - AI Ambassador network development
-      - Structured training ladders (101, 102, 201, Leadership)
-      - Resistance management and cultural transformation
-      - Recognition systems and adoption tracking
-      - Ongoing optimization and support
-    what_included: "Complete workforce transformation with measurable adoption outcomes"
+      - Governance frameworks and policies
+      - Cultural transformation and resistance management
+      - Platform-appropriate content (ChatGPT, Claude, Gemini)
+      - Adoption tracking and continuous optimisation
+    what_included: "Complete organisational transformation from pilot success to enterprise-wide adoption"
     button:
       enable: true
-      label: "Plan Enablement"
+      label: "Discuss Enablement"
       link: "/contact?service=enablement"
 
   - title: "Managed AI Services"
-    description: "Ongoing strategic guidance and expert delivery for continuous AI leadership"
+    description: "Continuous AI value delivery—ideas get built, not stuck in backlogs"
     pricing:
       USD:
         prefix: "from $"
         amount: "16,000"
         suffix: "per month"
-        detail: "Your permanent Digital CAIO and expert delivery team"
+        detail: "Expert Requests + Platform Access + Strategic Guidance"
         range: "$16,000 - $50,000+ per month based on organization size and support level"
       EUR:
         prefix: "from €"
         amount: "13,600"
         suffix: "per month"
-        detail: "Your permanent Digital CAIO and expert delivery team"
+        detail: "Expert Requests + Platform Access + Strategic Guidance"
         range: "€13,600 - €42,500+ per month based on organization size and support level"
       GBP:
         prefix: "from £"
-        amount: "11,680"
+        amount: "12,500"
         suffix: "per month"
-        detail: "Your permanent Digital CAIO and expert delivery team"
-        range: "£11,680 - £36,500+ per month based on organization size and support level"
+        detail: "Expert Requests + Platform Access + Strategic Guidance"
+        range: "£12,500 - £40,000+ per month based on organization size and support level"
     features:
-      - 24/7 AI Advisory Platform access
-      - Quarterly Expert Requests for custom development
-      - Strategic roadmap updates and emerging capability reviews
-      - Board-ready reporting and success metrics
-      - Integration with enterprise systems
-      - Continuous optimization and innovation support
-    what_included: "Complete ongoing AI leadership with expert delivery and strategic guidance"
+      - Monthly Expert Request allocation
+      - Organisation-wide platform access
+      - Accelerator library of pre-built solutions
+      - New capability updates as AI evolves
+      - Strategic roadmap and guidance
+      - Board-ready reporting and metrics
+    what_included: "Permanent AI partnership that keeps delivering value month after month"
     button:
       enable: true
       label: "Explore Managed Services"
       link: "/contact?service=managed"
 
 investment_examples:
-  title: "What Does ChatGPT Adoption Cost?"
-  subtitle: "See what a full ChatGPT adoption investment looks like for different organization sizes"
+  title: "What Does AI Transformation Cost?"
+  subtitle: "See what a complete AI transformation investment looks like for different organisation sizes"
   examples:
     - organization_size: "1,000 Employees"
       pricing:
         USD:
-          deployment_cost: "$32,000"
+          deployment_cost: "$25,000"
           enablement_cost: "$160,000"
           managed_annual: "$192,000"
-          total_year_one: "$384,000"
-          per_employee: "$384"
+          total_year_one: "$377,000"
+          per_employee: "$377"
         EUR:
-          deployment_cost: "€27,200"
+          deployment_cost: "€21,250"
           enablement_cost: "€136,000"
           managed_annual: "€163,200"
-          total_year_one: "€326,400"
-          per_employee: "€326"
+          total_year_one: "€320,450"
+          per_employee: "€320"
         GBP:
-          deployment_cost: "£23,360"
+          deployment_cost: "£20,000"
           enablement_cost: "£117,000"
-          managed_annual: "£140,160"
-          total_year_one: "£280,520"
-          per_employee: "£281"
-      description: "Mid-size organization getting started with ChatGPT Enterprise"
+          managed_annual: "£150,000"
+          total_year_one: "£287,000"
+          per_employee: "£287"
+      description: "Mid-size organisation proving AI value and scaling transformation"
 
     - organization_size: "2,500 Employees"
       pricing:
         USD:
-          deployment_cost: "$65,000"
+          deployment_cost: "$40,000"
           enablement_cost: "$400,000"
           managed_annual: "$300,000"
-          total_year_one: "$765,000"
-          per_employee: "$306"
+          total_year_one: "$740,000"
+          per_employee: "$296"
         EUR:
-          deployment_cost: "€55,250"
+          deployment_cost: "€34,000"
           enablement_cost: "€340,000"
           managed_annual: "€255,000"
-          total_year_one: "€650,250"
-          per_employee: "€260"
+          total_year_one: "€629,000"
+          per_employee: "€252"
         GBP:
-          deployment_cost: "£47,450"
+          deployment_cost: "£32,000"
           enablement_cost: "£292,500"
-          managed_annual: "£219,000"
-          total_year_one: "£558,950"
-          per_employee: "£224"
-      description: "Mid-size enterprise with complex departments and use cases"
+          managed_annual: "£240,000"
+          total_year_one: "£564,500"
+          per_employee: "£226"
+      description: "Mid-size enterprise with complex departments and multiple use cases"
 
     - organization_size: "5,000 Employees"
       pricing:
         USD:
-          deployment_cost: "$95,000"
+          deployment_cost: "$50,000"
           enablement_cost: "$800,000"
           managed_annual: "$500,000"
-          total_year_one: "$1,395,000"
-          per_employee: "$279"
+          total_year_one: "$1,350,000"
+          per_employee: "$270"
         EUR:
-          deployment_cost: "€80,750"
+          deployment_cost: "€42,500"
           enablement_cost: "€680,000"
           managed_annual: "€425,000"
-          total_year_one: "€1,185,750"
-          per_employee: "€237"
+          total_year_one: "€1,147,500"
+          per_employee: "€230"
         GBP:
-          deployment_cost: "£69,350"
+          deployment_cost: "£40,000"
           enablement_cost: "£584,000"
-          managed_annual: "£365,000"
-          total_year_one: "£1,018,350"
-          per_employee: "£204"
+          managed_annual: "£400,000"
+          total_year_one: "£1,024,000"
+          per_employee: "£205"
       description: "Large enterprise with multi-regional and advanced integration needs"
 
 roi_reality_check:
@@ -188,81 +188,77 @@ roi_reality_check:
 
 decision_guide:
   title: "Which Services Do You Need?"
-  subtitle: "Start with the service component that matches your current ChatGPT situation"
+  subtitle: "Start with the service component that matches your current AI situation"
   scenarios:
-    - situation: "Employees using personal ChatGPT"
-      recommendation: "ChatGPT Enterprise Deployment + Change Enablement"
-      description: "Guide shadow ChatGPT users to enterprise-grade usage with proper governance and training"
-      next_step: "Add Managed Services for ongoing AI leadership and expert delivery"
+    - situation: "Just starting with AI"
+      recommendation: "Start with AI Impact Sprint"
+      description: "Prove value with key stakeholders in 2-3 weeks before committing to organisation-wide transformation"
+      next_step: "Scale with Change Enablement once you have proof points and internal champions"
 
-    - situation: "Have ChatGPT but low adoption"
-      recommendation: "Focus on Change Enablement"
-      description: "Transform underperforming ChatGPT investment into confident workforce adoption"
-      next_step: "Add Managed Services for ongoing optimization and innovation"
+    - situation: "Have AI tools but low adoption"
+      recommendation: "AI Impact Sprint + Change Enablement"
+      description: "Build real wins first to create proof points, then scale adoption with internal examples"
+      next_step: "Add Managed Services for continuous value delivery"
 
-    - situation: "Want ongoing strategic support"
+    - situation: "Ready for ongoing partnership"
       recommendation: "Add Managed Services"
-      description: "Get continuous AI leadership, expert delivery, and strategic guidance"
-      next_step: "Scale expert delivery and advanced integrations as needed"
+      description: "Keep ideas flowing into production with Expert Requests—continuous improvement, not one-off projects"
+      next_step: "Scale expert delivery as new use cases emerge across the organisation"
 
 compare:
   title: "Service Component Comparison"
   subtitle: "Understand what's included in each service component"
 
   components:
-    - name: "ChatGPT Deployment"
+    - name: "AI Impact Sprint"
     - name: "Change Enablement"
     - name: "Managed Services"
 
   categories:
-    - name: "Implementation & Setup"
+    - name: "Proving Value (Sprint)"
       features:
-        - name: "Strategy, Vision & Success Metrics"
+        - name: "Embed with Key Stakeholders"
           values: [true, false, false]
-        - name: "Current State Assessment"
+        - name: "Use Case Discovery & Prioritisation"
           values: [true, false, false]
-        - name: "AI Center of Excellence Setup"
+        - name: "Build Working Solutions"
+          values: [true, true, true]
+        - name: "Platform Expertise (ChatGPT, Claude, Gemini)"
+          values: [true, true, true]
+        - name: "Internal Champions Development"
           values: [true, false, false]
-        - name: "ChatGPT Enterprise Procurement"
+        - name: "Proof Points & Quick Wins"
           values: [true, false, false]
-        - name: "AI Governance & Policy"
-          values: [true, false, false]
-        - name: "Technical Setup & Single Sign On"
-          values: [true, false, false]
-        - name: "Use Case Discovery & Prioritization"
-          values: [true, false, false]
-    - name: "Change Management & Training"
+    - name: "Scaling Transformation"
       features:
-        - name: "Executive Alignment"
-          values: [false, true, true]
-        - name: "Communications Program"
+        - name: "Training Powered by Internal Examples"
           values: [false, true, false]
         - name: "AI Ambassador Network"
           values: [false, true, false]
-        - name: "AI Business Partners"
+        - name: "Governance Frameworks & Policies"
+          values: [false, true, true]
+        - name: "Cultural Transformation Support"
           values: [false, true, false]
-        - name: "ChatGPT Training (101, 102, 201)"
+        - name: "Resistance Management"
           values: [false, true, false]
-        - name: "Train the Trainer Programs"
-          values: [false, true, false]
-        - name: "Prompt & GPT Hackathons"
-          values: [false, true, false]
-        - name: "Reward & Recognition Programs"
-          values: [false, true, false]
-    - name: "Ongoing Strategic Support"
+        - name: "Adoption Tracking & Metrics"
+          values: [false, true, true]
+    - name: "Continuous Value Delivery"
       features:
-        - name: "AI Strategy Director Access"
+        - name: "Monthly Expert Request Allocation"
           values: [false, false, true]
-        - name: "Digital CAIO Platform"
+        - name: "Organisation-wide Platform Access"
           values: [false, false, true]
-        - name: "Expert Request Delivery"
+        - name: "Accelerator Library"
           values: [false, false, true]
-        - name: "AI Accelerators & Tools"
+        - name: "New Capability Updates"
           values: [false, false, true]
-        - name: "Continuous Strategic Guidance"
+        - name: "Strategic Roadmap & Guidance"
+          values: [false, false, true]
+        - name: "Board-Ready Reporting"
           values: [false, false, true]
 
 faq:
   title: "Investment & Service Questions"
-  subtitle: "Common questions about our ChatGPT transformation services and pricing"
+  subtitle: "Common questions about our AI transformation services and pricing"
 ---

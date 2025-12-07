@@ -33,7 +33,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ serviceComponents, inve
                 {title || "Three Service Components for Complete AI Transformation"}
               </h2>
               <p className="text-center text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8" data-aos="fade-up-sm" data-aos-delay="100">
-                {subtitle || "Choose the services that match your organization's current ChatGPT situation and transformation goals"}
+                {subtitle || "Choose the services that match your organisation's AI transformation goals"}
               </p>
 
               {/* Currency Selector */}
