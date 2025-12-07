@@ -1,286 +1,286 @@
 ---
 hero:
-  title: "Turn Shadow ChatGPT Usage <br> Into Enterprise-Wide Success"
-  content: "Transform shadow ChatGPT usage and underperforming Copilot/Gemini deployments into successful enterprise-wide adoption with expert training and ongoing support."
+  title: "We Don't Start With Training. <br> We Start By Building Wins."
+  content: "Your Enterprise AI Impact Partner. We embed with your teams, build high-value AI solutions, and deliver real business outcomes—not just training and hope. Platform-agnostic: ChatGPT, Claude, Gemini—whatever works for your business."
   image: "/images/home/banner.png"
   button:
     - enable: true
-      label: "Get ChatGPT Assessment"
+      label: "Book AI Impact Sprint"
       link: "/contact"
     - enable: true
-      label: "Explore Services"
+      label: "Our Approach"
       link: "/services"
 
 transformation:
-  title: "The ChatGPT Enterprise Reality"
-  subtitle: "Most organizations are stuck between shadow AI chaos and failed corporate deployments. We bridge that gap."
+  title: "The Enthusiasm Gap"
+  subtitle: "Training creates excitement, but not execution. That's why most AI initiatives fail."
   before:
     organizational:
-      - "Shadow ChatGPT usage across departments with no governance or oversight"
-      - "Stalled Microsoft Copilot or Google Gemini deployments with low adoption rates"
-      - "IT teams blocking AI tools due to security and compliance concerns"
-      - "Inconsistent AI policies creating confusion and limiting productivity gains"
-      - "Lack of executive alignment on AI strategy and implementation approach"
-      - "No clear pathway from pilot programs to organization-wide transformation"
+      - "AI training programs completed—but nothing changed"
+      - "Teams excited about possibilities—but struggling to implement"
+      - "Generic training that doesn't connect to actual business workflows"
+      - "Ideas stuck in IT backlog where enthusiasm dies"
+      - "No clear pathway from 'I learned about AI' to 'AI is delivering value'"
+      - "Millions spent on licenses and training with little to show for it"
     individual:
-      - "Employees secretly using free ChatGPT for work tasks despite policy restrictions"
-      - "Frustration with clunky corporate AI tools that don't meet actual workflow needs"
-      - "Basic prompt skills limiting the value employees get from AI interactions"
-      - "No training on advanced ChatGPT capabilities like GPTs, voice, and custom workflows"
-      - "Fear of job displacement creating resistance to AI adoption initiatives"
-      - "Inconsistent AI skill levels across teams hampering collaborative productivity"
+      - "Completed AI training but still using it only for basic tasks"
+      - "Know AI could help but don't know where to start on real work"
+      - "Frustrated gap between 'what I learned' and 'what I can do'"
+      - "Ideas for AI applications but no time or support to build them"
+      - "Using personal ChatGPT because corporate tools don't deliver"
+      - "Feeling like they're falling behind despite training investment"
   after:
     organizational:
-      - "Unified ChatGPT Business/Enterprise deployment with proper governance and security"
-      - "100% employee training completion through engaging ChatGPT 101 & 102 programs"
-      - "AI Ambassadors network (10% of workforce) driving adoption and capability sharing"
-      - "Custom GPT library tailored to specific business processes and workflows"
-      - "Clear AI governance framework balancing innovation with risk management"
-      - "Measurable productivity gains and competitive advantages from strategic AI integration"
+      - "Real AI solutions delivering measurable business impact from week one"
+      - "Internal champions who've experienced what's possible and can lead others"
+      - "Training powered by internal examples—'Here's what Sarah in Finance built'"
+      - "Ideas get built through Expert Requests—no IT backlog, no dying enthusiasm"
+      - "Continuous pipeline of new AI capabilities spreading across departments"
+      - "Compounding value from AI that grows month over month"
     individual:
-      - "Confident ChatGPT power users leveraging advanced capabilities for creative problem-solving"
-      - "Voice-based coaching and role-playing partnerships transforming daily workflows"
-      - "Departmental AI workflows that eliminate repetitive tasks and enhance decision-making"
-      - "Continuous skill development through Expert Requests and custom training programs"
-      - "AI-enabled career growth through enhanced capabilities and strategic thinking"
-      - "Collaborative AI culture where teams share successful prompts and workflows"
+      - "Working AI solutions for actual daily challenges—built with expert help"
+      - "Clear examples from colleagues that make possibilities concrete and achievable"
+      - "Ongoing access to experts who turn ideas into working tools"
+      - "AI integrated into real workflows, not just theoretical understanding"
+      - "Confidence from seeing real results, not just learning concepts"
+      - "Part of an innovation pipeline that keeps delivering new capabilities"
   mindset_shift:
-    from: "AI is a threat to control and job security"
-    to: "ChatGPT is a creative co-worker and competitive advantage"
+    from: "We trained everyone on AI—now we hope they figure it out"
+    to: "We build wins first, then train with real examples from our own teams"
 
 program_depth:
-  title: "20+ Program Elements That Set Us Apart"
-  subtitle: "Guiding every employee on their personal journey to AI enlightenment"
-  differentiator: "This depth of expertise is what separates true ChatGPT specialists from general AI consultants."
+  title: "Why We Flip The Sequence"
+  subtitle: "Traditional AI initiatives train first and hope for adoption. We build first and train with proof."
+  differentiator: "This approach prevents the Enthusiasm Gap—the common failure mode where training creates excitement but not execution."
   categories:
-    - title: "Strategic Foundation"
+    - title: "The Traditional Problem"
       icon: "strategy"
-      why_matters: "Without proper strategic foundation, AI initiatives become disconnected projects that fail to deliver organizational value.<br><br>Our strategic foundation ensures your ChatGPT transformation aligns with business objectives, has executive buy-in, and delivers measurable ROI from day one.<br><br>This groundwork prevents the common pitfall of shadow AI chaos and ensures your investment drives competitive advantage, not just isolated productivity gains."
+      why_matters: "Most AI initiatives follow a logical-seeming sequence: train everyone, then hope they find use cases. But this creates the Enthusiasm Gap.<br><br>People leave training excited about possibilities but uncertain how to apply them. Without immediate proof points, that enthusiasm fades. Ideas get stuck in backlogs. The training investment doesn't translate to business value.<br><br>We've seen this pattern repeatedly—and we've developed a better approach."
       elements:
-        - name: "Executive Alignment Workshop"
-          description: "C-suite alignment on AI vision, success metrics, and transformation roadmap"
-        - name: "Shadow AI Assessment"
-          description: "Comprehensive audit of current AI tool usage across all departments"
-        - name: "Business Case Development"
-          description: "ROI projections and financial justification for ChatGPT enterprise investment"
-        - name: "Governance Framework Design"
-          description: "AI policies, procedures, and compliance protocols tailored to your industry"
-        - name: "Success Metrics Definition"
-          description: "KPIs and measurement frameworks for tracking transformation progress"
-    - title: "People & Change"
+        - name: "Train Everyone First"
+          description: "Logical starting point, but creates gap between learning and doing"
+        - name: "Hope They Find Use Cases"
+          description: "Enthusiasm high after training, but implementation unclear"
+        - name: "Ideas Stuck in Backlog"
+          description: "No pathway from 'great idea' to 'working solution'"
+        - name: "Enthusiasm Dies"
+          description: "Without quick wins, excitement fades and adoption stalls"
+        - name: "ROI Unclear"
+          description: "Hard to show business value from training alone"
+    - title: "The Kowalah Approach"
       icon: "people"
-      why_matters: "Technology alone doesn't transform organizations—people do. The difference between successful ChatGPT adoption and failed deployments is effective change management.<br><br>Our people-centric approach builds internal champions, overcomes resistance, and creates a culture where AI capabilities spread organically across teams.<br><br>This human element turns one-off training into sustained organizational capability that multiplies value over time."
+      why_matters: "We flip the sequence: build wins first with key people, then train the wider organization with real internal examples.<br><br>When training includes 'Here's what Sarah in Finance built' and 'This is how the Operations team solved X', it's infinitely more powerful than generic AI training.<br><br>Proof points create momentum. Internal examples make possibilities concrete. And the ongoing Expert Requests pipeline ensures ideas don't die."
       elements:
-        - name: "AI Ambassadors Program"
-          description: "Train 10% of workforce as change champions and peer support network"
-        - name: "Change Management Strategy"
-          description: "Comprehensive plan for overcoming resistance and driving adoption"
-        - name: "ChatGPT 101 Foundation Training"
-          description: "Organization-wide basic ChatGPT skills and capability awareness"
-        - name: "ChatGPT 102 Advanced Training"
-          description: "Power user techniques, GPTs, voice capabilities, and workflow integration"
-        - name: "Executive Communication Support"
-          description: "Messaging frameworks for leadership to communicate AI vision effectively"
-    - title: "Technical Implementation"
+        - name: "Embed With Key People"
+          description: "Start with 2-3 stakeholders in the AI Impact Sprint"
+        - name: "Build Real Solutions"
+          description: "Create working prompts, GPTs, and workflows that deliver value"
+        - name: "Prove Value First"
+          description: "Real wins on the board before organization-wide training"
+        - name: "Train With Internal Examples"
+          description: "Much more powerful than generic AI training"
+        - name: "Keep Ideas Flowing"
+          description: "Expert Requests ensure innovation doesn't stall"
+    - title: "Platform-Agnostic Expertise"
       icon: "technical"
-      why_matters: "ChatGPT deployment isn't just about turning on software—it requires careful security configuration, system integration, and technical optimization.<br><br>Our technical expertise ensures your deployment meets enterprise security standards, integrates seamlessly with existing workflows, and unlocks advanced capabilities most organizations never discover.<br><br>This technical foundation prevents costly security incidents, compliance issues, and the frustration of disconnected tools that undermine adoption."
+      why_matters: "Unlike consultants tied to a single platform, we work with whatever AI makes sense for your use case.<br><br>ChatGPT for conversational interfaces and custom GPTs. Claude for analysis and long-form content. Gemini for Google Workspace integration. We help you navigate the landscape and choose the right tool for each job.<br><br>This flexibility means you get the best solution for each challenge, not a one-size-fits-all approach."
       elements:
-        - name: "ChatGPT Enterprise Procurement"
-          description: "Vendor negotiation, contract optimization, and deployment planning"
-        - name: "Security & Compliance Setup"
-          description: "Data protection, access controls, and regulatory compliance configuration"
-        - name: "System Integration Planning"
-          description: "Connecting ChatGPT with existing enterprise systems and workflows"
-        - name: "Custom GPT Development"
-          description: "15-20 business-specific GPTs for departmental workflows and processes"
-        - name: "API Integration Support"
-          description: "Technical guidance for connecting ChatGPT to business applications"
-    - title: "Ongoing Capability Building"
+        - name: "ChatGPT & OpenAI"
+          description: "Custom GPTs, voice capabilities, enterprise deployment"
+        - name: "Anthropic Claude"
+          description: "Analysis, long-form content, complex reasoning tasks"
+        - name: "Google Gemini"
+          description: "Workspace integration, multimodal capabilities"
+        - name: "Right Tool For The Job"
+          description: "We recommend based on use case, not vendor relationships"
+        - name: "Future-Proof Approach"
+          description: "As AI evolves, we help you adapt and leverage new capabilities"
+    - title: "Ongoing Partnership"
       icon: "training"
-      why_matters: "Initial ChatGPT training gets teams started, but competitive advantage comes from continuous capability expansion.<br><br>Our ongoing support ensures your organization stays at the forefront of AI developments, continuously discovers new use cases, and builds increasingly sophisticated workflows.<br><br>This sustained expertise development is what transforms ChatGPT from a productivity tool into a strategic competitive advantage that compounds value quarter after quarter."
+      why_matters: "The real value comes after the initial engagement. That's why we've built Kowalah Essential—a managed service that keeps delivering value month after month.<br><br>Your teams identify opportunities, and our experts build the solutions through Expert Requests. New AI capabilities emerge, and we help you leverage them immediately.<br><br>This isn't a one-off project. It's continuous improvement that compounds over time."
       elements:
-        - name: "Expert Requests Quota"
+        - name: "Expert Requests"
           description: "Monthly allocation of custom prompt, GPT, and workflow development"
-        - name: "Accelerator Library Access"
-          description: "Pre-built templates, prompts, and workflows for common business functions"
-        - name: "Specialist Training Sessions"
-          description: "Department-specific workshops for sales, marketing, operations, and support teams"
-        - name: "Innovation Pipeline Management"
-          description: "Systematic approach to identifying and implementing new AI use cases"
-        - name: "Performance Optimization Reviews"
-          description: "Quarterly assessments and improvements to maximize ChatGPT ROI"
+        - name: "Accelerator Library"
+          description: "Pre-built templates and workflows for common business functions"
+        - name: "Capability Updates"
+          description: "Stay current as AI platforms release new features"
+        - name: "Innovation Pipeline"
+          description: "Systematic approach to identifying and implementing new use cases"
+        - name: "Strategic Guidance"
+          description: "Ongoing AI strategy support as your needs evolve"
 
 feature:
-  title: "Complete ChatGPT Transformation Journey"
-  subtitle: "From Shadow AI to Strategic Advantage"
+  title: "How It Works: 3-Step Methodology"
+  subtitle: "Build First. Train Second. Keep Delivering."
   features:
-    - title: "ChatGPT Change Enablement"
-      badge: "16-Week Program"
-      content: "Complete organizational transformation in 16 weeks"
-      description: "From executive alignment to organization-wide deployment, we guide your entire team through ChatGPT adoption. Includes procurement, training, AI Ambassadors program, and custom GPT development—everything needed to move from shadow AI to strategic capability."
+    - title: "AI Impact Sprint"
+      badge: "2-3 Weeks"
+      content: "Build real wins with key people"
+      description: "We embed with 2-3 of your key stakeholders—getting into the weeds of their actual work. We identify highest-value AI opportunities and build working solutions: prompts, GPTs, workflows—whatever the use case requires. You end with real wins on the board and internal champions who've experienced what's possible."
       image: "/images/home/features/features-1-training.png"
       button:
         enable: true
-        label: "Learn More"
+        label: "Learn About Sprints"
         link: "/services"
-    - title: "Expert Requests & Accelerators"
-      badge: "Ongoing Support"
-      content: "Monthly quota of expert deliverables"
-      description: "Your teams identify opportunities, our specialists build the solutions. Get custom prompts, GPTs, and training workshops delivered monthly—plus access to our accelerator library of pre-built assets. Innovation flows without overwhelming your people."
+    - title: "Training Programme"
+      badge: "Organisation-Wide"
+      content: "Scale knowledge with real examples"
+      description: "Once you've got proof points from the Sprint, training becomes dramatically more powerful. It's now powered by internal examples—'Here's what Sarah in Finance built.' This generates demand for more use cases across the organisation and creates a pipeline for ongoing Expert Requests."
       image: "/images/home/features/features-2-expert-delivery.png"
       button:
         enable: true
-        label: "Learn More"
+        label: "Training Options"
         link: "/services"
-    - title: "Ongoing Managed Services"
-      badge: "Permanent Partnership"
-      content: "Named AI Strategy Director and continuous capability expansion"
-      description: "Your dedicated AI Strategy Director ensures you're always leveraging the latest ChatGPT capabilities as they emerge. Think of us as a permanent AI extension to your team—expert guidance that grows smarter with every implementation."
+    - title: "Kowalah Essential"
+      badge: "Managed Service"
+      content: "Continuous value delivery"
+      description: "After training, people have ideas—and we don't want those ideas to die. Organisation-wide platform access means anyone can submit Expert Requests. Monthly allocation ensures continuous solution building. This is where real transformation happens: compounding value over time, not a one-off project."
       image: "/images/home/features/features-3-managed-services.png"
       button:
         enable: true
-        label: "Learn More"
+        label: "Managed Services"
         link: "/services"
 
 offering:
-  - title: "Channel Existing AI Energy Into Business Results"
-    subtitle: "Embrace ChatGPT, Transform Your Organization"
+  - title: "What Does Impact Mean To You?"
+    subtitle: "We Start With Your Business Outcomes, Not Technology"
     image: "/images/home/offering/offering-1.1.png"
     image_1: "/images/home/offering/offering-1-human.png"
-    content: "Your employees are already using ChatGPT—often in secret. Rather than fighting this reality, we help you harness it. ChatGPT is winning the user adoption battle because it offers superior applications like custom GPTs, Projects, and Voice capabilities that employees genuinely want to use."
+    content: "Most AI consultants lead with technology—platforms, models, capabilities. We lead with a question: What does impact mean to you? Because AI without business context is just expensive experimentation."
     points:
-      - "Transform frustrated Copilot users into engaged ChatGPT power users. Our ChatGPT 101 & 102 programs achieve 100% training completion because people actually want to learn these tools."
-      - "Implement proper governance while giving employees the AI tools they prefer. Turn shadow AI usage into strategic organizational capability with full visibility and control."
-  - title: "Turn ChatGPT Into Creative Co-Worker"
-    subtitle: "Beyond Basic Tasks to Creative Partnership"
+      - "We embed with your teams to understand their actual work—not to teach AI and hope for adoption. This 'bring business to AI' approach ensures every solution connects to real workflows and delivers measurable value."
+      - "Whether it's revenue growth, operational efficiency, customer experience, or competitive advantage—we work backwards from your definition of success to build AI solutions that matter."
+  - title: "Build First, Train Second"
+    subtitle: "Proof Points Before Programs"
     image: "/images/home/offering/offering-2.2.png"
     image_1: "/images/home/offering/offering-2-human.png"
-    content: "Most teams use ChatGPT for basic tasks like writing emails or summarizing documents. We unlock its potential as a creative business partner—a coach for difficult conversations, a workshop facilitator, a role-play partner for practice, and a teacher for skill development. The key shift: build use cases for others, not just yourself."
+    content: "Training creates excitement, but not execution. That's the Enthusiasm Gap—and it's why most AI initiatives fail to deliver business value despite significant investment in education."
     points:
-      - "Discover advanced capabilities most teams don't know exist: voice-enabled coaching sessions, custom GPTs tailored to department workflows, and collaborative features that transform how teams work together."
-      - "Create those powerful 'I didn't know it could do that' moments that spark organization-wide innovation. When one person discovers a breakthrough use case, it spreads and multiplies across your entire organization."
-  - title: "Sustain Momentum Through Expert Delivery"
-    subtitle: "Keep Innovation Flowing Without Overwhelming Teams"
+      - "We flip the sequence: start with an AI Impact Sprint that builds real solutions with key people. Now you have proof points, internal champions, and concrete examples of what's possible."
+      - "When training includes 'Here's what Sarah in Finance built' instead of generic prompting tutorials, it's infinitely more powerful. Internal examples make possibilities concrete and achievable."
+  - title: "Ideas Need Somewhere To Go"
+    subtitle: "Prevent The Enthusiasm Death Spiral"
     image: "/images/home/offering/offering-3.3.png"
     image_1: "/images/home/offering/offering-3-human.png"
-    content: "Your team is busy with their day jobs. While they understand their business processes deeply, they don't have time to become prompt engineers or GPT developers. Our Expert Requests service bridges this gap—your experts describe what they need, and our specialists build the custom AI solutions."
+    content: "After training, people have ideas. Great ideas. But without a pathway to implementation, those ideas get stuck in IT backlogs, compete with 'real work,' and eventually die. The enthusiasm fades, and the training investment is wasted."
     points:
-      - "Deliver 15-20 custom business GPTs within your first 6 months, creating a continuous pipeline of new capabilities spreading across departments. Each solution is purpose-built for your specific workflows and challenges."
-      - "Your team stays focused on their core work while AI specialists handle the technical building. It's like having an always-on development team dedicated to turning your business expertise into powerful AI tools."
+      - "Expert Requests solve this: your teams describe what they need, and our specialists build it. Custom prompts, GPTs, workflows—delivered without overwhelming your people or clogging IT queues."
+      - "This isn't a one-off—it's continuous improvement. New capabilities emerge, new use cases get identified, and the AI transformation keeps delivering value month after month."
 
 benefits:
-  title: "Why Choose Kowalah Over Alternatives"
-  subtitle: "Competitive Advantages That Matter"
+  title: "Why Enterprise AI Impact Partner"
+  subtitle: "Different From Training Consultants, IT Rollouts, or Big Consultancy"
   points:
-    - title: "Your Business Workflows, AI-Enhanced"
-      content: "We adapt ChatGPT to how your people actually work—not force them to change processes to fit the AI. Your sales team gets ChatGPT trained on your pitch decks, your finance team gets custom GPTs for reporting, your operations team gets AI that understands your specific workflows."
+    - title: "Business Outcomes, Not Just AI Knowledge"
+      content: "We don't measure success by training completion rates or user adoption metrics. We measure it by business impact—the revenue gained, costs saved, processes improved, competitive advantages created. AI without business outcomes is just expensive experimentation."
       image: "/images/home/benefits/benefits-human-card-1.png"
-    - title: "Latest ChatGPT Capabilities, Immediately Available"
-      content: "When OpenAI releases new features, your team knows how to use them that same week. Advanced voice for coaching conversations, canvas for collaborative editing, search for real-time research—we ensure your people leverage every capability while competitors are still reading the release notes."
+    - title: "Platform-Agnostic Expertise"
+      content: "ChatGPT, Claude, Gemini—we work with whatever makes sense for your use case. Unlike consultants tied to vendor relationships, we recommend based on your needs. The right tool for each job, not a one-size-fits-all platform push."
       image: "/images/home/benefits/benefits-human-card-2.png"
-    - title: "Skip the Trial-and-Error Learning Curve"
-      content: "Your teams get battle-tested prompts and frameworks that work, not generic tutorials. When a finance analyst asks 'How do I analyze this quarterly data?', they get a proven 5-step workflow that delivers accurate results—not a blank chat box and hope for the best."
+    - title: "Build, Don't Just Advise"
+      content: "We don't deliver recommendations and walk away. We embed with your teams and build working solutions. Prompts, GPTs, workflows—whatever the use case requires. You get deliverables that work, not PowerPoints about what might work."
       image: "/images/home/benefits/benefits-human-card-3.png"
-    - title: "Discover Hidden Capabilities That Transform Work"
-      content: "Most teams use 10% of ChatGPT's power. We unlock the other 90%. Your lawyers discover voice mode for mock depositions. Your HR team finds memory features for personalized career coaching. Your managers learn advanced reasoning for complex strategic decisions. Each discovery multiplies across your organization."
+    - title: "Prevent The Enthusiasm Gap"
+      content: "Training without implementation creates excitement that dies. We flip the sequence: build wins first, then train with real examples. And Expert Requests ensure ideas keep flowing into production—not stuck in backlogs where enthusiasm fades."
       image: "/images/home/benefits/benefits-human-card-4.png"
-    - title: "From Cost Savings to Revenue Growth"
-      content: "While others chase 10% efficiency gains, your team builds revenue-generating AI capabilities. Sales reps who close 30% more deals because ChatGPT coaches them through objections. Product teams who ship features faster using AI pair programming. Customer service that turns support conversations into upsell opportunities."
+    - title: "Ongoing Partnership, Not One-Off Projects"
+      content: "AI transformation isn't a project with an end date—it's continuous improvement. Kowalah Essential provides ongoing Expert Requests, capability updates, and strategic guidance. We're partners, not vendors. The value compounds over time."
       image: "/images/home/benefits/benefits-human-card-5.png"
 
 service_components:
-  title: "Three Service Components for Complete AI Transformation"
-  subtitle: "Choose the services that match your organization's current ChatGPT situation and transformation goals"
+  title: "Start With Impact, Scale With Confidence"
+  subtitle: "Our services build on each other—from proving value to organization-wide transformation"
   components:
-    - title: "ChatGPT Enterprise Deployment"
-      description: "Complete technical rollout with governance and initial training"
+    - title: "AI Impact Sprint"
+      description: "Build real wins with key people in 2-3 weeks"
       pricing:
         USD:
-          prefix: "from $"
-          amount: "32,000"
+          prefix: "$"
+          amount: "8,000-50,000"
           suffix: ""
-          detail: "Starting from $32,000 for organizations up to 1,000 employees"
+          detail: "Depending on scope (1-5 use cases)"
         EUR:
-          prefix: "from €"
-          amount: "27,200"
+          prefix: "€"
+          amount: "6,800-42,500"
           suffix: ""
-          detail: "Starting from €27,200 for organizations up to 1,000 employees"
+          detail: "Depending on scope (1-5 use cases)"
         GBP:
-          prefix: "from £"
-          amount: "23,360"
+          prefix: "£"
+          amount: "6,000-40,000"
           suffix: ""
-          detail: "Starting from £23,360 for organizations up to 1,000 employees"
+          detail: "Depending on scope (1-5 use cases)"
       features:
-        - Rapid discovery and security assessment
-        - ChatGPT Enterprise procurement guidance
-        - Governance framework and policy development
-        - Technical deployment and integration setup
-        - Initial workforce training and activation
-        - 6-week implementation timeline
-      what_included: "Everything needed to deploy ChatGPT Enterprise with confidence and security"
+        - Embed with 2-3 key stakeholders
+        - Identify highest-value AI opportunities
+        - Build working solutions (prompts, GPTs, workflows)
+        - Deliver proof points and internal champions
+        - 2-3 week intensive engagement
+        - Platform-agnostic (ChatGPT, Claude, Gemini)
+      what_included: "Everything needed to prove AI value with real business impact"
       button:
         enable: true
-        label: "Discuss Deployment"
-        link: "/contact?service=deployment"
-    - title: "Change Enablement Program"
-      description: "Transform your workforce from confused users to confident AI collaborators"
+        label: "Book Sprint Discovery"
+        link: "/contact?service=sprint"
+    - title: "Training Programme"
+      description: "Scale knowledge across your organisation with real internal examples"
       pricing:
         USD:
           prefix: "from $"
           amount: "160"
           suffix: "per employee"
-          detail: "Comprehensive 8-16 week transformation program"
+          detail: "Powered by your Sprint proof points"
         EUR:
           prefix: "from €"
           amount: "136"
           suffix: "per employee"
-          detail: "Comprehensive 8-16 week transformation program"
+          detail: "Powered by your Sprint proof points"
         GBP:
           prefix: "from £"
           amount: "117"
           suffix: "per employee"
-          detail: "Comprehensive 8-16 week transformation program"
+          detail: "Powered by your Sprint proof points"
       features:
-        - Executive alignment and communication strategy
-        - AI Ambassador network development
-        - Structured training ladders (101, 102, 201, Leadership)
-        - Resistance management and cultural transformation
-        - Recognition systems and adoption tracking
-        - Ongoing optimization and support
-      what_included: "Complete workforce transformation with measurable adoption outcomes"
+        - Training powered by internal examples
+        - 101 Foundation and 102 Advanced programmes
+        - Platform-appropriate content (ChatGPT, Claude, Gemini)
+        - Internal champion development
+        - Use case pipeline creation
+        - Adoption tracking and optimisation
+      what_included: "Organisation-wide AI capability building with real proof points"
       button:
         enable: true
-        label: "Plan Enablement"
-        link: "/contact?service=enablement"
-    - title: "Managed AI Services"
-      description: "Ongoing strategic guidance and expert delivery for continuous AI leadership"
+        label: "Discuss Training"
+        link: "/contact?service=training"
+    - title: "Kowalah Essential"
+      description: "Ongoing partnership for continuous AI value delivery"
       pricing:
         USD:
           prefix: "from $"
           amount: "16,000"
           suffix: "per month"
-          detail: "Your permanent Digital CAIO and expert delivery team"
+          detail: "Expert Requests + Platform Access + Strategic Guidance"
         EUR:
           prefix: "from €"
           amount: "13,600"
           suffix: "per month"
-          detail: "Your permanent Digital CAIO and expert delivery team"
+          detail: "Expert Requests + Platform Access + Strategic Guidance"
         GBP:
           prefix: "from £"
-          amount: "11,680"
+          amount: "12,500"
           suffix: "per month"
-          detail: "Your permanent Digital CAIO and expert delivery team"
+          detail: "Expert Requests + Platform Access + Strategic Guidance"
       features:
-        - 24/7 AI Advisory Platform access
-        - Quarterly Expert Requests for custom development
-        - "Accelerator Library: Ready-to-Use Prompts & GPTs"
-        - Strategic roadmap updates and emerging capability reviews
-        - Board-ready reporting and success metrics
-        - Integration with enterprise systems
-        - Continuous optimization and innovation support
-      what_included: "Complete ongoing AI leadership with expert delivery and strategic guidance"
+        - Monthly Expert Request allocation
+        - Organisation-wide platform access
+        - Accelerator library of pre-built solutions
+        - New capability updates as AI evolves
+        - Strategic roadmap and guidance
+        - Board-ready reporting and metrics
+        - Continuous optimisation and innovation
+      what_included: "Permanent AI partnership that keeps delivering value"
       button:
         enable: true
-        label: "Explore Managed Services"
-        link: "/contact?service=managed"
+        label: "Explore Essential"
+        link: "/contact?service=essential"
 ---
