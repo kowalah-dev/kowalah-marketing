@@ -112,7 +112,7 @@ program_depth:
 
 feature:
   title: "How It Works: 3-Step Methodology"
-  subtitle: "Build First. Train Second. Keep Delivering."
+  subtitle: "Build First. Enable Change. Keep Delivering."
   features:
     - title: "AI Impact Sprint"
       badge: "2-3 Weeks"
@@ -123,19 +123,19 @@ feature:
         enable: true
         label: "Learn About Sprints"
         link: "/services"
-    - title: "Training Programme"
+    - title: "Change Enablement"
       badge: "Organisation-Wide"
-      content: "Scale knowledge with real examples"
-      description: "Once you've got proof points from the Sprint, training becomes dramatically more powerful. It's now powered by internal examples—'Here's what Sarah in Finance built.' This generates demand for more use cases across the organisation and creates a pipeline for ongoing Expert Requests."
+      content: "Scale transformation with proof points"
+      description: "With Sprint proof points in hand, we scale AI capability across your organisation. Training powered by internal examples, AI Ambassador networks, governance frameworks, and cultural transformation—everything needed to move from pilot success to organisation-wide adoption."
       image: "/images/home/features/features-2-expert-delivery.png"
       button:
         enable: true
-        label: "Training Options"
+        label: "Change Enablement"
         link: "/services"
     - title: "Kowalah Essential"
       badge: "Managed Service"
       content: "Continuous value delivery"
-      description: "After training, people have ideas—and we don't want those ideas to die. Organisation-wide platform access means anyone can submit Expert Requests. Monthly allocation ensures continuous solution building. This is where real transformation happens: compounding value over time, not a one-off project."
+      description: "After enablement, people have ideas—and we don't want those ideas to die. Organisation-wide platform access means anyone can submit Expert Requests. Monthly allocation ensures continuous solution building. This is where real transformation happens: compounding value over time, not a one-off project."
       image: "/images/home/features/features-3-managed-services.png"
       button:
         enable: true
@@ -190,7 +190,7 @@ benefits:
 
 service_components:
   title: "Start With Impact, Scale With Confidence"
-  subtitle: "Our services build on each other—from proving value to organization-wide transformation"
+  subtitle: "Our services build on each other—from proving value to organisation-wide transformation"
   components:
     - title: "AI Impact Sprint"
       description: "Build real wins with key people in 2-3 weeks"
@@ -222,36 +222,36 @@ service_components:
         enable: true
         label: "Book Sprint Discovery"
         link: "/contact?service=sprint"
-    - title: "Training Programme"
-      description: "Scale knowledge across your organisation with real internal examples"
+    - title: "Change Enablement"
+      description: "Scale AI transformation across your organisation with proof points"
       pricing:
         USD:
           prefix: "from $"
           amount: "160"
           suffix: "per employee"
-          detail: "Powered by your Sprint proof points"
+          detail: "Complete change programme powered by Sprint proof points"
         EUR:
           prefix: "from €"
           amount: "136"
           suffix: "per employee"
-          detail: "Powered by your Sprint proof points"
+          detail: "Complete change programme powered by Sprint proof points"
         GBP:
           prefix: "from £"
           amount: "117"
           suffix: "per employee"
-          detail: "Powered by your Sprint proof points"
+          detail: "Complete change programme powered by Sprint proof points"
       features:
         - Training powered by internal examples
-        - 101 Foundation and 102 Advanced programmes
+        - AI Ambassador network development
+        - Governance frameworks and policies
+        - Cultural transformation support
+        - Resistance management and adoption tracking
         - Platform-appropriate content (ChatGPT, Claude, Gemini)
-        - Internal champion development
-        - Use case pipeline creation
-        - Adoption tracking and optimisation
-      what_included: "Organisation-wide AI capability building with real proof points"
+      what_included: "Complete organisational transformation from pilot to enterprise-wide"
       button:
         enable: true
-        label: "Discuss Training"
-        link: "/contact?service=training"
+        label: "Discuss Enablement"
+        link: "/contact?service=enablement"
     - title: "Kowalah Essential"
       description: "Ongoing partnership for continuous AI value delivery"
       pricing:
