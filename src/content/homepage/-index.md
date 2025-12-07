@@ -1,7 +1,7 @@
 ---
 hero:
   title: "We Don't Start With Training. <br> We Start By Building Wins."
-  content: "Your Enterprise AI Impact Partner. We embed with your teams, build high-value AI solutions, and deliver real business outcomes—not just training and hope. Platform-agnostic: ChatGPT, Claude, Gemini—whatever works for your business."
+  content: "Your Enterprise AI Impact Partner. We embed with your teams, build high-value AI solutions, and deliver real business outcomes—not just training and hope. Platform expertise across ChatGPT, Claude, and Gemini—we'll recommend what works for your use cases."
   image: "/images/home/banner.png"
   button:
     - enable: true
@@ -81,9 +81,9 @@ program_depth:
           description: "Much more powerful than generic AI training"
         - name: "Keep Ideas Flowing"
           description: "Expert Requests ensure innovation doesn't stall"
-    - title: "Platform-Agnostic Expertise"
+    - title: "Platform Expertise"
       icon: "technical"
-      why_matters: "Unlike consultants tied to a single platform, we work with whatever AI makes sense for your use case.<br><br>ChatGPT for conversational interfaces and custom GPTs. Claude for analysis and long-form content. Gemini for Google Workspace integration. We help you navigate the landscape and choose the right tool for each job.<br><br>This flexibility means you get the best solution for each challenge, not a one-size-fits-all approach."
+      why_matters: "We have deep expertise across the major AI platforms—and we'll tell you what works.<br><br>ChatGPT for conversational interfaces and custom GPTs. Claude for analysis and long-form content. Gemini for Google Workspace integration. We have opinions based on results, and we'll recommend the right tool for each job.<br><br>This expertise means you get the best solution for each challenge, backed by real experience."
       elements:
         - name: "ChatGPT & OpenAI"
           description: "Custom GPTs, voice capabilities, enterprise deployment"
@@ -92,7 +92,7 @@ program_depth:
         - name: "Google Gemini"
           description: "Workspace integration, multimodal capabilities"
         - name: "Right Tool For The Job"
-          description: "We recommend based on use case, not vendor relationships"
+          description: "We recommend based on results, not vendor relationships"
         - name: "Future-Proof Approach"
           description: "As AI evolves, we help you adapt and leverage new capabilities"
     - title: "Ongoing Partnership"
@@ -175,8 +175,8 @@ benefits:
     - title: "Business Outcomes, Not Just AI Knowledge"
       content: "We don't measure success by training completion rates or user adoption metrics. We measure it by business impact—the revenue gained, costs saved, processes improved, competitive advantages created. AI without business outcomes is just expensive experimentation."
       image: "/images/home/benefits/benefits-human-card-1.png"
-    - title: "Platform-Agnostic Expertise"
-      content: "ChatGPT, Claude, Gemini—we work with whatever makes sense for your use case. Unlike consultants tied to vendor relationships, we recommend based on your needs. The right tool for each job, not a one-size-fits-all platform push."
+    - title: "Platform Expertise That Delivers"
+      content: "ChatGPT, Claude, Gemini—we have deep expertise across all major platforms and strong opinions about when to use each. We recommend based on your specific use case and tell you what works. The right tool for each job, backed by real experience."
       image: "/images/home/benefits/benefits-human-card-2.png"
     - title: "Build, Don't Just Advise"
       content: "We don't deliver recommendations and walk away. We embed with your teams and build working solutions. Prompts, GPTs, workflows—whatever the use case requires. You get deliverables that work, not PowerPoints about what might work."
@@ -216,7 +216,7 @@ service_components:
         - Build working solutions (prompts, GPTs, workflows)
         - Deliver proof points and internal champions
         - 2-3 week intensive engagement
-        - Platform-agnostic (ChatGPT, Claude, Gemini)
+        - Platform expertise (ChatGPT, Claude, Gemini)
       what_included: "Everything needed to prove AI value with real business impact"
       button:
         enable: true

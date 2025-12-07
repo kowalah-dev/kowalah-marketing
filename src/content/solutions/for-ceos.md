@@ -1,7 +1,7 @@
 ---
 title: "AI That Delivers Business Impact - For CEOs"
 meta_title: "AI That Delivers Business Impact - Enterprise AI for CEOs | Kowalah"
-description: "Break the revenue-headcount growth link. We build AI solutions that deliver real business outcomes—not just training and hope. Platform-agnostic: ChatGPT, Claude, Gemini."
+description: "Break the revenue-headcount growth link. We build AI solutions that deliver real business outcomes—not just training and hope. Platform expertise: ChatGPT, Claude, Gemini."
 
 # Core identifiers for flexible content
 solution_type: "role"
@@ -9,7 +9,7 @@ solution_category: "ceos"
 
 hero:
   title: "AI That Delivers Business Impact—Not Just Training and Hope"
-  content: "Your teams have done the AI training. Now what? We embed with your key people, build solutions that work, and prove value before scaling. Platform-agnostic expertise across ChatGPT, Claude, and Gemini."
+  content: "Your teams have done the AI training. Now what? We embed with your key people, build solutions that work, and prove value before scaling. Platform expertise across ChatGPT, Claude, and Gemini—we'll recommend what works for your use cases."
   image: "/images/solutions/solutions-ceo-hero.png"
   background_image: "/images/solutions/ceo-solution-bg.png"
   button:
@@ -43,7 +43,7 @@ solution:
     - "Start with an AI Impact Sprint—real wins in 2-3 weeks with key stakeholders"
     - "Train the wider organisation using internal examples, not generic tutorials"
     - "Keep ideas flowing through Expert Requests—no IT backlog, no dying enthusiasm"
-    - "Platform-agnostic: we use whatever AI works best for each use case"
+    - "Platform expertise: we recommend ChatGPT, Claude, or Gemini based on your use case"
 
 benefits:
   title: "Business Outcomes That Matter"
@@ -62,9 +62,9 @@ benefits:
       image: "/images/solutions/ceo-cost-optimization.png"
       metric: "Continuous delivery"
     - title: "Right Tool For Each Job"
-      content: "ChatGPT for conversational interfaces. Claude for analysis. Gemini for Workspace integration. We recommend based on use case, not vendor relationships."
+      content: "ChatGPT for conversational interfaces. Claude for analysis. Gemini for Workspace integration. We have opinions based on results—and we'll tell you what works."
       image: "/images/solutions/ceo-workforce-satisfaction.png"
-      metric: "Platform-agnostic"
+      metric: "Platform expertise"
     - title: "Compounding Value Over Time"
       content: "This isn't a one-off project—it's continuous improvement. Kowalah Essential keeps delivering value month after month as new capabilities emerge."
       image: "/images/solutions/ceo-strategic-agility.png"
@@ -196,11 +196,15 @@ After enablement, people have ideas—and we don't want those ideas to die. Orga
 
 **Outcome**: Permanent AI partnership that keeps delivering value, not a project with an end date.
 
-## Platform-Agnostic Expertise
+## Platform Expertise
 
-We're not tied to any single AI vendor. ChatGPT for conversational interfaces and custom GPTs. Claude for analysis and long-form content. Gemini for Google Workspace integration.
+We have deep expertise across the major AI platforms—and we'll tell you what works:
 
-We recommend based on your use cases—not vendor relationships. The right tool for each job, not a one-size-fits-all platform push.
+- **ChatGPT**: Best for conversational interfaces, custom GPTs, and voice capabilities
+- **Claude**: Excellent for analysis, long-form content, and complex reasoning
+- **Gemini**: Strong for Google Workspace integration and multimodal tasks
+
+The right platform depends on what you're trying to achieve. We'll recommend based on your specific use cases—and help you get real value from whatever you choose.
 
 ## See Impact Before You Commit
 
