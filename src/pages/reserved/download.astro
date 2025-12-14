@@ -1,0 +1,419 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Icon } from "astro-icon/components";
+import {
+  ComputerDesktopIcon,
+  ArrowDownTrayIcon,
+  CheckCircleIcon,
+  ClockIcon,
+  DocumentTextIcon,
+  QuestionMarkCircleIcon,
+  ExclamationTriangleIcon
+} from "@heroicons/react/24/outline";
+import { ArrowDownTrayIcon as ArrowDownTraySolid } from "@heroicons/react/24/solid";
+
+// =============================================================================
+// RELEASE DATA - Update this section when publishing new versions
+// =============================================================================
+const currentRelease = {
+  version: "1.0.0",
+  releaseDate: "December 2025",
+  assets: {
+    macOS: {
+      arm64: {
+        label: "Apple Silicon (M1/M2/M3/M4)",
+        filename: "Kowalah.Reserved-1.0.0-arm64.dmg",
+        url: "https://github.com/kowalah-dev/kowalah-reserved/releases/download/v1.0.0/Kowalah.Reserved-1.0.0-arm64.dmg",
+        size: "~180 MB",
+        available: true
+      },
+      intel: {
+        label: "Intel",
+        filename: null,
+        url: null,
+        size: null,
+        available: false,
+        comingSoon: false // Not planned currently
+      }
+    },
+    windows: {
+      x64: {
+        label: "Windows (64-bit)",
+        filename: null,
+        url: null,
+        size: null,
+        available: false,
+        comingSoon: true
+      }
+    }
+  }
+};
+
+// Previous releases (for future use)
+const previousReleases: Array<{version: string; date: string; url: string}> = [
+  // { version: "0.9.0", date: "November 2024", url: "https://github.com/..." }
+];
+
+const pageData = {
+  title: "Download Kowalah Reserved",
+  meta_title: "Download Kowalah Reserved | Your AI Executive Coach",
+  description: "Download Kowalah Reserved for macOS. Your AI Executive Coach desktop application with complete privacy and local-first architecture.",
+
+  hero: {
+    badge: "v" + currentRelease.version,
+    title: "Download Kowalah Reserved",
+    subtitle: "Your AI Executive Coach, running locally on your machine."
+  },
+
+  requirements: {
+    title: "System Requirements",
+    items: [
+      { label: "Operating System", value: "macOS 11 (Big Sur) or later" },
+      { label: "Processor", value: "Apple Silicon (M1, M2, M3, or M4)" },
+      { label: "Authentication", value: "Claude Pro/Max/Team/Enterprise account, or Anthropic API key" }
+    ]
+  },
+
+  quickStart: {
+    title: "Quick Start",
+    steps: [
+      {
+        number: 1,
+        title: "Download & Install",
+        description: "Download the DMG file, open it, and drag Kowalah Reserved to your Applications folder."
+      },
+      {
+        number: 2,
+        title: "Launch",
+        description: "Open Kowalah Reserved from Applications. The app is signed and notarized by Apple."
+      },
+      {
+        number: 3,
+        title: "Sign In",
+        description: "On first launch, sign in with your Claude Pro/Max/Team/Enterprise account, or enter an Anthropic API key in Settings."
+      },
+      {
+        number: 4,
+        title: "Create Your Workspace",
+        description: "Follow the onboarding to create your first workspace (e.g., your company name)."
+      },
+      {
+        number: 5,
+        title: "Get Set Up",
+        description: "Say \"Use the workspace setup skill to help me get started\" and Kowalah will guide you through configuring your workspace."
+      }
+    ]
+  },
+
+  updates: {
+    title: "Automatic Updates",
+    description: "Kowalah Reserved checks for updates automatically. When a new version is available, you'll see a dialog to download and install it with one click."
+  },
+
+  support: {
+    title: "Need Help?",
+    items: [
+      {
+        label: "Installation Issues",
+        description: "Check System Settings > Privacy & Security if macOS blocks the app.",
+        IconComponent: QuestionMarkCircleIcon
+      },
+      {
+        label: "Reset Workspace",
+        description: "Your workspace is stored in ~/Documents/KowalahReserved/",
+        IconComponent: DocumentTextIcon
+      }
+    ],
+    contact: "Contact your Kowalah Crew for any setup questions."
+  }
+};
+---
+
+<Base title={pageData.title} meta_title={pageData.meta_title} description={pageData.description}>
+
+  <!-- Hero Section -->
+  <section class="section-sm pt-24 pb-12 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 -z-10"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent -z-10"></div>
+
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8 text-center">
+          <div class="inline-block mb-6" data-aos="fade-up-sm">
+            <span class="px-4 py-2 rounded-full text-sm font-medium bg-primary/20 text-primary border border-primary/30">
+              {pageData.hero.badge}
+            </span>
+          </div>
+
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4" data-aos="fade-up-sm" data-aos-delay="50">
+            {pageData.hero.title}
+          </h1>
+
+          <p class="text-xl text-white/70 mb-8" data-aos="fade-up-sm" data-aos-delay="100">
+            {pageData.hero.subtitle}
+          </p>
+
+          <!-- Primary Download Button -->
+          {currentRelease.assets.macOS.arm64.available && (
+            <div data-aos="fade-up-sm" data-aos-delay="150">
+              <a
+                href={currentRelease.assets.macOS.arm64.url}
+                class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all text-lg"
+              >
+                <ArrowDownTraySolid className="w-6 h-6" />
+                Download for macOS
+              </a>
+              <p class="text-white/50 text-sm mt-3">
+                {currentRelease.assets.macOS.arm64.label} · {currentRelease.assets.macOS.arm64.size}
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Invitation Notice -->
+  <section class="section-sm bg-white py-8">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <div class="rounded-xl border border-primary/20 bg-primary/5 p-6 shadow-sm" data-aos="fade-up-sm">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                <ExclamationTriangleIcon className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-1">Kowalah Reserved is by invitation only</h3>
+                <p class="text-slate-600 text-sm">
+                  You'll need your login credentials to use the app after downloading.
+                  Haven't been invited yet? <a href="/reserved#apply" class="font-medium text-primary hover:text-primary/80 transition-colors">Apply for access</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Options Table -->
+  <section class="section-sm bg-white py-12">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <h2 class="text-2xl font-bold text-slate-900 mb-6" data-aos="fade-up-sm">
+            Available Downloads
+          </h2>
+
+          <div class="overflow-hidden rounded-xl border border-slate-200" data-aos="fade-up-sm" data-aos-delay="50">
+            <table class="w-full">
+              <thead class="bg-slate-50">
+                <tr>
+                  <th class="text-left py-4 px-6 font-semibold text-slate-700">Platform</th>
+                  <th class="text-left py-4 px-6 font-semibold text-slate-700">Architecture</th>
+                  <th class="text-left py-4 px-6 font-semibold text-slate-700">Size</th>
+                  <th class="text-right py-4 px-6 font-semibold text-slate-700">Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- macOS Apple Silicon -->
+                <tr class="border-t border-slate-100">
+                  <td class="py-4 px-6">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-slate-600" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                      </div>
+                      <span class="font-medium text-slate-900">macOS</span>
+                    </div>
+                  </td>
+                  <td class="py-4 px-6 text-slate-600">{currentRelease.assets.macOS.arm64.label}</td>
+                  <td class="py-4 px-6 text-slate-600">{currentRelease.assets.macOS.arm64.size}</td>
+                  <td class="py-4 px-6 text-right">
+                    <a
+                      href={currentRelease.assets.macOS.arm64.url}
+                      class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-colors"
+                    >
+                      <ArrowDownTrayIcon className="w-4 h-4" />
+                      Download
+                    </a>
+                  </td>
+                </tr>
+
+                <!-- Windows (Coming Soon) -->
+                <tr class="border-t border-slate-100 bg-slate-50/50">
+                  <td class="py-4 px-6">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-slate-400" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M3 12V6.75l6-1.32v6.48L3 12zm17-9v8.75l-10 .15V5.21L20 3zM3 13l6 .09v6.81l-6-1.15V13zm17 .25V22l-10-1.91V13.1l10 .15z"/>
+                        </svg>
+                      </div>
+                      <span class="font-medium text-slate-400">Windows</span>
+                    </div>
+                  </td>
+                  <td class="py-4 px-6 text-slate-400">64-bit</td>
+                  <td class="py-4 px-6 text-slate-400">—</td>
+                  <td class="py-4 px-6 text-right">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-200 text-slate-500 font-medium cursor-not-allowed">
+                      <ClockIcon className="w-4 h-4" />
+                      Coming Soon
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Version Info -->
+          <div class="mt-4" data-aos="fade-up-sm" data-aos-delay="100">
+            <p class="text-sm text-slate-500">
+              Version {currentRelease.version} · Released {currentRelease.releaseDate}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- System Requirements -->
+  <section class="section-sm bg-slate-50 py-12">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <h2 class="text-2xl font-bold text-slate-900 mb-6" data-aos="fade-up-sm">
+            {pageData.requirements.title}
+          </h2>
+
+          <div class="bg-white rounded-xl border border-slate-200 p-6" data-aos="fade-up-sm" data-aos-delay="50">
+            <ul class="space-y-4">
+              {pageData.requirements.items.map((item) => (
+                <li class="flex items-start gap-3">
+                  <CheckCircleIcon className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span class="font-medium text-slate-900">{item.label}:</span>
+                    <span class="text-slate-600 ml-2">{item.value}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Start Guide -->
+  <section class="section-sm bg-white py-12">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <h2 class="text-2xl font-bold text-slate-900 mb-8" data-aos="fade-up-sm">
+            {pageData.quickStart.title}
+          </h2>
+
+          <div class="space-y-6">
+            {pageData.quickStart.steps.map((step, index) => (
+              <div
+                class="flex gap-4"
+                data-aos="fade-up-sm"
+                data-aos-delay={index * 50}
+              >
+                <div class="flex-shrink-0">
+                  <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold">
+                    {step.number}
+                  </div>
+                </div>
+                <div class="flex-1 pb-6 border-b border-slate-100 last:border-0">
+                  <h3 class="text-lg font-semibold text-slate-900 mb-1">{step.title}</h3>
+                  <p class="text-slate-600">{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Preview -->
+  <section class="section-sm bg-slate-50 py-12">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <div class="relative" data-aos="fade-up-sm">
+            <div class="absolute -inset-4 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl blur-2xl opacity-60"></div>
+            <img
+              src="/images/reserved/reserved-hero.png"
+              alt="Kowalah Reserved desktop application"
+              class="relative rounded-2xl shadow-xl border border-slate-200 w-full"
+              width="1200"
+              height="800"
+            />
+          </div>
+          <p class="text-center text-sm text-slate-500 mt-4">
+            Your AI Executive Coach, running locally on your machine.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Updates & Support -->
+  <section class="section-sm bg-white py-12">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- Auto Updates -->
+            <div class="bg-white rounded-xl border border-slate-200 p-6" data-aos="fade-up-sm">
+              <h3 class="text-lg font-semibold text-slate-900 mb-3">{pageData.updates.title}</h3>
+              <p class="text-slate-600 text-sm">{pageData.updates.description}</p>
+            </div>
+
+            <!-- Support -->
+            <div class="bg-white rounded-xl border border-slate-200 p-6" data-aos="fade-up-sm" data-aos-delay="50">
+              <h3 class="text-lg font-semibold text-slate-900 mb-3">{pageData.support.title}</h3>
+              <ul class="space-y-3">
+                {pageData.support.items.map((item) => (
+                  <li class="text-sm">
+                    <span class="font-medium text-slate-700">{item.label}:</span>
+                    <span class="text-slate-600 ml-1">{item.description}</span>
+                  </li>
+                ))}
+              </ul>
+              <p class="text-sm text-slate-500 mt-4 pt-4 border-t border-slate-100">
+                {pageData.support.contact}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to Reserved Page -->
+  <section class="section-sm bg-white py-12">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8 text-center">
+          <p class="text-slate-500 mb-4">
+            Not yet a Kowalah Reserved member?
+          </p>
+          <a
+            href="/reserved#apply"
+            class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors"
+          >
+            Learn more and apply
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Base>
