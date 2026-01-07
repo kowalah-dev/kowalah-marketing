@@ -13,41 +13,62 @@ import {
 import { ArrowDownTrayIcon as ArrowDownTraySolid } from "@heroicons/react/24/solid";
 
 // =============================================================================
-// RELEASE DATA - Update this section when publishing new versions
+// RELEASE DATA - Fetched dynamically from Vercel Blob Storage
 // =============================================================================
-const currentRelease = {
-  version: "1.0.0",
-  releaseDate: "December 2025",
-  assets: {
-    macOS: {
-      arm64: {
-        label: "Apple Silicon (M1/M2/M3/M4)",
-        filename: "Kowalah-Reserved-arm64.dmg",
-        url: "https://18evqetn8qvaaj3d.public.blob.vercel-storage.com/releases/latest/Kowalah-Reserved-arm64.dmg",
-        size: "~185 MB",
-        available: true
+// Fetch the latest release at build time from our API endpoint
+let currentRelease;
+
+try {
+  // In production, use the full URL. In dev, use relative URL
+  const apiUrl = import.meta.env.SITE
+    ? `${import.meta.env.SITE}/api/releases/latest`
+    : 'http://localhost:4321/api/releases/latest';
+
+  const response = await fetch(apiUrl);
+
+  if (response.ok) {
+    currentRelease = await response.json();
+  } else {
+    throw new Error(`API returned ${response.status}`);
+  }
+} catch (error) {
+  console.error('Failed to fetch latest release, using fallback:', error);
+
+  // Fallback to hardcoded version if API fails
+  currentRelease = {
+    version: "1.0.4",
+    releaseDate: "January 2025",
+    assets: {
+      macOS: {
+        arm64: {
+          label: "Apple Silicon (M1/M2/M3/M4)",
+          filename: "Kowalah-Reserved-arm64.dmg",
+          url: "https://18evqetn8qvaaj3d.public.blob.vercel-storage.com/releases/1.0.4/Kowalah-Reserved-arm64.dmg",
+          size: "~185 MB",
+          available: true
+        },
+        intel: {
+          label: "Intel",
+          filename: null,
+          url: null,
+          size: null,
+          available: false,
+          comingSoon: false
+        }
       },
-      intel: {
-        label: "Intel",
-        filename: null,
-        url: null,
-        size: null,
-        available: false,
-        comingSoon: false // Not planned currently
-      }
-    },
-    windows: {
-      x64: {
-        label: "Windows (64-bit)",
-        filename: null,
-        url: null,
-        size: null,
-        available: false,
-        comingSoon: true
+      windows: {
+        x64: {
+          label: "Windows (64-bit)",
+          filename: null,
+          url: null,
+          size: null,
+          available: false,
+          comingSoon: true
+        }
       }
     }
-  }
-};
+  };
+}
 
 // Previous releases (for future use)
 const previousReleases: Array<{version: string; date: string; url: string}> = [
