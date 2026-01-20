@@ -130,8 +130,7 @@ const pageData = {
     content: "Register now to secure your spot. Limited capacity to ensure quality discussion and Q&A time.",
     button: {
       enable: true,
-      label: "Register for Free",
-      link: "https://zoom.us/webinar/register/WN_gh7RuiPHSaqe5a777xJxRA"
+      label: "Register for Free"
     }
   }
 };
@@ -437,10 +436,10 @@ const iconMap = {
         >
           {pageData.cta.content}
         </p>
-        {pageData.cta.button.enable && (
+        {pageData.cta.button.enable && spotlightWebinar?.registrationLink && (
           <Button
             label={pageData.cta.button.label}
-            link={pageData.cta.button.link}
+            link={spotlightWebinar.registrationLink}
             style="white"
             className="mb-0"
           />
