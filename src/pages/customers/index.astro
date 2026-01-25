@@ -1,0 +1,316 @@
+---
+import Base from "@/layouts/Base.astro";
+import { client } from "@/lib/sanity";
+
+const title = "Customer Stories";
+const meta_title = "Customer Stories | Kowalah";
+const description = "Hear from executives and leaders who have transformed their AI journey with Kowalah. Real stories from real customers.";
+
+// Fetch published testimonials from Sanity
+let testimonials: any[] = [];
+try {
+  testimonials = await client.fetch(`
+    *[_type == "customerTestimonial" && status == "published"] | order(submittedAt desc) {
+      _id,
+      customerName,
+      customerTitle,
+      customerCompany,
+      industry,
+      soundBites,
+      narrative,
+      avatarUrl,
+      logoUrl,
+      keyThemes,
+      submittedAt
+    }
+  `);
+} catch (error) {
+  console.error("Failed to fetch testimonials:", error);
+}
+
+// Get unique industries for filtering
+const industries = [...new Set(testimonials.map((t) => t.industry).filter(Boolean))];
+---
+
+<Base title={title} meta_title={meta_title} description={description}>
+  {/* Compact Header */}
+  <section class="pt-12 pb-8">
+    <div class="container text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" data-aos="fade-up-sm">
+        {title}
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up-sm" data-aos-delay="100">
+        Hear from executives and leaders who have transformed their AI journey with Kowalah.
+      </p>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+      {testimonials.length > 0 ? (
+        <>
+          {/* Filters */}
+          {industries.length > 1 && (
+            <div class="flex flex-wrap gap-2 mb-8 justify-center" data-aos="fade-up-sm">
+              <button
+                class="filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-primary text-white"
+                data-filter="all"
+              >
+                All Industries
+              </button>
+              {industries.map((industry) => (
+                <button
+                  class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  data-filter={industry}
+                >
+                  {industry}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Testimonials Grid */}
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="testimonials-grid">
+            {testimonials.map((testimonial, index) => (
+              <div
+                class="testimonial-card bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:shadow-lg hover:border-primary/20 transition-all cursor-pointer group"
+                data-industry={testimonial.industry}
+                data-aos="fade-up-sm"
+                data-aos-delay={100 + index * 50}
+                data-testimonial-id={testimonial._id}
+              >
+                {/* Company logo at top */}
+                {testimonial.logoUrl && (
+                  <div class="mb-4 pb-4 border-b border-gray-100">
+                    <img
+                      src={testimonial.logoUrl}
+                      alt={testimonial.customerCompany}
+                      class="h-8 object-contain"
+                    />
+                  </div>
+                )}
+
+                {/* Person info */}
+                <div class="flex items-center gap-3 mb-4">
+                  {testimonial.avatarUrl ? (
+                    <img
+                      src={testimonial.avatarUrl}
+                      alt={testimonial.customerName}
+                      class="w-12 h-12 rounded-full object-cover border-2 border-white shadow"
+                    />
+                  ) : (
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold">
+                      {testimonial.customerName?.charAt(0) || "?"}
+                    </div>
+                  )}
+                  <div>
+                    <h3 class="font-semibold text-gray-900">
+                      {testimonial.customerName}
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                      {testimonial.customerTitle} at {testimonial.customerCompany}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Featured Sound Bite - Full quote */}
+                {testimonial.soundBites?.[0] && (
+                  <blockquote class="text-gray-700 italic mb-4 text-lg leading-relaxed">
+                    <span class="text-primary font-bold not-italic text-2xl leading-none">"</span>
+                    {testimonial.soundBites[0]}
+                    <span class="text-primary font-bold not-italic text-2xl leading-none">"</span>
+                  </blockquote>
+                )}
+
+                {/* Themes */}
+                {testimonial.keyThemes?.length > 0 && (
+                  <div class="flex flex-wrap gap-1.5 mb-4">
+                    {testimonial.keyThemes.slice(0, 3).map((theme: string) => (
+                      <span class="px-2.5 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
+                        {theme}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {/* Footer with industry and expand hint */}
+                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                  {testimonial.industry && (
+                    <span class="text-xs text-gray-500">{testimonial.industry}</span>
+                  )}
+                  <span class="text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                    Read full story
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                  </span>
+                </div>
+
+                {/* Hidden narrative data for modal */}
+                <template class="testimonial-narrative" data-narrative={testimonial.narrative} data-name={testimonial.customerName} data-title={testimonial.customerTitle} data-company={testimonial.customerCompany} data-avatar={testimonial.avatarUrl || ''} data-logo={testimonial.logoUrl || ''} data-soundbites={JSON.stringify(testimonial.soundBites || [])}></template>
+              </div>
+            ))}
+          </div>
+
+          {/* Modal for full story */}
+          <div id="testimonial-modal" class="fixed inset-0 z-50 hidden">
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="modal-backdrop"></div>
+            <div class="absolute inset-4 md:inset-8 lg:inset-16 bg-white rounded-2xl shadow-2xl overflow-auto" id="modal-content">
+              <button id="modal-close" class="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors">
+                <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              </button>
+              <div class="p-8 md:p-12" id="modal-body">
+                {/* Content populated by JS */}
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        /* Empty State */
+        <div class="text-center py-16">
+          <div class="w-20 h-20 mx-auto bg-gray-100 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+          </div>
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">
+            Customer Stories Coming Soon
+          </h2>
+          <p class="text-gray-600 mb-8 max-w-md mx-auto">
+            We're collecting stories from customers like you. Be one of the first to share your experience!
+          </p>
+        </div>
+      )}
+
+      {/* CTA Section */}
+      <div class="mt-16 text-center" data-aos="fade-up-sm">
+        <div class="bg-gradient-to-br from-gray-50 to-primary/5 rounded-2xl p-8 md:p-12">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            Share Your Story
+          </h2>
+          <p class="text-gray-600 mb-6 max-w-xl mx-auto">
+            Have you experienced the benefits of Kowalah? We'd love to hear your story and help you share it with others.
+          </p>
+          <a
+            href="/customers/share-story"
+            class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-medium rounded-lg hover:shadow-lg hover:scale-105 transition-all"
+          >
+            Share Your Experience
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".testimonial-card");
+    const modal = document.getElementById("testimonial-modal");
+    const modalBackdrop = document.getElementById("modal-backdrop");
+    const modalClose = document.getElementById("modal-close");
+    const modalBody = document.getElementById("modal-body");
+
+    // Filter functionality
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach((b) => {
+          b.classList.remove("active", "bg-primary", "text-white");
+          b.classList.add("bg-gray-100", "text-gray-700");
+        });
+        btn.classList.add("active", "bg-primary", "text-white");
+        btn.classList.remove("bg-gray-100", "text-gray-700");
+
+        const filter = btn.getAttribute("data-filter");
+        cards.forEach((card) => {
+          const industry = card.getAttribute("data-industry");
+          if (filter === "all" || industry === filter) {
+            (card as HTMLElement).style.display = "";
+          } else {
+            (card as HTMLElement).style.display = "none";
+          }
+        });
+      });
+    });
+
+    // Modal functionality
+    const openModal = (card: Element) => {
+      const template = card.querySelector(".testimonial-narrative") as HTMLTemplateElement;
+      if (!template || !modalBody || !modal) return;
+
+      const name = template.dataset.name || "";
+      const title = template.dataset.title || "";
+      const company = template.dataset.company || "";
+      const avatar = template.dataset.avatar || "";
+      const logo = template.dataset.logo || "";
+      const narrative = template.dataset.narrative || "";
+      const soundbites = JSON.parse(template.dataset.soundbites || "[]");
+
+      modalBody.innerHTML = `
+        <div class="max-w-3xl mx-auto">
+          <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center gap-4">
+              ${avatar
+                ? `<img src="${avatar}" alt="${name}" class="w-16 h-16 rounded-full object-cover border-2 border-white shadow-lg" />`
+                : `<div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl">${name.charAt(0)}</div>`
+              }
+              <div>
+                <h2 class="text-2xl font-bold text-gray-900">${name}</h2>
+                <p class="text-gray-600">${title} at ${company}</p>
+              </div>
+            </div>
+            ${logo ? `<img src="${logo}" alt="${company}" class="h-12 object-contain" />` : ""}
+          </div>
+
+          ${soundbites.length > 0 ? `
+            <div class="mb-8">
+              <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Key Quotes</h3>
+              <div class="space-y-4">
+                ${soundbites.map((bite: string) => `
+                  <blockquote class="text-xl italic text-gray-800 border-l-4 border-primary pl-4 py-2">
+                    "${bite}"
+                  </blockquote>
+                `).join("")}
+              </div>
+            </div>
+          ` : ""}
+
+          ${narrative ? `
+            <div>
+              <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Full Story</h3>
+              <p class="text-gray-700 text-lg leading-relaxed whitespace-pre-wrap">${narrative}</p>
+            </div>
+          ` : ""}
+        </div>
+      `;
+
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeModal = () => {
+      if (modal) {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    };
+
+    // Card click to open modal
+    cards.forEach((card) => {
+      card.addEventListener("click", () => openModal(card));
+    });
+
+    // Close modal
+    modalBackdrop?.addEventListener("click", closeModal);
+    modalClose?.addEventListener("click", closeModal);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+  });
+</script>

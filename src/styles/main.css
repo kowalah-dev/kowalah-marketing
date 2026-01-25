@@ -4,6 +4,10 @@
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";
 
+/* Streamdown styles for AI chat streaming */
+@source "../../node_modules/streamdown/dist/*.js";
+@source "../../node_modules/ai-elements/dist/*.js";
+
 @import "./safe.css";
 @import "./utilities.css";
 
