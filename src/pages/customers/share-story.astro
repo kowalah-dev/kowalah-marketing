@@ -15,17 +15,31 @@ const description = "Help us capture your experience with Kowalah. Our AI-guided
 let clerkUserData = null;
 try {
   const user = await Astro.locals.currentUser();
+  const auth = await Astro.locals.auth();
+
   if (user) {
-    // Fetch organization memberships separately (not included in currentUser())
     let primaryOrg = null;
     try {
       const client = await clerkClient(Astro);
-      const orgMemberships = await client.users.getOrganizationMembershipList({ userId: user.id });
 
+      // First, check if user has an active organization in their session
+      const activeOrgId = auth?.orgId;
+      console.log('[Clerk Active Org ID]', activeOrgId || 'none');
+
+      // Fetch organization memberships
+      const orgMemberships = await client.users.getOrganizationMembershipList({ userId: user.id });
       console.log('[Clerk Org Memberships]', orgMemberships.data?.length || 0, 'found');
 
       if (orgMemberships.data && orgMemberships.data.length > 0) {
-        primaryOrg = orgMemberships.data[0].organization;
+        // If user has an active org, use that; otherwise use the first membership
+        if (activeOrgId) {
+          const activeOrgMembership = orgMemberships.data.find(
+            (m) => m.organization.id === activeOrgId
+          );
+          primaryOrg = activeOrgMembership?.organization || orgMemberships.data[0].organization;
+        } else {
+          primaryOrg = orgMemberships.data[0].organization;
+        }
         console.log('[Clerk Primary Org]', primaryOrg?.name, primaryOrg?.imageUrl);
       }
     } catch (orgError) {
