@@ -46,6 +46,7 @@
       "hasChildren": true,
       "children": [
         { "name": "About Us", "url": "/company" },
+        { "name": "Customer Stories", "url": "/customers" },
         { "name": "Contact", "url": "/contact" }
       ]
     }
@@ -107,6 +108,10 @@
         {
           "name": "About Us",
           "url": "/company"
+        },
+        {
+          "name": "Customer Stories",
+          "url": "/customers"
         },
         {
           "name": "Contact",
