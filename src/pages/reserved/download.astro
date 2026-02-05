@@ -11,30 +11,101 @@ import {
   ExclamationTriangleIcon
 } from "@heroicons/react/24/outline";
 import { ArrowDownTrayIcon as ArrowDownTraySolid } from "@heroicons/react/24/solid";
+import { list } from '@vercel/blob';
 
 // =============================================================================
-// RELEASE DATA - Fetched dynamically from Vercel Blob Storage
+// SSR: This page is server-rendered to always show the latest release
 // =============================================================================
-// Fetch the latest release at build time from our API endpoint
+export const prerender = false;
+
+// =============================================================================
+// RELEASE DATA - Fetched directly from Vercel Blob Storage at request time
+// =============================================================================
 let currentRelease;
 
 try {
-  // In production, use the full URL. In dev, use relative URL
-  const apiUrl = import.meta.env.SITE
-    ? `${import.meta.env.SITE}/api/releases/latest`
-    : 'http://localhost:4321/api/releases/latest';
+  // Fetch directly from Blob Storage (no need to call our own API endpoint)
+  const { blobs } = await list({
+    prefix: 'releases/',
+    token: import.meta.env.BLOB_READ_WRITE_TOKEN
+  });
 
-  const response = await fetch(apiUrl);
+  // Parse version numbers from filenames like "Kowalah-Reserved-1.0.4-arm64.dmg"
+  const releases = blobs
+    .filter(blob => {
+      return blob.pathname.includes('releases/latest/') &&
+             blob.pathname.endsWith('.dmg') &&
+             /Kowalah-Reserved-\d+\.\d+\.\d+-arm64\.dmg/.test(blob.pathname);
+    })
+    .map(blob => {
+      const filename = blob.pathname.split('/').pop() || '';
+      const versionMatch = filename.match(/Kowalah-Reserved-(\d+\.\d+\.\d+)-arm64\.dmg/);
+      const version = versionMatch ? versionMatch[1] : '0.0.0';
+      const [major, minor, patch] = version.split('.').map(Number);
 
-  if (response.ok) {
-    currentRelease = await response.json();
+      return {
+        version,
+        versionNumber: major * 10000 + minor * 100 + patch,
+        filename,
+        url: blob.url,
+        size: blob.size,
+        uploadedAt: blob.uploadedAt
+      };
+    });
+
+  if (releases.length > 0) {
+    // Sort by version number (descending) to get the latest
+    releases.sort((a, b) => b.versionNumber - a.versionNumber);
+    const latestRelease = releases[0];
+
+    const formatSize = (bytes: number): string => {
+      const mb = bytes / (1024 * 1024);
+      return `~${Math.round(mb)} MB`;
+    };
+
+    currentRelease = {
+      version: latestRelease.version,
+      releaseDate: new Date(latestRelease.uploadedAt).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long'
+      }),
+      assets: {
+        macOS: {
+          arm64: {
+            label: "Apple Silicon (M1/M2/M3/M4)",
+            filename: latestRelease.filename,
+            url: latestRelease.url,
+            size: formatSize(latestRelease.size),
+            available: true
+          },
+          intel: {
+            label: "Intel",
+            filename: null,
+            url: null,
+            size: null,
+            available: false,
+            comingSoon: false
+          }
+        },
+        windows: {
+          x64: {
+            label: "Windows (64-bit)",
+            filename: null,
+            url: null,
+            size: null,
+            available: false,
+            comingSoon: true
+          }
+        }
+      }
+    };
   } else {
-    throw new Error(`API returned ${response.status}`);
+    throw new Error('No releases found in Blob Storage');
   }
 } catch (error) {
-  console.error('Failed to fetch latest release, using fallback:', error);
+  console.error('Failed to fetch latest release from Blob Storage:', error);
 
-  // Fallback to hardcoded version if API fails
+  // Fallback to hardcoded version if Blob Storage fails
   currentRelease = {
     version: "1.0.4",
     releaseDate: "January 2025",
