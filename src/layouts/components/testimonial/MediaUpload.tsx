@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useState, useCallback } from 'react';
 import type { MediaUpload as MediaUploadType } from '@/lib/testimonial/types';
 import { validateImageFile } from '@/lib/testimonial/validation';

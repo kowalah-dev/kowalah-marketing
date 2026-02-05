@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useState, useEffect } from 'react';
 import type { CustomerInfo, MediaUpload } from '@/lib/testimonial/types';
 import { validateCustomerInfo } from '@/lib/testimonial/validation';

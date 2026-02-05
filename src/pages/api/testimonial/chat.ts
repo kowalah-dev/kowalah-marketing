@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { createAnthropic } from '@ai-sdk/anthropic';
-import { streamText } from 'ai';
+import { streamText, convertToModelMessages, type UIMessage } from 'ai';
 
 // Opt out of static generation - this endpoint needs to run at request time
 export const prerender = false;
@@ -139,22 +139,19 @@ export const POST: APIRoute = async ({ request }) => {
     // Initialize Anthropic provider
     const anthropic = createAnthropic({ apiKey });
 
-    // Format messages for AI SDK
-    const formattedMessages = messages.map((m: { role: string; content: string }) => ({
-      role: m.role as 'user' | 'assistant',
-      content: m.content,
-    }));
+    // Type messages as UIMessage[] for useChat compatibility
+    const uiMessages = messages as UIMessage[];
 
     // Use streamText for streaming response
     const result = streamText({
       model: anthropic('claude-sonnet-4-20250514'),
       system: STREAMING_INTERVIEW_PROMPT,
-      messages: formattedMessages,
+      messages: await convertToModelMessages(uiMessages),
       maxOutputTokens: 1024,
     });
 
-    // Return the streaming response in AI SDK format
-    return result.toTextStreamResponse();
+    // Return UIMessage stream response for useChat hook
+    return result.toUIMessageStreamResponse();
   } catch (error) {
     console.error('Chat API error:', error);
 

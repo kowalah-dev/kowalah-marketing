@@ -374,10 +374,7 @@ export default function TestimonialCollector({ clerkUser }: TestimonialCollector
     }
   };
 
-  // Chat step gets full-page treatment, other steps use card
-  const isFullPageStep = state.step === 'chat';
-
-  // Progress indicator component (reused in both layouts)
+  // Progress indicator component
   const ProgressIndicator = () => (
     <div className="flex items-center justify-between text-sm">
       <span className="text-gray-600">
@@ -408,23 +405,11 @@ export default function TestimonialCollector({ clerkUser }: TestimonialCollector
     </div>
   );
 
-  // Full-page layout for chat step
-  if (isFullPageStep) {
-    return (
-      <div className="flex flex-col">
-        {/* Minimal header with progress */}
-        <div className="mb-4 px-1">
-          <ProgressIndicator />
-        </div>
-        {/* Chat fills available space */}
-        {renderStep()}
-      </div>
-    );
-  }
+  // Chat step uses a taller card that fills most of the viewport
+  const isChatStep = state.step === 'chat';
 
-  // Card layout for other steps
   return (
-    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+    <div className={`bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden ${isChatStep ? 'h-[calc(100vh-10rem)]' : ''}`}>
       {/* Progress indicator */}
       {state.step !== 'welcome' && state.step !== 'complete' && (
         <div className="bg-gray-50 px-6 py-4 border-b border-gray-100">
@@ -433,7 +418,9 @@ export default function TestimonialCollector({ clerkUser }: TestimonialCollector
       )}
 
       {/* Main content */}
-      <div className="p-6 md:p-8">{renderStep()}</div>
+      <div className={`${isChatStep ? 'p-4 md:p-6 h-[calc(100%-60px)]' : 'p-6 md:p-8'}`}>
+        {renderStep()}
+      </div>
     </div>
   );
 }
