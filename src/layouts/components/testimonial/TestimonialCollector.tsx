@@ -374,38 +374,61 @@ export default function TestimonialCollector({ clerkUser }: TestimonialCollector
     }
   };
 
+  // Chat step gets full-page treatment, other steps use card
+  const isFullPageStep = state.step === 'chat';
+
+  // Progress indicator component (reused in both layouts)
+  const ProgressIndicator = () => (
+    <div className="flex items-center justify-between text-sm">
+      <span className="text-gray-600">
+        {state.step === 'chat' && 'Step 1: Tell Your Story'}
+        {state.step === 'generating' && 'Creating Your Testimonial...'}
+        {state.step === 'review' && 'Step 2: Review & Edit'}
+        {state.step === 'media' && 'Step 3: Add Your Photo'}
+        {state.step === 'confirm' && 'Step 4: Confirm & Submit'}
+      </span>
+      <div className="flex gap-1.5">
+        {['chat', 'review', 'media', 'confirm'].map((s, i) => (
+          <div
+            key={s}
+            className={`w-2 h-2 rounded-full transition-colors ${
+              ['chat', 'generating'].includes(state.step) && i === 0
+                ? 'bg-primary'
+                : state.step === 'review' && i <= 1
+                  ? 'bg-primary'
+                  : state.step === 'media' && i <= 2
+                    ? 'bg-primary'
+                    : state.step === 'confirm' && i <= 3
+                      ? 'bg-primary'
+                      : 'bg-gray-200'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+
+  // Full-page layout for chat step
+  if (isFullPageStep) {
+    return (
+      <div className="flex flex-col">
+        {/* Minimal header with progress */}
+        <div className="mb-4 px-1">
+          <ProgressIndicator />
+        </div>
+        {/* Chat fills available space */}
+        {renderStep()}
+      </div>
+    );
+  }
+
+  // Card layout for other steps
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
       {/* Progress indicator */}
       {state.step !== 'welcome' && state.step !== 'complete' && (
         <div className="bg-gray-50 px-6 py-4 border-b border-gray-100">
-          <div className="flex items-center justify-between text-sm">
-            <span className="text-gray-600">
-              {state.step === 'chat' && 'Step 1: Tell Your Story'}
-              {state.step === 'generating' && 'Creating Your Testimonial...'}
-              {state.step === 'review' && 'Step 2: Review & Edit'}
-              {state.step === 'media' && 'Step 3: Add Your Photo'}
-              {state.step === 'confirm' && 'Step 4: Confirm & Submit'}
-            </span>
-            <div className="flex gap-1.5">
-              {['chat', 'review', 'media', 'confirm'].map((s, i) => (
-                <div
-                  key={s}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    ['chat', 'generating'].includes(state.step) && i === 0
-                      ? 'bg-primary'
-                      : state.step === 'review' && i <= 1
-                        ? 'bg-primary'
-                        : state.step === 'media' && i <= 2
-                          ? 'bg-primary'
-                          : state.step === 'confirm' && i <= 3
-                            ? 'bg-primary'
-                            : 'bg-gray-200'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
+          <ProgressIndicator />
         </div>
       )}
 

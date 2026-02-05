@@ -11,7 +11,15 @@ Our Kowalah repositories consist of these - all within the kowalah-dev Github or
 - kowalah-marketing (this repo) Our Marketing website hosted on the www. subdomain
 - kowalah - Our primary application, where our users interact with the product, hosted at the app. subdomain.
 - kowalah-admin - Our internal admin interface where our employees manage and create users and update the product. Hosted at the admin. subdomain.
-- docs - Our documentation site, built with Mintlify, hosted at docs. subdomain.
+- kowalah-docs - Our documentation site, built with Mintlify, hosted at docs. subdomain.
+
+## Kowalah Strategy
+
+We have a strategy directory at
+
+~/Documents/KowalahReserved/strategy
+
+Use this to find our latest corporate-strategy and go-to-market documentation
 
 ## Important Documentation
 
@@ -28,8 +36,7 @@ Our Kowalah repositories consist of these - all within the kowalah-dev Github or
 
 ### Content & Branding
 - @docs/product-overview.md provides detailed overview of the Kowalah application, value proposition and target market
-- @docs/context/messaging-framework.md explains how we communicate aobout Kowalah
-- @docs/context/positioning-canvas.md explains how we position Kowalah against competing solutions
+- ~/Documents/KowalahReserved/strategy/go-to-market explains how we communicate aobout Kowalah
 - @docs/context/visual-style-guide.md provides our image and visual appearance (human-centered transformation focus)
 - @docs/sanity-integration.md explains how our Astro project pulls content from our Sanity CMS
 
@@ -157,20 +164,18 @@ const iconMap = {
 
 ## Kowalah Content Migration Status
 
-### Completed Phases
-- ✅ **Phase 1:** Foundation setup with Kowalah branding and infrastructure
-- ✅ **Task 2.1:** Homepage content updated with Digital CAIO positioning
-
-### Current Content Strategy
-- **Target Audience:** CEOs at mid-sized enterprises (1,000-10,000 employees)  
-- **Value Proposition:** Digital Chief AI Officer platform vs. hiring human CAIO
-- **Core Capabilities:** 7 AI leadership domains (Strategy, C-Suite, Governance, Talent, Implementation, Development, Change)
-- **Pricing Model:** 6 tiers from Free (£0) to Enterprise (£50,000+/month)
 
 ### Brand Guidelines
 - **Executive-level messaging:** Professional, strategic, authoritative tone
 - **Competitive positioning:** vs. human CAIO hiring, consultants, DIY approaches
 - **Key differentiators:** Immediate availability, 24/7 access, collective intelligence, zero turnover risk
+
+### Writing Style
+- **Punctuation:** Use commas instead of em-dashes (—) for parenthetical phrases and clause breaks
+- **Clarity:** Keep sentences direct and scannable for busy executives
+- **Stage-agnostic:** Don't assume the reader has already tried training, rolled out Copilot, or failed at AI adoption
+- **Positive framing:** Position what Kowalah does, not what competitors do wrong
+- **CTAs:** Use low-commitment language ("Book a Conversation") rather than product-specific asks ("Book AI Impact Sprint")
 
 ## Performance & Production
 - **Image optimization:** Sharp for image processing and optimization
