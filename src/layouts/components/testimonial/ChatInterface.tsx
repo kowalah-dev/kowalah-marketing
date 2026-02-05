@@ -176,9 +176,9 @@ export default function ChatInterface({
   const busyState = isLoading || isStreaming;
 
   return (
-    <div className="flex flex-col h-[500px]">
-      {/* Messages area */}
-      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto space-y-4 mb-4 pr-2">
+    <div className="flex flex-col min-h-[calc(100vh-8rem)]">
+      {/* Messages area - scrolls, with padding at bottom for fixed input */}
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto space-y-4 pb-36 pr-2 scroll-smooth">
         {messages.map((message, index) => (
           <MessageBubble
             key={message.id}
@@ -200,50 +200,55 @@ export default function ChatInterface({
         )}
       </div>
 
-      {/* Manual generate option */}
-      {canGenerateManually && !busyState && (
-        <div className="mb-4 text-center">
-          <button
-            onClick={handleManualGenerate}
-            className="text-sm text-primary hover:text-primary/80 underline"
-          >
-            Ready to finish? Click here to generate your testimonial
-          </button>
-        </div>
-      )}
+      {/* Fixed input area at bottom of viewport */}
+      <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-t from-white via-white to-white/95 pt-4 pb-6 px-4 z-40">
+        <div className="max-w-3xl mx-auto">
+          {/* Manual generate option */}
+          {canGenerateManually && !busyState && (
+            <div className="mb-3 text-center">
+              <button
+                onClick={handleManualGenerate}
+                className="text-sm text-primary hover:text-primary/80 underline"
+              >
+                Ready to finish? Click here to generate your testimonial
+              </button>
+            </div>
+          )}
 
-      {/* Input area */}
-      <form onSubmit={handleSubmit} className="relative">
-        <div className="flex items-end gap-2 bg-gray-50 rounded-xl p-2 border border-gray-200 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all">
-          <textarea
-            ref={inputRef}
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="Type your response..."
-            disabled={busyState}
-            rows={1}
-            className="flex-1 bg-transparent border-0 resize-none focus:outline-none focus:ring-0 text-gray-900 placeholder-gray-400 py-2 px-2 max-h-32"
-            style={{ minHeight: '44px' }}
-          />
-          <button
-            type="submit"
-            disabled={!inputValue.trim() || busyState}
-            className={`flex-shrink-0 p-2.5 rounded-lg transition-all ${
-              inputValue.trim() && !busyState
-                ? 'bg-gradient-to-r from-primary to-secondary text-white hover:shadow-md'
-                : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-            }`}
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-            </svg>
-          </button>
+          {/* Input area */}
+          <form onSubmit={handleSubmit} className="relative">
+            <div className="flex items-end gap-2 bg-white rounded-xl p-2 border border-gray-200 shadow-lg focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+              <textarea
+                ref={inputRef}
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Type your response..."
+                disabled={busyState}
+                rows={1}
+                className="flex-1 bg-transparent border-0 resize-none focus:outline-none focus:ring-0 text-gray-900 placeholder-gray-400 py-2 px-2 max-h-32"
+                style={{ minHeight: '44px' }}
+              />
+              <button
+                type="submit"
+                disabled={!inputValue.trim() || busyState}
+                className={`flex-shrink-0 p-2.5 rounded-lg transition-all ${
+                  inputValue.trim() && !busyState
+                    ? 'bg-gradient-to-r from-primary to-secondary text-white hover:shadow-md'
+                    : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                }`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+              </button>
+            </div>
+            <p className="mt-2 text-xs text-gray-500 text-center">
+              Press Enter to send, Shift+Enter for new line
+            </p>
+          </form>
         </div>
-        <p className="mt-2 text-xs text-gray-500 text-center">
-          Press Enter to send, Shift+Enter for new line
-        </p>
-      </form>
+      </div>
     </div>
   );
 }

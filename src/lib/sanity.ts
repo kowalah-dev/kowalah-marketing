@@ -217,5 +217,30 @@ export const queries = {
       "image": featuredImage.asset,
       "categories": categories[]->{ title, slug, _id }
     }
+  }`,
+
+  // Customer testimonials
+  testimonials: `*[_type == "customerTestimonial" && status == "published" && !(_id in path("drafts.**"))] | order(submittedAt desc) {
+    ${commonFields}
+    customerName,
+    customerTitle,
+    customerCompany,
+    industry,
+    soundBites,
+    narrative,
+    avatarUrl,
+    logoUrl,
+    keyThemes,
+    submittedAt
+  }`,
+
+  // Featured testimonials (for homepage, etc.)
+  featuredTestimonials: `*[_type == "customerTestimonial" && status == "published" && !(_id in path("drafts.**"))] | order(submittedAt desc)[0...3] {
+    ${commonFields}
+    customerName,
+    customerTitle,
+    customerCompany,
+    soundBites[0],
+    avatarUrl
   }`
 };
