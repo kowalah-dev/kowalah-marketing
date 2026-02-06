@@ -23,6 +23,9 @@ import {
   PromptInputSubmit,
 } from '@/components/ai-elements/prompt-input';
 
+// Speech recognition hook
+import { useSpeechRecognition } from '@/hooks/useSpeechRecognition';
+
 interface ChatInterfaceProps {
   sessionId: string;
   initialMessages?: Array<{ id: string; role: 'user' | 'assistant'; content: string }>;
@@ -44,6 +47,31 @@ export default function ChatInterface({
   const [input, setInput] = useState('');
   const [initialized, setInitialized] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  // Track what was in the input before speech started (to append speech to)
+  const inputBeforeSpeechRef = useRef('');
+
+  // Speech recognition
+  const {
+    isSupported: speechSupported,
+    isListening,
+    transcript,
+    startListening: startListeningBase,
+    stopListening: stopListeningBase,
+    error: speechError,
+    clearTranscript,
+  } = useSpeechRecognition();
+
+  // Wrap startListening to capture current input
+  const startListening = useCallback(() => {
+    inputBeforeSpeechRef.current = input.trim();
+    startListeningBase();
+  }, [input, startListeningBase]);
+
+  // Wrap stopListening to commit the final transcript
+  const stopListening = useCallback(() => {
+    stopListeningBase();
+    // Transcript will be committed via the effect below when isListening becomes false
+  }, [stopListeningBase]);
 
   // Use the useChat hook from AI SDK
   const { messages, sendMessage, status, stop, error, setMessages } = useChat({
@@ -102,6 +130,37 @@ export default function ChatInterface({
       textareaRef.current.focus();
     }
   }, [status]);
+
+  // Show real-time speech transcript preview in input field
+  useEffect(() => {
+    if (isListening && transcript) {
+      // While listening, show: original input + space + current transcript
+      const base = inputBeforeSpeechRef.current;
+      const separator = base ? ' ' : '';
+      setInput(base + separator + transcript);
+    }
+  }, [isListening, transcript]);
+
+  // When listening stops, commit the final transcript and clear
+  useEffect(() => {
+    if (!isListening && transcript) {
+      // Listening just stopped - commit the final transcript
+      const base = inputBeforeSpeechRef.current;
+      const separator = base ? ' ' : '';
+      setInput(base + separator + transcript);
+      clearTranscript();
+      inputBeforeSpeechRef.current = ''; // Reset for next time
+    }
+  }, [isListening, transcript, clearTranscript]);
+
+  // Handle microphone button click
+  const handleMicrophoneClick = useCallback(() => {
+    if (isListening) {
+      stopListening();
+    } else {
+      startListening();
+    }
+  }, [isListening, startListening, stopListening]);
 
   // Helper to extract text content from UIMessage
   const getTextContent = (message: UIMessage): string => {
@@ -259,7 +318,35 @@ export default function ChatInterface({
             disabled={busyState}
             className="bg-transparent border-0 resize-none focus:outline-none focus:ring-0 text-gray-900 placeholder-gray-400 py-3 px-3 min-h-[44px] max-h-32"
           />
-          <PromptInputFooter className="px-2 pb-2 justify-end">
+          <PromptInputFooter className="px-2 pb-2 justify-end gap-2">
+            {/* Microphone button - only shown if browser supports speech recognition */}
+            {speechSupported && (
+              <button
+                type="button"
+                onClick={handleMicrophoneClick}
+                disabled={busyState}
+                title={isListening ? 'Stop listening' : 'Start voice input'}
+                className={`p-2.5 rounded-lg transition-all ${
+                  isListening
+                    ? 'bg-gradient-to-r from-primary to-secondary text-white animate-pulse'
+                    : busyState
+                      ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-800'
+                }`}
+              >
+                {isListening ? (
+                  // Microphone with sound waves (listening state)
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                  </svg>
+                ) : (
+                  // Simple microphone icon (idle state)
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                  </svg>
+                )}
+              </button>
+            )}
             <PromptInputSubmit
               status={status}
               onStop={stop}
@@ -274,9 +361,20 @@ export default function ChatInterface({
             />
           </PromptInputFooter>
         </PromptInput>
-        <p className="text-xs text-gray-500 mt-2 text-center">
-          Press Enter to send, Shift+Enter for new line
-        </p>
+        {/* Status messages */}
+        {isListening ? (
+          <p className="text-xs text-primary mt-2 text-center animate-pulse">
+            🎤 Listening... Click the microphone to stop
+          </p>
+        ) : speechError ? (
+          <p className="text-xs text-red-500 mt-2 text-center">
+            {speechError}
+          </p>
+        ) : (
+          <p className="text-xs text-gray-500 mt-2 text-center">
+            Press Enter to send, Shift+Enter for new line{speechSupported && ' • Click 🎤 for voice input'}
+          </p>
+        )}
       </div>
     </div>
   );
