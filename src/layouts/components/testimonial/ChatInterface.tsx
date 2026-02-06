@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
 import type { UIMessage } from 'ai';
@@ -43,6 +43,7 @@ export default function ChatInterface({
 }: ChatInterfaceProps) {
   const [input, setInput] = useState('');
   const [initialized, setInitialized] = useState(false);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   // Use the useChat hook from AI SDK
   const { messages, sendMessage, status, stop, error, setMessages } = useChat({
@@ -94,6 +95,13 @@ export default function ChatInterface({
       onMessagesChange(convertedMessages);
     }
   }, [messages, onMessagesChange]);
+
+  // Auto-focus textarea when AI response completes (for voice input like Wispr Flow)
+  useEffect(() => {
+    if (status === 'ready' && textareaRef.current) {
+      textareaRef.current.focus();
+    }
+  }, [status]);
 
   // Helper to extract text content from UIMessage
   const getTextContent = (message: UIMessage): string => {
@@ -241,19 +249,17 @@ export default function ChatInterface({
       <div className="flex-shrink-0 mt-auto">
         <PromptInput
           onSubmit={handleSubmit}
-          className="bg-gray-50 rounded-xl border border-gray-200 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all"
+          className="testimonial-chat-input bg-gray-50 rounded-xl border border-gray-200 transition-all focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20"
         >
           <PromptInputTextarea
+            ref={textareaRef}
             value={input}
             onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setInput(e.target.value)}
             placeholder="Type your response..."
             disabled={busyState}
             className="bg-transparent border-0 resize-none focus:outline-none focus:ring-0 text-gray-900 placeholder-gray-400 py-3 px-3 min-h-[44px] max-h-32"
           />
-          <PromptInputFooter className="px-2 pb-2">
-            <p className="text-xs text-gray-500">
-              Press Enter to send, Shift+Enter for new line
-            </p>
+          <PromptInputFooter className="px-2 pb-2 justify-end">
             <PromptInputSubmit
               status={status}
               onStop={stop}
@@ -268,6 +274,9 @@ export default function ChatInterface({
             />
           </PromptInputFooter>
         </PromptInput>
+        <p className="text-xs text-gray-500 mt-2 text-center">
+          Press Enter to send, Shift+Enter for new line
+        </p>
       </div>
     </div>
   );

@@ -158,3 +158,15 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Testimonial chat input - remove InputGroup's default focus styles */
+.testimonial-chat-input [data-slot="input-group"] {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.testimonial-chat-input [data-slot="input-group"]:has([data-slot="input-group-control"]:focus-visible) {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
