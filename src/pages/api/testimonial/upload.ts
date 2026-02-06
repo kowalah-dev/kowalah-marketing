@@ -24,7 +24,7 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    if (!type || !['avatar', 'logo'].includes(type)) {
+    if (!type || !['avatar', 'logo', 'additional'].includes(type)) {
       return new Response(
         JSON.stringify({ error: 'Invalid upload type' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }

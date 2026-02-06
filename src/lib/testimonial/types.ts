@@ -51,7 +51,7 @@ export interface CustomerInfo {
 }
 
 export interface MediaUpload {
-  type: 'avatar' | 'logo';
+  type: 'avatar' | 'logo' | 'additional';
   url: string;
   filename: string;
 }
@@ -63,6 +63,7 @@ export interface TestimonialSubmission {
   metadata: TestimonialMetadata;
   avatar?: MediaUpload;
   logo?: MediaUpload;
+  additionalImages?: MediaUpload[];
   rawConversation: Message[];
   sessionId: string;
 }
@@ -86,6 +87,7 @@ export interface TestimonialState {
   editedNarrative: string;
   uploadedAvatar: MediaUpload | null;
   uploadedLogo: MediaUpload | null;
+  additionalImages: MediaUpload[];
   customerInfo: CustomerInfo;
   sessionId: string;
   isLoading: boolean;
@@ -106,7 +108,7 @@ export interface GenerateRequest {
 
 export interface UploadRequest {
   file: File;
-  type: 'avatar' | 'logo';
+  type: 'avatar' | 'logo' | 'additional';
   sessionId: string;
 }
 

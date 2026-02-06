@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useState, useCallback } from 'react';
 import type { MediaUpload as MediaUploadType } from '@/lib/testimonial/types';
 import { validateImageFile } from '@/lib/testimonial/validation';
@@ -5,18 +6,22 @@ import { validateImageFile } from '@/lib/testimonial/validation';
 interface MediaUploadProps {
   avatar: MediaUploadType | null;
   logo: MediaUploadType | null;
+  additionalImages?: MediaUploadType[];
   sessionId: string;
   onUpload: (media: MediaUploadType) => void;
   onContinue: () => void;
   onBack: () => void;
-  onRemove?: (type: 'avatar' | 'logo') => void;
+  onRemove?: (type: 'avatar' | 'logo' | 'additional', index?: number) => void;
 }
 
-type UploadType = 'avatar' | 'logo';
+type UploadType = 'avatar' | 'logo' | 'additional';
+
+const MAX_ADDITIONAL_IMAGES = 5;
 
 export default function MediaUpload({
   avatar,
   logo,
+  additionalImages = [],
   sessionId,
   onUpload,
   onContinue,
@@ -73,25 +78,50 @@ export default function MediaUpload({
   const handleDrop = useCallback(
     (e: React.DragEvent, type: UploadType) => {
       e.preventDefault();
-      const file = e.dataTransfer.files[0];
-      if (file) {
-        handleFileSelect(file, type);
+
+      if (type === 'additional') {
+        // Handle multiple files for additional images
+        const files = Array.from(e.dataTransfer.files);
+        const remainingSlots = MAX_ADDITIONAL_IMAGES - additionalImages.length;
+        const filesToUpload = files.slice(0, remainingSlots);
+
+        filesToUpload.forEach((file) => {
+          handleFileSelect(file, 'additional');
+        });
+      } else {
+        const file = e.dataTransfer.files[0];
+        if (file) {
+          handleFileSelect(file, type);
+        }
       }
     },
-    [handleFileSelect]
+    [handleFileSelect, additionalImages.length]
   );
 
   const handleInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>, type: UploadType) => {
-      const file = e.target.files?.[0];
-      if (file) {
-        handleFileSelect(file, type);
+      if (type === 'additional') {
+        // Handle multiple files for additional images
+        const files = Array.from(e.target.files || []);
+        const remainingSlots = MAX_ADDITIONAL_IMAGES - additionalImages.length;
+        const filesToUpload = files.slice(0, remainingSlots);
+
+        filesToUpload.forEach((file) => {
+          handleFileSelect(file, 'additional');
+        });
+      } else {
+        const file = e.target.files?.[0];
+        if (file) {
+          handleFileSelect(file, type);
+        }
       }
+      // Reset input value so same file can be selected again
+      e.target.value = '';
     },
-    [handleFileSelect]
+    [handleFileSelect, additionalImages.length]
   );
 
-  const renderUploadZone = (type: UploadType, current: MediaUploadType | null, label: string, icon: React.ReactNode) => {
+  const renderUploadZone = (type: 'avatar' | 'logo', current: MediaUploadType | null, label: string, icon: React.ReactNode) => {
     const isUploading = uploading === type;
     const isFromClerk = current?.filename?.startsWith('clerk-');
 
@@ -185,6 +215,102 @@ export default function MediaUpload({
     );
   };
 
+  const renderAdditionalImagesSection = () => {
+    const isUploading = uploading === 'additional';
+    const canAddMore = additionalImages.length < MAX_ADDITIONAL_IMAGES;
+
+    return (
+      <div className="mt-8 pt-8 border-t border-gray-200">
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Any Other Images? <span className="font-normal text-gray-500">(Optional)</span>
+          </label>
+          <p className="text-sm text-gray-500">
+            Share workshop photos, screenshots, team moments, or event photos that tell your story.
+          </p>
+        </div>
+
+        {/* Grid of uploaded images */}
+        {additionalImages.length > 0 && (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-4">
+            {additionalImages.map((img, index) => (
+              <div key={img.filename || index} className="relative group aspect-square">
+                <img
+                  src={img.url}
+                  alt={`Additional image ${index + 1}`}
+                  className="w-full h-full object-cover rounded-lg border border-gray-200"
+                />
+                {onRemove && (
+                  <button
+                    onClick={() => onRemove('additional', index)}
+                    className="absolute top-1 right-1 p-1 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600"
+                    title="Remove image"
+                  >
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Upload zone for additional images */}
+        {canAddMore && (
+          <div
+            className={`relative border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition-colors ${
+              isUploading
+                ? 'border-primary bg-primary/5'
+                : 'border-gray-300 hover:border-primary hover:bg-primary/5'
+            }`}
+            onDrop={(e) => handleDrop(e, 'additional')}
+            onDragOver={(e) => e.preventDefault()}
+          >
+            <input
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+              multiple
+              onChange={(e) => handleInputChange(e, 'additional')}
+              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+              disabled={isUploading}
+            />
+            {isUploading ? (
+              <div className="py-4">
+                <div className="w-8 h-8 border-2 border-primary/20 border-t-primary rounded-full animate-spin mx-auto mb-2" />
+                <p className="text-sm text-gray-500">Uploading...</p>
+              </div>
+            ) : (
+              <>
+                <div className="w-12 h-12 mx-auto mb-3 bg-gray-100 rounded-full flex items-center justify-center text-gray-400">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <p className="text-sm text-gray-600 mb-1">
+                  {additionalImages.length === 0
+                    ? 'Drag & drop or click to upload images'
+                    : 'Add more images'}
+                </p>
+                <p className="text-xs text-gray-400">
+                  Up to {MAX_ADDITIONAL_IMAGES - additionalImages.length} more image{MAX_ADDITIONAL_IMAGES - additionalImages.length !== 1 ? 's' : ''} (JPG, PNG, WebP, max 5MB each)
+                </p>
+              </>
+            )}
+          </div>
+        )}
+
+        {!canAddMore && (
+          <p className="text-sm text-gray-500 text-center py-2">
+            Maximum of {MAX_ADDITIONAL_IMAGES} images reached
+          </p>
+        )}
+      </div>
+    );
+  };
+
+  const hasAnyMedia = avatar || logo || additionalImages.length > 0;
+
   return (
     <div className="space-y-8">
       {/* Header */}
@@ -204,7 +330,7 @@ export default function MediaUpload({
         </div>
       )}
 
-      {/* Upload zones */}
+      {/* Upload zones for avatar and logo */}
       <div className="grid md:grid-cols-2 gap-6">
         {renderUploadZone(
           'avatar',
@@ -224,6 +350,9 @@ export default function MediaUpload({
         )}
       </div>
 
+      {/* Additional Images Section */}
+      {renderAdditionalImagesSection()}
+
       {/* Actions */}
       <div className="flex items-center justify-between pt-4 border-t border-gray-200">
         <button
@@ -239,7 +368,7 @@ export default function MediaUpload({
           onClick={onContinue}
           className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-medium rounded-lg hover:shadow-lg transition-all"
         >
-          {avatar || logo ? 'Continue' : 'Skip & Continue'}
+          {hasAnyMedia ? 'Continue' : 'Skip & Continue'}
           <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>

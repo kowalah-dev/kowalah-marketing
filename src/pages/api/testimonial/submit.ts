@@ -95,6 +95,9 @@ export const POST: APIRoute = async ({ request }) => {
     if (submission.logo?.url) {
       (testimonialDoc as any).logoUrl = submission.logo.url;
     }
+    if (submission.additionalImages && submission.additionalImages.length > 0) {
+      (testimonialDoc as any).additionalImageUrls = submission.additionalImages.map(img => img.url);
+    }
 
     // Create the document in Sanity
     const result = await sanityClient.create(testimonialDoc);

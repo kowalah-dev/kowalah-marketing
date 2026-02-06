@@ -101,7 +101,8 @@ Generate exactly this JSON structure:
 ## NARRATIVE GUIDELINES
 
 Write a 2-3 paragraph testimonial that:
-- Opens with their role/context and initial challenge
+- Opens with punchy statement eg "We'd tried AI training and none of it worked."
+- Include their role/context and initial challenge
 - Describes their experience with Kowalah specifically
 - Closes with results and recommendation
 - Maintains their authentic voice and energy

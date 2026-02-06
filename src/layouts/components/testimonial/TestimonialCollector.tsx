@@ -42,6 +42,7 @@ export default function TestimonialCollector({ clerkUser }: TestimonialCollector
     uploadedLogo: clerkUser?.companyLogo
       ? { type: 'logo', url: clerkUser.companyLogo, filename: 'clerk-org-logo' }
       : null,
+    additionalImages: [],
     customerInfo: {
       name: clerkUser?.name || '',
       email: clerkUser?.email || '',
@@ -168,22 +169,37 @@ export default function TestimonialCollector({ clerkUser }: TestimonialCollector
 
   // Handle media upload
   const handleMediaUpload = useCallback((media: MediaUpload) => {
-    setState((prev) => ({
-      ...prev,
-      ...(media.type === 'avatar'
-        ? { uploadedAvatar: media }
-        : { uploadedLogo: media }),
-    }));
+    setState((prev) => {
+      if (media.type === 'avatar') {
+        return { ...prev, uploadedAvatar: media };
+      } else if (media.type === 'logo') {
+        return { ...prev, uploadedLogo: media };
+      } else if (media.type === 'additional') {
+        // Add to additional images array (max 5)
+        const currentImages = prev.additionalImages || [];
+        if (currentImages.length >= 5) return prev;
+        return { ...prev, additionalImages: [...currentImages, media] };
+      }
+      return prev;
+    });
   }, []);
 
   // Handle media removal
-  const handleMediaRemove = useCallback((type: 'avatar' | 'logo') => {
-    setState((prev) => ({
-      ...prev,
-      ...(type === 'avatar'
-        ? { uploadedAvatar: null }
-        : { uploadedLogo: null }),
-    }));
+  const handleMediaRemove = useCallback((type: 'avatar' | 'logo' | 'additional', index?: number) => {
+    setState((prev) => {
+      if (type === 'avatar') {
+        return { ...prev, uploadedAvatar: null };
+      } else if (type === 'logo') {
+        return { ...prev, uploadedLogo: null };
+      } else if (type === 'additional' && typeof index === 'number') {
+        const currentImages = prev.additionalImages || [];
+        return {
+          ...prev,
+          additionalImages: currentImages.filter((_, i) => i !== index),
+        };
+      }
+      return prev;
+    });
   }, []);
 
   // Update customer info
@@ -211,6 +227,7 @@ export default function TestimonialCollector({ clerkUser }: TestimonialCollector
         },
         avatar: state.uploadedAvatar || undefined,
         logo: state.uploadedLogo || undefined,
+        additionalImages: state.additionalImages.length > 0 ? state.additionalImages : undefined,
         rawConversation: state.conversationHistory,
         sessionId: state.sessionId,
       };
@@ -313,6 +330,7 @@ export default function TestimonialCollector({ clerkUser }: TestimonialCollector
           <MediaUploadComponent
             avatar={state.uploadedAvatar}
             logo={state.uploadedLogo}
+            additionalImages={state.additionalImages}
             sessionId={state.sessionId}
             onUpload={handleMediaUpload}
             onRemove={handleMediaRemove}
@@ -329,6 +347,7 @@ export default function TestimonialCollector({ clerkUser }: TestimonialCollector
             customerInfo={state.customerInfo}
             avatar={state.uploadedAvatar}
             logo={state.uploadedLogo}
+            additionalImages={state.additionalImages}
             isLoading={state.isLoading}
             error={state.error}
             onUpdateCustomerInfo={handleUpdateCustomerInfo}
@@ -374,10 +393,7 @@ export default function TestimonialCollector({ clerkUser }: TestimonialCollector
     }
   };
 
-  // Chat step gets full-page treatment, other steps use card
-  const isFullPageStep = state.step === 'chat';
-
-  // Progress indicator component (reused in both layouts)
+  // Progress indicator component
   const ProgressIndicator = () => (
     <div className="flex items-center justify-between text-sm">
       <span className="text-gray-600">
@@ -408,23 +424,11 @@ export default function TestimonialCollector({ clerkUser }: TestimonialCollector
     </div>
   );
 
-  // Full-page layout for chat step
-  if (isFullPageStep) {
-    return (
-      <div className="flex flex-col">
-        {/* Minimal header with progress */}
-        <div className="mb-4 px-1">
-          <ProgressIndicator />
-        </div>
-        {/* Chat fills available space */}
-        {renderStep()}
-      </div>
-    );
-  }
+  // Chat step uses a taller card that fills most of the viewport
+  const isChatStep = state.step === 'chat';
 
-  // Card layout for other steps
   return (
-    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+    <div className={`bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden ${isChatStep ? 'h-[calc(100vh-10rem)]' : ''}`}>
       {/* Progress indicator */}
       {state.step !== 'welcome' && state.step !== 'complete' && (
         <div className="bg-gray-50 px-6 py-4 border-b border-gray-100">
@@ -433,7 +437,9 @@ export default function TestimonialCollector({ clerkUser }: TestimonialCollector
       )}
 
       {/* Main content */}
-      <div className="p-6 md:p-8">{renderStep()}</div>
+      <div className={`${isChatStep ? 'p-4 md:p-6 h-[calc(100%-60px)]' : 'p-6 md:p-8'}`}>
+        {renderStep()}
+      </div>
     </div>
   );
 }
