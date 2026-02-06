@@ -76,6 +76,8 @@ export function useSpeechRecognition(): UseSpeechRecognitionReturn {
   const recognitionRef = useRef<SpeechRecognition | null>(null);
   // Track accumulated final transcript separately from interim
   const finalTranscriptRef = useRef('');
+  // Flag to ignore results after stop() is called (prevents race condition)
+  const isStoppingRef = useRef(false);
 
   // Check for browser support on mount
   useEffect(() => {
@@ -97,6 +99,12 @@ export function useSpeechRecognition(): UseSpeechRecognitionReturn {
       };
 
       recognition.onresult = (event: SpeechRecognitionEvent) => {
+        // Ignore results if we're in the process of stopping
+        // (prevents race condition where final result arrives after stop() is called)
+        if (isStoppingRef.current) {
+          return;
+        }
+
         let currentInterim = '';
 
         // Process all results from the current event
@@ -142,6 +150,7 @@ export function useSpeechRecognition(): UseSpeechRecognitionReturn {
 
       recognition.onend = () => {
         setIsListening(false);
+        isStoppingRef.current = false; // Reset for next session
       };
 
       recognitionRef.current = recognition;
@@ -157,8 +166,9 @@ export function useSpeechRecognition(): UseSpeechRecognitionReturn {
 
   const startListening = useCallback(() => {
     if (recognitionRef.current && !isListening) {
-      // Reset both the accumulated finals and displayed transcript
+      // Reset all state for a fresh session
       finalTranscriptRef.current = '';
+      isStoppingRef.current = false;
       setTranscript('');
       setError(null);
       try {
@@ -172,12 +182,15 @@ export function useSpeechRecognition(): UseSpeechRecognitionReturn {
 
   const stopListening = useCallback(() => {
     if (recognitionRef.current && isListening) {
+      // Set flag to ignore any results that arrive after stop() is called
+      isStoppingRef.current = true;
       recognitionRef.current.stop();
     }
   }, [isListening]);
 
   const clearTranscript = useCallback(() => {
     setTranscript('');
+    finalTranscriptRef.current = ''; // Also clear accumulated finals
   }, []);
 
   return {

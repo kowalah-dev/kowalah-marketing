@@ -49,6 +49,8 @@ export default function ChatInterface({
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   // Track what was in the input before speech started (to append speech to)
   const inputBeforeSpeechRef = useRef('');
+  // Track when we're in a submit flow to skip the "commit on stop" effect
+  const isSubmittingRef = useRef(false);
 
   // Speech recognition
   const {
@@ -133,6 +135,15 @@ export default function ChatInterface({
     }
   }, [status]);
 
+  // Reset the base ref when input is cleared externally (e.g., after submit)
+  useEffect(() => {
+    if (input === '' && isListening) {
+      // Input was cleared while listening - reset the base so new speech starts fresh
+      inputBeforeSpeechRef.current = '';
+      clearTranscript();
+    }
+  }, [input, isListening, clearTranscript]);
+
   // Show real-time speech transcript preview in input field
   useEffect(() => {
     if (isListening && transcript) {
@@ -140,13 +151,16 @@ export default function ChatInterface({
       const base = inputBeforeSpeechRef.current;
       const separator = base ? ' ' : '';
       setInput(base + separator + transcript);
+      // Keep textarea focused so user can press Enter to submit
+      textareaRef.current?.focus();
     }
   }, [isListening, transcript]);
 
-  // When listening stops, commit the final transcript and clear
+  // When listening stops (via mic button click), commit the final transcript
+  // Skip this if we're submitting - handleSubmit manages the cleanup in that case
   useEffect(() => {
-    if (!isListening && transcript) {
-      // Listening just stopped - commit the final transcript
+    if (!isListening && transcript && !isSubmittingRef.current) {
+      // Listening just stopped via mic button - commit the final transcript
       const base = inputBeforeSpeechRef.current;
       const separator = base ? ' ' : '';
       setInput(base + separator + transcript);
@@ -181,14 +195,32 @@ export default function ChatInterface({
   const handleSubmit = useCallback(
     (messageData: { text: string }) => {
       if (messageData.text.trim() && status === 'ready') {
-        sendMessage({ text: messageData.text });
-        setInput('');
-        // Clear speech-related state so new speech doesn't append to submitted text
+        // Mark that we're submitting to prevent the "commit on stop" effect
+        // from re-populating the input after we clear it
+        isSubmittingRef.current = true;
+
+        // Clear speech-related state FIRST, before stopping listening
+        // This ensures the "commit on stop" effect sees empty transcript
         inputBeforeSpeechRef.current = '';
         clearTranscript();
+        setInput('');
+
+        // Now stop speech recognition (push-to-talk model)
+        // User must click mic again to start a new recording session
+        if (isListening) {
+          stopListening();
+        }
+
+        // Send the message
+        sendMessage({ text: messageData.text });
+
+        // Reset the submitting flag after React processes the state updates
+        requestAnimationFrame(() => {
+          isSubmittingRef.current = false;
+        });
       }
     },
-    [sendMessage, status, clearTranscript]
+    [sendMessage, status, clearTranscript, isListening, stopListening]
   );
 
   // Check if conversation seems complete (enough exchanges for manual trigger)
