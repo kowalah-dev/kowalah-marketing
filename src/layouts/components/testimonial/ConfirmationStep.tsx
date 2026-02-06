@@ -9,6 +9,7 @@ interface ConfirmationStepProps {
   customerInfo: CustomerInfo;
   avatar: MediaUpload | null;
   logo: MediaUpload | null;
+  additionalImages?: MediaUpload[];
   isLoading: boolean;
   error: string | null;
   onUpdateCustomerInfo: (info: Partial<CustomerInfo>) => void;
@@ -22,6 +23,7 @@ export default function ConfirmationStep({
   customerInfo,
   avatar,
   logo,
+  additionalImages = [],
   isLoading,
   error,
   onUpdateCustomerInfo,
@@ -157,21 +159,35 @@ export default function ConfirmationStep({
           </h3>
 
           {/* Media preview */}
-          {(avatar || logo) && (
-            <div className="flex items-center gap-4 mb-4">
-              {avatar && (
-                <img
-                  src={avatar.url}
-                  alt="Your photo"
-                  className="w-16 h-16 rounded-full object-cover border-2 border-white shadow"
-                />
-              )}
-              {logo && (
-                <img
-                  src={logo.url}
-                  alt="Company logo"
-                  className="h-12 object-contain"
-                />
+          {(avatar || logo || additionalImages.length > 0) && (
+            <div className="mb-4">
+              <div className="flex items-center gap-4 mb-3">
+                {avatar && (
+                  <img
+                    src={avatar.url}
+                    alt="Your photo"
+                    className="w-16 h-16 rounded-full object-cover border-2 border-white shadow"
+                  />
+                )}
+                {logo && (
+                  <img
+                    src={logo.url}
+                    alt="Company logo"
+                    className="h-12 object-contain"
+                  />
+                )}
+              </div>
+              {additionalImages.length > 0 && (
+                <div className="flex gap-2 flex-wrap">
+                  {additionalImages.map((img, index) => (
+                    <img
+                      key={img.filename || index}
+                      src={img.url}
+                      alt={`Additional image ${index + 1}`}
+                      className="w-12 h-12 rounded-lg object-cover border border-gray-200"
+                    />
+                  ))}
+                </div>
               )}
             </div>
           )}

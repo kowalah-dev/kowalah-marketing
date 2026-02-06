@@ -15,7 +15,7 @@ export default function WelcomeStep({ onStart }: WelcomeStepProps) {
       </div>
 
       {/* Title */}
-      <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+      <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 tracking-normal">
         Share Your Kowalah Story
       </h1>
 
