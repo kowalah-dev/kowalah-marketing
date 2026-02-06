@@ -89,7 +89,9 @@ export default function ChatInterface({
 
       if (textContent.includes(COMPLETION_MARKER)) {
         // Convert messages to the expected format and trigger completion
-        const finalMessages = messages.concat(message).map((m) => ({
+        // Note: By the time onFinish fires, the AI SDK has already added the
+        // completed message to `messages`, so we use messages directly (no concat)
+        const finalMessages = messages.map((m) => ({
           role: m.role as 'user' | 'assistant',
           content: getTextContent(m).replace(COMPLETION_MARKER, '').trim(),
         }));
