@@ -183,9 +183,12 @@ export default function ChatInterface({
       if (messageData.text.trim() && status === 'ready') {
         sendMessage({ text: messageData.text });
         setInput('');
+        // Clear speech-related state so new speech doesn't append to submitted text
+        inputBeforeSpeechRef.current = '';
+        clearTranscript();
       }
     },
-    [sendMessage, status]
+    [sendMessage, status, clearTranscript]
   );
 
   // Check if conversation seems complete (enough exchanges for manual trigger)
