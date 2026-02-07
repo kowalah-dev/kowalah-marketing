@@ -1,0 +1,115 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getCollection } from "astro:content";
+import { markdownify } from "@/lib/utils/textConverter";
+import Button from "@/layouts/shortcodes/Button.tsx";
+import GridBg from "@/layouts/components/GridBg.astro";
+
+const allPlatforms = await getCollection("platforms");
+const platforms = allPlatforms.filter((p) => !p.data.draft);
+---
+
+<Base
+  title="AI Platforms We Deploy"
+  meta_title="AI Platforms We Deploy | Claude, ChatGPT & More | Kowalah"
+  description="Expert deployment and enablement across leading AI platforms. Deep expertise in Claude by Anthropic, ChatGPT by OpenAI, and more."
+>
+  <!-- Hero Section -->
+  <section class="section pb-0 relative overflow-hidden">
+    <GridBg />
+    <div class="container">
+      <div class="row justify-center text-center">
+        <div class="col-12 lg:col-8">
+          <h1
+            class="text-[32px] md:text-[48px] lg:text-[56px] mb-6"
+            data-aos="fade-up-sm"
+          >
+            AI Platforms We Deploy
+          </h1>
+          <p
+            class="text-lg text-dark/70 mb-8"
+            data-aos="fade-up-sm"
+            data-aos-delay="100"
+          >
+            We recommend the right platform for each use case, not the one we happen to sell. Deep implementation expertise across the leading AI platforms means you get honest guidance and proven deployment patterns.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform Cards -->
+  <section class="section">
+    <div class="container">
+      <div class="grid md:grid-cols-2 gap-8">
+        {platforms.map((platform) => (
+          <a
+            href={`/platforms/${platform.id}`}
+            class="group bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all hover:border-primary/20"
+            data-aos="fade-up-sm"
+          >
+            <div class="flex items-start gap-4 mb-4">
+              {platform.data.logo && (
+                <img
+                  src={platform.data.logo}
+                  alt={platform.data.platform_vendor}
+                  class="w-12 h-12 rounded-lg object-contain"
+                />
+              )}
+              <div>
+                <span class="text-sm font-medium text-primary">
+                  {platform.data.platform_vendor}
+                </span>
+                <h2 class="text-2xl font-bold group-hover:text-primary transition-colors">
+                  {platform.data.platform_product}
+                </h2>
+              </div>
+            </div>
+            <p class="text-dark/70 mb-6" set:html={markdownify(platform.data.description || '')} />
+            <div class="flex items-center text-primary font-medium">
+              <span>Explore platform</span>
+              <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="section pb-0">
+    <div class="container">
+      <div
+        class="rounded-3xl px-5 pt-7 md:px-12 md:pt-24 bg-gradient-to-br from-primary to-secondary"
+        data-aos="fade-up-sm"
+      >
+        <div class="row justify-center w-full">
+          <div class="col-12 text-center">
+            <h2
+              class="mb-3 lg:h1 text-light"
+              data-aos="fade-up-sm"
+            >
+              Not Sure Which Platform Is Right?
+            </h2>
+            <p
+              class="mb-6 text-light"
+              data-aos="fade-up-sm"
+            >
+              We help organisations choose the right AI platform for each use case, based on real implementation experience, not vendor marketing.
+            </p>
+            <div data-aos="zoom-in-sm">
+              <Button
+                label="Book a Conversation"
+                link="/contact"
+                style="light"
+                className="mb-8"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

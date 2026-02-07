@@ -1,4 +1,6 @@
 ---
+import { markdownify } from "@/lib/utils/textConverter";
+
 interface Pillar {
   title: string;
   icon?: string;
@@ -13,6 +15,7 @@ interface Props {
 }
 
 const { title, items }: Props = Astro.props;
+const linkClasses = "[&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_a]:hover:text-secondary [&_a]:transition-colors";
 ---
 
 <section class="section">
@@ -32,18 +35,18 @@ const { title, items }: Props = Astro.props;
         >
           <div class="flex h-full flex-col rounded-3xl border border-border/30 bg-white/[0.03] p-8">
             <h3 class="text-xl font-semibold text-text-dark mb-4">{item.title}</h3>
-            <p class="text-sm text-text-dark/75 mb-6">{item.description}</p>
+            <p class={`text-sm text-text-dark/75 mb-6 ${linkClasses}`} set:html={markdownify(item.description)}></p>
             <ul class="mb-6 space-y-3 text-sm text-text-dark/75">
               {item.details.map((detail) => (
                 <li class="flex gap-3">
                   <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-secondary"></span>
-                  <span>{detail}</span>
+                  <span class={linkClasses} set:html={markdownify(detail)}></span>
                 </li>
               ))}
             </ul>
-            <div class="mt-auto rounded-2xl border border-secondary/30 bg-secondary/10 p-4 text-sm text-text-dark/80">
+            <div class={`mt-auto rounded-2xl border border-secondary/30 bg-secondary/10 p-4 text-sm text-text-dark/80 ${linkClasses}`}>
               <strong class="block text-secondary mb-2">Why it matters</strong>
-              {item.value_proposition}
+              <span set:html={markdownify(item.value_proposition)}></span>
             </div>
           </div>
         </div>

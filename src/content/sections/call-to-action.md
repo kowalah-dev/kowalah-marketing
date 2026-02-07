@@ -1,10 +1,10 @@
 ---
 enable: true
-title: "Ready to Accelerate Your Organization's AI Journey?"
+title: "Ready to See What AI Can Actually Do for Your Business?"
 image: "/images/home/cta-banner-human.png"
-description: "Stop the chaos of employees secretly using ChatGPT while your official AI tools sit unused. Get everyone aligned on ChatGPT with proper training, governance, and ongoing support."
+description: "In 60 minutes we'll identify where the biggest AI opportunities sit in your organization, and map out how an Impact Sprint could deliver real results in weeks. No obligation, no hard sell."
 button:
   enable: true
-  label: "Get Your ChatGPT Readiness Assessment"
+  label: "Book a Conversation"
   link: "/contact"
 ---

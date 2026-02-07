@@ -6,9 +6,10 @@
       "hasChildren": true,
       "children": [
         { "name": "Services Overview", "url": "/services" },
-        { "name": "ChatGPT Enterprise Deployment", "url": "/services/chatgpt-enterprise-deployment" },
-        { "name": "ChatGPT Change Enablement", "url": "/services/chatgpt-change-enablement" },
-        { "name": "ChatGPT Training", "url": "/services/chatgpt-training" },
+        { "name": "Platforms", "url": "/platforms" },
+        { "name": "AI Implementation", "url": "/services/ai-implementation" },
+        { "name": "AI Change Enablement", "url": "/services/ai-change-enablement" },
+        { "name": "AI Training", "url": "/services/ai-training" },
         { "name": "Expert Requests", "url": "/services/expert-requests" },
         { "name": "AI Accelerators", "url": "/services/accelerators" },
         { "name": "AI Advisory Platform", "url": "/services/ai-advisory-platform" },
@@ -58,6 +59,10 @@
         {
           "name": "Services",
           "url": "/services"
+        },
+        {
+          "name": "Platforms",
+          "url": "/platforms"
         },
         {
           "name": "Solutions",

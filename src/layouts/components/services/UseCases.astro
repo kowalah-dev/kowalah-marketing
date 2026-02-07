@@ -1,4 +1,6 @@
 ---
+import { markdownify } from "@/lib/utils/textConverter";
+
 interface UseCase {
   scenario: string;
   challenge: string;
@@ -12,6 +14,7 @@ interface Props {
 }
 
 const { title, items }: Props = Astro.props;
+const linkClasses = "[&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_a]:hover:text-secondary [&_a]:transition-colors";
 ---
 
 <section class="section bg-body/60">
@@ -40,14 +43,14 @@ const { title, items }: Props = Astro.props;
             </p>
             <h3 class="text-xl font-semibold text-text-dark mb-4">{item.scenario}</h3>
             <div class="space-y-3 text-sm text-text-dark/75">
-              <p>
-                <strong class="text-text-dark">Challenge:</strong> {item.challenge}
+              <p class={linkClasses}>
+                <strong class="text-text-dark">Challenge:</strong> <span set:html={markdownify(item.challenge)}></span>
               </p>
-              <p>
-                <strong class="text-text-dark">Solution:</strong> {item.solution}
+              <p class={linkClasses}>
+                <strong class="text-text-dark">Solution:</strong> <span set:html={markdownify(item.solution)}></span>
               </p>
-              <p>
-                <strong class="text-text-dark">Outcome:</strong> {item.outcome}
+              <p class={linkClasses}>
+                <strong class="text-text-dark">Outcome:</strong> <span set:html={markdownify(item.outcome)}></span>
               </p>
             </div>
           </div>

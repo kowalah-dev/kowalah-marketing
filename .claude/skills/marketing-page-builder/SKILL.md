@@ -61,8 +61,7 @@ Begin Phase 1 when user provides initial page request. Examples:
 
 4. **Reference Context Files**
    - `/docs/product-overview.md` - Product details, ICP, personas
-   - `/docs/context/positioning-canvas.md` - Brand positioning
-   - `/docs/context/messaging-framework.md` - Messaging guidelines
+   - `~/Documents/KowalahReserved/strategy/go-to-market` - Brand positioning and messaging
    - `src/content.config.ts` - Existing schemas
 
 5. **Generate Design Document**
@@ -120,7 +119,7 @@ Begin Phase 2 only after:
    - Reference: `references/content-creation-guide.md` for patterns
 
 3. **Content Generation with Brand Alignment**
-   - Reference `/docs/context/messaging-framework.md` for tone
+   - Reference `~/Documents/KowalahReserved/strategy/go-to-market` for tone
    - Apply executive-level messaging for target audience
    - Focus on benefits over feature descriptions
    - Create action-oriented CTAs

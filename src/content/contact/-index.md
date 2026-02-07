@@ -1,19 +1,19 @@
 ---
-title: "Contact Kowalah - ChatGPT Rollout Specialists"
-meta_title: "Contact Kowalah - ChatGPT Enterprise Deployment & Training"
-description: "Get in touch to discuss ChatGPT Enterprise deployment, change enablement training, or ongoing managed services. We help organizations deploy ChatGPT at scale with expert implementation support."
+title: "Contact Kowalah - Enterprise AI Specialists"
+meta_title: "Contact Kowalah - Enterprise AI Deployment & Training"
+description: "Get in touch to discuss enterprise AI deployment, change enablement training, or ongoing managed services. We help organizations deploy AI at scale with expert implementation support."
 draft: false
 info:
-  title: "Ready to Deploy ChatGPT Enterprise?"
-  content: "Whether you need ChatGPT Enterprise deployment, change enablement training, or ongoing managed services - we help organizations turn ChatGPT from personal tool into company-wide capability."
+  title: "Ready to Accelerate Your AI Journey?"
+  content: "Whether you need enterprise AI deployment, change enablement training, or ongoing managed services, we help organizations turn AI from personal tool into company-wide capability."
   contacts:
     - title: "Business Inquiries"
       icon: "mail"
-      details_1: "Discuss your ChatGPT rollout"
+      details_1: "Discuss your AI rollout"
       details_2: "hello@kowalah.com"
     - title: "Customer Support"
       icon: "help"
-      details_1: "ChatGPT implementation support"
+      details_1: "AI implementation support"
       details_2: "support@kowalah.com"
     - title: "Partnership Opportunities"
       icon: "case"

@@ -1,0 +1,440 @@
+---
+import Base from "@/layouts/Base.astro";
+import ServicesHero from "@/layouts/components/services/ServicesHero.astro";
+import ServicesInclusions from "@/layouts/components/services/ServicesInclusions.astro";
+import ProblemSolution from "@/layouts/components/services/ProblemSolution.astro";
+import Phases from "@/layouts/components/services/Phases.astro";
+import Pillars from "@/layouts/components/services/Pillars.astro";
+import BusinessCase from "@/layouts/components/services/BusinessCase.astro";
+import UseCases from "@/layouts/components/services/UseCases.astro";
+import Investment from "@/layouts/components/services/Investment.astro";
+import ConsultationOffer from "@/layouts/components/services/ConsultationOffer.astro";
+
+const pageData = {
+  title: "AI Change Enablement | Scale Sprint Wins Across Your Organization",
+  meta_title: "AI Change Enablement | Scale AI Sprint Wins Organization-Wide | Kowalah",
+  description:
+    "Scale your AI Impact Sprint wins across the entire organization. Change enablement powered by real internal proof points, not generic training. From £117 per employee. Book a conversation.",
+
+  hero: {
+    title: "Scale Your AI Wins Across the Entire Organization",
+    subtitle:
+      "'Here's what Sarah in Finance built' drives faster, more credible adoption than any generic AI tutorial. Our change enablement program uses your [AI Impact Sprint](/services/ai-implementation) proof points as the foundation for organization-wide transformation, working across [Claude](/platforms/anthropic), [ChatGPT](/platforms/openai), and multi-platform environments.",
+    cta: {
+      label: "Book a Conversation",
+      link: "/contact",
+      subtext: "Free 60-minute assessment, you'll leave with a clear view of your scaling opportunity",
+    },
+    image: "/images/services/change-enablement-hero.png",
+    imageAlt: "Organization-wide AI adoption powered by internal proof points",
+  },
+
+  program_overview: {
+    title: "What Makes AI Change Enablement Actually Work",
+    subtitle:
+      "Most AI rollouts fail because they start with training and hope for adoption. We start with proof points your people created, then build a systematic program around what's already working.",
+    items: [
+      {
+        title: "Sprint Proof Points as Internal Case Studies",
+        description:
+          "Your Sprint wins become the foundation for every training session, communication, and leadership conversation. Real examples from real colleagues are more compelling than any external case study.",
+        points: [
+          "Sprint solutions packaged as department-specific adoption stories",
+          "Internal champions who built the solutions lead peer enablement sessions",
+          "Board-ready results from the Sprint anchor executive communication",
+          "Each use case becomes a template others can adapt for their own workflows",
+        ],
+      },
+      {
+        title: "AI Ambassador Network",
+        description:
+          "5-10% of your workforce become trained AI champions who drive adoption through peer influence. These aren't generic 'change agents', they're people who've seen the Sprint results and can show colleagues what's possible.",
+        points: [
+          "Ambassador identification across all departments and levels",
+          "Advanced training on prompting, custom GPT creation, and use case development",
+          "Peer-to-peer knowledge sharing communities and regular showcases",
+          "Recognition and career development opportunities tied to AI leadership",
+        ],
+      },
+      {
+        title: "Ground Game Training (Not Big Bang)",
+        description:
+          "We don't do company-wide training and hope for the best. We systematically move each person one step forward from wherever they are, whether they're AI-sceptical, basic users, or ready for advanced capabilities.",
+        points: [
+          "Progressive AI 101/102/201 training built around your own Sprint examples",
+          "Role-specific pathways so every session is immediately relevant to real work",
+          "Hands-on labs: building custom GPTs, Claude skills, and prompt workflows",
+          "Executive enablement for AI leadership communication and championing",
+        ],
+      },
+      {
+        title: "Preventing the Enthusiasm Gap",
+        description:
+          "Training creates excitement. People have ideas. Without a mechanism to act on those ideas, enthusiasm dies in IT backlogs. Our change enablement program connects directly to ongoing [Expert Requests](/services/expert-requests) so ideas become production solutions.",
+        points: [
+          "Direct pipeline from training-inspired ideas to Expert Request delivery",
+          "Kowalah platform gives everyone visibility of projects and initiatives across the organization",
+          "New custom GPTs, Claude skills, and agents delivered continuously, not just during the program",
+          "Adoption analytics and continuous optimization through the platform",
+        ],
+      },
+    ],
+  },
+
+  problem_solution: {
+    title: "Why Most AI Rollouts Fail to Scale",
+    problem_statement:
+      "You've deployed the platform. Maybe you've run training. Usage starts strong, then flatlines. People revert to old ways or keep using personal AI accounts in secret. The problem isn't the technology or the training, it's the gap between learning what's possible and actually getting solutions built for your specific work.",
+    solution_overview:
+      "Change enablement powered by real Sprint wins, not theoretical examples. Your colleagues built working AI solutions during the Sprint. Now we use those proof points to show every department what's possible, train them using real internal examples, and connect their ideas to Expert Requests so momentum never stalls.",
+    trust_elements: [
+      "Training powered by real internal examples, not generic tutorials",
+      "Deep expertise across [Claude](/platforms/anthropic), [ChatGPT](/platforms/openai), and multi-platform environments",
+      "AI Ambassador networks that drive adoption through peer influence",
+      "Expert Requests keep ideas flowing into production after enablement",
+      "Kowalah platform provides intelligent visibility across the entire AI program",
+      "Ground Game approach that meets every person where they are",
+    ],
+    pain_points: [
+      "AI platform deployed but usage has stalled or flatlined after initial excitement",
+      "Employees trained on AI basics but not applying it to their actual work",
+      "No connection between training enthusiasm and getting solutions actually built",
+      "Shadow AI usage with personal accounts because corporate tools feel limiting",
+      "No internal champions to show colleagues what's genuinely possible",
+      "Leadership can't articulate the AI vision or demonstrate personal usage",
+    ],
+  },
+
+  business_case: {
+    title: "From Sprint Wins to Organization-Wide Impact",
+    subtitle: "Change enablement turns individual proof points into a transformation that compounds",
+    roi_metrics: [
+      {
+        metric: "Increase in daily AI usage across departments within 90 days of Sprint-powered enablement",
+        value: "4x",
+        timeframe: "Within 90 days",
+      },
+      {
+        metric: "Of trained employees using custom GPTs and Claude skills for role-specific workflows",
+        value: "65%",
+        timeframe: "Within 120 days",
+      },
+      {
+        metric: "Improvement in work quality across departments using Sprint-derived training",
+        value: "25%",
+        timeframe: "Within 6 months",
+      },
+    ],
+    cost_savings: [
+      "Turn unused AI licenses into active productivity gains",
+      "Reduce time-to-value for your enterprise AI investment",
+      "Prevent the Enthusiasm Gap that wastes training budgets",
+      "Replace shadow AI with governed, organization-approved workflows",
+    ],
+    efficiency_gains: [
+      "Custom GPTs and Claude skills built for your specific business processes",
+      "AI Ambassadors who spread capability organically across teams",
+      "Continuous Expert Requests keep new solutions flowing after enablement",
+      "Platform visibility means leadership can track adoption in real time",
+    ],
+  },
+
+  solution_approach: {
+    title: "How We Scale Sprint Wins Across Your Organization",
+    subtitle:
+      "The program builds directly on your AI Impact Sprint results, using real proof points to drive adoption that sticks",
+    phases: [
+      {
+        phase_number: 1,
+        title: "Sprint Review & Scale Strategy",
+        description:
+          "We review Sprint results, identify which proof points will resonate most across the organization, and design the change program around what's already working.",
+        deliverables: [
+          "Sprint results packaged as internal case studies and adoption stories",
+          "Executive alignment sessions and leadership communication strategy",
+          "AI Ambassador identification and selection across departments",
+          "Adoption baseline measurement and target-setting",
+        ],
+        timeline: "Weeks 1-3",
+      },
+      {
+        phase_number: 2,
+        title: "Ambassador Development & Training Design",
+        description:
+          "Develop your AI Ambassador network and create role-specific training pathways, all powered by real Sprint examples and tailored to your organization's actual processes.",
+        deliverables: [
+          "AI Ambassador advanced training and enablement toolkit",
+          "Role-specific training curriculum built around Sprint proof points",
+          "Custom prompt libraries and department-specific workflows",
+          "Communications materials and resistance management playbook",
+        ],
+        timeline: "Weeks 4-7",
+      },
+      {
+        phase_number: 3,
+        title: "Organization-Wide Rollout & Momentum",
+        description:
+          "Deliver Ground Game training across the organization, launch Ambassador-led peer enablement, and connect the ongoing Expert Request pipeline so ideas keep becoming solutions.",
+        deliverables: [
+          "Organization-wide training delivery with Sprint-powered content",
+          "Ambassador-led peer sessions and knowledge sharing communities",
+          "Expert Request pipeline established for post-enablement idea flow",
+          "Adoption analytics, recognition program, and optimization cadence",
+        ],
+        timeline: "Weeks 8-12",
+      },
+    ],
+  },
+
+  solution_components: {
+    title: "6 Pillars of Change Enablement That Sticks",
+    items: [
+      {
+        title: "Executive Alignment & Championing",
+        icon: "compass",
+        description:
+          "Leadership coaching that turns executives into visible AI champions, using Sprint results to anchor the organization's AI vision",
+        details: [
+          "One-on-one coaching for C-suite and senior leaders",
+          "Executive-specific use case development using Sprint examples",
+          "Board-ready reporting and success communication",
+          "Leadership behavior modelling and visible championing",
+          "Strategic alignment workshops tied to business outcomes",
+        ],
+        value_proposition:
+          "Executives who can demonstrate personal AI usage and articulate the vision with Sprint proof points are the single biggest accelerator of organization-wide adoption",
+      },
+      {
+        title: "AI Ambassador Network",
+        icon: "profile",
+        description:
+          "5-10% of your workforce trained as peer advocates who drive adoption through influence, not authority",
+        details: [
+          "Champion identification across all departments and levels",
+          "Advanced training on prompting, custom GPT creation, and use case development",
+          "Peer-to-peer knowledge sharing communities and showcase events",
+          "Recognition and career development tied to AI Ambassador contributions",
+          "Internal certification that validates AI expertise",
+        ],
+        value_proposition:
+          "People trust their peers. Ambassadors who've seen Sprint results and can say 'let me show you what's possible' drive adoption faster than any external trainer",
+      },
+      {
+        title: "Sprint-Powered Training",
+        icon: "bulb",
+        description:
+          "Progressive skill building where every example comes from your organization, not a textbook",
+        details: [
+          "AI 101/102/201 pathways built around your own Sprint use cases",
+          "Role-specific training with hands-on labs using real business processes",
+          "Custom prompt libraries and department-specific assistant development",
+          "Practical workshops: building custom GPTs, Claude skills, and workflows",
+          "Advanced feature training (voice, projects, collaborative workspaces)",
+        ],
+        value_proposition:
+          "Training powered by 'here's what your colleague in Finance built last month' is immediately relevant and credible in a way generic tutorials never achieve",
+      },
+      {
+        title: "Communications & Resistance Management",
+        icon: "help",
+        description:
+          "Clear messaging that addresses concerns head-on and builds genuine enthusiasm through proof, not promises",
+        details: [
+          "Organization-wide messaging anchored in Sprint proof points",
+          "Proactive addressing of job impact concerns with honest framing",
+          "Multiple communication channels and feedback mechanisms",
+          "Success story sharing through Ambassador networks",
+          "Targeted intervention for teams or individuals who need extra support",
+        ],
+        value_proposition:
+          "Real proof points from inside the organization address scepticism more effectively than any amount of external messaging",
+      },
+      {
+        title: "Recognition & Momentum",
+        icon: "rocket",
+        description:
+          "Visible celebration of AI wins that sustains energy and creates positive pressure across departments",
+        details: [
+          "Innovation showcases where teams present new AI use cases",
+          "Departmental friendly competition and adoption leaderboards",
+          "Career development benefits linked to AI skill advancement",
+          "Regular internal communications highlighting new wins",
+          "Platform visibility so everyone can see what's happening across the organization",
+        ],
+        value_proposition:
+          "When people see other departments getting results, they want those results too. Visibility creates organic demand for AI enablement",
+      },
+      {
+        title: "Expert Requests & Continuous Delivery",
+        icon: "upward",
+        description:
+          "The mechanism that prevents the Enthusiasm Gap: ideas from training and daily work flow directly into Expert Request delivery",
+        details: [
+          "Direct pipeline from enablement-inspired ideas to custom solution delivery",
+          "Monthly Expert Requests for new custom GPTs, Claude skills, and AI agents",
+          "Kowalah Accelerators (pre-built AI workflow templates) deployed alongside custom solutions",
+          "Quarterly optimization reviews and innovation roadmap updates",
+          "Platform-based adoption analytics and continuous improvement tracking",
+        ],
+        value_proposition:
+          "Change enablement without ongoing delivery creates the Enthusiasm Gap. Expert Requests ensure ideas keep becoming working solutions long after the program ends",
+      },
+    ],
+  },
+
+  use_cases: {
+    title: "How Sprint Wins Scale Across Departments",
+    items: [
+      {
+        scenario: "Finance Sprint Win Scales to Sales",
+        challenge:
+          "A custom GPT built during the Sprint for financial report summarisation inspires the sales team to request similar capability for proposal generation",
+        solution:
+          "Ambassador-led showcase of the Finance use case, followed by role-specific training for sales teams and an Expert Request to build a proposal generation workflow",
+        outcome:
+          "Sales team goes from basic email drafting to sophisticated AI-assisted proposals, with measurable improvement in proposal quality and turnaround time",
+      },
+      {
+        scenario: "HR Discovers What Operations Built",
+        challenge:
+          "Operations built a process documentation assistant during the Sprint. HR recognizes the same approach could transform onboarding and candidate experience",
+        solution:
+          "Cross-department knowledge sharing through the Ambassador network, followed by an Expert Request to adapt the solution for HR-specific workflows",
+        outcome:
+          "HR delivers a superior onboarding experience with AI-assisted personalised guidance, reducing time-to-productivity for new starters",
+      },
+      {
+        scenario: "Executive Team Leads by Example",
+        challenge:
+          "Leadership knows AI matters but hasn't personally experienced the Sprint solutions. Their support feels theoretical rather than genuine",
+        solution:
+          "Executive enablement sessions using Sprint proof points, with hands-on practice building their own AI workflows for strategic planning and board preparation",
+        outcome:
+          "Leadership team uses AI visibly in their own work, creating genuine credibility when they champion AI adoption across the organization",
+      },
+      {
+        scenario: "Marketing Builds on Customer Service Success",
+        challenge:
+          "Customer service built an AI-powered response assistant during the Sprint. Marketing sees the opportunity but lacks the skills to build their own",
+        solution:
+          "Ground Game training takes Marketing from basic AI users to confident custom GPT builders, using the Customer Service success story as inspiration",
+        outcome:
+          "Marketing team creates brand-consistent content workflows and campaign development tools, built around real business processes",
+      },
+      {
+        scenario: "The Reluctant Department Gets Proof",
+        challenge:
+          "Legal or compliance teams are sceptical about AI, concerned about accuracy and governance. They've been resistant to engagement",
+        solution:
+          "Targeted enablement using Sprint proof points from similar regulated teams, with clear governance frameworks and hands-on practice in controlled environments",
+        outcome:
+          "Sceptical teams move from resistance to cautious experimentation to active adoption, each person progressing at their own pace through the Ground Game approach",
+      },
+    ],
+  },
+
+  investment: {
+    title: "Your Investment in Organization-Wide AI Transformation",
+    subtitle: "Per-employee pricing that scales with your organization, connected to Sprint results",
+    pricing_model: "From £117 per employee for organizations with 1,000+ employees",
+    starting_price: "1,500-employee change enablement program: from £175k total investment",
+    pricing_factors: [
+      "Organization size and rollout complexity (500-10,000+ employees)",
+      "Number of Sprint proof points available as training foundations",
+      "Depth of role-specific training and custom solution development",
+      "Industry-specific compliance and regulatory requirements",
+      "Regional considerations and multilingual support requirements",
+    ],
+    what_included: [
+      "Complete change enablement program built on your Sprint results",
+      "Executive coaching and leadership alignment sessions",
+      "AI Ambassador network development and ongoing support",
+      "Sprint-powered training curriculum for all participating employees",
+      "Communications strategy, materials, and resistance management",
+      "Expert Request pipeline setup and adoption analytics",
+    ],
+  },
+
+  conversion: {
+    title: "Ready to Scale Your AI Wins Across the Organization?",
+    subtitle: "Most organizations start with an AI Impact Sprint, then scale with change enablement",
+    description:
+      "In 60 minutes we'll assess where you are, review your Sprint results (or scope an initial Sprint if you haven't started), and map out how to take what's working to every department.",
+    primary_cta: {
+      label: "Book a Conversation",
+      link: "/contact",
+    },
+    offer: {
+      title: "Free 60-Minute Assessment",
+      description:
+        "We'll review your current AI adoption, assess Sprint readiness or results, identify the departments with the highest scaling potential, and outline a change enablement approach tailored to your organization",
+      duration: "60 minutes",
+      cta: {
+        label: "Book a Conversation",
+        link: "/contact",
+      },
+    },
+  },
+};
+---
+
+<Base title={pageData.title} meta_title={pageData.meta_title} description={pageData.description}>
+  <ServicesHero
+    title={pageData.hero.title}
+    subtitle={pageData.hero.subtitle}
+    cta={pageData.hero.cta}
+    image={pageData.hero.image}
+    imageAlt={pageData.hero.imageAlt}
+    backgroundImage="/images/services/change-enablement-cta-bg.png"
+  />
+
+  <ServicesInclusions
+    title={pageData.program_overview.title}
+    subtitle={pageData.program_overview.subtitle}
+    items={pageData.program_overview.items}
+  />
+
+  <ProblemSolution
+    title={pageData.problem_solution.title}
+    problemStatement={pageData.problem_solution.problem_statement}
+    solutionOverview={pageData.problem_solution.solution_overview}
+    trustElements={pageData.problem_solution.trust_elements}
+    painPoints={pageData.problem_solution.pain_points}
+  />
+
+  <BusinessCase
+    title={pageData.business_case.title}
+    subtitle={pageData.business_case.subtitle}
+    metrics={pageData.business_case.roi_metrics}
+    costSavings={pageData.business_case.cost_savings}
+    efficiencyGains={pageData.business_case.efficiency_gains}
+  />
+
+  <Phases
+    title={pageData.solution_approach.title}
+    subtitle={pageData.solution_approach.subtitle}
+    phases={pageData.solution_approach.phases}
+  />
+
+  <Pillars title={pageData.solution_components.title} items={pageData.solution_components.items} />
+
+  <UseCases title={pageData.use_cases.title} items={pageData.use_cases.items} />
+
+  <Investment
+    title={pageData.investment.title}
+    subtitle={pageData.investment.subtitle}
+    pricingModel={pageData.investment.pricing_model}
+    startingPrice={pageData.investment.starting_price}
+    pricingFactors={pageData.investment.pricing_factors}
+    inclusions={pageData.investment.what_included}
+  />
+
+  <ConsultationOffer
+    title={pageData.conversion.title}
+    subtitle={pageData.conversion.subtitle}
+    description={pageData.conversion.description}
+    primaryCta={pageData.conversion.primary_cta}
+    offer={pageData.conversion.offer}
+    backgroundImage="/images/services/change-enablement-cta-bg.png"
+  />
+</Base>

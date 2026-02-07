@@ -1,7 +1,7 @@
 ---
 title: "AI Usage Policy Template"
-meta_title: "Free AI Policy Template for ChatGPT Enterprise | Kowalah"
-description: "Ready-to-use AI policy template for organizations adopting ChatGPT Enterprise. Covers acceptable use, data protection, governance, and best practices for responsible AI adoption."
+meta_title: "Free AI Policy Template for Enterprise AI Adoption | Kowalah"
+description: "Ready-to-use AI policy template for organizations adopting enterprise AI platforms. Covers acceptable use, data protection, governance, and best practices for responsible AI adoption."
 template_type: "policy"
 category: "Governance & Risk"
 hero:

@@ -1,6 +1,7 @@
 ---
 import Button from "@/shortcodes/Button";
 import ImageMod from "@/components/ImageMod.astro";
+import { markdownify } from "@/lib/utils/textConverter";
 
 interface CTA {
   label: string;
@@ -38,8 +39,7 @@ const { title, subtitle, cta, image, imageAlt, backgroundImage }: Props = Astro.
     <div class="row justify-center text-center">
       <div class="col-12 lg:col-8">
         <h1 class={`h1 mb-6 ${backgroundImage ? 'text-white drop-shadow-lg' : ''}`} data-aos="fade-up-sm">{title}</h1>
-        <p class={`text-lg mb-8 ${backgroundImage ? 'text-white/95 drop-shadow-md' : 'text-text-dark/80'}`} data-aos="fade-up-sm" data-aos-delay="100">
-          {subtitle}
+        <p class={`text-lg mb-8 [&_a]:underline [&_a]:underline-offset-2 [&_a]:transition-colors ${backgroundImage ? 'text-white/95 drop-shadow-md [&_a]:text-white [&_a]:font-medium [&_a]:hover:text-white/80' : 'text-text-dark/80 [&_a]:text-primary [&_a]:hover:text-secondary'}`} data-aos="fade-up-sm" data-aos-delay="100" set:html={markdownify(subtitle)}>
         </p>
         <div class="mb-10 flex flex-col items-center gap-3" data-aos="fade-up-sm" data-aos-delay="150">
           <Button

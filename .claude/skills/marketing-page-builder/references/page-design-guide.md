@@ -270,8 +270,7 @@ From SyncMaster theme:
 ## Context Files to Reference
 
 - `/docs/product-overview.md` - Product details, ICP, personas
-- `/docs/context/positioning-canvas.md` - Brand positioning
-- `/docs/context/messaging-framework.md` - MKT1 messaging
+- `~/Documents/KowalahReserved/strategy/go-to-market` - Brand positioning and messaging
 - `src/content.config.ts` - Existing schemas
 - `src/content/homepage/-index.md` - Reference content structure
 

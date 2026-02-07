@@ -83,6 +83,7 @@ Uses Astro's Content Collections with comprehensive Zod schemas for:
 - **Contact:** Lead generation forms for executive prospects
 - **Features:** 7 core AI leadership capabilities showcase
 - **Integrations:** Enterprise system connections (Slack, Teams, CRM, ERP)
+- **Platforms:** AI platform pages (Claude/Anthropic, ChatGPT/OpenAI) with capabilities, partnership, and implementation sections
 - **FAQ:** Digital Chief AI Officer and Expert Requests questions
 - **Reviews:** Executive testimonials and organizational outcomes
 
@@ -153,6 +154,14 @@ const iconMap = {
 - **RSS feeds:** Auto-generated RSS for blog content
 - **Sitemap:** Automatic sitemap generation
 - **SEO:** Comprehensive meta tags and Open Graph support
+
+### Markdown in Components
+Service page components receive text strings that may contain inline markdown (links, bold, italic). Any component that renders descriptive text (subtitles, descriptions, list items) must:
+1. Import `markdownify` from `@/lib/utils/textConverter`
+2. Use `set:html={markdownify(text)}` instead of plain `{text}` interpolation
+3. Add link styling classes for clickable links: `[&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_a]:hover:text-secondary [&_a]:transition-colors`
+
+Plain `{text}` escapes HTML and renders markdown syntax as literal text. See `ServicesHero.astro` for the reference pattern.
 
 ### Development Workflow
 1. Content is managed through markdown files in `/src/content/` with Kowalah-specific schemas

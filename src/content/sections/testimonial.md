@@ -1,7 +1,7 @@
 ---
 enable: true
 title: "What our customers are saying"
-subtitle: "ChatGPT Transformation That Delivers Results"
+subtitle: "AI Transformation That Delivers Results"
 
 testimonials:
   - name: "Jonathan Corrie"

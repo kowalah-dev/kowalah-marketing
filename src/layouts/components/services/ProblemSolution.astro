@@ -1,4 +1,6 @@
 ---
+import { markdownify } from "@/lib/utils/textConverter";
+
 interface Props {
   title: string;
   problemStatement: string;
@@ -15,11 +17,9 @@ const { title, problemStatement, solutionOverview, trustElements, painPoints }: 
     <div class="row justify-center text-center">
       <div class="col-12 lg:col-10">
         <h2 class="h2 mb-6" data-aos="fade-up-sm">{title}</h2>
-        <p class="text-lg text-text-dark/80 mb-6" data-aos="fade-up-sm" data-aos-delay="100">
-          {problemStatement}
+        <p class="text-lg text-text-dark/80 mb-6 [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_a]:hover:text-secondary [&_a]:transition-colors" data-aos="fade-up-sm" data-aos-delay="100" set:html={markdownify(problemStatement)}>
         </p>
-        <p class="text-lg text-text-dark/80" data-aos="fade-up-sm" data-aos-delay="150">
-          {solutionOverview}
+        <p class="text-lg text-text-dark/80 [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_a]:hover:text-secondary [&_a]:transition-colors" data-aos="fade-up-sm" data-aos-delay="150" set:html={markdownify(solutionOverview)}>
         </p>
       </div>
     </div>
@@ -32,7 +32,7 @@ const { title, problemStatement, solutionOverview, trustElements, painPoints }: 
           data-aos-delay={200 + index * 50}
         >
           <div class="h-full rounded-3xl border border-border/30 bg-white/[0.05] p-6 text-center shadow-lg shadow-primary/10">
-            <p class="text-base font-medium text-text-dark/85">{element}</p>
+            <p class="text-base font-medium text-text-dark/85 [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_a]:hover:text-secondary [&_a]:transition-colors" set:html={markdownify(element)}></p>
           </div>
         </div>
       ))}
@@ -46,7 +46,7 @@ const { title, problemStatement, solutionOverview, trustElements, painPoints }: 
             {painPoints.map((point, index) => (
               <div class="flex items-start gap-3" data-aos="fade-up-sm" data-aos-delay={index * 40}>
                 <span class="mt-2 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-primary"></span>
-                <span class="text-sm text-text-dark/80">{point}</span>
+                <span class="text-sm text-text-dark/80 [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_a]:hover:text-secondary [&_a]:transition-colors" set:html={markdownify(point)}></span>
               </div>
             ))}
           </div>
