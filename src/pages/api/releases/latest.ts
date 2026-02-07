@@ -1,6 +1,9 @@
 import type { APIRoute } from 'astro';
 import { list } from '@vercel/blob';
 
+// Opt out of static generation - this endpoint calls Vercel Blob at request time
+export const prerender = false;
+
 /**
  * API endpoint to fetch the latest Kowalah Reserved release from Vercel Blob Storage
  *
