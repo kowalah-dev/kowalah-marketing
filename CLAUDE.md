@@ -83,6 +83,7 @@ Uses Astro's Content Collections with comprehensive Zod schemas for:
 - **Contact:** Lead generation forms for executive prospects
 - **Features:** 7 core AI leadership capabilities showcase
 - **Integrations:** Enterprise system connections (Slack, Teams, CRM, ERP)
+- **Platforms:** AI platform pages (Claude/Anthropic, ChatGPT/OpenAI) with capabilities, partnership, and implementation sections
 - **FAQ:** Digital Chief AI Officer and Expert Requests questions
 - **Reviews:** Executive testimonials and organizational outcomes
 

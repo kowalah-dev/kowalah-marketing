@@ -6,6 +6,7 @@
       "hasChildren": true,
       "children": [
         { "name": "Services Overview", "url": "/services" },
+        { "name": "Platforms", "url": "/platforms" },
         { "name": "ChatGPT Enterprise Deployment", "url": "/services/chatgpt-enterprise-deployment" },
         { "name": "ChatGPT Change Enablement", "url": "/services/chatgpt-change-enablement" },
         { "name": "ChatGPT Training", "url": "/services/chatgpt-training" },
@@ -58,6 +59,10 @@
         {
           "name": "Services",
           "url": "/services"
+        },
+        {
+          "name": "Platforms",
+          "url": "/platforms"
         },
         {
           "name": "Solutions",

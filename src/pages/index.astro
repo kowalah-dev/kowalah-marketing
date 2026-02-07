@@ -3,6 +3,7 @@ import Benefits from "@/components/home/Benefits.astro";
 import Features from "@/components/home/Features.astro";
 import Hero from "@/components/home/Hero.astro";
 import Offering from "@/components/home/Offering.astro";
+import Platforms from "@/components/home/Platforms.astro";
 import PricingSection from "@/components/PricingSection";
 import ProgramDepth from "@/components/home/ProgramDepth.astro";
 import Transformation from "@/components/home/Transformation.astro";
@@ -30,6 +31,7 @@ const { hero, feature, offering, benefits, service_components, transformation, p
 <Base>
   <Hero {hero} />
   <Features {feature} />
+  <Platforms />
   {transformation && <Transformation {transformation} />}
   {program_depth && <ProgramDepth {program_depth} />}
   <Offering {offering} />

@@ -1,0 +1,98 @@
+---
+import { getCollection } from "astro:content";
+import { markdownify } from "@/lib/utils/textConverter";
+import Button from "@/shortcodes/Button";
+
+const platforms = (await getCollection("platforms")).filter(
+  (p) => !p.data.draft
+);
+---
+
+<section class="section bg-gray-50">
+  <div class="container">
+    <div class="row justify-center">
+      <div class="sm:col-10 lg:col-8 text-center mb-12">
+        <p
+          class="mb-4 text-sm text-dark/60 uppercase tracking-wide font-semibold"
+          data-aos="fade-up-sm"
+        >
+          Platform Expertise
+        </p>
+        <h2
+          class="mb-4 lg:h1"
+          data-aos="fade-up-sm"
+          data-aos-delay="100"
+        >
+          AI Platforms We Deploy
+        </h2>
+        <p
+          class="text-lg text-dark/70"
+          data-aos="fade-up-sm"
+          data-aos-delay="150"
+        >
+          Deep expertise across the platforms that matter. We help you choose the right tool for each use case, deploy it properly, and drive real adoption.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="grid md:grid-cols-2 gap-8"
+      data-aos="fade-up-sm"
+      data-aos-delay="200"
+    >
+      {platforms.map((platform) => (
+        <a
+          href={`/platforms/${platform.id}`}
+          class="group bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-primary/20 transition-all duration-300 flex flex-col"
+        >
+          <div class="flex items-center gap-4 mb-4">
+            {platform.data.logo && (
+              <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center group-hover:bg-primary/5 transition-colors">
+                <img
+                  src={platform.data.logo}
+                  alt={platform.data.platform_vendor}
+                  width="32"
+                  height="32"
+                  class="w-8 h-8"
+                />
+              </div>
+            )}
+            <div>
+              <h3 class="text-xl font-semibold group-hover:text-primary transition-colors">
+                {platform.data.platform_product}
+              </h3>
+              <p class="text-sm text-dark/50">by {platform.data.platform_vendor}</p>
+            </div>
+          </div>
+
+          <p class="text-dark/70 mb-6 flex-grow">
+            {platform.data.hero.content}
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            {platform.data.capabilities.items.map((item) => (
+              <span class="inline-block px-3 py-1 bg-gray-100 text-dark/60 text-xs rounded-full group-hover:bg-primary/5 group-hover:text-primary/80 transition-colors">
+                {item.title}
+              </span>
+            ))}
+          </div>
+
+          <div class="flex items-center text-primary font-medium text-sm group-hover:gap-3 gap-2 transition-all">
+            Explore {platform.data.platform_product}
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="text-center mt-10" data-aos="fade-up-sm" data-aos-delay="300">
+      <Button
+        label="View All Platforms"
+        link="/platforms"
+        style="outline"
+      />
+    </div>
+  </div>
+</section>

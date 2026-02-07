@@ -137,7 +137,7 @@ const pageData = {
 - **Collection Definition:** Must be defined in `src/content.config.ts`
 - **Content Access:** Import using Astro's `getCollection()` and `getEntry()`
 - **Strict Zod validation** on content files
-- **Example collections:** solutions, insights, case studies
+- **Example collections:** solutions, insights, case studies, platforms
 
 **Example Collection Setup:**
 
@@ -323,6 +323,7 @@ const description = "Page description";
 
 Follow organized structure in `/public/images/`:
 - **Product pages:** `/public/images/product/` (mockups/, screenshots/, features/, demos/)
+- **Platforms:** `/public/images/platforms/` (logos, hero images, overview images per platform)
 - **Homepage:** `/public/images/home/`
 - **Features:** `/public/images/features/`
 - **Heroes:** `/public/images/heroes/`
@@ -345,8 +346,7 @@ Follow organized structure in `/public/images/`:
 
 **Required:**
 - `src/content.config.ts` - Schema definitions
-- `/docs/context/messaging-framework.md` - Brand messaging
-- `/docs/context/positioning-canvas.md` - Competitive positioning
+- `~/Documents/KowalahReserved/strategy/go-to-market` - Brand positioning and messaging
 - `/docs/product-overview.md` - Product details
 - `/docs/context/executive-visual-style-guide.md` - Visual style
 

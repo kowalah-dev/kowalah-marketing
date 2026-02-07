@@ -766,6 +766,92 @@ const templatesCollection = defineCollection({
   })
 });
 
+const platformsCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/platforms" }),
+  schema: z.object({
+    title: z.string(),
+    meta_title: z.string().optional(),
+    description: z.string().optional(),
+    draft: z.boolean().optional(),
+
+    // Platform identifiers
+    platform_vendor: z.string(), // "Anthropic", "OpenAI"
+    platform_product: z.string(), // "Claude", "ChatGPT"
+    logo: z.string().optional(),
+
+    hero: z.object({
+      title: z.string(),
+      content: z.string(),
+      image: z.string().optional(),
+      background_image: z.string().optional(),
+      button: z.array(
+        z.object({
+          enable: z.boolean(),
+          label: z.string(),
+          link: z.string(),
+        })
+      ),
+    }),
+
+    overview: z.object({
+      title: z.string(),
+      content: z.string(),
+      image: z.string().optional(),
+      points: z.array(z.string()),
+    }),
+
+    capabilities: z.object({
+      title: z.string(),
+      subtitle: z.string().optional(),
+      items: z.array(
+        z.object({
+          title: z.string(),
+          badge: z.string().optional(),
+          description: z.string(),
+          benefits: z.array(z.string()),
+          use_cases: z.array(z.string()),
+          image: z.string().optional(),
+          link: z.string().optional(),
+        })
+      ),
+    }),
+
+    partnership: z.object({
+      title: z.string(),
+      content: z.string(),
+      points: z.array(
+        z.object({
+          title: z.string(),
+          content: z.string(),
+          icon: z.string().optional(),
+        })
+      ),
+    }),
+
+    implementation: z.object({
+      title: z.string(),
+      subtitle: z.string().optional(),
+      steps: z.array(
+        z.object({
+          title: z.string(),
+          description: z.string(),
+        })
+      ),
+    }),
+
+    cta: z.object({
+      title: z.string(),
+      content: z.string(),
+      background_image: z.string().optional(),
+      button: z.object({
+        enable: z.boolean(),
+        label: z.string(),
+        link: z.string(),
+      }),
+    }),
+  }),
+});
+
 const webinarsCollection = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "src/content/webinars" }),
   schema: z.object({
@@ -807,6 +893,7 @@ export const collections = {
   insights: insightsCollection,
   integrations: integrationsCollection,
   pages: pagesCollection,
+  platforms: platformsCollection,
   pricing: pricingCollection,
   reviews: reviewsCollection,
   sections: sectionsCollection,
