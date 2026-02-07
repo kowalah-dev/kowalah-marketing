@@ -145,11 +145,11 @@ implementation:
   subtitle: "A proven approach that maximises adoption and delivers measurable outcomes."
   steps:
     - title: "Plan & Configure"
-      description: "We assess your use cases, recommend the right ChatGPT tier, configure your Enterprise workspace with SSO and security policies, and plan your Custom GPT library."
+      description: "We assess your use cases, recommend the right ChatGPT tier, configure your Enterprise workspace with SSO and security policies, and plan your Custom GPT library, as part of our [AI Implementation](/services/ai-implementation) engagement."
     - title: "Build First Wins"
       description: "Working with your key people, we build Custom GPTs and workflows that solve real problems, creating internal proof points and champions."
     - title: "Enable Your Organisation"
-      description: "Structured training programmes, AI ambassador networks, prompt libraries, and governance frameworks that drive adoption beyond the initial pilot."
+      description: "Structured [AI Training](/services/ai-training) programmes, AI ambassador networks through our [Change Enablement](/services/ai-change-enablement) framework, prompt libraries, and governance frameworks that drive adoption beyond the initial pilot."
     - title: "Scale & Iterate"
       description: "Ongoing support through Expert Requests for new Custom GPTs, Codex and Responses API development, and continuous optimisation as OpenAI releases new capabilities."
 

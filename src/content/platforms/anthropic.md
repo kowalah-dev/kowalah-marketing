@@ -142,11 +142,11 @@ implementation:
   subtitle: "A proven approach that delivers value quickly and scales sustainably."
   steps:
     - title: "Assess & Configure"
-      description: "We evaluate your use cases, recommend the right Claude plan and products, and configure your workspace with SSO, governance, and security policies."
+      description: "We evaluate your use cases, recommend the right Claude plan and products, and configure your workspace with SSO, governance, and security policies, as part of our [AI Implementation](/services/ai-implementation) engagement."
     - title: "Build First Wins"
       description: "Working alongside your key people, we build real solutions using Claude, Code, or Cowork that deliver measurable business value in weeks."
     - title: "Enable Your Organisation"
-      description: "We train teams, establish AI ambassadors, set up MCP integrations with your existing tools, and create governance frameworks."
+      description: "We train teams through our [AI Training](/services/ai-training) programmes, establish AI ambassadors via our [Change Enablement](/services/ai-change-enablement) framework, set up MCP integrations with your existing tools, and create governance frameworks."
     - title: "Scale & Support"
       description: "Ongoing partnership through Expert Requests, custom Skills development, and Agent SDK applications that keep delivering value as the platform evolves."
 

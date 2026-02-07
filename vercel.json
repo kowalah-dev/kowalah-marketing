@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "/services/chatgpt-enterprise-deployment",
+      "destination": "/services/ai-implementation",
+      "permanent": true
+    },
+    {
+      "source": "/services/chatgpt-change-enablement",
+      "destination": "/services/ai-change-enablement",
+      "permanent": true
+    },
+    {
+      "source": "/services/chatgpt-training",
+      "destination": "/services/ai-training",
+      "permanent": true
+    }
+  ]
+}

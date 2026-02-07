@@ -1,226 +1,234 @@
 ---
 # Core metadata
-title: "Expert Requests: Professional AI Implementation Services"
-meta_title: "Expert Requests: Professional AI Implementation Services | Kowalah"
-description: "Get AI work done for you with Expert Requests. Professional ChatGPT deployment, change enablement, prompt engineering, and training delivered in 7-14 days. No SOWs, no delays."
+title: "Expert Requests: Ideas In, Working Solutions Out"
+meta_title: "Expert Requests | Custom GPTs, Claude Skills & AI Agents On Demand | Kowalah"
+description: "Turn AI ideas into working solutions. Expert Requests deliver custom GPTs, Claude skills, AI agents, and prompt workflows in 7-14 days. Prevent the Enthusiasm Gap. Book a conversation."
 
 # Hero section for product value proposition
 hero:
-  title: "Expert Requests: Get AI Work Done For You"
-  subtitle: "Skip the procurement delays and project friction. Get professional AI implementation delivered in days, not months, with pre-contracted capacity that scales instantly."
+  title: "Ideas In, Working Solutions Out"
+  subtitle: "After the Sprint, after the training, ideas keep flowing. Expert Requests give your teams access to AI specialists who build custom GPTs, Claude skills, agents, and workflows on demand, delivered in days, not months."
   cta_primary:
-    label: "Schedule Strategy Call"
+    label: "Book a Conversation"
     link: "/contact"
-    subtext: "36-hour response guarantee"
+    subtext: "36-hour response guarantee on every request"
   product_screenshot: "/images/services/expert-requests-hero.png"
 
 # Service integration section
 service_integration:
-  title: "Expert Requests + Our Core Services"
-  subtitle: "Combine strategic guidance with professional implementation across all AI initiatives"
+  title: "Expert Requests Power the Entire AI Program"
+  subtitle: "From Sprint follow-up to training-inspired ideas to daily workflow improvements, Expert Requests are the delivery mechanism that keeps value compounding"
   services:
-    - title: "ChatGPT Training"
-      icon: "profile"
-      description: "Enterprise ChatGPT deployment with comprehensive training programs"
-      expert_examples:
-        - "Custom ChatGPT training curriculum for your industry"
-        - "Department-specific prompt libraries and workflows"
-        - "Executive briefing materials and board presentations"
-        - "Train-the-trainer programs for internal champions"
-      link: "/services/chatgpt-training"
-    - title: "Change Enablement"
+    - title: "AI Impact Sprint"
       icon: "rocket"
-      description: "Organizational transformation and AI adoption acceleration"
+      description: "Sprint discoveries generate ideas beyond the initial 2-3 use cases. Expert Requests turn those into production solutions."
       expert_examples:
-        - "Change management frameworks for AI adoption"
-        - "Leadership communication strategies and scripts"
-        - "Employee engagement programs and surveys"
-        - "Resistance mitigation plans and success metrics"
-      link: "/services/chatgpt-change-enablement"
+        - "Build out additional use cases identified during Sprint discovery"
+        - "Adapt Sprint solutions for other departments and teams"
+        - "Create custom GPTs and Claude skills for related workflows"
+        - "Develop advanced versions of Sprint proof-of-concept solutions"
+      link: "/services/ai-implementation"
+    - title: "Training & Change Enablement"
+      icon: "profile"
+      description: "Training creates excitement and ideas. Expert Requests ensure those ideas become real solutions instead of dying in backlogs."
+      expert_examples:
+        - "Build custom GPTs and Claude skills from training workshop ideas"
+        - "Create department-specific prompt libraries requested during enablement"
+        - "Develop solutions for use cases identified by AI Ambassadors"
+        - "Run follow-up sessions and office hours for advanced capability building"
+      link: "/services/ai-change-enablement"
 
 # Problem/solution positioning
 problem_solution:
-  title: "The Post-Deployment Request Backlog Every Organization Faces"
-  problem_statement: "You've deployed ChatGPT Enterprise and trained your teams—now they're flooding you with requests: 'Can you build this prompt?' 'Help me create this GPT?' 'Could ChatGPT solve this workflow problem?' Your internal team either doesn't exist or doesn't have capacity to deliver, and procurement cycles for external help take months."
-  solution_overview: "Expert Requests provide immediate access to ChatGPT specialists who write prompts, build GPTs, create simple integrations, run training sessions, and join team meetings—delivered in days with pre-contracted capacity that scales instantly."
+  title: "The Enthusiasm Gap: Where Most AI Programs Stall"
+  problem_statement: "Training creates excitement. Your people have ideas. An employee spots a workflow that AI could transform, a team leader envisions a custom GPT for client onboarding, a department head wants a Claude skill for report generation. But without a mechanism to act on those ideas quickly, they die in IT backlogs. Enthusiasm fades. People stop suggesting improvements. Your AI program stalls."
+  solution_overview: "Expert Requests close the gap between idea and execution. Your teams submit requests through the Kowalah platform, and our AI specialists deliver working solutions, custom GPTs, Claude skills, prompt workflows, AI agents, and training sessions, in 7-14 days. Ideas keep becoming production solutions, and momentum compounds."
   trust_elements:
-    - "Write advanced prompts and multi-step workflows"
-    - "Build custom GPTs for specific business needs"
-    - "Create simple ChatGPT integrations and automations"
-    - "Run targeted training sessions and join executive meetings"
+    - "Custom GPTs, Claude skills, AI agents, and prompt workflows built for your specific processes"
     - "7-14 day delivery with 36-hour response guarantee"
-    - "No SOWs or procurement delays—pre-contracted capacity"
+    - "Pre-contracted capacity, no SOWs, no procurement delays"
+    - "Multi-platform expertise across Claude, ChatGPT, and enterprise environments"
+    - "Tracked through the Kowalah platform with full visibility for your team"
+    - "Kowalah Accelerators (pre-built templates) deployed alongside custom solutions"
   image: "/images/services/expert-request-problem.png"
 
 # Product capabilities/features
 capabilities:
-  title: "What Expert Requests Can You Create?"
+  title: "What Can Your Teams Request?"
   items:
+    - title: "Custom GPTs & Claude Skills"
+      icon: "cpu"
+      description: "Professional AI assistant development for team workflows, knowledge sharing, customer engagement, and department-specific use cases"
+      details:
+        - "Department-specific GPTs and Claude skills for daily workflows"
+        - "Cross-team solutions that break down silos and share best practices"
+        - "Knowledge base assistants for policies, processes, and templates"
+        - "Customer and prospect-facing AI tools for self-service"
+        - "Onboarding assistants for new starters, suppliers, and partners"
+      value_proposition: "Build AI solutions that scale expertise across your organization and become part of how your teams work every day"
+
     - title: "Advanced Prompts & Workflows"
       icon: "bulb"
-      description: "Expert prompt engineering for complex business workflows, data analysis, and department-specific use cases"
+      description: "Expert prompt engineering for business processes, data analysis, and role-specific use cases across Claude, ChatGPT, and multi-platform environments"
       details:
         - "Department-specific prompt libraries tailored to your workflows"
-        - "Individual prompt writing for complex tasks and analyses"
-        - "Multi-step workflow automation and chaining techniques"
-        - "ChatGPT Projects setup with data analysis prompts"
-        - "Prompt optimization and refinement guidance"
-      value_proposition: "Get sophisticated prompts that unlock ChatGPT's full potential for your specific business needs"
-    
-    - title: "Custom GPT Creation"
-      icon: "cpu"
-      description: "Professional GPT development for team collaboration, cross-functional knowledge sharing, and customer engagement"
-      details:
-        - "Team-specific GPTs for department workflows and productivity"
-        - "Cross-team GPTs that break down silos and share best practices"
-        - "Policy, process, and template GPTs for organizational knowledge sharing"
-        - "Customer and prospect education GPTs for self-service learning"
-        - "Onboarding GPTs for suppliers, partners, and new customers"
-      value_proposition: "Build GPTs that scale expertise across teams, educate stakeholders, and streamline onboarding processes"
-    
-    - title: "ChatGPT Extensions & Integrations"
+        - "Multi-step workflow automation and reasoning chains"
+        - "Data analysis and interpretation prompts for complex business data"
+        - "Role-specific prompt guides for common departmental tasks"
+        - "Prompt optimization and best practice documentation"
+      value_proposition: "Get professionally engineered prompts that unlock the full potential of AI for your specific business processes"
+
+    - title: "AI Agents & Integrations"
       icon: "monitor"
-      description: "Extend ChatGPT capabilities through custom actions, connectors, and API integrations"
+      description: "Connect AI to your business systems with custom agents, actions, and API integrations that automate workflows"
       details:
-        - "Custom actions for GPTs to connect with your business systems"
-        - "Custom connectors to integrate ChatGPT with enterprise tools"
+        - "Custom actions connecting AI assistants to your enterprise systems"
+        - "API integrations with CRM, ERP, and business tools"
         - "Multi-step workflow automation with simple user interfaces"
-        - "OpenAI API implementations for specialized use cases"
-        - "ChatGPT integration into existing business processes"
-      value_proposition: "Connect ChatGPT to your systems and workflows for seamless, automated business processes"
-    
-    - title: "Ongoing Training & Support Sessions"
+        - "AI agent development for autonomous task handling"
+        - "Integration of AI capabilities into existing business processes"
+      value_proposition: "Connect AI to your systems so it becomes part of your workflow, not a separate tool your people have to switch to"
+
+    - title: "Training Sessions & Expert Support"
       icon: "profile"
-      description: "Continuous learning support through new starter training, office hours, refresher sessions, and team workshops"
+      description: "Targeted workshops, office hours, and executive briefings that keep capability growing after the initial training program"
       details:
-        - "Regular new starter training and onboarding sessions"
+        - "New starter AI onboarding sessions"
         - "Office hours and refresher sessions for existing users"
-        - "New ChatGPT feature launch training and capability updates"
-        - "Executive leadership briefings and board strategy materials"
-        - "Team meeting attendance and department-specific workshops"
-      value_proposition: "Sustain ChatGPT expertise with ongoing training that reinforces learning and evolves with new capabilities"
+        - "New feature and capability update workshops"
+        - "Executive briefings and board preparation materials"
+        - "Department-specific deep-dive sessions for advanced use cases"
+      value_proposition: "Keep AI skills growing with ongoing expert support that reinforces training and introduces new capabilities as platforms evolve"
 
 # How it works demonstration
 how_it_works:
-  title: "Simple Request, Professional Delivery"
-  subtitle: "Turn any ChatGPT need into delivered solutions with our streamlined process"
+  title: "From Idea to Working Solution in Days"
+  subtitle: "Your teams submit requests through the Kowalah platform. Our specialists deliver. No procurement, no SOWs, no delays."
   steps:
     - step_number: 1
-      title: "Submit Request"
-      description: "Log your Expert Request through the platform with details about your specific need"
+      title: "Submit Your Request"
+      description: "Log your Expert Request through the Kowalah platform with details about what you need. Your team, your AI Ambassadors, or your leadership can submit."
     - step_number: 2
-      title: "Strategy Call"
-      description: "Book a call with your AI Strategy Director within 36 hours to refine requirements"
+      title: "Scope & Confirm"
+      description: "Our team reviews within 36 hours, confirms the approach, and schedules any discovery needed. Most requests can begin immediately."
     - step_number: 3
       title: "Professional Delivery"
-      description: "Receive completed work in 7-14 days, ready for immediate implementation"
+      description: "Receive your working solution in 7-14 days, tested, documented, and ready for your team to use. Track progress through the platform."
   demo:
     type: "screenshots"
     screenshots:
       - "/images/product/screenshots/expert-request-submission.png"
       - "/images/product/screenshots/strategy-call-booking.png"
       - "/images/product/screenshots/delivery-tracking.png"
-    description: "See how Expert Requests integrate seamlessly into your Digital CAIO workflow, from submission to delivery tracking"
+    description: "Expert Requests are tracked through the Kowalah platform alongside your projects and initiatives, giving your team full visibility"
 
 # Competitive advantage section
 competitive_advantage:
-  title: "Expert ChatGPT Support Without the Wait"
-  subtitle: "Pre-contracted capacity, instant access, always-on expertise - no procurement delays or vendor friction"
+  title: "Why Ideas Need Somewhere to Go"
+  subtitle: "Without Expert Requests, the Enthusiasm Gap kills momentum. With them, every good idea becomes a working solution."
   background_image: "/images/services/expert-services-benefits-background.png"
   advantages:
+    - point: "Prevents the Enthusiasm Gap"
+      description: "Ideas from training, Sprints, and daily work flow directly into production instead of dying in backlogs"
     - point: "No Procurement Delays"
       description: "Pre-contracted capacity means instant access without SOWs, approvals, or vendor onboarding"
-    - point: "Fully Integrated Service"
-      description: "Seamlessly connects with Training and Change Enablement for complete support"
-    - point: "Always-On Expertise"
-      description: "Access ChatGPT specialists, trainers, and developers without permanent hires"
+    - point: "Multi-Platform Expertise"
+      description: "Specialists across Claude, ChatGPT, and enterprise AI environments build the right solution on the right platform"
     - point: "7-14 Day Delivery"
-      description: "Professional results delivered fast with 36-hour response guarantee"
+      description: "Professional solutions delivered fast with 36-hour response guarantee and full platform visibility"
 
 # Use cases/scenarios
 use_cases:
-  title: "What Problems Do Expert Requests Solve?"
+  title: "What Does an Expert Request Look Like?"
   items:
-    - scenario: "Marketing team needs advanced prompts for campaign creation and analysis"
-      solution: "Expert prompt engineer creates department-specific prompt library with multi-step campaign workflows and data analysis templates"
-      outcome: "Marketing team produces sophisticated ChatGPT outputs in days vs. months of trial-and-error learning"
+    - scenario: "Marketing team inspired by Sprint results wants their own content workflow GPT"
+      solution: "Expert builds a brand-aware content assistant with company guidelines, tone of voice, and campaign templates built in"
+      outcome: "Marketing produces more consistent, higher-quality content with less revision, using AI that understands their brand"
 
-    - scenario: "Sales leader wants a custom GPT for team objection handling practice"
-      solution: "Build custom GPT with company's product knowledge, common objections, and role-play scenarios using Advanced Voice"
-      outcome: "Sales reps practice objection handling 24/7 with consistent, expert-level coaching feedback"
+    - scenario: "Sales leader sees what Finance built and wants an objection handling practice tool"
+      solution: "Custom GPT with product knowledge, common objections, and realistic role-play scenarios using voice capabilities"
+      outcome: "Sales reps practice objection handling on demand with consistent, expert-level coaching feedback"
 
-    - scenario: "Finance department needs ChatGPT to pull live data from their ERP system"
-      solution: "Create custom action that connects their GPT to the ERP API for real-time financial data queries and analysis"
-      outcome: "Finance team gets instant ChatGPT insights from live data without manual exports or spreadsheet work"
+    - scenario: "Finance wants their AI assistant connected to live ERP data"
+      solution: "Custom action connecting their Claude skill or GPT to the ERP API for real-time financial queries and analysis"
+      outcome: "Finance team gets instant AI-powered insights from live data without manual exports or spreadsheet work"
 
-    - scenario: "HR receives 50 employee requests for help using ChatGPT for their specific roles"
-      solution: "Run targeted office hours and create role-specific prompt guides for top 5 requesting departments"
-      outcome: "Employee self-sufficiency increases, HR support requests drop 70% within two weeks"
+    - scenario: "HR Ambassador identifies that 50 employees need role-specific AI guidance"
+      solution: "Targeted office hours plus custom prompt guides for the top 5 requesting departments, adapted from Sprint examples"
+      outcome: "Employee self-sufficiency increases, support requests drop, and each department has AI workflows tailored to their actual processes"
 
-    - scenario: "Executive team needs ChatGPT strategy materials for quarterly board meeting"
-      solution: "AI Strategy Director creates board-ready presentation with industry benchmarks, ROI analysis, and implementation roadmap"
-      outcome: "Executive-quality materials delivered in one week, with expert available to present alongside leadership"
+    - scenario: "Operations wants to share process documentation across teams via AI"
+      solution: "Cross-team Claude skill loaded with SOPs, templates, and best practices, accessible to all relevant departments"
+      outcome: "Knowledge silos broken down, process consistency improves, and new starters get AI-guided onboarding from day one"
 
-    - scenario: "Operations wants to share process documentation across teams via ChatGPT"
-      solution: "Build cross-team GPT loaded with SOPs, templates, and best practices accessible to all departments"
-      outcome: "Knowledge silos broken down, process consistency improves, onboarding time reduced by 60%"
+    - scenario: "CEO needs board-ready AI program update with impact metrics"
+      solution: "Expert prepares board presentation with program metrics from the Kowalah platform, industry benchmarks, and strategic roadmap"
+      outcome: "Executive-quality materials delivered in one week, showing measurable business impact from the AI program"
 
 # Integrations section
 integrations:
-  title: "Seamless Platform Experience"
-  subtitle: "Expert Requests work within your existing Digital CAIO workflow"
-  current_state: "Fully integrated with Digital CAIO platform for request submission, progress tracking, and delivery management"
+  title: "Full Visibility Through the Kowalah Platform"
+  subtitle: "Every Expert Request is tracked alongside your projects and initiatives"
+  current_state: "Expert Requests are managed through the Kowalah platform, giving your team full visibility of request status, delivery progress, and the overall AI program"
   available_integrations:
-    - "Digital CAIO chat history"
+    - "Project and initiative tracking"
+    - "Digital CAIO with full program context"
     - "Accelerator library"
-    - "Progress tracking dashboard"
-    - "AI Strategy Director scheduling"
-    - "Delivery asset library"
+    - "Delivery progress tracking"
+    - "AI program analytics"
 
 # Conversion section
 conversion:
-  title: "Ready to Accelerate Your AI Implementation?"
-  subtitle: "Schedule a strategy call to discuss your organization's Expert Request needs"
-  offer_description: "Our AI Strategy Directors will assess your current AI initiatives and show you exactly how Expert Requests can eliminate implementation bottlenecks. See real examples of delivered work and understand how pre-contracted capacity transforms your AI program momentum."
+  title: "Ready to Keep Your AI Momentum Going?"
+  subtitle: "Expert Requests are included in Kowalah Essential (12/quarter) and Executive (24/quarter) plans, or available as standalone delivery"
+  offer_description: "In 60 minutes we'll review where you are, assess your team's idea backlog, and show you how Expert Requests connect to your Sprint results, training, and ongoing AI program."
   background_image: "/images/services/expert-requests-cta-bg.png"
   cta:
-    label: "Schedule Strategy Call"
+    label: "Book a Conversation"
     link: "/contact"
-    subtext: "36-hour booking guarantee • No commitment required"
+    subtext: "Free 60-minute assessment, no commitment required"
 ---
 
-## Professional AI Implementation Without the Delays
+## The Delivery Mechanism That Prevents the Enthusiasm Gap
 
-Expert Requests transform your organization's AI potential into delivered solutions. While your teams generate ideas and identify opportunities, our professional implementation team turns those concepts into working tools, training programs, and strategic materials - all delivered within days, not months.
+Every AI program hits the same wall. Training creates excitement. People have ideas. But without a fast, reliable way to turn those ideas into working solutions, enthusiasm dies. The employee who spotted a workflow that AI could transform submits a request to IT. It joins a backlog. Weeks pass. The moment is gone. They stop suggesting improvements. Multiply this across hundreds of employees, and your AI program stalls.
 
-### The Implementation Gap
+Expert Requests break this pattern. Your teams submit ideas through the Kowalah platform, and our AI specialists, prompt engineers, developers, and trainers deliver working solutions in 7-14 days. The Sprint identified the highest-value use cases. Training built the skills and excitement. Expert Requests keep that momentum compounding.
 
-Most organizations face a critical gap between AI vision and execution. Teams know what they need, but lack the specialized skills, time, or resources to implement professional-grade solutions. Traditional consulting requires lengthy procurement cycles, while internal development diverts resources from core business functions.
+### How Expert Requests Fit the Program
 
-### Immediate Professional Capacity
+The Kowalah approach works because each piece connects to the next:
 
-Expert Requests provide pre-contracted access to our team of AI specialists, prompt engineers, developers, and trainers. No statements of work, no vendor evaluations, no project delays - just professional implementation that scales with your needs.
+**AI Impact Sprint** delivers 2-3 working solutions tied to strategic goals, plus a backlog of additional ideas discovered during the engagement.
 
-## Service Categories
+**Training & Change Enablement** spreads capability across the organization, generating more ideas as people see what's possible.
 
-### Prompt Engineering
-Transform basic AI interactions into powerful, consistent business processes with professionally crafted prompts that deliver reliable results across your organization.
+**Expert Requests** turn all those ideas into production solutions, continuously. Custom GPTs, Claude skills, AI agents, prompt workflows, training sessions, whatever the use case needs.
 
-### GPT Development
-Deploy custom AI assistants that understand your business context, speak in your brand voice, and integrate seamlessly with your workflows.
+This is the compounding value model. The Sprint proves value. Training spreads capability. Expert Requests keep new solutions flowing. Each cycle generates more ideas than the last.
 
-### Application Development
-Bridge the gap between AI potential and practical implementation with custom web applications and system integrations.
+### What Gets Delivered
 
-### Training & Change Management
-Accelerate organization-wide AI adoption with expert-led workshops, executive briefings, and comprehensive change management support.
+Each Expert Request is a discrete deliverable (typically 4-8 hours of specialist time):
 
-## The Expert Requests Advantage
+**Custom GPTs & Claude Skills** — AI assistants built for your specific business processes, from department workflows to customer-facing tools.
 
-**Immediate Access:** Skip procurement friction with pre-purchased capacity that's ready when you need it.
+**Prompt Libraries & Workflows** — Professionally engineered prompts and multi-step workflows for complex business tasks.
 
-**Professional Quality:** Receive implementation work that meets enterprise standards for security, scalability, and user experience.
+**AI Agents & Integrations** — Connections between AI and your business systems (CRM, ERP, data sources) that automate real workflows.
 
-**Predictable Delivery:** Count on 36-hour response times and 7-14 day delivery windows that keep your AI initiatives moving forward.
+**Training & Support** — Targeted workshops, office hours, new feature sessions, and executive briefings that keep skills growing.
 
-**Strategic Integration:** Every Expert Request aligns with your broader AI strategy and integrates with your existing Digital CAIO platform experience.
+### Platform Visibility
+
+Every Expert Request is tracked through the Kowalah platform alongside your projects and initiatives. Your team can see what's been requested, what's in progress, and what's been delivered. Leadership gets a real-time view of how the AI program is growing across the organization.
+
+### The Expert Requests Advantage
+
+**Immediate access:** Pre-contracted capacity means no SOWs, no procurement delays, no vendor onboarding. When your team has an idea, we can start building within 36 hours.
+
+**Professional quality:** Solutions built by specialists with deep expertise across Claude, ChatGPT, and enterprise AI environments.
+
+**Predictable delivery:** 7-14 day delivery windows with 36-hour response guarantee keep your AI program moving.
+
+**Connected to your program:** Every Expert Request aligns with your broader AI strategy and builds on your Sprint results and training outcomes.

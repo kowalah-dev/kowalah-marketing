@@ -1,0 +1,559 @@
+---
+import Base from "@/layouts/Base.astro";
+import ServicesHero from "@/layouts/components/services/ServicesHero.astro";
+import ServicesInclusions from "@/layouts/components/services/ServicesInclusions.astro";
+import ProblemSolution from "@/layouts/components/services/ProblemSolution.astro";
+import Phases from "@/layouts/components/services/Phases.astro";
+import Pillars from "@/layouts/components/services/Pillars.astro";
+import Timeline from "@/layouts/components/services/Timeline.astro";
+import BusinessCase from "@/layouts/components/services/BusinessCase.astro";
+import UseCases from "@/layouts/components/services/UseCases.astro";
+import Investment from "@/layouts/components/services/Investment.astro";
+import ConsultationOffer from "@/layouts/components/services/ConsultationOffer.astro";
+
+const pageData = {
+  title: "AI Implementation | Rapid Business Value Through AI",
+  meta_title: "Enterprise AI Implementation | AI Impact Sprint to Organization-Wide Transformation | Kowalah",
+  description:
+    "We find the 2-3 AI use cases that will move your strategic metrics, build them in weeks, then scale across your organization. Deploying Claude, ChatGPT, or both. Book a conversation.",
+
+  hero: {
+    title: "Deliver AI Business Value in Weeks, Not Quarters",
+    subtitle:
+      "We embed with your key stakeholders to uncover the 2-3 AI use cases tied directly to your strategic goals, build working solutions, and put real wins on the board. Then we use those proof points to drive organization-wide transformation. Whether you're deploying [Claude](/platforms/anthropic), [ChatGPT](/platforms/openai), or both.",
+    cta: {
+      label: "Book a Conversation",
+      link: "/contact",
+      subtext: "Free 60-minute assessment — you'll leave with a customized roadmap whether or not we work together",
+    },
+    image: "/images/solutions/chatgpt-deployment-hero.png",
+    imageAlt: "Enterprise AI deployment roadmap",
+  },
+
+  program_overview: {
+    title: "Real business value first, then scale what works",
+    subtitle:
+      "We start by delivering wins that matter to your strategic goals. Governance, training, and scale follow naturally, powered by proof points your people created.",
+    items: [
+      {
+        title: "AI Impact Sprint",
+        description:
+          "We embed with 2-3 key stakeholders to find and build the AI use cases tied directly to your strategic metrics.",
+        points: [
+          "Identify the 2-3 highest-value opportunities linked to your business goals",
+          "Build working solutions: custom GPTs, Claude skills, AI agents, prompt workflows",
+          "Deliver proof points and internal champions who've seen what's possible",
+        ],
+      },
+      {
+        title: "Platform Deployment & Governance",
+        description:
+          "Configure your enterprise AI platform, set up the guardrails, and provision governed access, so Sprint solutions can scale safely.",
+        points: [
+          "Enterprise licensing, workspace setup, SSO, and policy enforcement",
+          "Knowledge base, workflow, and analytics connectors",
+          "Responsible AI, security, and data governance frameworks",
+        ],
+      },
+      {
+        title: "Change Enablement & Training",
+        description:
+          "Scale adoption using the Sprint proof points as your internal case studies. 'Here's what your colleagues built' is more powerful than any generic tutorial.",
+        points: [
+          "AI Ambassador network (5-10% of employees as change champions)",
+          "AI 101/102/201 training pathways powered by your own Sprint examples",
+          "Leadership enablement, comms orchestration, and adoption analytics",
+        ],
+      },
+      {
+        title: "Ongoing Expert Delivery",
+        description:
+          "After enablement, people have ideas, and we don't let those ideas die. Continuous Expert Requests keep new custom GPTs, Claude skills, and agents flowing.",
+        points: [
+          "Monthly Expert Requests for new prompt workflows, assistants, and AI agents",
+          "Kowalah accelerators (ready-made AI workflow templates) for common business processes",
+          "Optimization sprints, innovation roadmap, and quarterly strategy reviews",
+        ],
+      },
+    ],
+  },
+
+  problem_solution: {
+    title: "You Don't Need Another AI Strategy Deck",
+    problem_statement:
+      "The big consultancies will sell you a 12-week discovery phase, a beautifully bound strategy document, and a roadmap that gathers dust. Meanwhile, your employees are already using AI on free accounts, without governance, sharing sensitive data. You don't need more planning. You need results.",
+    solution_overview:
+      "We skip the months of strategy theatre and embed directly with your key people. In weeks, we identify the 2-3 AI use cases tied to your strategic goals, build working solutions, custom GPTs, [Claude](/platforms/anthropic) skills, AI agents, prompt workflows, and put measurable wins on the board. Then we scale what works across your organization.",
+    trust_elements: [
+      "Working AI solutions delivered in weeks, not a strategy deck in months",
+      "Custom GPTs, Claude skills, and AI agents built for your specific business processes",
+      "Proof points and internal champions before organization-wide rollout",
+      "Prebuilt Kowalah accelerators (ready-made AI workflow templates) to fast-track adoption",
+      "Governance and compliance woven in from day one, not bolted on later",
+      "Ongoing Expert Requests keep new solutions flowing after the initial engagement",
+    ],
+    pain_points: [
+      "Consultancy proposals that take months to deliver a strategy document with no working solutions",
+      "Employees already using free AI tools without governance, creating security and compliance risks",
+      "Enterprise AI licenses sitting unused because nobody's been shown what's actually possible",
+      "Technical deployment without real use cases means adoption stalls within weeks",
+      "No clear link between AI initiatives and the metrics your board actually cares about",
+      "Resistance to AI adoption because people haven't experienced a genuine 'aha' moment yet",
+    ],
+  },
+
+  solution_approach: {
+    title: "How We Deliver: Sprint First, Scale Second",
+    subtitle:
+      "Business value in weeks, organization-wide transformation in months. Governance and compliance are woven in from day one, not a separate phase that delays results.",
+    phases: [
+      {
+        phase_number: 1,
+        title: "AI Impact Sprint",
+        description:
+          "We embed with 2-3 key stakeholders, get into the weeds of their actual work, and build the AI solutions tied to your strategic metrics. You end with working custom GPTs, Claude skills, or AI agents, and internal champions who've experienced what's possible.",
+        deliverables: [
+          "2-3 high-impact AI use cases identified and linked to your strategic KPIs",
+          "Working solutions delivered: custom GPTs, Claude skills, AI agents, prompt workflows",
+          "Internal champions with first-hand proof of what AI can do for your business",
+          "Executive briefing with results, ROI indicators, and scale-up recommendations",
+        ],
+        timeline: "Weeks 1-3",
+      },
+      {
+        phase_number: 2,
+        title: "Platform Deployment & Governance",
+        description:
+          "With Sprint proof points in hand, we deploy your enterprise AI platform, set up governance guardrails, and provision access, so the solutions your people built can scale safely across the organization.",
+        deliverables: [
+          "Enterprise AI platform licensing, configuration, SSO, and policy enforcement",
+          "Knowledge base, workflow, and analytics integrations",
+          "Governance framework, risk register, and compliance guardrails",
+          "AI Ambassador enablement toolkit and coaching calendar",
+        ],
+        timeline: "Weeks 4-7",
+      },
+      {
+        phase_number: 3,
+        title: "Change Enablement & Training",
+        description:
+          "Scale adoption using Sprint results as your internal case studies. Training powered by 'here's what your colleagues built' is more compelling than any generic curriculum. AI Ambassador networks spread capability organically.",
+        deliverables: [
+          "AI 101/102/201 training pathways built around your Sprint proof points",
+          "Leadership enablement, policy education, and communications cadence",
+          "AI Ambassador forums, office hours, and change clinics",
+          "Live adoption dashboards, sentiment surveys, and feedback loops",
+        ],
+        timeline: "Weeks 8-14",
+      },
+      {
+        phase_number: 4,
+        title: "Ongoing Expert Delivery",
+        description:
+          "After enablement, people have ideas, and we don't let those ideas die. Continuous Expert Requests keep new custom GPTs, Claude skills, and AI agents flowing. This is where transformation compounds.",
+        deliverables: [
+          "Expert Requests backlog with continuous custom solution delivery",
+          "Accelerator deployment and advanced use case expansion",
+          "Monthly optimization sprints with KPI and guardrail reviews",
+          "Quarterly roadmap refresh and governance updates",
+        ],
+        timeline: "Weeks 15-21+",
+      },
+    ],
+  },
+
+  solution_components: {
+    title: "What Makes This Different",
+    items: [
+      {
+        title: "Embedded Delivery",
+        icon: "task",
+        description:
+          "AI specialists who embed with your people, learn your business, and build solutions, not consultants who write recommendations",
+        details: [
+          "2-3 key stakeholders paired with dedicated AI specialists",
+          "Use case discovery sessions tied directly to your strategic goals",
+          "Custom GPTs, Claude skills, and AI agents built for your specific workflows",
+          "Working solutions delivered in weeks, not a strategy document in months",
+          "Internal champions created through hands-on collaboration",
+        ],
+        value_proposition:
+          "You get working AI solutions linked to your strategic metrics within weeks, with internal champions who can demonstrate real results to the board",
+      },
+      {
+        title: "Proof Points Before Scale",
+        icon: "upward",
+        description: "Sprint results become the fuel for organization-wide adoption, making change enablement faster and more credible",
+        details: [
+          "Training built around 'here's what your colleagues built,' not generic AI tutorials",
+          "AI Ambassador network (5-10% of employees as change champions)",
+          "Real internal examples that spark 'I didn't know it could do that' moments",
+          "Adoption powered by peer proof, not top-down mandates",
+          "Resistance dissolves when people see colleagues getting genuine value",
+        ],
+        value_proposition:
+          "Organization-wide adoption happens faster because people see real results from their own colleagues, not theoretical case studies from other companies",
+      },
+      {
+        title: "Continuous Solution Building",
+        icon: "bulb",
+        description: "After the Sprint, ideas keep flowing. Expert Requests ensure new custom GPTs, Claude skills, and AI agents are always being built",
+        details: [
+          "Monthly Expert Requests allocation for new AI solutions",
+          "Custom prompt libraries, assistant workflows, and agent development",
+          "Department-specific workshops that uncover new high-value use cases",
+          "Innovation pipeline management so good ideas never die",
+          "Quarterly roadmap reviews to align AI capabilities with evolving business goals",
+        ],
+        value_proposition:
+          "Your AI investment compounds each month as new solutions are built, rather than stalling after the initial engagement ends",
+      },
+      {
+        title: "Strategic Use Case Selection",
+        icon: "compass",
+        description:
+          "We don't build random AI demos. We find the 2-3 use cases that will move the metrics your board cares about at year-end",
+        details: [
+          "Executive alignment on which strategic goals AI should accelerate",
+          "Anonymous AI usage surveys to surface what employees are already doing",
+          "Prioritised use case roadmaps with clear links to business KPIs",
+          "Board-ready progress reports showing AI impact on strategic metrics",
+          "ROI tracking from Sprint delivery through organization-wide scale",
+        ],
+        value_proposition:
+          "Every AI solution built is tied to a strategic goal, so at year-end your board can point to specific outcomes and say 'that made a difference'",
+      },
+      {
+        title: "Governance That Doesn't Slow You Down",
+        icon: "monitor",
+        description:
+          "Security, compliance, and governance woven into the process from day one, not a separate phase that delays delivery",
+        details: [
+          "Enterprise platform configuration, SSO, and policy enforcement",
+          "Responsible AI frameworks and data privacy guardrails",
+          "Shadow AI detection and managed transition to governed tools",
+          "Compliance monitoring built into every solution we deliver",
+          "Risk register maintained alongside the innovation roadmap",
+        ],
+        value_proposition:
+          "Your IT and compliance teams have full confidence in security and governance, without it becoming a bottleneck that delays business value",
+      },
+      {
+        title: "Role-Specific AI Training",
+        icon: "profile",
+        description: "Progressive skill-building from AI 101 fundamentals to advanced custom GPT and agent development, powered by your own Sprint examples",
+        details: [
+          "AI 101/102/201 curricula tailored to your organization and industry",
+          "Department-specific workshops using real internal use cases",
+          "Hands-on labs: building custom GPTs, Claude skills, and prompt workflows",
+          "Executive enablement sessions for leadership communication",
+          "Ongoing learning paths and skill development tracking",
+        ],
+        value_proposition:
+          "Every employee gains practical AI skills using examples from their own organization, making training immediately relevant and actionable",
+      },
+    ],
+  },
+
+  implementation: {
+    title: "Program Execution Timeline",
+    subtitle: "Business value in weeks, organization-wide transformation in months",
+    duration: "3 weeks to first results, 14-21 weeks to full organization-wide deployment",
+    steps: [
+      {
+        step_number: 1,
+        title: "Weeks 1-3: AI Impact Sprint",
+        description:
+          "We embed with your key stakeholders, identify the highest-value AI opportunities linked to your strategic goals, and build working solutions.",
+        duration: "2-3 weeks",
+        focus: "Deliver real business value and create internal champions before anything else.",
+        stakeholders: ["Executive Sponsor", "2-3 Key Stakeholders", "Department Leads"],
+        workstreams: [
+          "Strategic goal mapping and use case discovery with key stakeholders",
+          "Build custom GPTs, Claude skills, AI agents, and prompt workflows for identified use cases",
+          "Measure and document results tied to business KPIs",
+          "Shadow AI usage baseline and priority department identification",
+        ],
+        deliverables: [
+          "2-3 working AI solutions tied to strategic metrics",
+          "Internal champions with hands-on experience and proof of value",
+          "Executive briefing with results, ROI indicators, and scale-up roadmap",
+          "Governance requirements assessment for enterprise deployment",
+        ],
+        checkpoint: "Executive review of Sprint results and go/no-go for organization-wide scale",
+      },
+      {
+        step_number: 2,
+        title: "Weeks 4-7: Platform Deployment & Governance",
+        description:
+          "Deploy the enterprise AI platform so Sprint solutions can scale safely. Governance, licensing, and security configured in parallel, not sequentially.",
+        duration: "4 weeks",
+        focus: "Give Sprint solutions a governed home and provision access across the organization.",
+        stakeholders: ["Platform Lead", "IT", "InfoSec", "Procurement"],
+        workstreams: [
+          "Enterprise licensing, workspace configuration, SSO, and policy enforcement",
+          "Knowledge base, workflow, and analytics integrations",
+          "Governance framework, risk register, and compliance guardrails",
+          "AI Ambassador enablement and coaching calendar",
+        ],
+        deliverables: [
+          "Configured enterprise AI platform with governed access",
+          "Integration checklist with testing sign-off",
+          "Governance framework and risk register",
+          "Ambassador roster and enablement toolkit",
+        ],
+        checkpoint: "Platform launch readiness review with security and executive sponsors",
+      },
+      {
+        step_number: 3,
+        title: "Weeks 8-14: Change Enablement & Training",
+        description:
+          "Scale adoption using Sprint proof points as internal case studies. Training powered by 'here's what your colleagues built' drives faster, more credible adoption.",
+        duration: "6-7 weeks",
+        focus: "Turn Sprint success into organization-wide AI confidence.",
+        stakeholders: ["Change Enablement Lead", "L&D", "HR", "Department Sponsors"],
+        workstreams: [
+          "AI 101/102/201 training pathways built around Sprint examples",
+          "AI Ambassador forums, office hours, and change clinics",
+          "Leadership enablement and policy education",
+          "Adoption dashboards, sentiment surveys, and feedback loops",
+        ],
+        deliverables: [
+          "Training completion metrics and capability lift data",
+          "Employee AI knowledge base and policy hub",
+          "Leadership communications pack with Sprint results",
+          "Live adoption dashboard and issue resolution log",
+        ],
+        checkpoint: "Enterprise-wide adoption sign-off and ongoing services decision",
+      },
+      {
+        step_number: 4,
+        title: "Weeks 15-21+: Ongoing Expert Delivery",
+        description:
+          "Keep building. Continuous Expert Requests deliver new custom GPTs, Claude skills, and AI agents as teams discover new use cases. This is where transformation compounds.",
+        duration: "7+ weeks, ongoing",
+        focus: "Ensure AI value keeps growing in sophistication and measurable impact.",
+        stakeholders: ["Digital CAIO", "Department Champions", "Analytics Lead"],
+        workstreams: [
+          "Expert Requests backlog: custom GPTs, Claude skills, agent development",
+          "Accelerator deployment and advanced use case expansion",
+          "Monthly optimization sprints with KPI and guardrail reviews",
+          "Roadmap refresh and governance updates",
+        ],
+        deliverables: [
+          "Growing library of custom AI solutions with documentation",
+          "Optimization backlog prioritized with business owners",
+          "Monthly adoption and ROI reporting pack",
+          "Updated innovation roadmap and governance artifacts",
+        ],
+        checkpoint: "Quarterly strategy review confirming new objectives and investment focus",
+      },
+    ],
+    postLaunch: {
+      title: "Continuous partnership beyond the initial engagement",
+      cadence: "Ongoing partnership",
+      items: [
+        "Monthly Expert Requests for new custom GPTs, Claude skills, and AI agents",
+        "Quarterly optimization workshops and KPI reviews",
+        "Innovation roadmap refresh with AI leadership team",
+        "Annual governance and risk posture reassessment",
+      ],
+    },
+  },
+
+  business_case: {
+    title: "Why This Approach Works",
+    subtitle: "Research-backed results and real-world evidence that Sprint-first delivery outperforms traditional strategy-first approaches",
+    roi_metrics: [
+      {
+        metric: "Teams using AI produce more top-quality solutions than individuals working alone",
+        value: "3x",
+        timeframe: "Harvard Business School & Procter & Gamble research",
+      },
+      {
+        metric: "Productivity gains in knowledge work tasks with governed AI deployment",
+        value: "25-30%",
+        timeframe: "McKinsey Global Institute research",
+      },
+      {
+        metric: "Faster time-to-value with structured deployment vs. organizations managing rollout internally",
+        value: "4x",
+        timeframe: "Kowalah client deployments",
+      },
+    ],
+    cost_savings: [
+      "Eliminate duplicated licensing and shadow AI spend (typically £50-150k annually in a 2,000-person organization)",
+      "Avoid rework with enterprise-ready governance and policy packs",
+      "Reduce external consulting reliance through embedded Digital CAIO support",
+      "Accelerate procurement and legal cycles with pre-built documentation",
+    ],
+    efficiency_gains: [
+      "Higher-quality deliverables via collaborative workspaces, advanced research, and shared assistant libraries",
+      "Faster decision cycles with executive-ready analysis and scenario planning",
+      "Product teams iterate quicker through integrated development workflows",
+      "Operations maintain consistent policy adherence with centrally managed assistants",
+    ],
+  },
+
+  use_cases: {
+    title: "The Kind of Use Cases We Uncover and Build",
+    items: [
+      {
+        scenario: "Executive Team Strategic Planning",
+        challenge:
+          "Your CEO needs a board-ready AI strategy by Friday. Pulling together market signals, competitive moves, and internal performance data manually would take the team a week.",
+        solution:
+          "Deep research capabilities fused with executive prompt libraries to produce board-ready scenario plans, risk heatmaps, and strategic recommendations in minutes",
+        outcome: "Faster strategic decisions backed by AI-synthesised insight and clear action options",
+      },
+      {
+        scenario: "Sales Prospecting & Negotiation Enablement",
+        challenge: "Your best rep just lost a deal because they fumbled an objection they'd never practiced. There's no safe space to rehearse tough conversations before they matter.",
+        solution:
+          "Voice-powered role-play simulations that mimic prospect personas, objections, and negotiation styles with instant coaching",
+        outcome: "Better-prepared reps, higher confidence, and measurable uplift in win rates",
+      },
+      {
+        scenario: "Marketing Campaign Planning",
+        challenge: "Your marketing lead is juggling three channels, two agencies, and a launch date that's already slipped once. Aligning messaging, assets, and analytics consumes weeks.",
+        solution:
+          "Collaborative AI workspaces with cloud storage, analytics, and CRM connectors to draft briefs, build calendars, and generate creative variations in context",
+        outcome: "Campaigns launch faster with unified messaging, streamlined approvals, and data-informed creative",
+      },
+      {
+        scenario: "Product Development Workflow",
+        challenge: "Your product manager spends half their day in status meetings because product, engineering, and design have no shared view of backlog priorities, customer feedback, or release updates.",
+        solution:
+          "AI workspaces integrated with development tools that summarize issues, surface risks, and draft release communications",
+        outcome: "Shorter iteration cycles with better cross-functional visibility and fewer context switches",
+      },
+      {
+        scenario: "Operations Knowledge Sharing",
+        challenge: "A new starter in operations just followed an outdated SOP because the latest version was buried in a shared drive. Teams need always-current guidance on policies and compliance steps.",
+        solution:
+          "Custom assistants that deliver policy Q&A, decision trees, and best-practice templates with advanced search and version control",
+        outcome: "Reduced process errors, faster onboarding, and consistent compliance adherence",
+      },
+      {
+        scenario: "Candidate Experience & Talent Attraction",
+        challenge: "Your recruiters are fielding the same candidate questions dozens of times a week, leaving no time for the relationship-building that wins top talent.",
+        solution:
+          "Branded candidate assistants that answer questions, share interview prep tailored to the role, and capture sentiment for recruiters",
+        outcome: "Higher candidate satisfaction, better-prepared interviews, and insight into talent pipeline questions",
+      },
+    ],
+  },
+
+  investment: {
+    title: "Your Investment",
+    subtitle: "Start with a Sprint to prove value, then scale when you've seen the results",
+    pricing_model: "AI Impact Sprint from £6,000. Full organization-wide program from £125 per employee.",
+    starting_price: "Most organizations start with a Sprint (£6,000-40,000) before committing to the full program",
+    pricing_factors: [
+      "AI Impact Sprint scope: 1-5 use cases, 2-3 key stakeholders, 2-3 weeks",
+      "Organization size for full program (per-employee change enablement, training, and Ambassador program)",
+      "Enterprise AI platform licensing and procurement support",
+      "Depth of system integrations, data residency requirements, and security review scope",
+      "Ongoing Expert Requests allocation and managed services options",
+    ],
+    what_included: [
+      "AI Impact Sprint: use case discovery, custom GPT/Claude skill/agent builds, proof points, and executive briefing",
+      "Full program: platform deployment, governance, AI 101/102/201 training, and Ambassador network",
+      "Kowalah accelerators (ready-made AI workflow templates) deployed alongside custom solutions",
+      "Expert Requests throughput, monthly optimization forums, and Digital CAIO guidance",
+      "Governance pack, policy hub, and adoption analytics dashboards",
+      "Each phase can stand alone — start with a Sprint and expand when you're ready",
+    ],
+  },
+
+  conversion: {
+    title: "Ready to See What AI Can Actually Do for Your Business?",
+    subtitle: "In 60 minutes we'll identify where the biggest AI opportunities sit in your organization",
+    description:
+      "We'll map your strategic goals, identify the 2-3 AI use cases most likely to move the needle, and outline what an Impact Sprint would look like for your organization. No obligation. No hard sell. Just a clear picture of where the value is.",
+    primary_cta: {
+      label: "Book a Conversation",
+      link: "/contact",
+    },
+    offer: {
+      title: "Free AI Opportunity Assessment",
+      description:
+        "60-minute conversation covering your strategic goals, current AI usage, and a customized view of where an Impact Sprint could deliver the fastest results",
+      duration: "60 minutes",
+      cta: {
+        label: "Book a Conversation",
+        link: "/contact",
+      },
+    },
+  },
+};
+---
+
+<Base title={pageData.title} meta_title={pageData.meta_title} description={pageData.description}>
+  <ServicesHero
+    title={pageData.hero.title}
+    subtitle={pageData.hero.subtitle}
+    cta={pageData.hero.cta}
+    image={pageData.hero.image}
+    imageAlt={pageData.hero.imageAlt}
+    backgroundImage="/images/services/chatgpt-deployment-cta-bg.png"
+  />
+
+  <ServicesInclusions
+    title={pageData.program_overview.title}
+    subtitle={pageData.program_overview.subtitle}
+    items={pageData.program_overview.items}
+  />
+
+  <ProblemSolution
+    title={pageData.problem_solution.title}
+    problemStatement={pageData.problem_solution.problem_statement}
+    solutionOverview={pageData.problem_solution.solution_overview}
+    trustElements={pageData.problem_solution.trust_elements}
+    painPoints={pageData.problem_solution.pain_points}
+  />
+
+  <Phases
+    title={pageData.solution_approach.title}
+    subtitle={pageData.solution_approach.subtitle}
+    phases={pageData.solution_approach.phases}
+  />
+
+  <Pillars title={pageData.solution_components.title} items={pageData.solution_components.items} />
+
+  <Timeline
+    title={pageData.implementation.title}
+    subtitle={pageData.implementation.subtitle}
+    durationLabel={pageData.implementation.duration}
+    steps={pageData.implementation.steps}
+    postLaunch={pageData.implementation.postLaunch}
+  />
+
+  <BusinessCase
+    title={pageData.business_case.title}
+    subtitle={pageData.business_case.subtitle}
+    metrics={pageData.business_case.roi_metrics}
+    costSavings={pageData.business_case.cost_savings}
+    efficiencyGains={pageData.business_case.efficiency_gains}
+  />
+
+  <UseCases title={pageData.use_cases.title} items={pageData.use_cases.items} />
+
+  <Investment
+    title={pageData.investment.title}
+    subtitle={pageData.investment.subtitle}
+    pricingModel={pageData.investment.pricing_model}
+    startingPrice={pageData.investment.starting_price}
+    pricingFactors={pageData.investment.pricing_factors}
+    inclusions={pageData.investment.what_included}
+  />
+
+  <ConsultationOffer
+    title={pageData.conversion.title}
+    subtitle={pageData.conversion.subtitle}
+    description={pageData.conversion.description}
+    primaryCta={pageData.conversion.primary_cta}
+    offer={pageData.conversion.offer}
+    backgroundImage="/images/services/chatgpt-deployment-cta-bg.png"
+  />
+</Base>

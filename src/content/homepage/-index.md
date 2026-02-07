@@ -13,39 +13,31 @@ hero:
 
 transformation:
   title: "The Enterprise AI Reality"
-  subtitle: "Most organizations are stuck between shadow AI chaos and failed corporate deployments. We bridge that gap."
+  subtitle: "Most organizations know AI matters but struggle to move from interest to real business impact. We close that gap."
   before:
     organizational:
-      - "Shadow AI usage across departments with no governance or oversight"
-      - "Stalled Copilot, Gemini, or ChatGPT deployments with low adoption rates"
-      - "IT teams blocking AI tools due to security and compliance concerns"
-      - "Inconsistent AI policies creating confusion and limiting productivity gains"
-      - "Lack of executive alignment on AI strategy and implementation approach"
-      - "No clear pathway from pilot programs to organization-wide transformation"
+      - "AI tools deployed without a clear adoption strategy or measurable goals"
+      - "No connection between AI initiatives and strategic business objectives"
+      - "IT, HR, and leadership working in silos on AI without a unified approach"
+      - "No clear pathway from early experiments to organization-wide transformation"
     individual:
-      - "Employees secretly using free AI tools for work tasks despite policy restrictions"
-      - "Frustration with clunky corporate AI tools that don't meet actual workflow needs"
-      - "Basic prompt skills limiting the value employees get from AI interactions"
-      - "No training on advanced AI capabilities like custom GPTs, voice, and workflows"
-      - "Fear of job displacement creating resistance to AI adoption initiatives"
-      - "Inconsistent AI skill levels across teams hampering collaborative productivity"
+      - "Employees curious about AI but unsure how it applies to their specific work"
+      - "Basic prompt skills limiting the value people get from AI interactions"
+      - "No exposure to advanced capabilities like custom GPTs, voice, and workflows"
+      - "Inconsistent AI skill levels across teams making collaboration harder"
   after:
     organizational:
-      - "Unified AI deployment with proper governance and security across platforms"
-      - "100% employee training completion through engaging foundation and advanced programs"
-      - "AI Ambassadors network (10% of workforce) driving adoption and capability sharing"
-      - "Custom solutions library tailored to specific business processes and workflows"
-      - "Clear AI governance framework balancing innovation with risk management"
-      - "Measurable productivity gains and competitive advantages from strategic AI integration"
+      - "AI solutions tied to strategic metrics with board-ready proof points"
+      - "AI Ambassadors network (10% of workforce) driving adoption and sharing wins"
+      - "Custom GPTs, Claude skills, and workflows built for your specific processes"
+      - "Measurable productivity gains and competitive advantages that compound over time"
     individual:
-      - "Confident AI power users leveraging advanced capabilities for creative problem-solving"
-      - "Voice-based coaching and role-playing partnerships transforming daily workflows"
-      - "Departmental AI workflows that eliminate repetitive tasks and enhance decision-making"
-      - "Continuous skill development through Expert Requests and custom training programs"
-      - "AI-enabled career growth through enhanced capabilities and strategic thinking"
+      - "Confident AI users applying advanced capabilities to real business challenges"
+      - "Department-specific workflows that save hours every week on repetitive tasks"
+      - "Continuous skill development through Expert Requests and targeted training"
       - "Collaborative AI culture where teams share successful prompts and workflows"
   mindset_shift:
-    from: "AI is a threat to control and job security"
+    from: "AI is interesting but I'm not sure where to start"
     to: "AI is a creative co-worker and competitive advantage"
 
 program_depth:
@@ -124,9 +116,9 @@ feature:
         label: "Learn About Sprints"
         link: "/services"
     - title: "Change Enablement"
-      badge: "Organisation-Wide"
+      badge: "Organization-Wide"
       content: "Scale transformation with proof points"
-      description: "With Sprint proof points in hand, we scale AI capability across your organisation. Training powered by internal examples, AI Ambassador networks, governance frameworks, and cultural transformation, everything needed to move from pilot success to organisation-wide adoption."
+      description: "With Sprint proof points in hand, we scale AI capability across your organization. Training powered by internal examples, AI Ambassador networks, governance frameworks, and cultural transformation, everything needed to move from pilot success to organization-wide adoption."
       image: "/images/home/features/features-2-expert-delivery.png"
       button:
         enable: true
@@ -135,7 +127,7 @@ feature:
     - title: "Kowalah Essential"
       badge: "Managed Service"
       content: "Continuous value delivery"
-      description: "After enablement, people have ideas, and we don't want those ideas to die. Organisation-wide platform access means anyone can submit Expert Requests. Monthly allocation ensures continuous solution building. This is where real transformation happens: compounding value over time, not a one-off project."
+      description: "After enablement, people have ideas, and we don't want those ideas to die. Organization-wide platform access means anyone can submit Expert Requests. Monthly allocation ensures continuous solution building. This is where real transformation happens: compounding value over time, not a one-off project."
       image: "/images/home/features/features-3-managed-services.png"
       button:
         enable: true
@@ -149,16 +141,16 @@ offering:
     image_1: "/images/home/offering/offering-1-human.png"
     content: "Your employees are already using AI, often in secret. Rather than fighting this reality, we help you harness it through an AI Impact Sprint. We embed with 2-3 key stakeholders to build real solutions that deliver measurable value in weeks, not months."
     points:
-      - "The Sprint creates proof points and internal champions before organisation-wide rollout. When training includes 'Here's what Sarah in Finance built,' it's infinitely more powerful than generic tutorials."
-      - "Implement proper governance while giving employees AI tools they genuinely want to use. Turn shadow AI usage into strategic organisational capability with full visibility and control."
+      - "The Sprint creates proof points and internal champions before organization-wide rollout. When training includes 'Here's what Sarah in Finance built,' it's infinitely more powerful than generic tutorials."
+      - "Implement proper governance while giving employees AI tools they genuinely want to use. Turn shadow AI usage into strategic organizational capability with full visibility and control."
   - title: "Turn AI Into Creative Co-Worker"
     subtitle: "Beyond Basic Tasks to Creative Partnership"
     image: "/images/home/offering/offering-2.2.png"
     image_1: "/images/home/offering/offering-2-human.png"
-    content: "Most teams use AI for basic tasks like writing emails or summarising documents. We unlock its potential as a creative business partner, a coach for difficult conversations, a workshop facilitator, a role-play partner for practice, and a teacher for skill development."
+    content: "Most teams use AI for basic tasks like writing emails or summarizing documents. We unlock its potential as a creative business partner, a coach for difficult conversations, a workshop facilitator, a role-play partner for practice, and a teacher for skill development."
     points:
       - "Whether you're using ChatGPT, Claude, Gemini, or in-house solutions, we help you discover advanced capabilities most teams don't know exist: voice-enabled coaching, custom GPTs, and collaborative features that transform how teams work."
-      - "Create those powerful 'I didn't know it could do that' moments that spark organisation-wide innovation. When one person discovers a breakthrough use case, it spreads and multiplies across your entire organisation."
+      - "Create those powerful 'I didn't know it could do that' moments that spark organization-wide innovation. When one person discovers a breakthrough use case, it spreads and multiplies across your entire organization."
   - title: "Sustain Momentum Through Expert Delivery"
     subtitle: "Keep Innovation Flowing Without Overwhelming Teams"
     image: "/images/home/offering/offering-3.3.png"
@@ -182,7 +174,7 @@ benefits:
       content: "We don't deliver recommendations and walk away. We embed with your teams and build working solutions. Prompts, GPTs, workflows, whatever the use case requires. You get deliverables that work, not PowerPoints about what might work."
       image: "/images/home/benefits/benefits-human-card-3.png"
     - title: "From Pilots to Production"
-      content: "Most AI initiatives stall after the pilot phase. We bridge the gap from promising experiments to organisation-wide impact through proven change enablement, governance frameworks, and continuous Expert Requests that keep innovation flowing."
+      content: "Most AI initiatives stall after the pilot phase. We bridge the gap from promising experiments to organization-wide impact through proven change enablement, governance frameworks, and continuous Expert Requests that keep innovation flowing."
       image: "/images/home/benefits/benefits-human-card-4.png"
     - title: "Ongoing Partnership, Not One-Off Projects"
       content: "AI transformation isn't a project with an end date, it's continuous improvement. Kowalah Essential provides ongoing Expert Requests, capability updates, and strategic guidance. We're partners, not vendors. The value compounds over time."
@@ -190,7 +182,7 @@ benefits:
 
 service_components:
   title: "Start With Impact, Scale With Confidence"
-  subtitle: "Our services build on each other—from proving value to organisation-wide transformation"
+  subtitle: "Our services build on each other, from proving value to organization-wide transformation"
   components:
     - title: "AI Impact Sprint"
       description: "Build real wins with key people in 2-3 weeks"
@@ -223,23 +215,23 @@ service_components:
         label: "Book Sprint Discovery"
         link: "/contact?service=sprint"
     - title: "Change Enablement"
-      description: "Scale AI transformation across your organisation with proof points"
+      description: "Scale AI transformation across your organization with proof points"
       pricing:
         USD:
           prefix: "from $"
           amount: "160"
           suffix: "per employee"
-          detail: "Complete change programme powered by Sprint proof points"
+          detail: "Complete change program powered by Sprint proof points"
         EUR:
           prefix: "from €"
           amount: "136"
           suffix: "per employee"
-          detail: "Complete change programme powered by Sprint proof points"
+          detail: "Complete change program powered by Sprint proof points"
         GBP:
           prefix: "from £"
           amount: "117"
           suffix: "per employee"
-          detail: "Complete change programme powered by Sprint proof points"
+          detail: "Complete change program powered by Sprint proof points"
       features:
         - Training powered by internal examples
         - AI Ambassador network development
@@ -247,7 +239,7 @@ service_components:
         - Cultural transformation support
         - Resistance management and adoption tracking
         - Platform-appropriate content (ChatGPT, Claude, Gemini)
-      what_included: "Complete organisational transformation from pilot to enterprise-wide"
+      what_included: "Complete organizational transformation from pilot to enterprise-wide"
       button:
         enable: true
         label: "Discuss Enablement"
@@ -272,12 +264,12 @@ service_components:
           detail: "Expert Requests + Platform Access + Strategic Guidance"
       features:
         - Monthly Expert Request allocation
-        - Organisation-wide platform access
+        - Organization-wide platform access
         - Accelerator library of pre-built solutions
         - New capability updates as AI evolves
         - Strategic roadmap and guidance
         - Board-ready reporting and metrics
-        - Continuous optimisation and innovation
+        - Continuous optimization and innovation
       what_included: "Permanent AI partnership that keeps delivering value"
       button:
         enable: true

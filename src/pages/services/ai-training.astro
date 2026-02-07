@@ -1,0 +1,453 @@
+---
+import Base from "@/layouts/Base.astro";
+import ServicesHero from "@/layouts/components/services/ServicesHero.astro";
+import ServicesInclusions from "@/layouts/components/services/ServicesInclusions.astro";
+import ProblemSolution from "@/layouts/components/services/ProblemSolution.astro";
+import Phases from "@/layouts/components/services/Phases.astro";
+import Pillars from "@/layouts/components/services/Pillars.astro";
+import BusinessCase from "@/layouts/components/services/BusinessCase.astro";
+import UseCases from "@/layouts/components/services/UseCases.astro";
+import Investment from "@/layouts/components/services/Investment.astro";
+import ConsultationOffer from "@/layouts/components/services/ConsultationOffer.astro";
+
+const pageData = {
+  title: "AI Training | Sprint-Powered Skills for Your Whole Organization",
+  meta_title: "AI Training | Sprint-Powered AI Skills for Your Organization | Kowalah",
+  description:
+    "AI training built around your own Sprint examples, so every workshop is immediately relevant. Progressive AI 101/102/201 tracks across Claude, ChatGPT, and multi-platform. Book a conversation.",
+
+  hero: {
+    title: "AI Training Powered by What Your Colleagues Actually Built",
+    subtitle:
+      "Generic AI tutorials teach theory. Our training uses your [AI Impact Sprint](/services/ai-implementation) results as the curriculum, so every workshop is immediately relevant to your people's actual work. Progressive AI 101/102/201 tracks across [Claude](/platforms/anthropic), [ChatGPT](/platforms/openai), and multi-platform environments.",
+    cta: {
+      label: "Book a Conversation",
+      link: "/contact",
+      subtext: "Free 60-minute assessment, you'll leave with a clear training roadmap",
+    },
+    image: "/images/services/chatgpt-training-hero.png",
+    imageAlt: "AI training workshop powered by real internal examples",
+  },
+
+  program_overview: {
+    title: "Training That Sticks Because It's Built on Real Examples",
+    subtitle:
+      "Every training track uses examples from your own Sprint results and internal use cases. 'Here's what your colleague in Finance built last month' is more credible and immediately actionable than any textbook exercise.",
+    items: [
+      {
+        title: "AI 101: Foundations",
+        description:
+          "Essential skills for every employee, taught using real examples from your organization. Covers AI capabilities, responsible use, and basic prompt engineering across your chosen platform.",
+        points: [
+          "Understanding AI capabilities through your own Sprint use cases",
+          "Tools mastery: web search, document collaboration, file analysis",
+          "Responsible AI usage policies tailored to your governance framework",
+          "Basic prompt engineering with exercises drawn from real business processes",
+        ],
+      },
+      {
+        title: "AI 102: Applications",
+        description:
+          "Move from basic usage to building custom workflows. Participants create their first custom GPTs and Claude skills using templates adapted from your Sprint solutions.",
+        points: [
+          "Advanced research techniques and agent-based workflows",
+          "Building custom assistants based on your Sprint solution templates",
+          "Integration with your enterprise tools (email, cloud storage, CRM)",
+          "Collaborative workspace creation for team-specific projects",
+        ],
+      },
+      {
+        title: "AI 201: Role-Specific Workshops",
+        description:
+          "Extended hands-on sessions where each department builds AI solutions for their specific workflows. Every lab exercise uses real business processes from your organization.",
+        points: [
+          "Role-specific prompt libraries and workflow development",
+          "Data analytics integration and advanced interpretation",
+          "Custom GPT and Claude skill creation with real business data",
+          "Advanced features: voice capabilities, projects, and automation",
+        ],
+      },
+      {
+        title: "Executive Enablement & Train the Trainer",
+        description:
+          "Leadership learns to use and champion AI using Sprint proof points. AI Ambassadors develop the skills to deliver peer enablement and drive adoption in their departments.",
+        points: [
+          "Executive-specific use cases: scenario planning, board preparation, strategic analysis",
+          "Leadership communication: how to champion AI with genuine credibility",
+          "Ambassador training delivery skills and peer coaching techniques",
+          "Internal certification and ongoing capability development",
+        ],
+      },
+    ],
+  },
+
+  problem_solution: {
+    title: "Why Generic AI Training Doesn't Work",
+    problem_statement:
+      "Most AI training teaches features in isolation. Participants leave excited, but when they sit down at their desk on Monday morning, they can't connect what they learned to their actual work. Within weeks, they're back to basic usage or not using AI at all. The training budget is spent, but nothing changed.",
+    solution_overview:
+      "Training built around your Sprint results solves this. When every exercise uses real examples from your organization, from custom GPTs your colleagues built to Claude skills that solved actual business problems, the connection between training and daily work is immediate and obvious.",
+    trust_elements: [
+      "Every track uses examples from your own Sprint results and business processes",
+      "Deep expertise across [Claude](/platforms/anthropic), [ChatGPT](/platforms/openai), and multi-platform environments",
+      "Hands-on labs where participants build real solutions, not theoretical exercises",
+      "Flexible delivery: virtual, in-person, or hybrid approaches",
+      "Progressive 101/102/201 structure that meets every person where they are",
+      "Connects to [Expert Requests](/services/expert-requests) so training-inspired ideas become real solutions",
+    ],
+    pain_points: [
+      "Previous AI training had short-lived impact, people reverted to basic usage within weeks",
+      "Generic tutorials don't connect to your people's actual work and business processes",
+      "No internal examples to make training feel relevant and credible",
+      "Inconsistent skill levels across departments with no structured progression",
+      "Training creates excitement but no mechanism to act on new ideas (the Enthusiasm Gap)",
+      "Leadership can't champion AI because they haven't experienced it themselves",
+    ],
+  },
+
+  business_case: {
+    title: "Why Sprint-Powered Training Delivers Better Results",
+    subtitle: "Training built on real internal examples produces measurably stronger adoption than generic approaches",
+    roi_metrics: [
+      {
+        metric: "Increase in advanced AI feature adoption when training uses real internal examples",
+        value: "5x",
+        timeframe: "Within 60 days",
+      },
+      {
+        metric: "Of trained employees actively building custom GPTs and Claude skills for their roles",
+        value: "75%",
+        timeframe: "Within 90 days",
+      },
+      {
+        metric: "Reduction in support requests when training connects to actual business processes",
+        value: "70%",
+        timeframe: "Within 90 days",
+      },
+    ],
+    cost_savings: [
+      "Turn unused AI licenses into active productivity gains across every department",
+      "Eliminate the 'training that fades' problem with immediately relevant content",
+      "Reduce time-to-value by building on Sprint proof points, not starting from scratch",
+      "Prevent the Enthusiasm Gap by connecting training to Expert Request delivery",
+    ],
+    efficiency_gains: [
+      "Custom GPTs and Claude skills built during training are immediately usable in daily work",
+      "AI Ambassadors spread capability organically through peer influence",
+      "Role-specific prompt libraries created during workshops become team resources",
+      "Ground Game approach means every person progresses, not just early adopters",
+    ],
+  },
+
+  solution_approach: {
+    title: "How Sprint-Powered Training Works",
+    subtitle:
+      "We build the curriculum around your Sprint results, then deliver it progressively so every person moves forward from wherever they are",
+    phases: [
+      {
+        phase_number: 1,
+        title: "Curriculum Design from Sprint Results",
+        description:
+          "We review your Sprint solutions, identify the best examples for each training track, and design a curriculum that uses your organization's real AI wins as the foundation for every exercise.",
+        deliverables: [
+          "Sprint solution analysis and example selection for each track",
+          "Custom curriculum design using your business processes and use cases",
+          "Role-specific workshop planning aligned to department workflows",
+          "Training schedule and logistics planning",
+        ],
+        timeline: "1-2 weeks",
+      },
+      {
+        phase_number: 2,
+        title: "AI Ambassador Training (First Wave)",
+        description:
+          "Train 5-10% of your workforce as AI Ambassadors before the broader rollout. These champions get advanced skills and become peer coaches who support colleagues during and after training.",
+        deliverables: [
+          "Ambassador identification across all departments and levels",
+          "Advanced AI training covering custom GPT creation, Claude skills, and workflow design",
+          "Peer coaching skills and internal training delivery capability",
+          "Ambassador toolkit with resources for ongoing department support",
+        ],
+        timeline: "2-3 hours + ongoing support",
+      },
+      {
+        phase_number: 3,
+        title: "Organization-Wide Progressive Training",
+        description:
+          "Deliver AI 101, 102, and 201 tracks across the organization, with each session using Sprint examples and building toward real, usable AI solutions for each department.",
+        deliverables: [
+          "AI 101 foundations for all employees using your organization's examples",
+          "AI 102 applications with hands-on custom GPT and Claude skill building",
+          "AI 201 role-specific workshops producing real departmental solutions",
+          "Executive enablement sessions using Sprint proof points",
+        ],
+        timeline: "4-8 weeks (rolling delivery)",
+      },
+      {
+        phase_number: 4,
+        title: "Reinforcement & Expert Request Pipeline",
+        description:
+          "Ensure training sticks with follow-up sessions, Ambassador-led peer support, and a direct pipeline from training-inspired ideas to Expert Request delivery.",
+        deliverables: [
+          "Follow-up sessions and skill reinforcement workshops",
+          "Ambassador-led peer communities and knowledge sharing",
+          "Expert Request pipeline for ideas generated during training",
+          "Adoption measurement and continuous improvement recommendations",
+        ],
+        timeline: "Ongoing",
+      },
+    ],
+  },
+
+  solution_components: {
+    title: "What Makes This Training Different",
+    items: [
+      {
+        title: "Real Examples, Not Textbook Exercises",
+        icon: "bulb",
+        description:
+          "Every exercise uses examples from your Sprint results and business processes, making the connection between training and daily work immediate",
+        details: [
+          "Sprint solutions adapted as training templates and starting points",
+          "Role-specific exercises drawn from actual departmental workflows",
+          "Participants build solutions they'll use after the workshop ends",
+          "Internal success stories anchor every training conversation",
+          "Custom prompt libraries created from real business processes",
+        ],
+        value_proposition:
+          "Training built on 'here's what your colleague built' is immediately credible and relevant in a way that generic tutorials never achieve",
+      },
+      {
+        title: "Ground Game Progression",
+        icon: "upward",
+        description:
+          "We meet every person where they are and move them one step forward, from AI-sceptical to basic user to confident builder",
+        details: [
+          "Progressive 101/102/201 structure with clear skill milestones",
+          "No one gets left behind or held back, each track meets people at their level",
+          "Sceptics find compelling use cases, basic users move beyond Q&A, power users go further",
+          "Practical skill validation at each stage",
+          "Support for different learning paces and styles",
+        ],
+        value_proposition:
+          "The Ground Game approach ensures organization-wide capability building, not just early adopter success",
+      },
+      {
+        title: "Hands-On Building, Not Watching",
+        icon: "task",
+        description:
+          "Participants build real custom GPTs, Claude skills, and prompt workflows during every session, not just watch demonstrations",
+        details: [
+          "Live building sessions using your organization's real data and processes",
+          "Each participant leaves with working solutions they can use immediately",
+          "Real-time coaching from experts with enterprise AI implementation experience",
+          "Practical troubleshooting and iteration skills",
+          "Solutions created in training become team resources",
+        ],
+        value_proposition:
+          "People learn by doing. Building a custom GPT for your own workflow in a training session is more powerful than watching someone else do it",
+      },
+      {
+        title: "AI Ambassador Network",
+        icon: "profile",
+        description:
+          "5-10% of your workforce trained as peer coaches before the broader rollout, creating sustainable internal capability",
+        details: [
+          "Ambassadors trained first with advanced capabilities and coaching skills",
+          "Peer support available in every department during and after training",
+          "Ambassador-led knowledge sharing communities and showcase events",
+          "Recognition and career development tied to AI leadership",
+          "Internal certification that validates expertise",
+        ],
+        value_proposition:
+          "People trust their peers. An Ambassador who says 'let me show you what I built' drives adoption faster than any external trainer",
+      },
+      {
+        title: "Multi-Platform Expertise",
+        icon: "compass",
+        description:
+          "Deep knowledge across Claude, ChatGPT, and multi-platform environments, so training covers the right tool for each use case",
+        details: [
+          "Platform-specific training tailored to your deployment (Claude, ChatGPT, or both)",
+          "Guidance on when to use each platform for different types of work",
+          "Custom GPT and Claude skill building with platform-specific best practices",
+          "Enterprise feature training (workspaces, voice, projects, integrations)",
+          "Platform-agnostic prompt engineering principles that transfer across tools",
+        ],
+        value_proposition:
+          "Your people learn to use the right AI tool for each task, not just the one tool they happen to have access to",
+      },
+      {
+        title: "Connected to Ongoing Delivery",
+        icon: "rocket",
+        description:
+          "Training connects directly to Expert Requests, so ideas generated during workshops become real solutions instead of dying in backlogs",
+        details: [
+          "Direct pipeline from training-inspired ideas to Expert Request delivery",
+          "New custom GPTs, Claude skills, and agents delivered after training ends",
+          "Kowalah platform gives visibility of all projects and initiatives across the organization",
+          "Quarterly follow-up sessions to introduce new capabilities and techniques",
+          "Continuous improvement through adoption analytics and feedback",
+        ],
+        value_proposition:
+          "Training without ongoing delivery creates the Enthusiasm Gap. The connection to Expert Requests ensures ideas keep becoming working solutions",
+      },
+    ],
+  },
+
+  use_cases: {
+    title: "How Sprint-Powered Training Works Across Departments",
+    items: [
+      {
+        scenario: "Sales Team: From Email Drafting to AI-Assisted Selling",
+        challenge:
+          "Sales teams using AI for basic emails but haven't explored proposal generation, objection handling practice, or competitive analysis automation",
+        solution:
+          "AI 201 workshop using a Sprint-built proposal generation GPT as the starting template. Sales team adapts and builds their own custom sales workflows during the session",
+        outcome:
+          "Sales team leaves with working AI-assisted proposal and objection handling tools they can use the next day, with measurable improvement in proposal quality",
+      },
+      {
+        scenario: "Marketing Team: From Individual Use to Team Workflows",
+        challenge:
+          "Marketing team members using AI independently for content creation but lacking collaborative workflows and brand consistency",
+        solution:
+          "AI 102 and 201 sessions where the team builds a brand-aware content assistant together, using examples from Sprint solutions in other departments as inspiration",
+        outcome:
+          "Marketing team creates a shared content workflow with brand guidelines built in, producing more consistent campaigns with less revision",
+      },
+      {
+        scenario: "HR: From Policy Questions to Candidate Experience",
+        challenge:
+          "HR using AI for basic policy lookups but not leveraging it for onboarding, candidate communications, or interview preparation",
+        solution:
+          "Role-specific 201 workshop where HR builds a custom onboarding assistant, adapted from Sprint-built process documentation solutions in Operations",
+        outcome:
+          "HR delivers personalised onboarding guidance at scale, reducing time-to-productivity for new starters and improving candidate experience",
+      },
+      {
+        scenario: "Operations: From Task Lists to Knowledge Systems",
+        challenge:
+          "Operations using AI for simple task management but missing the opportunity for process documentation and organizational knowledge capture",
+        solution:
+          "AI 201 workshop where Operations builds a process documentation system, then submits an Expert Request for a more sophisticated knowledge management solution",
+        outcome:
+          "Operations creates a living knowledge base that improves consistency and accelerates onboarding, with continuous improvement through Expert Requests",
+      },
+      {
+        scenario: "Executive Team: Leading by Example",
+        challenge:
+          "Leadership supports AI but hasn't personally built or used AI solutions. Their championing feels theoretical rather than genuine",
+        solution:
+          "Executive enablement sessions where leaders build their own AI workflows for strategic planning and board preparation, using Sprint results as evidence",
+        outcome:
+          "Leadership team uses AI visibly in their own work, giving them genuine credibility when they champion adoption across the organization",
+      },
+    ],
+  },
+
+  investment: {
+    title: "Your Investment in Sprint-Powered AI Training",
+    subtitle: "Training that uses your own Sprint examples and connects to ongoing Expert Delivery",
+    pricing_model: "Training is typically included within AI Impact Sprint and Change Enablement programs, or available as standalone delivery from £75 per participant",
+    starting_price: "1,000-employee training program across 101/102/201 tracks: from £75,000",
+    pricing_factors: [
+      "Number of training tracks required (101, 102, 201, Executive, Ambassador)",
+      "Organization size and number of participants (500-10,000+ employees)",
+      "Delivery format preference (virtual, in-person, or hybrid)",
+      "Depth of role-specific customisation and hands-on lab requirements",
+      "Availability of Sprint results for curriculum design (or Sprint scoping needed)",
+    ],
+    what_included: [
+      "Custom curriculum designed around your Sprint results and business processes",
+      "Expert facilitation across all selected training tracks",
+      "AI Ambassador development and peer coaching capability",
+      "Hands-on labs where participants build real, usable AI solutions",
+      "Custom prompt libraries and role-specific workflow templates",
+      "Connection to Expert Request pipeline for post-training idea flow",
+    ],
+  },
+
+  conversion: {
+    title: "Ready to Give Your People AI Training That Actually Sticks?",
+    subtitle: "Most organizations start with an AI Impact Sprint, then use those results as the foundation for training",
+    description:
+      "In 60 minutes we'll assess your current AI skill levels, review your Sprint results (or scope an initial Sprint), and design a training approach built around your organization's real business processes and use cases.",
+    primary_cta: {
+      label: "Book a Conversation",
+      link: "/contact",
+    },
+    offer: {
+      title: "Free 60-Minute Assessment",
+      description:
+        "We'll assess current AI skill levels, review Sprint readiness or results, identify the training tracks that will have the most impact, and outline a curriculum approach built around your organization's actual work",
+      duration: "60 minutes",
+      cta: {
+        label: "Book a Conversation",
+        link: "/contact",
+      },
+    },
+  },
+};
+---
+
+<Base title={pageData.title} meta_title={pageData.meta_title} description={pageData.description}>
+  <ServicesHero
+    title={pageData.hero.title}
+    subtitle={pageData.hero.subtitle}
+    cta={pageData.hero.cta}
+    image={pageData.hero.image}
+    imageAlt={pageData.hero.imageAlt}
+    backgroundImage="/images/services/training-cta-bg.png"
+  />
+
+  <ServicesInclusions
+    title={pageData.program_overview.title}
+    subtitle={pageData.program_overview.subtitle}
+    items={pageData.program_overview.items}
+  />
+
+  <ProblemSolution
+    title={pageData.problem_solution.title}
+    problemStatement={pageData.problem_solution.problem_statement}
+    solutionOverview={pageData.problem_solution.solution_overview}
+    trustElements={pageData.problem_solution.trust_elements}
+    painPoints={pageData.problem_solution.pain_points}
+  />
+
+  <BusinessCase
+    title={pageData.business_case.title}
+    subtitle={pageData.business_case.subtitle}
+    metrics={pageData.business_case.roi_metrics}
+    costSavings={pageData.business_case.cost_savings}
+    efficiencyGains={pageData.business_case.efficiency_gains}
+  />
+
+  <Phases
+    title={pageData.solution_approach.title}
+    subtitle={pageData.solution_approach.subtitle}
+    phases={pageData.solution_approach.phases}
+  />
+
+  <Pillars title={pageData.solution_components.title} items={pageData.solution_components.items} />
+
+  <UseCases title={pageData.use_cases.title} items={pageData.use_cases.items} />
+
+  <Investment
+    title={pageData.investment.title}
+    subtitle={pageData.investment.subtitle}
+    pricingModel={pageData.investment.pricing_model}
+    startingPrice={pageData.investment.starting_price}
+    pricingFactors={pageData.investment.pricing_factors}
+    inclusions={pageData.investment.what_included}
+  />
+
+  <ConsultationOffer
+    title={pageData.conversion.title}
+    subtitle={pageData.conversion.subtitle}
+    description={pageData.conversion.description}
+    primaryCta={pageData.conversion.primary_cta}
+    offer={pageData.conversion.offer}
+    backgroundImage="/images/services/training-cta-bg.png"
+  />
+</Base>

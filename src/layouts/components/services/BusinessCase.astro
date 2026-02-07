@@ -1,4 +1,6 @@
 ---
+import { markdownify } from "@/lib/utils/textConverter";
+
 interface Metric {
   metric: string;
   value: string;
@@ -14,6 +16,7 @@ interface Props {
 }
 
 const { title, subtitle, metrics, costSavings, efficiencyGains }: Props = Astro.props;
+const linkClasses = "[&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_a]:hover:text-secondary [&_a]:transition-colors";
 ---
 
 <section class="section">
@@ -22,8 +25,7 @@ const { title, subtitle, metrics, costSavings, efficiencyGains }: Props = Astro.
       <div class="col-12 lg:col-10">
         <h2 class="h2 mb-4" data-aos="fade-up-sm">{title}</h2>
         {subtitle && (
-          <p class="text-lg text-text-dark/75" data-aos="fade-up-sm" data-aos-delay="100">
-            {subtitle}
+          <p class={`text-lg text-text-dark/75 ${linkClasses}`} data-aos="fade-up-sm" data-aos-delay="100" set:html={markdownify(subtitle)}>
           </p>
         )}
       </div>
@@ -36,7 +38,7 @@ const { title, subtitle, metrics, costSavings, efficiencyGains }: Props = Astro.
             <div class="rounded-[calc(1.5rem-1px)] bg-white/95 p-6">
               <p class="text-4xl font-bold text-secondary mb-2">{item.value}</p>
               <p class="text-sm uppercase tracking-[0.35em] text-secondary/70 mb-3">{item.timeframe}</p>
-              <p class="text-sm text-text-dark/80">{item.metric}</p>
+              <p class={`text-sm text-text-dark/80 ${linkClasses}`} set:html={markdownify(item.metric)}></p>
             </div>
           </div>
         </div>
@@ -51,7 +53,7 @@ const { title, subtitle, metrics, costSavings, efficiencyGains }: Props = Astro.
             {costSavings.map((item) => (
               <li class="flex gap-3">
                 <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-primary"></span>
-                <span>{item}</span>
+                <span class={linkClasses} set:html={markdownify(item)}></span>
               </li>
             ))}
           </ul>
@@ -64,7 +66,7 @@ const { title, subtitle, metrics, costSavings, efficiencyGains }: Props = Astro.
             {efficiencyGains.map((item) => (
               <li class="flex gap-3">
                 <span class="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full bg-primary"></span>
-                <span>{item}</span>
+                <span class={linkClasses} set:html={markdownify(item)}></span>
               </li>
             ))}
           </ul>

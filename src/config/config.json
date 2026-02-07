@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Kowalah - ChatGPT Enterprise Deployment & Training",
+    "title": "Kowalah - Enterprise AI Deployment & Training",
     "base_url": "https://kowalah.com/",
     "base_path": "/",
     "trailing_slash": false,
@@ -22,7 +22,7 @@
 
   "params": {
     "copyright": "Copyright 2025, All Rights Reserved by Kowalah",
-    "footer_text": "Kowalah provides ChatGPT Enterprise deployment for companies. Expert setup, training, and ongoing implementation support.",
+    "footer_text": "Kowalah provides enterprise AI deployment for companies. Expert setup, training, and ongoing implementation support.",
     "award": {
       "enable": false,
       "title": "Golden Partner Award",
@@ -87,6 +87,6 @@
   "metadata": {
     "meta_author": "Kowalah",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Transform shadow ChatGPT usage into enterprise-wide success. Expert ChatGPT Enterprise deployment, comprehensive training programs, and ongoing managed services for mid-sized organizations."
+    "meta_description": "Transform shadow AI usage into enterprise-wide success. Expert AI deployment, comprehensive training programs, and ongoing managed services for mid-sized organizations."
   }
 }

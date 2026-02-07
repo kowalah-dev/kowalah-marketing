@@ -1,6 +1,7 @@
 ---
 import Button from "@/shortcodes/Button";
 import ImageMod from "@/components/ImageMod.astro";
+import { markdownify } from "@/lib/utils/textConverter";
 
 interface CTA {
   label: string;
@@ -24,6 +25,7 @@ interface Props {
 }
 
 const { title, subtitle, description, primaryCta, offer, backgroundImage }: Props = Astro.props;
+const linkClasses = "[&_a]:underline [&_a]:underline-offset-2 [&_a]:transition-colors";
 ---
 
 <section class={`section ${backgroundImage ? 'relative overflow-hidden' : ''}`}>
@@ -44,8 +46,8 @@ const { title, subtitle, description, primaryCta, offer, backgroundImage }: Prop
     <div class="row justify-center text-center">
       <div class="col-12 lg:col-8" data-aos="fade-up-sm">
         <h2 class={`h2 mb-4 ${backgroundImage ? 'text-white drop-shadow-lg' : ''}`}>{title}</h2>
-        <p class={`text-lg mb-6 ${backgroundImage ? 'text-white/95 drop-shadow-md' : 'text-text-dark/80'}`}>{subtitle}</p>
-        <p class={`text-base mb-6 ${backgroundImage ? 'text-white/90 drop-shadow-md' : 'text-text-dark/80'}`}>{description}</p>
+        <p class={`text-lg mb-6 ${linkClasses} ${backgroundImage ? 'text-white/95 drop-shadow-md [&_a]:text-white [&_a]:font-medium [&_a]:hover:text-white/80' : 'text-text-dark/80 [&_a]:text-primary [&_a]:hover:text-secondary'}`} set:html={markdownify(subtitle)}></p>
+        <p class={`text-base mb-6 ${linkClasses} ${backgroundImage ? 'text-white/90 drop-shadow-md [&_a]:text-white [&_a]:font-medium [&_a]:hover:text-white/80' : 'text-text-dark/80 [&_a]:text-primary [&_a]:hover:text-secondary'}`} set:html={markdownify(description)}></p>
         <Button
           label={primaryCta.label}
           link={primaryCta.link}
@@ -65,7 +67,7 @@ const { title, subtitle, description, primaryCta, offer, backgroundImage }: Prop
                 Complimentary Assessment
               </p>
               <h3 class={`text-2xl font-semibold mb-3 ${backgroundImage ? 'text-white' : 'text-text-dark'}`}>{offer.title}</h3>
-              <p class={`text-sm mb-4 ${backgroundImage ? 'text-white/90' : 'text-text-dark/80'}`}>{offer.description}</p>
+              <p class={`text-sm mb-4 ${linkClasses} ${backgroundImage ? 'text-white/90 [&_a]:text-white [&_a]:hover:text-white/80' : 'text-text-dark/80 [&_a]:text-primary [&_a]:hover:text-secondary'}`} set:html={markdownify(offer.description)}></p>
               {offer.duration && (
                 <p class={`text-sm font-medium ${backgroundImage ? 'text-white' : 'text-secondary'}`}>Duration: {offer.duration}</p>
               )}
