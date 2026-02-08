@@ -19,17 +19,15 @@ export const AnimatedMetric: React.FC<AnimatedMetricProps> = ({
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const localFrame = frame - startFrame;
-  if (localFrame < 0) return null;
-
-  // Stagger entrance by index — 10 frames (~0.33s) between each card
-  const staggerFrame = localFrame - index * 10;
-  if (staggerFrame < 0) return null;
+  // Stagger entrance by index — 10 frames (~0.33s) between each card.
+  // Always render (never return null) so flex centering stays stable.
+  const staggerDelay = index * 10;
 
   const entrance = spring({
-    frame: staggerFrame,
+    frame: frame - startFrame,
     fps,
     config: { damping: 12, stiffness: 160 },
+    delay: staggerDelay,
   });
 
   const translateY = interpolate(entrance, [0, 1], [20, 0]);

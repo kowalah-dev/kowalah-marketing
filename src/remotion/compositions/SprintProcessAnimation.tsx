@@ -141,15 +141,11 @@ export const SprintProcessAnimation: React.FC = () => {
         })
       : 1;
 
-  // Metrics entrance
-  const metricsVisible = frame >= metricsStart;
-
   return (
     <AbsoluteFill
       style={{
         backgroundColor: "#f8fafc",
         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-        opacity: fadeOut,
       }}
     >
       {/* Subtle background gradient accent */}
@@ -176,7 +172,7 @@ export const SprintProcessAnimation: React.FC = () => {
         }}
       />
 
-      {/* Content container */}
+      {/* Content container - fade applies here, not the background */}
       <div
         style={{
           display: "flex",
@@ -186,6 +182,7 @@ export const SprintProcessAnimation: React.FC = () => {
           height: "100%",
           padding: "0 40px",
           gap: 28,
+          opacity: fadeOut,
         }}
       >
         {/* Header — staggered reveal: label, title, subtitle */}
@@ -286,16 +283,15 @@ export const SprintProcessAnimation: React.FC = () => {
             height: 80,
           }}
         >
-          {metricsVisible &&
-            METRICS.map((metric, index) => (
-              <AnimatedMetric
-                key={index}
-                value={metric.value}
-                label={metric.label}
-                startFrame={metricsStart}
-                index={index}
-              />
-            ))}
+          {METRICS.map((metric, index) => (
+            <AnimatedMetric
+              key={index}
+              value={metric.value}
+              label={metric.label}
+              startFrame={metricsStart}
+              index={index}
+            />
+          ))}
         </div>
       </div>
     </AbsoluteFill>
