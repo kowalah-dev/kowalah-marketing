@@ -2218,6 +2218,13 @@
   resolved "https://registry.yarnpkg.com/@radix-ui/rect/-/rect-1.1.1.tgz#78244efe12930c56fd255d7923865857c41ac8cb"
   integrity sha512-HPwpGIzkl28mWyZqG52jiqDJ12waP11Pa1lGoiyUkIEuMLBP0oeK/C89esbXrxsky5we7dfd8U58nm0SgAWpVw==
 
+"@remotion/player@^4.0.419":
+  version "4.0.419"
+  resolved "https://registry.yarnpkg.com/@remotion/player/-/player-4.0.419.tgz#33495f30718548ee0ebd223efe979607e9147562"
+  integrity sha512-bG0K9rJifXs8iHKBq/cHIM+Ivzvk/tw75pKTK+rRZ6lGdTvriNBwx9dl4bGjhkcjqhUBzES1zkNzKfeoyEs/6g==
+  dependencies:
+    remotion "4.0.419"
+
 "@rolldown/pluginutils@1.0.0-beta.27":
   version "1.0.0-beta.27"
   resolved "https://registry.yarnpkg.com/@rolldown/pluginutils/-/pluginutils-1.0.0-beta.27.tgz#47d2bf4cef6d470b22f5831b420f8964e0bf755f"
@@ -8005,6 +8012,11 @@ remend@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/remend/-/remend-1.1.0.tgz#2a7199b82860f44bfcb7d8a4c88ade596ded7aed"
   integrity sha512-JENGyuIhTwzUfCarW43X4r9cehoqTo9QyYxfNDZSud2AmqeuWjZ5pfybasTa4q0dxTJAj5m8NB+wR+YueAFpxQ==
+
+remotion@4.0.419, remotion@^4.0.419:
+  version "4.0.419"
+  resolved "https://registry.yarnpkg.com/remotion/-/remotion-4.0.419.tgz#e9843aeeeba8864b762f5c3e70ccd43d440ecbbf"
+  integrity sha512-h00WpNrcksePPfpyC5RZhZKBIUqGWERN6RTtVjLWvHijTpGKgO0LkXkCpihzJ5y2l+V2CIOvRINl/KykcaQDRg==
 
 request-light@^0.5.7:
   version "0.5.8"

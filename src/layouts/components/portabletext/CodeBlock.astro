@@ -1,0 +1,73 @@
+---
+import { codeToHtml } from "shiki";
+
+interface Props {
+  node: {
+    code: string;
+    language?: string;
+    filename?: string;
+    _type: string;
+    _key: string;
+  };
+  index: number;
+  isInline: boolean;
+}
+
+const { node } = Astro.props;
+const { code, language, filename } = node;
+
+if (!code) {
+  return null;
+}
+
+// Normalize language identifier - Shiki uses specific lang names
+const langMap: Record<string, string> = {
+  js: "javascript",
+  ts: "typescript",
+  sh: "bash",
+  shell: "bash",
+  yml: "yaml",
+  py: "python",
+  rb: "ruby",
+  plaintext: "text",
+};
+
+const lang = langMap[language?.toLowerCase() || ""] || language?.toLowerCase() || "text";
+
+let highlighted: string;
+try {
+  highlighted = await codeToHtml(code, {
+    lang,
+    theme: "one-dark-pro",
+  });
+} catch {
+  // Fall back to plain text if language isn't supported
+  highlighted = await codeToHtml(code, {
+    lang: "text",
+    theme: "one-dark-pro",
+  });
+}
+---
+
+<div class="not-prose my-8 rounded-2xl overflow-hidden bg-[#282c34]">
+  {filename && (
+    <div class="flex items-center px-4 py-2 bg-[#21252b] border-b border-[#181a1f] text-[#abb2bf] text-sm">
+      <svg class="w-4 h-4 mr-2 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+      </svg>
+      <span>{filename}</span>
+    </div>
+  )}
+  <div class="code-block overflow-x-auto [&_pre]:!rounded-none [&_pre]:!my-0 [&_pre]:py-4 [&_pre]:px-4 [&_code]:text-sm [&_.line]:leading-relaxed" set:html={highlighted} />
+  {language && !filename && (
+    <div class="absolute top-2 right-3 text-xs text-[#abb2bf]/40 select-none pointer-events-none">
+      {language}
+    </div>
+  )}
+</div>
+
+<style>
+  div:has(.code-block) {
+    position: relative;
+  }
+</style>

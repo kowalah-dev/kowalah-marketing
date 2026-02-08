@@ -1,0 +1,42 @@
+---
+/**
+ * RichText - Shared Portable Text renderer with all custom block handlers.
+ *
+ * Use this instead of bare <PortableText> to get consistent rendering of
+ * images, code blocks, YouTube embeds, tables, and buttons across the site.
+ *
+ * Usage:
+ *   <RichText value={post.body} />
+ */
+import { PortableText } from "astro-portabletext";
+import ImageBlock from "./ImageBlock.astro";
+import CodeBlock from "./CodeBlock.astro";
+import NormalBlock from "./NormalBlock.astro";
+import YoutubeEmbed from "./YoutubeEmbed.astro";
+import TableBlock from "./TableBlock.astro";
+import ButtonEmbed from "./ButtonEmbed.astro";
+
+interface Props {
+  value: any;
+}
+
+const { value } = Astro.props;
+---
+
+{value && (
+  <PortableText
+    value={value}
+    components={{
+      block: {
+        normal: NormalBlock,
+      },
+      type: {
+        image: ImageBlock,
+        code: CodeBlock,
+        youtubeEmbed: YoutubeEmbed,
+        table: TableBlock,
+        buttonEmbed: ButtonEmbed,
+      },
+    }}
+  />
+)}
