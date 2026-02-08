@@ -8,6 +8,7 @@ import CapabilityCard from "@/layouts/components/platforms/CapabilityCard.astro"
 import { markdownify } from "@/lib/utils/textConverter";
 import Button from "@/layouts/shortcodes/Button.tsx";
 import ImageMod from "@/layouts/components/ImageMod.astro";
+import RemotionPlayerWrapper from "@/remotion/RemotionPlayerWrapper";
 
 export async function getStaticPaths() {
   const platforms = await getCollection("platforms");
@@ -90,8 +91,10 @@ const {
             ))}
           </ul>
         </div>
-        {overview.image && (
-          <div class="lg:col-6" data-aos="fade-left" data-aos-delay="300">
+        <div class="lg:col-6" data-aos="fade-left" data-aos-delay="300">
+          {platform_product === "Claude" ? (
+            <RemotionPlayerWrapper client:visible />
+          ) : overview.image ? (
             <ImageMod
               src={overview.image}
               class="rounded-xl shadow-lg"
@@ -99,8 +102,8 @@ const {
               width={600}
               height={400}
             />
-          </div>
-        )}
+          ) : null}
+        </div>
       </div>
     </div>
   </section>

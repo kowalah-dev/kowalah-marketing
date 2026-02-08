@@ -1,7 +1,7 @@
 ---
-import { PortableText } from "astro-portabletext";
 import { urlFor } from "@/lib/sanity";
 import ImageMod from "./ImageMod.astro";
+import RichText from "./portabletext/RichText.astro";
 
 const { sections } = Astro.props;
 
@@ -27,7 +27,7 @@ const getAspectRatioClass = (ratio) => {
   if (section._type === 'textSection') {
     return (
       <div class="prose prose-lg max-w-none mb-8" data-aos="fade-up-sm" data-aos-delay={index * 100}>
-        <PortableText value={section.content} />
+        <RichText value={section.content} />
       </div>
     );
   }

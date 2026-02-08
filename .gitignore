@@ -59,3 +59,5 @@ coverage/
 
 # MCP configuration (contains sensitive information)
 .mcp.json
+.vercel
+.env*.local
