@@ -1,7 +1,7 @@
 ---
 import Benefits from "@/components/home/Benefits.astro";
-import Features from "@/components/home/Features.astro";
 import Hero from "@/components/home/Hero.astro";
+import HomepageVideoPlayer from "@/remotion/HomepageVideoPlayer";
 import Offering from "@/components/home/Offering.astro";
 import Platforms from "@/components/home/Platforms.astro";
 import PricingSection from "@/components/PricingSection";
@@ -30,7 +30,18 @@ const { hero, feature, offering, benefits, service_components, transformation, p
 
 <Base>
   <Hero {hero} />
-  <Features {feature} />
+
+  <!-- How It Works — animated narrative video -->
+  <section class="section bg-tertiary">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12" data-aos="fade-up-sm">
+          <HomepageVideoPlayer client:visible />
+        </div>
+      </div>
+    </div>
+  </section>
+
   <Platforms />
   {transformation && <Transformation {transformation} />}
   {program_depth && <ProgramDepth {program_depth} />}
