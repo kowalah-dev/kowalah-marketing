@@ -1,6 +1,6 @@
 ---
 import { markdownify } from "@/lib/utils/textConverter";
-import { PortableText } from 'astro-portabletext';
+import RichText from "@/components/portabletext/RichText.astro";
 
 interface Props {
   faqs?: Array<{
@@ -43,7 +43,7 @@ const { faqs = [] } = Astro.props;
         <div class="accordion-content">
           {typeof f.answer === 'string'
             ? <p set:html={markdownify(f.answer)} />
-            : <PortableText value={f.answer} />
+            : <RichText value={f.answer} />
           }
         </div>
       </div>

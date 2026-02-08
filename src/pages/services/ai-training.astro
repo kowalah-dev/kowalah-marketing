@@ -9,6 +9,7 @@ import BusinessCase from "@/layouts/components/services/BusinessCase.astro";
 import UseCases from "@/layouts/components/services/UseCases.astro";
 import Investment from "@/layouts/components/services/Investment.astro";
 import ConsultationOffer from "@/layouts/components/services/ConsultationOffer.astro";
+import ServicesVideoPlayer from "@/remotion/ServicesVideoPlayer";
 
 const pageData = {
   title: "AI Training | Sprint-Powered Skills for Your Whole Organization",
@@ -396,10 +397,11 @@ const pageData = {
     title={pageData.hero.title}
     subtitle={pageData.hero.subtitle}
     cta={pageData.hero.cta}
-    image={pageData.hero.image}
-    imageAlt={pageData.hero.imageAlt}
+    useVideo={true}
     backgroundImage="/images/services/training-cta-bg.png"
-  />
+  >
+    <ServicesVideoPlayer slot="video" client:load />
+  </ServicesHero>
 
   <ServicesInclusions
     title={pageData.program_overview.title}

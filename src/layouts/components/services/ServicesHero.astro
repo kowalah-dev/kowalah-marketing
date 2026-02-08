@@ -16,9 +16,10 @@ interface Props {
   image?: string;
   imageAlt?: string;
   backgroundImage?: string;
+  useVideo?: boolean;
 }
 
-const { title, subtitle, cta, image, imageAlt, backgroundImage }: Props = Astro.props;
+const { title, subtitle, cta, image, imageAlt, backgroundImage, useVideo }: Props = Astro.props;
 ---
 
 <section class={`section pb-0 ${backgroundImage ? 'pt-24 relative overflow-hidden z-0' : ''}`}>
@@ -53,7 +54,13 @@ const { title, subtitle, cta, image, imageAlt, backgroundImage }: Props = Astro.
         </div>
       </div>
     </div>
-    {image && (
+    {useVideo ? (
+      <div class="row justify-center pb-16">
+        <div class="col-12 lg:col-10" data-aos="fade-up-sm" data-aos-delay="200">
+          <slot name="video" />
+        </div>
+      </div>
+    ) : image && (
       <div class="row justify-center pb-16">
         <div class="col-12 lg:col-10" data-aos="fade-up-sm" data-aos-delay="200">
           <ImageMod

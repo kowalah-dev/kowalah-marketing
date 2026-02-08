@@ -7,7 +7,7 @@ import WebinarDetailHero from "@/layouts/components/webinars/WebinarDetailHero.a
 import YouTubeEmbed from "@/layouts/components/webinars/YouTubeEmbed.astro";
 import WebinarAgenda from "@/layouts/components/webinars/WebinarAgenda.astro";
 import BlogCard from "@/components/BlogCard.astro";
-import { PortableText } from "astro-portabletext";
+import RichText from "@/components/portabletext/RichText.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import Button from "@/shortcodes/Button";
 import CountdownTimer from "@/layouts/components/webinars/CountdownTimer";
@@ -143,7 +143,7 @@ const metaDescription = shortDescription || `Join us for this Wednesday Webinar 
                 <div class="mb-12" data-aos="fade-up-sm" data-aos-delay="100">
                   <h2 class="text-3xl font-bold mb-6">About This Webinar</h2>
                   <div class="prose prose-lg max-w-none">
-                    <PortableText value={description} />
+                    <RichText value={description} />
                   </div>
                 </div>
               )}

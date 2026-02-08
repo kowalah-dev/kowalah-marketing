@@ -1,0 +1,139 @@
+---
+/**
+ * Custom block renderer for "normal" style paragraphs.
+ *
+ * Detects code-like content (tree diagrams, shell commands, indented
+ * multi-line text) that was pasted into Sanity's rich text editor
+ * without using the code block type, and renders it as <pre><code>
+ * instead of <p> so whitespace and alignment are preserved.
+ */
+
+interface Props {
+  node: {
+    _key: string;
+    _type: string;
+    style: string;
+    children: Array<{
+      _key: string;
+      _type: string;
+      marks: string[];
+      text: string;
+    }>;
+    markDefs?: Array<any>;
+  };
+  index: number;
+  isInline: boolean;
+}
+
+const { node } = Astro.props;
+
+// Extract raw text from all children spans
+const rawText = (node.children || []).map((c) => c.text || "").join("");
+
+// Detect content that should render as preformatted code
+function isPreformatted(text: string): boolean {
+  // Tree-drawing characters (directory structures)
+  if (/[├└│┌┐┘┤┴┬┼]/.test(text)) return true;
+
+  // Multi-line text with consistent indentation (code-like)
+  const lines = text.split("\n");
+  if (lines.length >= 3) {
+    const indentedLines = lines.filter((l) => /^[ \t]{2,}/.test(l));
+    if (indentedLines.length >= 2) return true;
+  }
+
+  // Single-line shell commands (starts with $ or common CLI patterns)
+  if (/^(\$|>\s|curl |npm |npx |yarn |pip |git |docker |brew )/.test(text.trim())) return true;
+
+  return false;
+}
+
+// Reconstruct indented tree from flattened text where newlines and
+// indentation were lost when pasted into Sanity's rich text editor.
+//
+// Key rules:
+// - │ after a directory entry means children follow (go deeper)
+// - │ after a file entry means sibling (same depth)
+// - No │ after a file means return to nearest pending ├── ancestor
+// - No │ after a └── directory means child without pipe (└── ends the
+//   vertical line so children appear without │ prefix)
+function reformatTree(text: string): string {
+  if (!/[├└│]/.test(text)) return text;
+  if (text.includes("\n") && text.split("\n").length > 2) return text;
+
+  const tokens = text.split(/ (?=[├└│])/);
+  const lines: string[] = [];
+  let depth = 0;
+  let sawPipe = false;
+  let prevWasDir = false;
+  let prevBranchType: string | null = null;
+  const pendingDepths: number[] = [];
+  const indent = "    ";
+
+  for (const token of tokens) {
+    const t = token.trim();
+    if (!t) continue;
+
+    if (t === "│") {
+      sawPipe = true;
+      continue;
+    }
+
+    const isBranch = t.startsWith("├──") || t.startsWith("└──");
+
+    if (!isBranch) {
+      lines.push(t);
+      depth = 0;
+      prevWasDir = t.endsWith("/");
+      prevBranchType = null;
+      sawPipe = false;
+      continue;
+    }
+
+    // Determine depth
+    if (sawPipe && prevWasDir) {
+      // │ after a directory → entering children
+      depth++;
+    } else if (!sawPipe && prevWasDir && prevBranchType === "└") {
+      // No │ after a └── directory → child without pipe (line ended)
+      depth++;
+    } else if (!sawPipe && !prevWasDir) {
+      // No │ after a file → return to nearest pending ├── depth
+      if (pendingDepths.length > 0) {
+        depth = pendingDepths[pendingDepths.length - 1];
+      } else {
+        depth = 0;
+      }
+    }
+    // sawPipe && !prevWasDir → sibling at same depth (no change)
+
+    lines.push(indent.repeat(depth) + t);
+
+    const name = t.slice(4);
+    prevWasDir = name.endsWith("/");
+    sawPipe = false;
+
+    if (t.startsWith("├──")) {
+      prevBranchType = "├";
+      pendingDepths.push(depth);
+    } else {
+      prevBranchType = "└";
+      // └── = last child at this depth, pop pending depths here and above
+      while (pendingDepths.length > 0 && pendingDepths[pendingDepths.length - 1] >= depth) {
+        pendingDepths.pop();
+      }
+    }
+  }
+
+  return lines.join("\n");
+}
+
+const preformatted = isPreformatted(rawText);
+const displayText = preformatted ? reformatTree(rawText) : rawText;
+---
+
+{preformatted ? (
+  <pre class="not-prose my-6 rounded-2xl bg-[#282c34] p-4 overflow-x-auto"><code class="text-sm text-[#abb2bf] leading-relaxed" set:text={displayText} /></pre>
+) : (
+  <p><slot /></p>
+)}
