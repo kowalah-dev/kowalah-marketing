@@ -5,7 +5,7 @@ description: "Transform your organization with AI Impact Sprints, Change Enablem
 hero:
   title: "Investment That Delivers AI Impact"
   content: "Three service components that take you from proving value to organisation-wide transformation. Start with a Sprint, scale with enablement, keep delivering with managed services."
-  background_image: "/images/pricing/pricing-hero-bg.png"
+  background_image: "/images/pricing/pricing-hero-bg.webp"
 
 service_components:
   - title: "AI Impact Sprint"

@@ -7,7 +7,7 @@ category: "Talent & Development"
 hero:
   title: "Prompt Hackathon Facilitator Guide"
   subtitle: "Run hands-on AI workshops that transform your team's capabilities in just 2 hours"
-  image: "/images/resources/templates/prompt-hackathon-facilitator-guide-hero.png"
+  image: "/images/resources/templates/prompt-hackathon-facilitator-guide-hero.webp"
   badge: "New"
 overview:
   who_its_for: "L&D professionals, team leaders, managers, AI Champions, and anyone responsible for building AI capabilities across their organization - no technical expertise required"

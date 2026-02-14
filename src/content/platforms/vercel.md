@@ -10,7 +10,7 @@ logo: "/images/platforms/vercel-logo.svg"
 hero:
   title: "Vercel"
   content: "Claude and ChatGPT are what your people use. Vercel is where the AI applications we build with them actually run. From a provider-agnostic AI SDK to secure agent sandboxes and a unified gateway across every AI model, Vercel is the infrastructure layer that turns AI prototypes into production systems your organisation relies on."
-  image: "/images/platforms/vercel-hero.png"
+  image: "/images/platforms/vercel-hero.webp"
   button:
     - enable: true
       label: "Book a Conversation"
@@ -19,7 +19,7 @@ hero:
 overview:
   title: "Why We Build on Vercel"
   content: "When we build custom AI applications during an [AI Impact Sprint](/services/ai-implementation), those solutions need to run somewhere reliable, fast, and secure. Vercel gives us a deployment platform purpose-built for AI workloads, with a developer framework that connects to any AI provider, automatic failover when providers go down, and isolated environments for running AI agents safely. For our clients, that means the solutions we deliver work in production from day one, not just in a demo."
-  image: "/images/platforms/vercel-overview.png"
+  image: "/images/platforms/vercel-overview.webp"
   points:
     - "AI SDK connects to Claude, ChatGPT, Gemini, and other providers through a single framework, so you're never locked into one AI vendor"
     - "AI Gateway routes requests across providers with sub-20ms latency, automatic failover, and unified cost tracking"

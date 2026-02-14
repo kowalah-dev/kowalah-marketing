@@ -10,7 +10,7 @@ logo: "/images/platforms/anthropic-logo.svg"
 hero:
   title: "Claude by Anthropic"
   content: "Anthropic built Claude with the enterprise in mind. Deep reasoning, million-token context, and a rapidly expanding product ecosystem make it a standout choice for organisations that need AI to work reliably across complex, real-world tasks."
-  image: "/images/platforms/anthropic-hero.png"
+  image: "/images/platforms/anthropic-hero.webp"
   button:
     - enable: true
       label: "Book a Conversation"
@@ -19,7 +19,7 @@ hero:
 overview:
   title: "Why We Recommend Claude"
   content: "Anthropic's Claude stands out for its laser focus on the enterprise. From conversational AI to autonomous coding agents, Claude covers the full spectrum of enterprise use cases with a product ecosystem purpose-built for how organisations actually work. Kowalah has deep implementation experience across all of it."
-  image: "/images/platforms/anthropic-overview.png"
+  image: "/images/platforms/anthropic-overview.webp"
   points:
     - "Exceptional reasoning and analysis capabilities across Opus, Sonnet, and Haiku model tiers"
     - "1 million token context window for processing large documents, codebases, and datasets"

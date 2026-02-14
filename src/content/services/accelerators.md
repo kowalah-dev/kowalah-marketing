@@ -47,7 +47,7 @@ service_integration:
 
 problem_solution:
   title: "Stop Building ChatGPT Solutions From Scratch"
-  image: "/images/services/accelerator-problem.png"
+  image: "/images/services/accelerator-problem.webp"
   problem_statement: "Organizations spend months figuring out how to use ChatGPT effectively, often abandoning initiatives due to complexity and uncertainty. Teams stare at blank ChatGPT screens, not knowing what to build or how to start meaningful AI adoption."
   solution_overview: "ChatGPT Accelerators provide proven templates, frameworks, and step-by-step guidance for immediate implementation. Like instruction manuals, they show you exactly what you can build before you start - eliminating guesswork and accelerating results."
   trust_elements:
@@ -184,7 +184,7 @@ featured_showcase:
   title: "AI Accelerators in Action"
   subtitle: "Real accelerators you can implement today - from prompt libraries to complete governance frameworks"
   items:
-    - image: "/images/accelerators/Deep Research Prompt Writer.png"
+    - image: "/images/accelerators/Deep Research Prompt Writer.webp"
       title: "Deep Research Prompt Writer"
       type: "GPT"
       category: "AI Strategy"
@@ -194,7 +194,7 @@ featured_showcase:
         - "Structured research prompts for complex topics"
         - "Consistent analysis format across reports"
         - "30-minute time savings per research task"
-    - image: "/images/accelerators/AI Policy Generator.png"
+    - image: "/images/accelerators/AI Policy Generator.webp"
       title: "AI Policy Generator"
       type: "Prompt"
       category: "Governance"
@@ -204,7 +204,7 @@ featured_showcase:
         - "Complete AI-positive company policy"
         - "Clear governance and compliance framework"
         - "Employee empowerment and safety guidelines"
-    - image: "/images/accelerators/ChatGPT 101 - Video Session.png"
+    - image: "/images/accelerators/ChatGPT 101 - Video Session.webp"
       title: "ChatGPT 101 - Video Session"
       type: "Training Materials"
       category: "Training"
@@ -224,7 +224,7 @@ featured_showcase:
         - "Complete AI readiness assessment score"
         - "18-month strategic implementation roadmap"
         - "Clear resource and budget requirements"
-    - image: "/images/accelerators/ChatGPT Desktop.png"
+    - image: "/images/accelerators/ChatGPT Desktop.webp"
       title: "ChatGPT Desktop"
       type: "Integration"
       category: "Implementation"
@@ -234,7 +234,7 @@ featured_showcase:
         - "Streamlined desktop AI workflow"
         - "Keyboard shortcuts and productivity hacks"
         - "Seamless workflow integration"
-    - image: "/images/accelerators/Find a GPT.png"
+    - image: "/images/accelerators/Find a GPT.webp"
       title: "Find a GPT"
       type: "Template"
       category: "Implementation"
@@ -269,7 +269,7 @@ conversion:
   title: "Ready to Stop Reinventing the Wheel?"
   subtitle: "Start with proven ChatGPT accelerators instead of blank screens and guesswork."
   offer_description: "Browse 50+ ready-to-use accelerators on our Free plan. See exactly what's possible before you commit."
-  background_image: "/images/services/accelerators-cta-bg.png"
+  background_image: "/images/services/accelerators-cta-bg.webp"
   cta:
     label: "Start Free Trial"
     link: "https://app.kowalah.com/sign-up"

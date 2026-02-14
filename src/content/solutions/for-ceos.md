@@ -11,7 +11,7 @@ hero:
   title: "AI That Delivers Business Impact"
   content: "We partner with CEOs to build AI solutions that drive measurable outcomes. Whether you're starting fresh, scaling pilots, or reigniting stalled initiatives, we prove value fast and keep delivering. Expert guidance across ChatGPT, Claude, and Gemini."
   image: "/images/solutions/solutions-ceo-hero.png"
-  background_image: "/images/solutions/ceo-solution-bg.png"
+  background_image: "/images/solutions/ceo-solution-bg.webp"
   button:
     - enable: true
       label: "Book a Conversation"
@@ -38,7 +38,7 @@ challenges:
 solution:
   title: "Build First. Enable Change. Keep Delivering."
   content: "We start by building real solutions with your key people. Once you have proof points and internal champions, we scale capability across the organisation. Then we keep delivering value through ongoing partnership."
-  image: "/images/solutions/ceo-ai-partnership.png"
+  image: "/images/solutions/ceo-ai-partnership.webp"
   points:
     - "Start with an AI Impact Sprint, real wins in 2-3 weeks with key stakeholders"
     - "Scale with Change Enablement powered by internal examples and proof points"
@@ -51,23 +51,23 @@ benefits:
   points:
     - title: "Prove Value Before Scaling"
       content: "AI Impact Sprint delivers working solutions with key people in 2-3 weeks. You see real business impact before committing to organisation-wide rollout."
-      image: "/images/solutions/ceo-revenue-growth-chart.png"
+      image: "/images/solutions/ceo-revenue-growth-chart.webp"
       metric: "2-3 week proof of value"
     - title: "Internal Examples That Resonate"
       content: "When your organisation sees 'Here's what Sarah in Finance built,' it's infinitely more powerful than generic tutorials. Internal proof points make possibilities concrete."
-      image: "/images/solutions/ceo-competitive-speed.png"
+      image: "/images/solutions/ceo-competitive-speed.webp"
       metric: "Internal proof points"
     - title: "Ideas That Get Built"
       content: "Expert Requests turn your team's AI ideas into working solutions, without overwhelming IT or waiting in backlogs. Innovation keeps flowing."
-      image: "/images/solutions/ceo-cost-optimization.png"
+      image: "/images/solutions/ceo-cost-optimization.webp"
       metric: "Continuous delivery"
     - title: "Right Tool For Each Job"
       content: "ChatGPT for conversational interfaces. Claude for analysis. Gemini for Workspace integration. We have opinions based on results, and we'll tell you what works."
-      image: "/images/solutions/ceo-workforce-satisfaction.png"
+      image: "/images/solutions/ceo-workforce-satisfaction.webp"
       metric: "Platform expertise"
     - title: "Compounding Value Over Time"
       content: "This isn't a one-off project, it's continuous improvement. Kowalah Essential keeps delivering value month after month as new capabilities emerge."
-      image: "/images/solutions/ceo-strategic-agility.png"
+      image: "/images/solutions/ceo-strategic-agility.webp"
       metric: "Ongoing partnership"
 
 social_proof:
@@ -126,7 +126,7 @@ services_highlight:
       badge: "2-3 Weeks"
       content: "Build real wins with key people"
       description: "We embed with 2-3 key stakeholders, identify highest-value AI opportunities, and build working solutions. You end with proof points and internal champions—before any organisation-wide commitment."
-      image: "/images/services/chatgpt-deployment-cta-bg.png"
+      image: "/images/services/chatgpt-deployment-cta-bg.webp"
       button:
         enable: true
         label: "Learn About Sprints"
@@ -135,7 +135,7 @@ services_highlight:
       badge: "Organisation-Wide"
       content: "Scale transformation with proof points"
       description: "With Sprint proof points in hand, we scale AI capability across your organisation. Training powered by internal examples, AI Ambassador networks, governance frameworks, and cultural transformation."
-      image: "/images/services/change-enablement-cta-bg.png"
+      image: "/images/services/change-enablement-cta-bg.webp"
       button:
         enable: true
         label: "Change Enablement"
@@ -144,7 +144,7 @@ services_highlight:
       badge: "Managed Service"
       content: "Continuous value delivery"
       description: "Organisation-wide platform access, monthly Expert Request allocation, ongoing strategic guidance. This is where real transformation happens: compounding value over time."
-      image: "/images/services/training-cta-bg.png"
+      image: "/images/services/training-cta-bg.webp"
       button:
         enable: true
         label: "Explore Essential"
@@ -153,7 +153,7 @@ services_highlight:
 cta:
   title: "See AI Impact Before You Commit"
   content: "Book an AI Impact Sprint discovery call. We'll discuss your specific challenges, explore where AI could deliver real business value, and explain how we'd prove it in 2-3 weeks—before any organisation-wide commitment."
-  background_image: "/images/solutions/ceo-solution-bg.png"
+  background_image: "/images/solutions/ceo-solution-bg.webp"
   button:
     enable: true
     label: "Book Sprint Discovery"

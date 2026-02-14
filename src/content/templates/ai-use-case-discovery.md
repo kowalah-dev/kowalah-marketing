@@ -7,7 +7,7 @@ category: "Strategy & Planning"
 hero:
   title: "Functional Team AI Use Case Discovery Template"
   subtitle: "A structured interview framework to uncover AI opportunities across every team and function"
-  image: "/images/resources/templates/ai-use-case-discovery-hero.png"
+  image: "/images/resources/templates/ai-use-case-discovery-hero.webp"
   badge: "Essential"
 overview:
   who_its_for: "AI transformation leaders, HR business partners, change managers, and functional leaders conducting AI opportunity discovery across teams"
