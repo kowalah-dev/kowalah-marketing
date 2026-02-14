@@ -37,7 +37,15 @@ if (usingSanity) {
     {categories && categories.length > 0 && (
       categories.slice(0, 2).map((category: any, i: number) => {
         const categoryName = usingSanity ? category.title : category;
-        const categorySlug = usingSanity ? category.slug?.current : slugify(category);
+        const categorySlug = usingSanity
+          ? (category.slug?.current || (category.title ? slugify(category.title) : null))
+          : slugify(category);
+        if (!categorySlug) return (
+          <span class="text-light text-sm">
+            {humanize(categoryName)}
+            {i !== Math.min(categories.length, 2) - 1 && ", "}
+          </span>
+        );
         return (
           <a href={`/categories/${categorySlug}`} class="text-light text-sm">
             {humanize(categoryName)}

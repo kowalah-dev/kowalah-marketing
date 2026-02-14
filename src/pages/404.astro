@@ -4,7 +4,7 @@ import Base from "@/layouts/Base.astro";
 import Button from "@/shortcodes/Button";
 ---
 
-<Base title="Page Not Found" customHeader={true}>
+<Base title="Page Not Found" customHeader={true} noindex={true}>
   <section class="section pt-[3.188rem] bg-primary/[0.98] relative">
     <div class="container">
       <div class="row justify-center items-center">
@@ -20,13 +20,12 @@ import Button from "@/shortcodes/Button";
         <div class="col-12 md:col-6 text-light">
           <h1 class="mb-4 text-light tracking-normal">404 Error!</h1>
           <p class="mb-12 text-light/70">
-            Stay organized, prioritize with ease, and get things done faster.
-            Our all-in-one task management tool keeps your team aligned and on
-            track.
+            The page you're looking for doesn't exist or has been moved.
+            Let's get you back on track with AI leadership guidance for your organisation.
           </p>
           <Button
             link="/"
-            label="Go back homepage"
+            label="Back to Homepage"
             icon="FaAngleRight"
             style="secondary"
             className="w-fit"

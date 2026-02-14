@@ -1,7 +1,7 @@
 ---
 title: "Career"
 meta_title: ""
-description: "this is meta description"
+description: "Join the Kowalah team and help organisations accelerate AI adoption. Explore open roles in AI leadership, engineering, and operations."
 hero:
   title: "Join Our Team"
   content: "Stay focused, manage priorities effortlessly, and boost productivity. Our <br> comprehensive task management tool keeps your team synced and on course."

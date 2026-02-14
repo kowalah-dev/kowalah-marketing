@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is Kowalah's marketing website - Kowalah is a digital chief AI officer helping companies of between 1,000 and 10,000 employees to accelerate AI adoption across their organization.
+This is Kowalah's marketing website - Kowalah is an Enterprise AI Impact Partner that delivers rapid business value through AI Impact Sprints, then scales AI transformation across organizations of 1,000-10,000 employees in non-tech industries.
 
 Our Kowalah repositories consist of these - all within the kowalah-dev Github organisation
 
@@ -35,8 +35,9 @@ Use this to find our latest corporate-strategy and go-to-market documentation
 - @.env.production.example - Production environment variable template
 
 ### Content & Branding
-- @docs/product-overview.md provides detailed overview of the Kowalah application, value proposition and target market
-- ~/Documents/KowalahReserved/strategy/go-to-market explains how we communicate aobout Kowalah
+- @.claude/product-marketing-context.md is the **source of truth** for Kowalah's positioning, value proposition, and target market
+- @docs/content-strategy.md defines content pillars, priority topics, topic cluster map, and content calendar
+- ~/Documents/KowalahReserved/strategy/go-to-market explains how we communicate about Kowalah
 - @docs/context/visual-style-guide.md provides our image and visual appearance (human-centered transformation focus)
 - @docs/sanity-integration.md explains how our Astro project pulls content from our Sanity CMS
 
@@ -75,16 +76,16 @@ Use this to find our latest corporate-strategy and go-to-market documentation
 
 ### Content Architecture
 Uses Astro's Content Collections with comprehensive Zod schemas for:
-- **Homepage:** Hero sections with Digital CAIO positioning, 7 core AI capabilities, value propositions, pricing tiers
-- **Insights:** AI leadership and industry transformation content
+- **Homepage:** Hero sections, service overview, value propositions, pricing tiers
+- **Insights:** AI implementation, adoption, and industry transformation content (primarily from Sanity CMS)
 - **Case Studies:** AI implementation success stories and ROI metrics
 - **Company:** Kowalah story, team, AI expertise, and career opportunities
-- **Pricing:** Digital AI Leadership plans (Free, Individual, Digital, Essential, Executive, Enterprise)
+- **Pricing:** Service tiers (Free, Individual, Digital, Essential, Executive, Enterprise)
 - **Contact:** Lead generation forms for executive prospects
-- **Features:** 7 core AI leadership capabilities showcase
+- **Features:** Core AI service capabilities showcase
 - **Integrations:** Enterprise system connections (Slack, Teams, CRM, ERP)
 - **Platforms:** AI platform pages (Claude/Anthropic, ChatGPT/OpenAI) with capabilities, partnership, and implementation sections
-- **FAQ:** Digital Chief AI Officer and Expert Requests questions
+- **FAQ:** AI Impact Sprints, Expert Requests, and service questions
 - **Reviews:** Executive testimonials and organizational outcomes
 
 ### Project Structure
@@ -176,8 +177,10 @@ Plain `{text}` escapes HTML and renders markdown syntax as literal text. See `Se
 
 ### Brand Guidelines
 - **Executive-level messaging:** Professional, strategic, authoritative tone
-- **Competitive positioning:** vs. human CAIO hiring, consultants, DIY approaches
-- **Key differentiators:** Immediate availability, 24/7 access, collective intelligence, zero turnover risk
+- **Positioning:** Enterprise AI Impact Partner, Sprint-first methodology, services + platform model
+- **Competitive positioning:** vs. big consultancies (strategy decks, not results), AI training companies (enthusiasm without execution), DIY/IT-led rollouts (no change enablement), human CAIO hiring (cost, time, single perspective)
+- **Key differentiators:** Sprint-first (working solutions in weeks, not months), embedded approach (build alongside your people), proof points before scale, Expert Requests prevent the Enthusiasm Gap, multi-platform expertise (Claude, ChatGPT, Gemini), AI-native delivery model
+- **Key terms:** AI Impact Sprint, Expert Requests, Change Enablement, Accelerators, AI Ambassadors, Ground Game, Enthusiasm Gap, Digital CAIO (platform feature name, not company positioning)
 
 ### Writing Style
 - **Punctuation:** Use commas instead of em-dashes (—) for parenthetical phrases and clause breaks
