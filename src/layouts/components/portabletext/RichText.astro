@@ -11,7 +11,6 @@
 import { PortableText } from "astro-portabletext";
 import ImageBlock from "./ImageBlock.astro";
 import CodeBlock from "./CodeBlock.astro";
-import NormalBlock from "./NormalBlock.astro";
 import YoutubeEmbed from "./YoutubeEmbed.astro";
 import TableBlock from "./TableBlock.astro";
 import ButtonEmbed from "./ButtonEmbed.astro";
@@ -27,9 +26,6 @@ const { value } = Astro.props;
   <PortableText
     value={value}
     components={{
-      block: {
-        normal: NormalBlock,
-      },
       type: {
         image: ImageBlock,
         code: CodeBlock,
