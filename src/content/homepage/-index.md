@@ -103,13 +103,13 @@ program_depth:
           description: "Quarterly assessments and improvements to maximize AI ROI"
 
 feature:
-  title: "How It Works: 3-Step Methodology"
+  title: "How It Works"
   subtitle: "Build First. Enable Change. Keep Delivering."
   features:
     - title: "AI Impact Sprint"
       badge: "2-3 Weeks"
       content: "Build real wins with key people"
-      description: "We embed with 2-3 of your key stakeholders, getting into the weeds of their actual work. We identify highest-value AI opportunities and build working solutions: prompts, GPTs, workflows, whatever the use case requires. You end with real wins on the board and internal champions who've experienced what's possible."
+      description: "We embed with 2-3 key stakeholders, understand their actual work, and build AI solutions that deliver business value: custom GPTs, prompts, workflows. You end with board-ready proof points and internal champions who've experienced what's possible."
       image: "/images/home/features/features-1-training.png"
       button:
         enable: true
@@ -118,7 +118,7 @@ feature:
     - title: "Change Enablement"
       badge: "Organization-Wide"
       content: "Scale transformation with proof points"
-      description: "With Sprint proof points in hand, we scale AI capability across your organization. Training powered by internal examples, AI Ambassador networks, governance frameworks, and cultural transformation, everything needed to move from pilot success to organization-wide adoption."
+      description: "'Here's what Sarah in Finance built' is infinitely more credible than any generic tutorial. Sprint proof points power your training, AI Ambassador networks spread capability organically, and governance frameworks keep everything secure."
       image: "/images/home/features/features-2-expert-delivery.png"
       button:
         enable: true
@@ -126,8 +126,8 @@ feature:
         link: "/services"
     - title: "Kowalah Essential"
       badge: "Managed Service"
-      content: "Continuous value delivery"
-      description: "After enablement, people have ideas, and we don't want those ideas to die. Organization-wide platform access means anyone can submit Expert Requests. Monthly allocation ensures continuous solution building. This is where real transformation happens: compounding value over time, not a one-off project."
+      content: "Keep ideas flowing into production"
+      description: "Your people have ideas, and we make sure they don't die in IT backlogs. Anyone can submit Expert Requests. Our specialists build the custom GPTs, agents, and workflows. Real transformation compounds over time, not a one-off project."
       image: "/images/home/features/features-3-managed-services.png"
       button:
         enable: true

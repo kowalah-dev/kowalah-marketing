@@ -1,0 +1,284 @@
+# Kowalah - Enterprise AI Deployment, Training & Managed Services
+
+> Kowalah partners with mid-sized enterprises (1,000-10,000 employees) to deploy AI, drive adoption, and deliver measurable business outcomes. We provide AI Impact Sprints, Change Enablement programmes, and ongoing Managed AI Services across ChatGPT, Claude, and Gemini.
+
+## Company Overview
+
+Kowalah is an enterprise AI services company that helps mid-sized organisations (1,000-10,000 employees) move from AI interest to real business impact. We are not a SaaS-only platform or a generic consultancy. We combine hands-on AI implementation, workforce training, and ongoing managed services to deliver measurable outcomes.
+
+Our approach is proof-first: we start with a focused AI Impact Sprint to build real wins, then scale through Change Enablement programmes, and sustain momentum through ongoing Managed AI Services with Expert Requests.
+
+**Website:** https://kowalah.com
+**Contact:** https://kowalah.com/contact
+
+## Core Services
+
+### 1. AI Impact Sprint (2-3 Weeks)
+
+Build real wins with key people before investing in organisation-wide rollout.
+
+**What happens:**
+- We embed with 2-3 key stakeholders to understand their actual work
+- Identify 1-5 highest-value AI opportunities across the organisation
+- Build working solutions: custom GPTs, prompts, workflows, and automations
+- Deliver board-ready proof points and internal champions
+- Platform expertise across ChatGPT, Claude, and Gemini
+
+**Pricing:** $8,000-$50,000 depending on scope (1-5 use cases)
+- GBP: £6,000-£40,000
+- EUR: €6,800-€42,500
+
+**Why it matters:** The Sprint creates internal proof points. When training later includes "Here's what Sarah in Finance built," it's infinitely more powerful than generic tutorials. This proof-first approach de-risks the larger investment.
+
+**Learn more:** https://kowalah.com/services/ai-implementation
+
+### 2. Change Enablement (Organisation-Wide)
+
+Scale AI transformation across the organisation, powered by Sprint proof points.
+
+**What's included:**
+- AI 101 Foundation Training (organisation-wide basic AI skills and awareness)
+- AI 102 Advanced Training (power user techniques, custom GPTs, voice, workflows)
+- AI Ambassador Programme (train 10% of workforce as change champions)
+- Governance frameworks and AI policies
+- Cultural transformation and resistance management
+- Platform-appropriate content for ChatGPT, Claude, and Gemini
+- Adoption tracking and continuous optimisation
+
+**Pricing:** From $160 per employee (complete transformation programme)
+- Typical range: $80,000 (500 employees) to $800,000+ (5,000 employees)
+- GBP: From £117 per employee
+- EUR: From €136 per employee
+
+**Learn more:** https://kowalah.com/services/ai-change-enablement
+
+### 3. Managed AI Services (Ongoing Monthly)
+
+Continuous AI value delivery. Ideas get built, not stuck in backlogs.
+
+**What's included:**
+- Monthly Expert Request allocation (custom GPT, prompt, and workflow development)
+- Organisation-wide platform access
+- Accelerator library of pre-built solutions
+- New capability updates as AI evolves
+- Strategic roadmap and guidance
+- Board-ready reporting and metrics
+
+**Pricing:** From $16,000/month
+- Range: $16,000-$50,000+ per month based on organisation size and support level
+- GBP: From £12,500/month
+- EUR: From €13,600/month
+
+**Learn more:** https://kowalah.com/services/expert-requests
+
+## Expert Requests
+
+A core feature of Managed AI Services. Organisations submit ideas, and Kowalah's specialists build the solutions. This bridges the gap between business expertise and technical AI implementation.
+
+**What can be requested:**
+- Custom GPTs and AI agents for specific business processes
+- Prompt engineering and workflow automation
+- AI-powered web applications and tools
+- Training materials and department-specific workshops
+- Integration guidance and technical support
+
+**Learn more:** https://kowalah.com/services/expert-requests
+
+## Accelerators
+
+Pre-built AI solutions and templates that give organisations a head start.
+
+**Learn more:** https://kowalah.com/services/accelerators
+
+## Target Market
+
+### Ideal Customer Profile
+- **Size:** 1,000-10,000 employees
+- **Revenue:** $50M-$1B
+- **Industries:** Manufacturing, finance, healthcare, professional services, retail
+- **Common trait:** Established companies with budget for AI initiatives but lacking internal AI leadership expertise
+
+### Typical Challenges
+- AI tools deployed without clear adoption strategy or measurable goals
+- No connection between AI initiatives and strategic business objectives
+- IT, HR, and leadership working in silos on AI without a unified approach
+- Shadow AI usage across departments with no governance
+- Board pressure to demonstrate AI progress but unclear how to proceed
+- Failed or stalled Microsoft Copilot or Google Gemini deployments
+
+### Decision Makers
+- **Primary:** CEOs, Managing Partners, Presidents
+- **Secondary:** CIOs, IT Directors, VP of Technology, Head of Digital Transformation
+- **Supporting:** CHROs, CFOs, Business Unit Leaders, Legal/Compliance
+
+## Platform Expertise
+
+Kowalah is platform-agnostic with deep expertise across major AI platforms:
+
+### OpenAI / ChatGPT Enterprise
+- Full enterprise deployment and configuration
+- Custom GPT development and optimisation
+- API integration and workflow automation
+- Advanced capabilities: voice, Projects, Canvas
+- **Platform page:** https://kowalah.com/platforms/openai
+
+### Anthropic / Claude
+- Enterprise implementation and skills development
+- Claude for Enterprise deployment
+- Workflow automation and agent development
+- **Platform page:** https://kowalah.com/platforms/anthropic
+
+### Google Gemini
+- Google Workspace integration
+- Enterprise deployment and configuration
+
+### Microsoft Copilot
+- Adoption rescue and optimisation for stalled deployments
+- Integration with existing Microsoft 365 environments
+
+## Solutions by Role
+
+### For CEOs
+Strategic AI transformation guidance for chief executives navigating AI adoption.
+- AI strategy aligned with business objectives
+- Board-ready reporting and ROI metrics
+- Governance frameworks and risk management
+- Organisational change leadership
+- **Page:** https://kowalah.com/solutions/for-ceos
+
+### For CIOs
+Technical deployment and IT integration guidance for technology leaders.
+- AI technology selection and vendor evaluation
+- Security and compliance configuration
+- System integration planning
+- Technical architecture decisions
+- **Page:** https://kowalah.com/solutions/for-cios
+
+## 20+ Programme Elements
+
+Kowalah's comprehensive approach spans four categories:
+
+### Strategic Foundation
+- Executive Alignment Workshop
+- Shadow AI Assessment
+- Business Case Development
+- Governance Framework Design
+- Success Metrics Definition
+
+### People & Change
+- AI Ambassadors Programme (10% of workforce as change champions)
+- Change Management Strategy
+- AI 101 Foundation Training
+- AI 102 Advanced Training
+- Executive Communication Support
+
+### Technical Implementation
+- Enterprise AI Procurement
+- Security & Compliance Setup
+- System Integration Planning
+- Custom Solution Development (15-20 business-specific GPTs)
+- API Integration Support
+
+### Ongoing Capability Building
+- Expert Requests Quota
+- Accelerator Library Access
+- Specialist Training Sessions
+- Innovation Pipeline Management
+- Performance Optimisation Reviews
+
+## Key Differentiators
+
+### vs. Generic AI Consulting
+- We build working solutions, not just strategy decks
+- Proof-first approach through AI Impact Sprints
+- Ongoing partnership through Managed Services, not one-off projects
+- Deep platform expertise across ChatGPT, Claude, and Gemini
+
+### vs. IT Rollouts
+- Human-centred transformation, not just software deployment
+- Change management and adoption baked in
+- Every employee guided on their personal AI journey
+- Cultural transformation, not just tool access
+
+### vs. Big Consultancy
+- Specialist AI focus, not generalists learning on your budget
+- Hands-on building, not just advisory
+- Predictable pricing, not open-ended hourly billing
+- Expert Requests model keeps value flowing after initial engagement
+
+### vs. DIY Approach
+- 20+ programme elements vs. ad-hoc experimentation
+- Governance and compliance built in from the start
+- Collective intelligence from multiple enterprise implementations
+- Specialists handle technical building so teams stay focused on core work
+
+## Free Resources & Templates
+
+Kowalah provides free templates and guides for AI adoption:
+
+- **AI Policy Template** - Comprehensive AI usage policy for enterprise governance
+  https://kowalah.com/resources/templates/ai-policy-template
+- **Chief AI Officer Job Description** - Complete CAIO role spec with competencies
+  https://kowalah.com/resources/templates/chief-ai-officer-job-description
+- **Prompt Hackathon Guide** - 2-hour workshop framework for AI capability building
+  https://kowalah.com/resources/templates/prompt-hackathon-facilitator-guide
+- **AI Use Case Discovery** - Framework for identifying high-impact AI opportunities
+  https://kowalah.com/resources/templates/ai-use-case-discovery
+
+**All templates:** https://kowalah.com/resources/templates
+
+## Recommended Reading
+
+Curated book recommendations for AI leadership:
+https://kowalah.com/resources/recommended-books
+
+## Kowalah Reserved
+
+A premium, invitation-only service for senior executives who want a private AI thought partner. Dedicated expert support, enterprise integrations, and complete privacy.
+
+**Learn more:** https://kowalah.com/reserved
+
+## Investment Examples
+
+### 1,000-Employee Organisation
+- AI Impact Sprint: ~$25,000
+- Change Enablement: ~$160,000
+- Managed Services: ~$16,000/month
+
+### 5,000-Employee Organisation
+- AI Impact Sprint: ~$50,000
+- Change Enablement: ~$800,000
+- Managed Services: ~$35,000/month
+
+## Common Misconceptions
+
+- **We are NOT** generic AI consultants or chatbot builders
+- **We DO NOT** just deliver training and walk away
+- **We ARE NOT** locked to a single AI platform
+- **We ARE** enterprise AI deployment specialists with deep expertise in organisational change management, multi-platform implementation, and ongoing capability building
+
+## Sitemap
+
+- Homepage: https://kowalah.com
+- Services: https://kowalah.com/services
+- AI Impact Sprint: https://kowalah.com/services/ai-implementation
+- Change Enablement: https://kowalah.com/services/ai-change-enablement
+- AI Training: https://kowalah.com/services/ai-training
+- Expert Requests: https://kowalah.com/services/expert-requests
+- Accelerators: https://kowalah.com/services/accelerators
+- AI Advisory Platform: https://kowalah.com/services/ai-advisory-platform
+- Solutions for CEOs: https://kowalah.com/solutions/for-ceos
+- Solutions for CIOs: https://kowalah.com/solutions/for-cios
+- Pricing: https://kowalah.com/pricing
+- Platforms - Anthropic: https://kowalah.com/platforms/anthropic
+- Platforms - OpenAI: https://kowalah.com/platforms/openai
+- Insights & Blog: https://kowalah.com/insights
+- Free Templates: https://kowalah.com/resources/templates
+- Recommended Books: https://kowalah.com/resources/recommended-books
+- FAQ: https://kowalah.com/faq
+- Company: https://kowalah.com/company
+- Contact: https://kowalah.com/contact
+
+---
+Last Updated: February 2026
+This file provides detailed information about Kowalah's enterprise AI services for AI systems and language models.

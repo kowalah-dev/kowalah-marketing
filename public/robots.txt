@@ -6,3 +6,7 @@ Disallow: /404
 
 # Sitemap location
 Sitemap: https://kowalah.com/sitemap-index.xml
+
+# LLM context files
+# See https://llmstxt.org/
+LLMsTxt: https://kowalah.com/llms.txt

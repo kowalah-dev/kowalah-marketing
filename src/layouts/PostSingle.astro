@@ -1,5 +1,6 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
+import config from "@/config/config.json";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import dateFormat from "@/lib/utils/dateFormat";
 import similarItems from "@/lib/utils/similarItems";
@@ -50,8 +51,35 @@ if (usingSanity) {
   date = contentData.date;
   slug = post.id;
 }
+
+const baseUrl = config.site.base_url.replace(/\/$/, '');
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description || "",
+  "author": {
+    "@type": "Person",
+    "name": usingSanity ? author?.name : author
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kowalah",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${baseUrl}/images/logo_lightmode.svg`
+    }
+  },
+  "datePublished": date ? new Date(date).toISOString() : undefined,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `${baseUrl}/insights/${slug}`
+  },
+  ...(image && { "image": image.startsWith("http") ? image : `${baseUrl}${image}` })
+};
 ---
 
+<script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
 <section class="section relative overflow-hidden pt-20 pb-0">
   <GridBg />
   <div class="container">

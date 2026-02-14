@@ -1,7 +1,7 @@
 ---
 title: "Frequent Asked Question"
 meta_title: "We are here to answer."
-description: "this is meta description"
+description: "Find answers to common questions about Kowalah's Digital Chief AI Officer, AI strategy, implementation support, and Expert Requests."
 content: "Stay organized, prioritize with ease, and get things done faster. Our all-in-one <br> task management tool keeps your team aligned and on track."
 faqs:
   - question: "How Our Lead Scoring Feature Helps You Prioritize?"

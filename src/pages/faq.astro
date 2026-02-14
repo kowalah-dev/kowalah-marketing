@@ -12,13 +12,36 @@ const faqIndex = (await getEntry("faq", "-index")) as CollectionEntry<"faq">;
 const { title, content, meta_title, description } = faqIndex.data;
 
 // Fetch FAQ items from Sanity CMS
-let faqs = [];
+let faqs: any[] = [];
 try {
   faqs = await client.fetch(queries.faqs);
 } catch (error) {
   console.error("Failed to fetch FAQs from Sanity:", error);
-  // Fallback to empty array - could also fallback to markdown faqs
 }
+
+// Extract plain text from Portable Text blocks for JSON-LD
+function portableTextToPlain(blocks: any): string {
+  if (typeof blocks === "string") return blocks;
+  if (!Array.isArray(blocks)) return "";
+  return blocks
+    .filter((block: any) => block._type === "block")
+    .map((block: any) => block.children?.map((child: any) => child.text).join("") || "")
+    .join(" ");
+}
+
+// Build FAQPage JSON-LD
+const faqJsonLd = faqs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq: any) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": portableTextToPlain(faq.answer)
+    }
+  }))
+} : null;
 
 const call_to_action = (await getEntry(
   "sections",
@@ -27,6 +50,7 @@ const call_to_action = (await getEntry(
 ---
 
 <Base title={title} meta_title={meta_title} description={description}>
+  {faqJsonLd && <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />}
   <PageHeader title={title} content={content} />
 
   <section class="-mt-20">

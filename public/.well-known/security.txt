@@ -1,0 +1,8 @@
+# Kowalah Security Contact
+# https://securitytxt.org/
+# Per RFC 9116
+
+Contact: mailto:security@kowalah.com
+Preferred-Languages: en
+Canonical: https://kowalah.com/.well-known/security.txt
+Expires: 2027-02-14T00:00:00.000Z

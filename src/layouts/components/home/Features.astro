@@ -8,6 +8,7 @@ const { feature } = Astro.props;
 
 <section class="section bg-tertiary">
   <div class="container max-md:px-5">
+    {/* Section header */}
     <div class="row">
       <div class="mx-auto mb-12 text-center md:col-10 lg:col-8">
         <p
@@ -17,130 +18,86 @@ const { feature } = Astro.props;
         />
         <h2
           set:html={markdownify(feature.title)}
-          class="md:mb-16 lg:h1"
+          class="mb-6 lg:h1"
           data-aos="fade-up-sm"
         />
       </div>
+    </div>
 
-      <div class="col-12 mb-8">
-        <div class="flex flex-col md:flex-row items-center justify-between">
-          {
-            feature.features.map((item: any, index: number) => (
-              <div class="border-b-4 border-border/20 md:w-1/4 max-md:mb-6">
-                <p
-                  set:html={markdownify(item.title)}
-                  class="mx-auto mb-2 md:mb-6 md:w-fit max-md:text-center feature-pagination-item cursor-pointer text-text-dark"
-                  data-index={index}
-                  data-aos="fade-left-sm"
-                  data-aos-delay={index * 50}
-                />
-              </div>
-            ))
-          }
-        </div>
+    {/* Vertical timeline */}
+    <div class="relative">
+      {/* Timeline connector line (desktop only) */}
+      <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2">
+        <div class="h-full bg-gradient-to-b from-primary via-primary/40 to-secondary" data-aos="fade-up-sm" />
       </div>
 
-      <div class="col-12 min-h-full">
-        <div
-          class="swiper feature-slider bg-text/5 md:p-[30px]! xl:pr-0! rounded-[20px] h-full"
-        >
-          <div class="swiper-wrapper">
-            {
-              feature.features.map((item: any) => (
-                <div class="swiper-slide w-full lg:w-4/5! xl:w-2/3! min-h-full max-md:p-5! last:xl:pr-[30px]!">
-                  <div
-                    class="bg-body rounded-[20px] overflow-hidden h-full"
-                    data-aos="fade-left-sm"
-                    data-aos-delay="300"
-                  >
-                    <div class="flex flex-col lg:flex-row h-full">
-                      <ImageMod
-                        src={item.image}
-                        width={624}
-                        height={800}
-                        alt={item.title}
-                        quality="max"
-                        class="object-cover max-lg:mx-auto p-5 md:p-0 w-full lg:w-[312px] h-[400px] lg:h-full"
-                      />
-                      <div class="p-5 md:p-10">
-                        <p
-                          set:html={item.badge}
-                          class="w-fit border border-border/20 rounded-lg px-4 py-1 text-sm mb-4 max-lg:mx-auto"
-                        />
-                        <h3
-                          set:html={item.content}
-                          class="mb-3 h4 max-lg:text-center"
-                        />
-                        <p
-                          set:html={item.description}
-                          class="mb-12 max-lg:text-center"
-                        />
-                        {item.button.enable && (
-                          <Button
-                            link={item.button.link}
-                            label={item.button.label}
-                            style="ghost"
-                            icon="FaAngleRight"
-                            className="text-text-dark hover:text-secondary transition duration-300 lg:w-fit p-0"
-                          />
-                        )}
+      {/* Steps */}
+      <div class="space-y-12 lg:space-y-20">
+        {feature.features.map((item: any, index: number) => {
+          const isEven = index % 2 === 0;
+          return (
+            <div class="relative" data-aos="fade-up-sm" data-aos-delay={index * 100}>
+              {/* Step number circle on the timeline (desktop) */}
+              <div class="hidden lg:flex absolute left-1/2 top-8 -translate-x-1/2 z-10 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary items-center justify-center shadow-lg">
+                <span class="text-white font-bold text-lg">{index + 1}</span>
+              </div>
+
+              {/* Content card */}
+              <div class={`lg:flex items-center gap-8 ${isEven ? '' : 'lg:flex-row-reverse'}`}>
+                {/* Text side */}
+                <div class={`lg:w-[calc(50%-2rem)] ${isEven ? 'lg:text-right lg:pr-8' : 'lg:text-left lg:pl-8'}`}>
+                  <div class={`bg-body rounded-2xl p-6 md:p-8 shadow-sm border border-border/10 ${isEven ? '' : ''}`}>
+                    {/* Mobile step number + badge */}
+                    <div class={`flex items-center gap-3 mb-4 ${isEven ? 'lg:justify-end' : 'lg:justify-start'}`}>
+                      <div class="lg:hidden flex w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary items-center justify-center flex-shrink-0">
+                        <span class="text-white font-bold">{index + 1}</span>
                       </div>
+                      <span
+                        set:html={item.badge}
+                        class="inline-block border border-primary/20 bg-primary/5 rounded-full px-4 py-1 text-sm font-medium text-primary"
+                      />
                     </div>
+
+                    <h3
+                      set:html={markdownify(item.content)}
+                      class={`mb-3 h4 ${isEven ? 'lg:text-right' : 'lg:text-left'}`}
+                    />
+                    <p
+                      set:html={markdownify(item.description)}
+                      class={`mb-6 text-text-dark/70 leading-relaxed ${isEven ? 'lg:text-right' : 'lg:text-left'}`}
+                    />
+                    {item.button.enable && (
+                      <div class={`${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
+                        <Button
+                          link={item.button.link}
+                          label={item.button.label}
+                          style="ghost"
+                          icon="FaAngleRight"
+                          className="text-text-dark hover:text-secondary transition duration-300 p-0"
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
-              ))
-            }
-          </div>
-        </div>
+
+                {/* Image side */}
+                <div class={`lg:w-[calc(50%-2rem)] mt-6 lg:mt-0 ${isEven ? 'lg:pl-8' : 'lg:pr-8'}`}>
+                  <div class="rounded-2xl overflow-hidden shadow-sm">
+                    <ImageMod
+                      src={item.image}
+                      width={560}
+                      height={400}
+                      alt={item.title}
+                      quality="max"
+                      class="object-cover w-full h-[280px] md:h-[340px]"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   </div>
 </section>
-
-<script>
-  import { Swiper } from "swiper";
-  import "swiper/css";
-  import "swiper/css/pagination";
-  import { Autoplay, Pagination } from "swiper/modules";
-
-  // astro:page-load event is fired when the page is loaded
-  document.addEventListener("astro:page-load", () => {
-    const featureItems = document.querySelectorAll(".feature-pagination-item");
-    // Add active state to first item by default
-    featureItems[0]?.classList.add("active");
-    featureItems[0]?.parentElement?.classList.add("!border-primary");
-
-    const featureCarouselSwiper = new Swiper(".feature-slider", {
-      modules: [Pagination, Autoplay],
-      slidesPerView: "auto",
-      spaceBetween: 24,
-      autoplay: {
-        delay: 7000,
-        disableOnInteraction: false,
-      },
-      on: {
-        slideChange: function (this: Swiper) {
-          // Remove active class from all items
-          featureItems.forEach((item) => {
-            item.classList.remove("active");
-            item?.parentElement?.classList.remove("!border-primary");
-          });
-          // Add active class to current item
-          const currentIndex = this.activeIndex;
-          const currentItem = document.querySelector(
-            `[data-index="${currentIndex}"]`
-          );
-          currentItem?.classList.add("active");
-          currentItem?.parentElement?.classList.add("!border-primary");
-        },
-      },
-    });
-
-    // Add click handlers to feature items
-    featureItems.forEach((item, index) => {
-      item.addEventListener("click", () => {
-        featureCarouselSwiper.slideTo(index);
-      });
-    });
-  });
-</script>
