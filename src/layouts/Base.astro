@@ -96,7 +96,7 @@ const {
     </title>
 
     <!-- canonical url -->
-    {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
+    <link rel="canonical" href={canonical || `${config.site.base_url.replace(/\/$/, '')}${Astro.url.pathname}`} itemprop="url" />
 
     <!-- noindex robots -->
     {noindex && <meta name="robots" content="noindex,nofollow" />}

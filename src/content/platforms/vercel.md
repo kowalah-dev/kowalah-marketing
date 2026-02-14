@@ -18,7 +18,7 @@ hero:
 
 overview:
   title: "Why We Build on Vercel"
-  content: "When we build custom AI applications during an [AI Impact Sprint](/services/ai-impact-sprint), those solutions need to run somewhere reliable, fast, and secure. Vercel gives us a deployment platform purpose-built for AI workloads, with a developer framework that connects to any AI provider, automatic failover when providers go down, and isolated environments for running AI agents safely. For our clients, that means the solutions we deliver work in production from day one, not just in a demo."
+  content: "When we build custom AI applications during an [AI Impact Sprint](/services/ai-implementation), those solutions need to run somewhere reliable, fast, and secure. Vercel gives us a deployment platform purpose-built for AI workloads, with a developer framework that connects to any AI provider, automatic failover when providers go down, and isolated environments for running AI agents safely. For our clients, that means the solutions we deliver work in production from day one, not just in a demo."
   image: "/images/platforms/vercel-overview.png"
   points:
     - "AI SDK connects to Claude, ChatGPT, Gemini, and other providers through a single framework, so you're never locked into one AI vendor"
@@ -133,7 +133,7 @@ partnership:
   content: "We build on Vercel every day. The AI applications, custom agents, and internal tools we deliver during Sprint engagements run on Vercel infrastructure, and that hands-on experience means we know how to get the most from the platform."
   points:
     - title: "Production-Grade AI Delivery"
-      content: "When we build AI solutions during an [AI Impact Sprint](/services/ai-impact-sprint), they deploy to Vercel infrastructure from the start. Your solutions aren't prototypes that need re-engineering, they're production systems from day one."
+      content: "When we build AI solutions during an [AI Impact Sprint](/services/ai-implementation), they deploy to Vercel infrastructure from the start. Your solutions aren't prototypes that need re-engineering, they're production systems from day one."
     - title: "Multi-Provider AI Strategy"
       content: "The AI SDK and AI Gateway let us build applications that use the right AI model for each task, Claude for reasoning, ChatGPT for content, specialist models for specific domains, all through a single, manageable infrastructure."
     - title: "Platform-Agnostic Honesty"
