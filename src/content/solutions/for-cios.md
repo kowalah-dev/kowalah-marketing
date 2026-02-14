@@ -10,7 +10,7 @@ hero:
   title: "Turn AI Strategy Into Working Solutions"
   content: "You've been tasked with making AI work across the organisation. We embed with your teams, build real solutions that deliver value, and provide expert capacity, without adding to your backlog. Platform expertise across ChatGPT, Claude, Gemini, and internal solutions."
   image: "/images/solutions/cio-hero-enterprise-governance.png"
-  background_image: "/images/solutions/cio-solution-bg.png"
+  background_image: "/images/solutions/cio-solution-bg.webp"
   button:
     - enable: true
       label: "Book a Conversation"
@@ -36,7 +36,7 @@ challenges:
 solution:
   title: "Build First. Enable Change. Keep Delivering."
   content: "We start by building real solutions with your key people. Once you have proof points and internal champions, we scale capability across the organisation, all without overwhelming your team."
-  image: "/images/solutions/confident-cio.png"
+  image: "/images/solutions/confident-cio.webp"
   points:
     - "Start with an AI Impact Sprint, working solutions with key stakeholders in 2-3 weeks"
     - "Platform expertise: we know when to use ChatGPT, Claude, Gemini, or your internal solution"
@@ -49,23 +49,23 @@ benefits:
   points:
     - title: "Platform Expertise That Delivers"
       content: "We know when to use ChatGPT, Claude, Gemini, or your internal solution. If you've built a custom AI layer for security or flexibility, we embrace that investment and build within it."
-      image: "/images/solutions/cio-governance-compliance.png"
+      image: "/images/solutions/cio-governance-compliance.webp"
       metric: "Deep platform expertise"
     - title: "Prove Value Quickly"
       content: "AI Impact Sprint delivers working solutions in 2-3 weeks. You have concrete proof points to show the board before committing to organisation-wide rollout."
-      image: "/images/solutions/cio-adoption-success.png"
+      image: "/images/solutions/cio-adoption-success.webp"
       metric: "2-3 week proof of value"
     - title: "Capacity Without Headcount"
       content: "Expert Requests provide burst implementation capacity. Custom prompts, GPTs, workflows, built by specialists without adding to your team's backlog."
-      image: "/images/solutions/cio-capacity-augmentation.png"
+      image: "/images/solutions/cio-capacity-augmentation.webp"
       metric: "On-demand expert capacity"
     - title: "Adoption That Actually Happens"
       content: "When training includes 'Here's what Sarah in Finance built,' it's infinitely more powerful than generic tutorials. Internal examples make possibilities concrete."
-      image: "/images/solutions/cio-leadership-positioning.png"
+      image: "/images/solutions/cio-leadership-positioning.webp"
       metric: "Real adoption, not just training"
     - title: "Governance That Enables"
       content: "Enterprise security, data residency, compliance frameworks, implemented in a way that enables innovation rather than blocking it."
-      image: "/images/solutions/cio-risk-security.png"
+      image: "/images/solutions/cio-risk-security.webp"
       metric: "Security + enablement"
 
 social_proof:
@@ -123,7 +123,7 @@ services_highlight:
       badge: "2-3 Weeks"
       content: "Build real wins with key people"
       description: "We embed with 2-3 key stakeholders, identify highest-value AI opportunities, and build working solutions. You end with proof points and internal champions, before any organisation-wide commitment."
-      image: "/images/services/chatgpt-deployment-cta-bg.png"
+      image: "/images/services/chatgpt-deployment-cta-bg.webp"
       button:
         enable: true
         label: "Learn About Sprints"
@@ -132,7 +132,7 @@ services_highlight:
       badge: "Organisation-Wide"
       content: "Scale transformation with proof points"
       description: "With Sprint proof points in hand, we scale AI capability across your organisation. Training powered by internal examples, AI Ambassador networks, governance frameworks, and cultural transformation."
-      image: "/images/services/change-enablement-cta-bg.png"
+      image: "/images/services/change-enablement-cta-bg.webp"
       button:
         enable: true
         label: "Change Enablement"
@@ -141,7 +141,7 @@ services_highlight:
       badge: "Managed Service"
       content: "Continuous value delivery"
       description: "Organisation-wide platform access, monthly Expert Request allocation, ongoing strategic guidance. Innovation keeps flowing without adding to your team's workload."
-      image: "/images/services/training-cta-bg.png"
+      image: "/images/services/training-cta-bg.webp"
       button:
         enable: true
         label: "Explore Essential"
@@ -150,7 +150,7 @@ services_highlight:
 cta:
   title: "See AI Results Before Committing"
   content: "Book an AI Impact Sprint discovery call. We'll discuss your specific challenges, explore where AI could deliver value for your organisation, and explain how we'd prove it in 2-3 weeks, without overwhelming your team."
-  background_image: "/images/solutions/cio-solution-bg.png"
+  background_image: "/images/solutions/cio-solution-bg.webp"
   button:
     enable: true
     label: "Book Sprint Discovery"

@@ -2,7 +2,7 @@
 hero:
   title: "Enterprise AI That Actually Delivers"
   content: "Kowalah partners with mid-sized enterprises to build AI solutions, drive adoption, and deliver measurable outcomes. Expert guidance across ChatGPT, Claude, and Gemini."
-  image: "/images/home/banner.png"
+  image: "/images/home/banner.webp"
   button:
     - enable: true
       label: "Book a Conversation"
@@ -110,7 +110,7 @@ feature:
       badge: "2-3 Weeks"
       content: "Build real wins with key people"
       description: "We embed with 2-3 key stakeholders, understand their actual work, and build AI solutions that deliver business value: custom GPTs, prompts, workflows. You end with board-ready proof points and internal champions who've experienced what's possible."
-      image: "/images/home/features/features-1-training.png"
+      image: "/images/home/features/features-1-training.webp"
       button:
         enable: true
         label: "Learn About Sprints"
@@ -119,7 +119,7 @@ feature:
       badge: "Organization-Wide"
       content: "Scale transformation with proof points"
       description: "'Here's what Sarah in Finance built' is infinitely more credible than any generic tutorial. Sprint proof points power your training, AI Ambassador networks spread capability organically, and governance frameworks keep everything secure."
-      image: "/images/home/features/features-2-expert-delivery.png"
+      image: "/images/home/features/features-2-expert-delivery.webp"
       button:
         enable: true
         label: "Change Enablement"
@@ -128,7 +128,7 @@ feature:
       badge: "Managed Service"
       content: "Keep ideas flowing into production"
       description: "Your people have ideas, and we make sure they don't die in IT backlogs. Anyone can submit Expert Requests. Our specialists build the custom GPTs, agents, and workflows. Real transformation compounds over time, not a one-off project."
-      image: "/images/home/features/features-3-managed-services.png"
+      image: "/images/home/features/features-3-managed-services.webp"
       button:
         enable: true
         label: "Managed Services"
@@ -138,7 +138,7 @@ offering:
   - title: "Channel Existing AI Energy Into Business Results"
     subtitle: "Start With an AI Impact Sprint"
     image: "/images/home/offering/offering-1.1.png"
-    image_1: "/images/home/offering/offering-1-human.png"
+    image_1: "/images/home/offering/offering-1-human.webp"
     content: "Your employees are already using AI, often in secret. Rather than fighting this reality, we help you harness it through an AI Impact Sprint. We embed with 2-3 key stakeholders to build real solutions that deliver measurable value in weeks, not months."
     points:
       - "The Sprint creates proof points and internal champions before organization-wide rollout. When training includes 'Here's what Sarah in Finance built,' it's infinitely more powerful than generic tutorials."
@@ -146,7 +146,7 @@ offering:
   - title: "Turn AI Into Creative Co-Worker"
     subtitle: "Beyond Basic Tasks to Creative Partnership"
     image: "/images/home/offering/offering-2.2.png"
-    image_1: "/images/home/offering/offering-2-human.png"
+    image_1: "/images/home/offering/offering-2-human.webp"
     content: "Most teams use AI for basic tasks like writing emails or summarizing documents. We unlock its potential as a creative business partner, a coach for difficult conversations, a workshop facilitator, a role-play partner for practice, and a teacher for skill development."
     points:
       - "Whether you're using ChatGPT, Claude, Gemini, or in-house solutions, we help you discover advanced capabilities most teams don't know exist: voice-enabled coaching, custom GPTs, and collaborative features that transform how teams work."
@@ -154,7 +154,7 @@ offering:
   - title: "Sustain Momentum Through Expert Delivery"
     subtitle: "Keep Innovation Flowing Without Overwhelming Teams"
     image: "/images/home/offering/offering-3.3.png"
-    image_1: "/images/home/offering/offering-3-human.png"
+    image_1: "/images/home/offering/offering-3-human.webp"
     content: "Your team is busy with their day jobs. While they understand their business processes deeply, they don't have time to become prompt engineers or GPT developers. Our Expert Requests service bridges this gap, your experts describe what they need, and our specialists build the custom AI solutions."
     points:
       - "Deliver 15-20 custom business GPTs within your first 6 months, creating a continuous pipeline of new capabilities spreading across departments. Each solution is purpose-built for your specific workflows and challenges."
@@ -166,19 +166,19 @@ benefits:
   points:
     - title: "Business Outcomes, Not Just AI Knowledge"
       content: "We measure success by business impact, the revenue gained, costs saved, processes improved, competitive advantages created. AI investments should deliver measurable returns, not just capability awareness."
-      image: "/images/home/benefits/benefits-human-card-1.png"
+      image: "/images/home/benefits/benefits-human-card-1.webp"
     - title: "Platform Expertise That Delivers"
       content: "ChatGPT, Claude, Gemini, we have deep expertise across all major platforms and strong opinions about when to use each. We recommend based on your specific use case and tell you what works. The right tool for each job, backed by real experience."
-      image: "/images/home/benefits/benefits-human-card-2.png"
+      image: "/images/home/benefits/benefits-human-card-2.webp"
     - title: "Build, Don't Just Advise"
       content: "We don't deliver recommendations and walk away. We embed with your teams and build working solutions. Prompts, GPTs, workflows, whatever the use case requires. You get deliverables that work, not PowerPoints about what might work."
-      image: "/images/home/benefits/benefits-human-card-3.png"
+      image: "/images/home/benefits/benefits-human-card-3.webp"
     - title: "From Pilots to Production"
       content: "Most AI initiatives stall after the pilot phase. We bridge the gap from promising experiments to organization-wide impact through proven change enablement, governance frameworks, and continuous Expert Requests that keep innovation flowing."
-      image: "/images/home/benefits/benefits-human-card-4.png"
+      image: "/images/home/benefits/benefits-human-card-4.webp"
     - title: "Ongoing Partnership, Not One-Off Projects"
       content: "AI transformation isn't a project with an end date, it's continuous improvement. Kowalah Essential provides ongoing Expert Requests, capability updates, and strategic guidance. We're partners, not vendors. The value compounds over time."
-      image: "/images/home/benefits/benefits-human-card-5.png"
+      image: "/images/home/benefits/benefits-human-card-5.webp"
 
 service_components:
   title: "Start With Impact, Scale With Confidence"

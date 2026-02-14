@@ -10,7 +10,7 @@ logo: "/images/platforms/openai-logo.svg"
 hero:
   title: "ChatGPT by OpenAI"
   content: "When your employees think AI, they think ChatGPT. It's what's already on their phone. With over a million businesses using it globally, a mature enterprise offering, and a rapidly expanding ecosystem from coding agents to AI browsers, ChatGPT remains a cornerstone of most organisations' AI strategy."
-  image: "/images/platforms/openai-hero.png"
+  image: "/images/platforms/openai-hero.webp"
   button:
     - enable: true
       label: "Book a Conversation"
@@ -19,7 +19,7 @@ hero:
 overview:
   title: "Why Organisations Choose ChatGPT"
   content: "When your employees think AI, they think ChatGPT. That built-in familiarity is a genuine strategic advantage, it means faster adoption and less change resistance. Combine that with a mature enterprise platform and a model lineup that now spans conversational AI, autonomous coding, and agentic workflows, and ChatGPT remains central to most organisations' AI strategy. Kowalah has been deploying it since the earliest enterprise release."
-  image: "/images/platforms/openai-overview.png"
+  image: "/images/platforms/openai-overview.webp"
   points:
     - "Most widely adopted AI platform with over 1 million businesses globally"
     - "Mature Enterprise tier with SSO, SCIM, audit logs, and SOC 2 compliance"

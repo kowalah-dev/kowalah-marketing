@@ -50,7 +50,7 @@ problem_solution:
     - "Multi-platform expertise across Claude, ChatGPT, and enterprise environments"
     - "Tracked through the Kowalah platform with full visibility for your team"
     - "Kowalah Accelerators (pre-built templates) deployed alongside custom solutions"
-  image: "/images/services/expert-request-problem.png"
+  image: "/images/services/expert-request-problem.webp"
 
 # Product capabilities/features
 capabilities:
@@ -126,7 +126,7 @@ how_it_works:
 competitive_advantage:
   title: "Why Ideas Need Somewhere to Go"
   subtitle: "Without Expert Requests, the Enthusiasm Gap kills momentum. With them, every good idea becomes a working solution."
-  background_image: "/images/services/expert-services-benefits-background.png"
+  background_image: "/images/services/expert-services-benefits-background.webp"
   advantages:
     - point: "Prevents the Enthusiasm Gap"
       description: "Ideas from training, Sprints, and daily work flow directly into production instead of dying in backlogs"
@@ -182,7 +182,7 @@ conversion:
   title: "Ready to Keep Your AI Momentum Going?"
   subtitle: "Expert Requests are included in Kowalah Essential (12/quarter) and Executive (24/quarter) plans, or available as standalone delivery"
   offer_description: "In 60 minutes we'll review where you are, assess your team's idea backlog, and show you how Expert Requests connect to your Sprint results, training, and ongoing AI program."
-  background_image: "/images/services/expert-requests-cta-bg.png"
+  background_image: "/images/services/expert-requests-cta-bg.webp"
   cta:
     label: "Book a Conversation"
     link: "/contact"

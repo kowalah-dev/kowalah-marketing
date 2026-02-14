@@ -7,7 +7,7 @@ category: "AI Development"
 hero:
   title: "Claude Skill Creation Template"
   subtitle: "A thinking tool to plan and architect your Claude skills before building them, whether as a team workshop or a solo design exercise"
-  image: "/images/resources/templates/claude-skill-template-hero.png"
+  image: "/images/resources/templates/claude-skill-template-hero.webp"
   badge: "New"
 overview:
   who_its_for: "Teams planning AI workflows together, prompt engineers designing skill architecture, and anyone who wants to think through a Claude skill's structure before building it"

@@ -9,7 +9,7 @@ hero:
 about:
   title: "We are dedicated to delivering exceptional results."
   content: "The world of recruitment is undergoing a significant transformation.  Gone are the days of endless resume sifting and relying solely on gut instincts. Artificial intelligence (AI) is rapidly changing the landscape of talent acquisition."
-  image: "/images/company/stats.png"
+  image: "/images/company/stats.webp"
   stats:
     - title: "Founded In"
       value: 2010

@@ -7,7 +7,7 @@ category: "Governance & Risk"
 hero:
   title: "AI Usage Policy Template"
   subtitle: "A comprehensive, AI-positive policy template to guide responsible AI adoption in your organization"
-  image: "/images/resources/templates/ai-policy-hero.png"
+  image: "/images/resources/templates/ai-policy-hero.webp"
   badge: "Most Popular"
 overview:
   who_its_for: "CIOs, CHROs, Legal teams, and compliance officers establishing AI governance frameworks"
