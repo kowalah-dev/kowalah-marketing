@@ -188,20 +188,20 @@
 
 /* content style */
 .content {
-  @apply prose max-w-none;
+  @apply prose prose-lg mx-auto;
   @apply prose-headings:my-7;
   @apply prose-h1:text-h1-sm md:prose-h1:text-h1;
-  @apply prose-h2:text-h2-sm md:prose-h2:text-h2;
-  @apply prose-h3:text-h3-sm md:prose-h3:text-h3;
+  @apply prose-h2:text-[1.75rem] md:prose-h2:text-[2rem] prose-h2:font-semibold prose-h2:tracking-tight;
+  @apply prose-h3:text-[1.25rem] md:prose-h3:text-[1.375rem] prose-h3:font-semibold;
   @apply prose-img:w-full prose-img:rounded-2xl;
   @apply prose-hr:border-border;
-  @apply prose-p:text-base prose-p:text-border;
+  @apply prose-p:text-text-dark/80;
   @apply prose-blockquote:rounded-2xl prose-blockquote:border prose-blockquote:border-l-[10px] prose-blockquote:border-primary prose-blockquote:bg-light prose-blockquote:px-8 prose-blockquote:py-10 prose-blockquote:font-secondary prose-blockquote:text-2xl prose-blockquote:not-italic;
   @apply prose-pre:rounded-2xl prose-pre:bg-light;
-  @apply prose-code:px-1 prose-code:text-text-dark;
+  @apply prose-code:rounded-md prose-code:bg-light prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[0.875em] prose-code:font-medium prose-code:text-text-dark;
   @apply prose-strong:font-bold;
-  @apply prose-a:text-text prose-a:underline prose-a:hover:text-text-dark;
-  @apply prose-li:text-base prose-li:text-border prose-li:my-0 marker:text-border;
+  @apply prose-a:text-primary prose-a:underline prose-a:underline-offset-2 prose-a:hover:text-secondary;
+  @apply prose-li:text-text-dark/80 prose-li:my-0 marker:text-border;
   li p {
     @apply my-0;
   }
@@ -210,6 +210,61 @@
   @apply prose-th:relative prose-th:z-10 prose-th:px-4 prose-th:py-[18px];
   @apply prose-tr:border-border;
   @apply prose-td:relative prose-td:z-10 prose-td:px-3 prose-td:py-[18px];
+
+  /* Inline code pill — subtle box-shadow border like Vercel's blog */
+  :not(pre) > code {
+    box-shadow:
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px,
+      rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
+  }
+
+  /* Remove Tailwind Typography's default backtick pseudo-elements on inline code */
+  :not(pre) > code::before,
+  :not(pre) > code::after {
+    content: none;
+  }
+
+  /* Ensure code blocks inside pre don't get pill styling */
+  pre code {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+}
+
+/* Breakout elements — tables and code blocks extend wider than prose text column */
+@media (min-width: 768px) {
+  .content > div:has(> table),
+  .content > .not-prose {
+    max-width: none;
+    width: calc(100% + 6rem);
+    margin-left: -3rem;
+    margin-right: -3rem;
+  }
+
+  .content > blockquote {
+    max-width: none;
+    width: calc(100% + 3rem);
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .content > div:has(> table),
+  .content > .not-prose {
+    width: calc(100% + 10rem);
+    margin-left: -5rem;
+    margin-right: -5rem;
+  }
+
+  .content > blockquote {
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
 }
 
 .hero {

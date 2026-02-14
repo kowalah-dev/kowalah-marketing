@@ -46,6 +46,26 @@ export const queries = {
     "categories": categories[]->{ title, slug, _id }
   }`,
   
+  // Posts filtered by category slug
+  postsByCategory: (categorySlug: string) => `*[_type == "post" && defined(publishedAt) && publishedAt <= now() && !(_id in path("drafts.**")) && "${categorySlug}" in categories[]->slug.current] | order(publishedAt desc, _createdAt desc) {
+    ${commonFields}
+    title,
+    slug,
+    excerpt,
+    publishedAt,
+    "image": featuredImage.asset,
+    "author": author->{name, image, bio},
+    "categories": categories[]->{ title, slug, _id }
+  }`,
+
+  // All categories that have at least one published post
+  categories: `*[_type == "category" && count(*[_type == "post" && defined(publishedAt) && publishedAt <= now() && !(_id in path("drafts.**")) && references(^._id)]) > 0] | order(title asc) {
+    title,
+    slug,
+    _id,
+    "postCount": count(*[_type == "post" && defined(publishedAt) && publishedAt <= now() && !(_id in path("drafts.**")) && references(^._id)])
+  }`,
+
   // Single blog post
   post: (slug: string) => `*[_type == "post" && slug.current == "${slug}" && !(_id in path("drafts.**"))][0] {
     ${commonFields}

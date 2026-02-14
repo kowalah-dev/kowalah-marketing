@@ -1,31 +1,36 @@
 ---
-import Base from "@/layouts/Base.astro";
-import { getAllTaxonomy, getTaxonomy } from "@/lib/taxonomyParser.astro";
-import { humanize } from "@/lib/utils/textConverter";
+export const prerender = false;
 
-const categories = await getTaxonomy("insights", "categories");
-const allCategories = await getAllTaxonomy("insights", "categories");
+import Base from "@/layouts/Base.astro";
+import { client, queries } from "@/lib/sanity";
+
+// Fetch all categories with post counts from Sanity
+let categories: any[] = [];
+
+try {
+  categories = await client.fetch(queries.categories);
+} catch (error) {
+  console.error("Error fetching categories from Sanity:", error);
+}
 ---
 
-<Base title={"Categories"}>
+<Base title="Categories">
   <section class="section">
     <div class="container text-center">
+      <h1 class="mb-8" data-aos="fade-up-sm">Categories</h1>
       <ul>
         {
-          categories.map((category: string) => {
-            const count = allCategories.filter((c) => c === category).length;
-            return (
-              <li class="m-3 inline-block">
-                <a
-                  href={`/categories/${category}`}
-                  class="block rounded bg-light px-4 py-2 text-xl text-text-dark  "
-                >
-                  {humanize(category)}{" "}
-                  <span class="ml-2 rounded bg-body px-2 ">{count}</span>
-                </a>
-              </li>
-            );
-          })
+          categories.map((category: any) => (
+            <li class="m-3 inline-block">
+              <a
+                href={`/categories/${category.slug?.current}`}
+                class="block rounded bg-light px-4 py-2 text-xl text-text-dark hover:bg-primary hover:text-white transition-colors"
+              >
+                {category.title}{" "}
+                <span class="ml-2 rounded bg-body px-2">{category.postCount}</span>
+              </a>
+            </li>
+          ))
         }
       </ul>
     </div>
