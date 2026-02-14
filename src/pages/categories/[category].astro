@@ -1,42 +1,58 @@
 ---
+export const prerender = false;
+
 import BlogCard from "@/components/BlogCard.astro";
 import Base from "@/layouts/Base.astro";
-import { getSinglePage } from "@/lib/contentParser.astro";
-import { getTaxonomy } from "@/lib/taxonomyParser.astro";
-import { sortByDate } from "@/lib/utils/sortFunctions";
-import taxonomyFilter from "@/lib/utils/taxonomyFilter";
-
-// get static paths for all categories
-export async function getStaticPaths() {
-  const categories = await getTaxonomy("insights", "categories");
-
-  return categories.map((category) => {
-    return {
-      params: { category },
-    };
-  });
-}
+import { humanize } from "@/lib/utils/textConverter";
+import { client, queries } from "@/lib/sanity";
 
 const { category } = Astro.params;
 
-// get posts by category
-const posts = await getSinglePage("insights");
-const filterByCategories = taxonomyFilter(posts, "categories", category!);
-const sortedPosts = sortByDate(filterByCategories);
+if (!category) {
+  return Astro.redirect("/404");
+}
+
+// Fetch posts from Sanity filtered by category slug
+let posts: any[] = [];
+let categoryTitle = humanize(category);
+
+try {
+  posts = await client.fetch(queries.postsByCategory(category));
+
+  // Get the proper category title from the first post's category data
+  if (posts.length > 0) {
+    const match = posts[0].categories?.find(
+      (c: any) => c.slug?.current === category
+    );
+    if (match) categoryTitle = match.title;
+  }
+} catch (error) {
+  console.error("Error fetching posts by category from Sanity:", error);
+}
+
+if (posts.length === 0) {
+  return Astro.redirect("/404");
+}
 ---
 
-<Base title={category}>
-  <div class="section-sm pb-0">
+<Base title={categoryTitle}>
+  <section class="section pb-0">
     <div class="container">
-      <div class="row">
+      <div class="text-center mb-12">
+        <h1 class="mb-4" data-aos="fade-up-sm">{categoryTitle}</h1>
+        <p class="text-lg text-text" data-aos="fade-up-sm" data-aos-delay="100">
+          {posts.length} {posts.length === 1 ? "article" : "articles"}
+        </p>
+      </div>
+      <div class="row gap-8 justify-center">
         {
-          sortedPosts.map((post) => (
-            <div class="mb-14 md:col-6 lg:col-4">
-              <BlogCard data={post} />
+          posts.map((post: any, i: number) => (
+            <div class="sm:col-6 lg:col-4 xl:col-3">
+              <BlogCard data={post} index={i} usingSanity={true} />
             </div>
           ))
         }
       </div>
     </div>
-  </div>
+  </section>
 </Base>
