@@ -19,8 +19,17 @@ build/
 # Astro
 .astro/
 
-# Playwright
+# Playwright / browser testing screenshots
 .playwright-mcp/
+*.png
+*.jpeg
+!public/**/*.png
+!public/**/*.jpeg
+!src/**/*.png
+!src/**/*.jpeg
+
+# TypeScript build info
+tsconfig.tsbuildinfo
 
 # IDE files
 .vscode/

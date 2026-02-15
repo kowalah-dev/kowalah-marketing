@@ -9,7 +9,7 @@ This is Kowalah's marketing website - Kowalah is an Enterprise AI Impact Partner
 Our Kowalah repositories consist of these - all within the kowalah-dev Github organisation
 
 - kowalah-marketing (this repo) Our Marketing website hosted on the www. subdomain
-- kowalah - Our primary application, where our users interact with the product, hosted at the app. subdomain.
+- kowalah-client - Our primary application, where our users interact with the product, hosted at the app. subdomain.
 - kowalah-admin - Our internal admin interface where our employees manage and create users and update the product. Hosted at the admin. subdomain.
 - kowalah-docs - Our documentation site, built with Mintlify, hosted at docs. subdomain.
 
@@ -40,6 +40,28 @@ Use this to find our latest corporate-strategy and go-to-market documentation
 - ~/Documents/KowalahReserved/strategy/go-to-market explains how we communicate about Kowalah
 - @docs/context/visual-style-guide.md provides our image and visual appearance (human-centered transformation focus)
 - @docs/sanity-integration.md explains how our Astro project pulls content from our Sanity CMS
+
+### Sanity CMS Operations
+This project is an Astro consumer (not a Sanity Studio), so the Sanity CLI commands like `sanity documents` and `sanity dataset` are **not available**. Content operations fall into three tiers:
+
+**Sanity MCP tools** — use for reads and small writes:
+- Querying content (`query_documents`), reading schema (`get_schema`), single patches (`patch_document_from_json`)
+- Creating short documents or updating individual fields
+- Any operation where you need to inspect results before the next step
+- Works in Claude Code, Claude.ai, and Cowork (MCP servers pass through from Desktop)
+
+**`@sanity/client` Node scripts** — use for bulk or complex writes:
+- Batch operations (publishing multiple drafts, reassigning references, bulk deletes)
+- Complex mutations that touch multiple fields and references in a single transaction
+- Any operation involving more than ~5 documents
+- **Only works in Claude Code** (needs `node_modules` access and unrestricted network; Cowork blocks non-allowlisted domains)
+
+**Creating long-form blog posts** (2,000+ words with Portable Text):
+- The Sanity MCP `create_documents_from_markdown` hits context/payload limits for complex posts
+- **In Claude Code:** use `@sanity/client` scripts — no size limits, full document control
+- **From Claude.ai / Cowork:** not currently possible for long posts. Future option: build a content ingestion endpoint in Kowalah Admin that accepts markdown and creates Sanity documents server-side, making it accessible from any context
+
+To write a script: create a temporary `.mjs` file in the project root (so it can resolve `@sanity/client` and `dotenv`), load the API token from `.env.local` (`SANITY_API_TOKEN`), run it with `node`, then delete the script. See the Sanity project ID (`ig58e610`) and dataset (`production`) in `astro.config.mjs`.
 
 ## Development Commands
 
